@@ -1,0 +1,3 @@
+### Introduction
+
+We will design the specifications for the development of PowerEnJoy, a car-sharing service targetting electric vehicles only. The system is based on the interaction between users and a web or mobile application. PowerEnJoy allows clients to reserve and use available cars around them. Vehicles are spotted using the geolocalization of users’ devices. The system promotes a diligent behaviour of drivers by applying a discount on the fare.
