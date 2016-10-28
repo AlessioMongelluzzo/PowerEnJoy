@@ -3,7 +3,7 @@
 - [G1] Users can register to the system.
 - [G2] Users can log into the system.
 - [G3] Users can find the location of cars within a certain distance from their position.
-- [G4] Users can find the location of cars within a certain distance from an address specificated by them. (to satisfy with appropriate requirement) 
+- [G4] Users can find the location of cars within a certain distance from an address they specify.
 - [G5] Users can request reservation of a single car up to one hour before they pick it up.
 - [G6] Users who don't pick up the car within 1 hour from reservation are charged with a fee of 1 EUR.
 - [G7] Reserved car unlocks when the user who reserved it is nearby. (not sure)

@@ -1,7 +1,7 @@
 ### Domain assumptions
 
 - Every electric car is equipped with a GPS.
-- The GPS always provides an accurate¹ location.
+- The GPS always provides an accurate location.
 - Cars' battery level can be monitored remotely.
 - Cars can be locked and unlocked remotely.
 - The number of people inside the car can always be monitored.
