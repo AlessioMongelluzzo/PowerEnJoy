@@ -3,7 +3,7 @@
 - [D0] Clients have access to the internet.
 - [D1] Every electric car is equipped with a GPS.
 - [D2] The GPS always provides an accurate location.
-- [D3] Cars' battery level can be monitored remotely.
+- [D3] Cars' battery level and charging status can be monitored remotely.
 - [D4] Cars can be locked and unlocked remotely.
 - [D5] The number of people inside the car can always be monitored.
 - [D6] Every client has credentials of a third party digital payment system.
@@ -12,3 +12,6 @@
 - [D9] PowerEnJoy ensures no mechanical failures can happen to cars.
 - [D10] PowerEnJoy ensures a car is always nearby. The number of cars is not fixed and depends on the trend of reservations.
 - [D11] Car doors can always be opened from the inside.
+- [D12] Clients can be geolocalized.
+- [D13] Cars' engine status can be monitored remotely.
+- [D14] Every car is equipped with an information display.

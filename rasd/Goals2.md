@@ -15,9 +15,6 @@
 - [G13] A client who can't pay will be banned.
 
 
-
-
-
 G1- D0, D6
 -> R1 : The system shows a registration form to new clients.
 -> R2 : The system ensures username is unique and password valid.
