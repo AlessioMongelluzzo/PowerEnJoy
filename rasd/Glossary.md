@@ -1,0 +1,12 @@
+## Glossary
+- Car: a PowerEnJoy electric car used for the car-sharing service. It has a unique license plate.
+- Ride: the operation a client performs when starting to drive a car until he turns it off. A ride is referred to a specific user and car.
+- User: data referring to a client who has registered to the system.
+- Client: person who has registered to PowerEnJoy application.
+- Credential: unique set of username and password linked to each user.
+- Billing information: data used to access a third party digital payment system.
+- Reservation: the operation performed by a client who wants to ensure the access to a given car within one hour.
+- System: the car-sharing application to be developed.
+- Locked car: a car whose doors cannot be opened.
+- Safe area: a place where cars can be legally parked without any risk for a fine.
+- Charging area: a station with plugs where electric cars can be recharged.
