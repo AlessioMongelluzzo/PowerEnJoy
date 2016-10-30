@@ -10,3 +10,5 @@
 - Locked car: a car whose doors cannot be opened.
 - Safe area: a place where cars can be legally parked without any risk for a fine.
 - Charging area: a station with plugs where electric cars can be recharged.
+- Plug: a device that allows to recharge electric cars at charging stations.
+- Position: a unique identifier of where a user or car is located on the map.
