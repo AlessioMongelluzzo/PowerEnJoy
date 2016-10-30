@@ -33,14 +33,16 @@ sig ChargingArea extends SafeArea {
 	}
 
 one sig ManagementSystem {
-	users: some User,
-	cars: some Car,
-	safeAreas: some SafeArea
+	registeredUser: some User,
+	registeredCar: some Car,
+	safeArea: some SafeArea
 	}
 
 sig Credential {
 	username: one Stringa,
 	password: one Stringa
+	}{
+	username != password
 	}
 
 /*
@@ -50,8 +52,15 @@ sig User {
 	credential: one Credential,
 	licenseNo: one Stringa,
 	billingInfo: one BillingInfo,
-	currentPosition: lone Position
+	currentPosition: lone Position,
+	banned: one Bool
 	}
+
+abstract sig CarState {}
+one sig AVAILABLE extends CarState {}
+one sig RESERVED extends CarState {}
+one sig RUNNING extends CarState {}
+one sig LOW_BATTERY extends CarState {}
 
 sig Car {
 	licensePlate: one Stringa,
@@ -62,31 +71,46 @@ sig Car {
 	pluggedIn: lone Plug
 	}{
 	batteryLevel >= 0
-	batteryLevel <= 100
+	batteryLevel =< 100
+	batteryLevel < 20 <=> state = LOW_BATTERY
+	state = AVAILABLE implies locked = True
+	state = RESERVED <=> one r: Reservation | r.selectedCar = this
+	state = RUNNING <=> one r: Ride | r.state = ACTIVE and r.car = this
+	state = LOW_BATTERY implies locked = True
 	}
-
-abstract sig CarState {}
-one sig AVAILABLE extends CarState {}
-one sig RESERVED extends CarState {}
-one sig RUNNING extends CarState {}
-one sig CHARGING extends CarState {}
 
 sig Reservation {
 	date: one Int,
 	madeBy: one User,
 	selectedCar: one Car
+	}{
+	date > 0
 	}
+
+abstract sig RideState {}
+one sig ACTIVE extends RideState {}
+one sig COMPLETED extends RideState {}
 
 sig Ride {
 	driver: one User,
 	car: one Car,
 	numOfTravellers: one Int,
+	state: one RideState,
+	beginDate: one Int,
+	endDate: lone Int,
+	beginPosition: one Position,
+	endPosition: lone Position,
 	moneySaving: one Bool,
-	destination: lone Position,
+	moneySavingDestination: lone Position
 	}{
+	numOfTravellers > 0
 	numOfTravellers <= 4
-	moneySaving = True implies some a: ChargingArea | destination & a.point != none
-	moneySaving = False implies destination = none
+	beginDate > 0
+	endDate != none implies endDate > beginDate
+	state = COMPLETED <=> endPosition != none
+	state = COMPLETED <=> endDate != none
+	moneySaving = True implies some a: ChargingArea | moneySavingDestination & a.point != none
+	moneySaving = False implies moneySavingDestination = none
 	}
 
 // === FACTS ===
@@ -111,36 +135,8 @@ fact plugCannotBelongToDifferentChargingAreas {
 	no disjoint c1, c2: ChargingArea | c1.hasPlug & c2.hasPlug != none
 	}
 
-fact noRideWithAvailableCar {
-	all c: Car | c.state = AVAILABLE implies no r: Ride | r.car = c
-	}
-
-fact noReservationOfAvailableCar {
-	all c: Car | c.state = AVAILABLE implies no r: Reservation | r.selectedCar = c
-	}
-
-fact availableCarIsLocked {
-	all c: Car | c.state = AVAILABLE implies c.locked = True
-	}
-
-fact reservedCarHasOnlyOneReservation {
-	all c: Car | c.state = RESERVED implies one r: Reservation | r.selectedCar = c
-	}
-
-fact nonReservedCarHasNoReservations {
-	all c: Car | c.state != RESERVED implies no r: Reservation | r.selectedCar = c
-	}
-
-fact runningCarIsNotLocked {
-	all c: Car | c.state = RUNNING implies c.locked = False
-	}
-
-fact chargingCarIffIsPluggedIn {
-	all c: Car | c.state = CHARGING <=> c.pluggedIn != none
-	}
-
 fact chargingCarIsAtChargingArea {
-	all c: Car | c.state = CHARGING implies c.currentPosition in c.pluggedIn.(~hasPlug).point
+	all c: Car | c.pluggedIn != none implies c.currentPosition & c.pluggedIn.(~hasPlug).point != none
 	}
 
 fact carsCannotHaveTheSamePosition {
@@ -151,20 +147,32 @@ fact userHasSamePositionAsCarHeIsDriving {
 	all r: Ride | r.driver.currentPosition = r.car.currentPosition
 	}
 
-fact carIsRunningDuringRide {
-	all c: Car | c.state = RUNNING <=> one r: Ride | r.car = c
-	}
-
-fact userCannotReserveMoreThanOneCar {
+fact userHasOnlyOneReservation {
 	no disjoint r1, r2: Reservation | r1.madeBy = r2.madeBy
 	}
 
-fact userCannotRideMoreThanOneCar {
-	no disjoint r1, r2: Ride | r1.driver = r2.driver
+fact carHasOnlyOneReservation {
+	no disjoint r1, r2: Reservation | r1.selectedCar = r2.selectedCar
 	}
 
-fact noDifferentRidesOnTheSameCar {
-	no disjoint r1, r2: Ride | r1.car = r2.car
+fact userHasOnlyOneActiveRide {
+	no disjoint r1, r2: Ride | r1.state = ACTIVE and r2.state = ACTIVE and r1.driver = r2.driver
+	}
+
+fact carHasOnlyOneActiveRide {
+	no disjoint r1, r2: Ride | r1.state = ACTIVE and r2.state = ACTIVE and r1.car = r2.car
+	}
+
+fact ridesDoNotOverlapForSameUserOrCar {
+	all r1, r2: Ride | {
+			(r1 != r2) and (r1.driver = r2.driver or r1.car = r2.car) and (r1.state = COMPLETED) and (r2.state = COMPLETED) implies r1.endDate < r2.beginDate or r2.endDate < r1.beginDate
+			(r1 != r2) and (r1.driver = r2.driver or r1.car = r2.car) and (r1.state = ACTIVE) and (r2.state = COMPLETED) implies r2.endDate < r1.beginDate
+			(r1 != r2) and (r1.driver = r2.driver or r1.car = r2.car) and (r1.state = COMPLETED) and (r2.state = ACTIVE) implies r1.endDate < r2.beginDate
+			}
+	}
+
+fact bannedUserHasNoReservationOrActiveRide {
+	all u: User | u.banned = True implies (no r: Ride | r.state = ACTIVE and r.driver = u) and (no r: Reservation | r.madeBy = u)
 	}
 
 fact areasOfTheSameTypeDoNotOverlap {
@@ -178,6 +186,18 @@ fact noUnusedPlug {
 
 fact noUnusedPosition {
 	#(Position) = #(User.currentPosition + Car.currentPosition)
+	}
+
+fact everyUserBelongsToManagementSystem {
+	#(User) = #(ManagementSystem.registeredUser)
+	}
+
+fact everyCarBelongsToManagementSystem {
+	#(Car) = #(ManagementSystem.registeredCar)
+	}
+
+fact everySafeAreaBelongsToManagementSystem {
+	#(SafeArea) = #(ManagementSystem.safeArea)
 	}
 
 // === ASSERTIONS ===
@@ -198,10 +218,13 @@ assert noUserWithMoreThanOneReservation {
 check noUserWithMoreThanOneReservation
 
 assert moneySavingRideHasDestination {
-	no r: Ride | r.moneySaving = True and r.destination = none
+	no r: Ride | r.moneySaving = True and r.moneySavingDestination = none
 	}
 check moneySavingRideHasDestination
 
-pred show() {}
+pred show() {
+	some r: Ride | r.state = COMPLETED
+	some r: Ride | r.state = ACTIVE
+	}
 
-run show for 4
+run show for 4 but 8 int
