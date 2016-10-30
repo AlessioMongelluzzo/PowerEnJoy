@@ -1,14 +1,15 @@
-## Glossary
-- Car: a PowerEnJoy electric car used for the car-sharing service. It has a unique license plate.
-- Ride: the operation a client performs when starting to drive a car until he turns it off. A ride is referred to a specific user and car.
-- User: data referring to a client who has registered to the system.
-- Client: person who has registered to PowerEnJoy application.
+### Glossary
+ 
+- Car: PowerEnJoy electric car used for the car-sharing service. It has a unique license plate.
+- Ride: operation a user performs when starting to drive a car, until he turns it off. A ride is referred to a specific
+- User: person who has registered to PowerEnJoy service.
 - Credential: unique set of username and password linked to each user.
 - Billing information: data used to access a third party digital payment system.
-- Reservation: the operation performed by a client who wants to ensure the access to a given car within one hour.
+- Reservation: operation performed by a user who wants to ensure the access to a given car within one hour.
 - System: the car-sharing application to be developed.
-- Locked car: a car whose doors cannot be opened.
-- Safe area: a place where cars can be legally parked without any risk for a fine.
-- Charging area: a station with plugs where electric cars can be recharged.
-- Plug: a device that allows to recharge electric cars at charging stations.
-- Position: a unique identifier of where a user or car is located on the map.
+- Locked car: car whose doors cannot be opened from the outside.
+- Safe area: place where cars can be legally parked without any risk for a fine. The set of safe areas for parking cars is pre-defined by the system.
+- Charging area: station with a power grid and a set of plugs, where electric cars can be recharged. Charging areas are also safe areas.
+- Plug: a device that allows cars to be recharged at charging areas.
+- Position: geographic coordinates (latitude, longitude) specifying where an object is located in the world.
+- Banned: a user who has been temporarily prevented from using the service.
