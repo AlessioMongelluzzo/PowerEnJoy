@@ -11,7 +11,7 @@ This document is the Requirement Analysis and Specification Document for the Pow
 
 The system supports a car-sharing service employing electric cars.
 Its main goal is to make the access to the service and its use simple and efficient.
-The system consists in a server application (PowerEnJoy Server), a web application front-end (PowerEnJoy Web) and in a mobile application (PowerEnJoy Mobile).
+The system consists of a server application (PowerEnJoy Server), a web application front-end (PowerEnJoy Web) and in a mobile application (PowerEnJoy Mobile).
 The system has the customers as its only type of user. It should allow them to register and login with their credentials.
 The system has to know the location of both users and cars, in order to let users know the position of available cars around them or near a specified address.
 The system allows users to reserve a car for a limited amount of time among the available ones around them, and use it as much as they want. The ride can be shared with other people.

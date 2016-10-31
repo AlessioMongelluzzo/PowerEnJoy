@@ -2,7 +2,7 @@
 
 - **RASD**: Requirements Analysis and Specification Document (this document).
 - **System**: the car-sharing application to be developed.
-- **Back-end**: application logic and APIs elaborating data coming from users and cars. It allows for the web and mobile application to be dynamic.
+- **Back-end**: application logic and APIs elaborating data coming from users and cars. It allows the web and mobile application to be dynamic.
 - **Module**: an optional software component which uses the core system APIs to provide additional features.
 - **Client**: the web application or the mobile app.
 - **Position**: geographic coordinates (latitude, longitude) specifying where an object is located in the world.
