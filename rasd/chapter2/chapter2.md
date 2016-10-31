@@ -37,10 +37,10 @@ The only kind of user of the system is the customer of the car sharing service. 
 
 ### Constraints
 
-## Regulatory policies
+##### Regulatory policies
 It's user responsibility to ensure that the use of the system complies with the local laws and policies. The system must ask the user for the permission to acquire, store and process personal data and web cookies. The system must offer to the user the possibility to delete all personal data.
 
-## Hardware limitations
+##### Hardware limitations
 The system has to run under the following worst-case conditions:
 - Mobile applications:
 	- 3G connection, at 2 Mb/s
@@ -50,16 +50,16 @@ The system has to run under the following worst-case conditions:
 	- 2 Mb/s Internet connection
 	- 800x600 resolution
 
-## Reliability requirements
+##### Reliability requirements
 The system must have a minimum availability of 98%.
 
-## Criticality of the application
+##### Criticality of the application
 The system is not employed in life-critical applications.
 
-## Parallel operation
+##### Parallel operations
 Every feature offered by the system must support simultaneous operations from multiple users.
 
-## Safety and security considerations
+##### Safety and security considerations
 While the car is running, its position and destination (if any) must be kept private. For security reasons, only people with a valid driving license must be able to register to the service and use it. Sensitive user information such as credentials and billing information must be stored securely (i.e. not in plain text).
 
 ### Assumptions and dependencies
