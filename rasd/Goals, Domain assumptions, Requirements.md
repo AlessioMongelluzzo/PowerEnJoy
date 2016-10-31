@@ -1,99 +1,133 @@
 ### Goals
- 
-- [G0] Users can register to the system.
-- [G1] Users can log into the system.
-- [G2] Users can find available cars around them.
-- [G3] Users can find available cars near a specified position.
-- [G4] Users can reserve a car.
-- [G5] Users can get into the reserved car.
-- [G6] Users can use the reserved car.
-- [G7] Users can pay for the car-sharing service.
-- [G8] Users can check the current fare while in the car.
-- [G9] Parked cars are automatically locked.
-- [G10] Discounts are applied to the fare of users who have a virtuous behaviour.
-- [G11] Users can choose a money saving option.
-- [G12] A user who can't pay will be banned.
- 
+
+1. Make the access to the service and its use simple and efficient.
+2. Users can register to the system.
+3. Users can log into the system.
+4. Users can find available cars around them.
+5. Users can find available cars near a specified position.
+6. Users can reserve a car.
+7. Users can get into the reserved car.
+8. Users can use the reserved car.
+9. Users can pay for the car-sharing service.
+10. Users can check the current fare while in the car.
+11. Parked cars are automatically locked.
+12. Discounts are applied to the fare of users who have a virtuous behaviour.
+13. Users can choose a money saving option.
+14. A user who can't pay will be banned.
+
 - - -
- 
+
 ### Domain assumptions
- 
-- [D0] Users have access to the internet.
-- [D1] Every electric car is equipped with a GPS.
-- [D2] The GPS always provides an accurate location.
-- [D3] Cars' battery level and charge status can be monitored remotely.
-- [D4] Cars can be locked and unlocked remotely.
-- [D5] The number of people inside the car can always be monitored.
-- [D6] Every user has valid credentials of a third party digital payment system.
-- [D7] PowerEnJoy employees are given the task to re-charge on-site cars left with less than 20% of battery level.
-- [D8] PowerEnJoy employees are given the task to move to a safe area cars which have the engine turned off and are outside a safe area.
-- [D9] PowerEnJoy ensures no mechanical failures can happen to cars.
-- [D10] PowerEnJoy ensures a car is always nearby. The number of cars is not fixed and depends on the trend of reservations.
-- [D11] Car doors can always be opened from the inside.
-- [D12] Users can be geolocalized.
-- [D13] Cars' engine status can be monitored remotely.
-- [D14] Every car is equipped with an information display.
-- [D15] The set of safe areas and charging areas is pre-defined by the system.
- 
+
+1. Users have access to the internet.
+2. Every electric car is equipped with a GPS.
+3. The GPS always provides an accurate location.
+4. Cars' battery level and charge status can be monitored remotely.
+5. Cars can be locked and unlocked remotely.
+6. The number of people inside the car can always be monitored.
+7. Every user has valid credentials of a third party digital payment system.
+8. PowerEnJoy employees are given the task to re-charge on-site cars left with less than 20% of battery level.
+9. PowerEnJoy employees are given the task to move to a safe area cars which have the engine turned off and are outside a safe area.
+10. PowerEnJoy ensures no mechanical failures can happen to cars.
+11. PowerEnJoy ensures a car is always nearby. The number of cars is not fixed and depends on the trend of reservations.
+12. Car doors can always be opened from the inside.
+13. Users can be geolocalized.
+14. Cars' engine status can be monitored remotely.
+15. Every car is equipped with an information display.
+16. The set of safe areas and charging areas is pre-defined by the system.
+
 - - -
- 
+
 ### Requirements
- 
-G0;
-- D0, D6
-- [R0] The system shows a registration form to new users.
-- [R1] The system ensures username is unique and password valid.
- 
-G1;
-- D0
-- [R2] The system checks whether log in information is valid.
-- [R3] Only recognized users can access the offered services.
- 
-G2;
-- D1, D2, D8, D10, D12
-- [R4] The system allows logged in users to spot where PowerEnJoy cars are.
- 
-G3;
-- D1, D2, D8, D10
-- [R5] Users can specify a position to check available cars around.
- 
-G4;
-- [R6] The system must show only available cars for users to select.
- 
-G5;
-- D1, D2, D4, D12
-- [R7] The system must unlock a car once the user who reserved it is nearby.
- 
-G6;
-- D7, D9; R7
- 
-G7;
-- D6, D13, D14
-- [R8] The system keeps track of the time spent from when the engine turns on until the engine turns off.
-- [R9] At the end of the ride the system interacts with the third party payment service and shows to the user the report of the payment operation.
- 
-G8;
-- D14; R8
- 
-G9;
-- D1, D4, D11, D13
-- [R10] The system checks if a car is still and if its engine is turned off.
-- [R11] The system must lock a car once the user who just stopped using it is not nearby anymore.
- 
-G10;
-- D1, D3, D5, D13, D15; R10
-- [R12] If the number of people inside the car is measured to be 3 or more, the system must apply a 10% discount on the final fare.
-- [R13] If the battery level at the end of the ride is measured to be at least 50% of the total charge, the system must apply a 20% discount on the final fare.
-- [R14] If the position of the car at the end of the ride is a charging area, and the car is plugged in within a 2 minutes time frame, the system must apply a 30% discount on the final fare.
-- [R15] If the position of the car at the end of the ride is more than 3 km away from the nearest charging area or if the battery level is lower than 20% of the total charge, the system must apply a 30% additional charge on the final fare.
- 
-G11;
-- D1, D14, D15; R14
-- [R16] The system must allow users to insert a specific destination.
-- [R17] The system estimates at which charging area the user has to park the car, depending on the specified destination and plug availability, in order to achieve a uniform distribution of cars.
-- [R18] The system displays to the user the route to follow.
- 
-G12;
-- D6
-- [R19] If the system detects the payment operation of a user fails due to insufficient funds, then that user is banned until he/she pays it off.
-- [R20] If a user is banned, the system must prevent him/her from having access to the service.
+
+*Goal 1*: Make the access to the service and its use simple and efficient.
+
+*Goal 2*: Users can register to the system.
+- *Domain assumption* 1: Users have access to the internet.
+- *Domain assumption* 7: Every user has valid credentials of a third party digital payment system.
+1. The system shows a registration form to new users.
+2. The system ensures username is unique and password valid.
+
+*Goal 3*: Users can log into the system.
+- *Domain assumption* 1: Users have access to the internet.
+3. The system checks whether log in information is valid.
+4. Only recognized users can access the offered services.
+
+*Goal 4*: Users can find available cars around them.
+- *Domain assumption* 1: Users have access to the internet.
+- *Domain assumption* 2: Every electric car is equipped with a GPS.
+- *Domain assumption* 3: The GPS always provides an accurate location.
+- *Domain assumption* 9: PowerEnJoy employees are given the task to move to a safe area cars which have the engine turned off and are outside a safe area.
+- *Domain assumption* 11: PowerEnJoy ensures a car is always nearby. The number of cars is not fixed and depends on the trend of reservations.
+- *Domain assumption* 13: Users can be geolocalized.
+5. The system allows logged in users to spot where PowerEnJoy cars are.
+
+*Goal 5*: Users can find available cars near a specified position.
+- *Domain assumption* 1: Users have access to the internet.
+- *Domain assumption* 2: Every electric car is equipped with a GPS.
+- *Domain assumption* 3: The GPS always provides an accurate location.
+- *Domain assumption* 9: PowerEnJoy employees are given the task to move to a safe area cars which have the engine turned off and are outside a safe area.
+- *Domain assumption* 11: PowerEnJoy ensures a car is always nearby. The number of cars is not fixed and depends on the trend of reservations.
+6. Users can specify a position to check available cars around.
+
+*Goal 6*: Users can reserve a car.
+- *Domain assumption* 1: Users have access to the internet.
+7. The system must show only available cars for users to select.
+
+*Goal 7*: Users can get into the reserved car.
+- *Domain assumption* 1: Users have access to the internet.
+- *Domain assumption* 2: Every electric car is equipped with a GPS.
+- *Domain assumption* 3: The GPS always provides an accurate location.
+- *Domain assumption* 5: Cars can be locked and unlocked remotely.
+- *Domain assumption* 13: Users can be geolocalized.
+8. The system must unlock a car once the user who reserved it is nearby.
+
+*Goal 8*: Users can use the reserved car.
+- *Domain assumption* 8: PowerEnJoy employees are given the task to re-charge on-site cars left with less than 20% of battery level.
+- *Domain assumption* 10: PowerEnJoy ensures no mechanical failures can happen to cars.
+- *Requirement* 8: The system must unlock a car once the user who reserved it is nearby.
+
+*Goal 9*: Users can pay for the car-sharing service.
+- *Domain assumption* 7: Every user has valid credentials of a third party digital payment system.
+- *Domain assumption* 14: Cars' engine status can be monitored remotely.
+- *Domain assumption* 15: Every car is equipped with an information display.
+9. The system keeps track of the time spent from when the engine turns on until the engine turns off.
+10. At the end of the ride the system interacts with the third party payment service and shows to the user the report of the payment operation.
+
+*Goal 10*: Users can check the current fare while in the car.
+- *Domain assumption* 15: Every car is equipped with an information display.
+- *Requirement* 9: The system keeps track of the time spent from when the engine turns on until the engine turns off.
+
+*Goal 11*: Parked cars are automatically locked.
+- *Domain assumption* 2: Every electric car is equipped with a GPS.
+- *Domain assumption* 5: Cars can be locked and unlocked remotely.
+- *Domain assumption* 12: Car doors can always be opened from the inside.
+- *Domain assumption* 14: Cars' engine status can be monitored remotely.
+11. The system checks if a car is still and if its engine is turned off.
+12. The system must lock a car once the user who just stopped using it is not nearby anymore.
+
+*Goal 12*: Discounts are applied to the fare of users who have a virtuous behaviour.
+- *Domain assumption* 2: Every electric car is equipped with a GPS.
+- *Domain assumption* 4: Cars' battery level and charge status can be monitored remotely.
+- *Domain assumption* 6: The number of people inside the car can always be monitored.
+- *Domain assumption* 14: Cars' engine status can be monitored remotely.
+- *Domain assumption* 16: The set of safe areas and charging areas is pre-defined by the system.
+- *Requirement* 11: The system checks if a car is still and if its engine is turned off.
+13. If the number of people inside the car is measured to be 3 or more, the system must apply a 10% discount on the final fare.
+14. If the battery level at the end of the ride is measured to be at least 50% of the total charge, the system must apply a 20% discount on the final fare.
+15. If the position of the car at the end of the ride is a charging area, and the car is plugged in within a 2 minutes time frame, the system must apply a 30% discount on the final fare.
+16. If the position of the car at the end of the ride is more than 3 km away from the nearest charging area or if the battery level is lower than 20% of the total charge, the system must apply a 30% additional charge on the final fare.
+
+*Goal 13*: Users can choose a money saving option.
+- *Domain assumption* 2: Every electric car is equipped with a GPS.
+- *Domain assumption* 15: Every car is equipped with an information display.
+- *Domain assumption* 16: The set of safe areas and charging areas is pre-defined by the system.
+- *Requirement* 15: If the position of the car at the end of the ride is a charging area, and the car is plugged in within a 2 minutes time frame, the system must apply a 30% discount on the final fare.
+17. The system must allow users to insert a specific destination.
+18. The system estimates at which charging area the user has to park the car, depending on the specified destination and plug availability, in order to achieve a uniform distribution of cars.
+19. The system displays to the user the route to follow.
+
+*Goal 14*: A user who can't pay will be banned.
+- *Domain assumption* 7: Every user has valid credentials of a third party digital payment system.
+20. If the system detects the payment operation of a user fails due to insufficient funds, then that user is banned until he/she pays it off.
+21. If a user is banned, the system must prevent him/her from having access to the service.
