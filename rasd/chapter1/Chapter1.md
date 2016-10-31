@@ -21,7 +21,6 @@ The system allows users to pay for the service at the end of each ride, by commu
 The system should prevent users who failed to pay due to insufficient funds from using the service until they pay off their debt.
 The system promotes diligent behaviour of drivers by applying a discount on the fare.
 The system should charge the user an additional fee when a car is unnecessarily reserved or when, at the end of the ride, the car is left in a state requiring specific intervention by PowerEnJoy employees.
-The system offers programming interfaces (APIs) to enable the development of additional services on top of the basic one.
 The system is provided with an optional module:
 - **Money saving option** allows the driver to specify the destination of the ride. The system will then suggest an optimal charging area to park at, in order to get a discount on the fare.
 
@@ -48,7 +47,7 @@ The goals of the PowerEnJoy software are the following:
 
 - **RASD**: Requirements Analysis and Specification Document (this document).
 - **System**: the car-sharing application to be developed.
-- **Back-end**: application logic and APIs elaborating data coming from users and cars. It allows for the web and mobile application to be dynamic.
+- **Back-end**: application logic and APIs elaborating data coming from users and cars. It allows the web and mobile application to be dynamic.
 - **Module**: an optional software component which uses the core system APIs to provide additional features.
 - **Client**: the web application or the mobile app.
 - **Position**: geographic coordinates (latitude, longitude) specifying where an object is located in the world.
@@ -69,17 +68,17 @@ The goals of the PowerEnJoy software are the following:
 - **Safe area**: place where cars can be legally parked without any risk for a fine. The set of safe areas for parking cars is pre-defined by the system.
 - **Charging area**: station with a power grid and a set of plugs, where electric cars can be recharged. Charging areas are also safe areas.
 - **Plug**: a device that allows cars to be recharged at charging areas.
-- **API**: Application Programming Interface.
+- **DBMS**: Data Base Management System. It is a computer software application used for the administration of data bases.
 
 ### References
 
 This document refers to the project rules of the Software Engineering 2 project and to the RASD assignment.
-This document follows the IEEE Standard 830-1998 for the format of Software Requirements specifications.
+The structure of this document is inspired from that of the IEEE Standard 830-1998 for the format of Software Requirements specifications, with some variations.
 
 ### Overview
 
 This document is structured in three parts:
 
-- **Chapter 1: Introduction**.
-- **Chapter 2: Overall description**.
-- **Chapter 3: Specific requirements**.
+- **Chapter 1: Introduction**. This section explains the target audience, the purpose and the references of the document.
+- **Chapter 2: Overall description**. This section provides a general description of the system and its features, constraints, and assumptions about the users and the environment.
+- **Chapter 3: Specific requirements**. This section contains all the necessary software requirements to allow a proper implementation.
