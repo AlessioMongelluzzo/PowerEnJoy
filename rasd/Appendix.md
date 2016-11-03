@@ -2,7 +2,7 @@
 
 ### Software and tools used
 
-- Pandoc for generating pdf.
+- LyX for typesetting.
 - GitHub for version control and teamwork.
 - Pencil for mockups.
 - Draw.io for UML diagrams.
