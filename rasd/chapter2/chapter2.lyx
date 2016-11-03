@@ -1,0 +1,381 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+Overall description
+\end_layout
+
+\begin_layout Subsection
+Product perspective
+\end_layout
+
+\begin_layout Subsubsection
+User interfaces
+\end_layout
+
+\begin_layout Standard
+All the user interfaces should be intuitive and user friendly, meaning that
+ they should not require the reading of detailed documentation to be used.
+ There should be very little difference between the user interface of the
+ web application and that of the mobile applications, in order to provide
+ a consistent user experience across all platforms.
+\end_layout
+
+\begin_layout Subsubsection
+Hardware interfaces
+\end_layout
+
+\begin_layout Standard
+The main hardware interface of the system consists in the access to the
+ GPS data in the mobile application.
+ The application also requires Internet connectivity and internal storage
+ access.
+\end_layout
+
+\begin_layout Subsubsection
+Software interfaces
+\end_layout
+
+\begin_layout Standard
+The mobile application must support Android and iOS.
+ The web application works on any web server that supports Java.
+ The back-end stores its data in a DBMS and can run on every platform that
+ supports the JVM.
+\end_layout
+
+\begin_layout Subsection
+Product functions
+\end_layout
+
+\begin_layout Standard
+The system allows users to look for an available car, reserve it, unlock
+ it, drive it, and finally pay for the ride.
+ This is a list of what the users of the service can do.
+\end_layout
+
+\begin_layout Standard
+All users can:
+\end_layout
+
+\begin_layout Itemize
+create an account
+\end_layout
+
+\begin_layout Itemize
+log in
+\end_layout
+
+\begin_layout Itemize
+edit profile data and billing info
+\end_layout
+
+\begin_layout Itemize
+delete their account
+\end_layout
+
+\begin_layout Itemize
+look for available cars around them
+\end_layout
+
+\begin_layout Itemize
+look for available cars near a particular address
+\end_layout
+
+\begin_layout Itemize
+reserve an available car
+\end_layout
+
+\begin_layout Itemize
+tell the system to open a car they have reserved
+\end_layout
+
+\begin_layout Itemize
+choose a money saving option
+\end_layout
+
+\begin_layout Subsection
+User characteristics
+\end_layout
+
+\begin_layout Standard
+The only kind of user of the system is the customer of the car sharing service.
+ We give for granted that users have access to the Internet.
+ Users can look for a car and reserve it both via the web and the mobile
+ application.
+\end_layout
+
+\begin_layout Subsection
+Constraints
+\end_layout
+
+\begin_layout Subsubsection
+Regulatory policies
+\end_layout
+
+\begin_layout Standard
+It's user responsibility to ensure that the use of the system complies with
+ the local laws and policies.
+ The system must ask the user for the permission to acquire, store and process
+ personal data and web cookies.
+ The system must offer to the user the possibility to delete all personal
+ data.
+\end_layout
+
+\begin_layout Subsubsection
+Hardware limitations
+\end_layout
+
+\begin_layout Standard
+The system has to run under the following worst-case conditions:
+\end_layout
+
+\begin_layout Itemize
+Mobile applications:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+3G connection, at 2 Mb/s
+\end_layout
+
+\begin_layout Itemize
+50 MB of free space
+\end_layout
+
+\begin_layout Itemize
+1 GB of RAM
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Web application:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+2 Mb/s Internet connection
+\end_layout
+
+\begin_layout Itemize
+800x600 resolution 
+\end_layout
+
+\end_deeper
+\begin_layout Subsubsection
+Reliability requirements
+\end_layout
+
+\begin_layout Standard
+The system must have a minimum availability of 98%.
+\end_layout
+
+\begin_layout Subsubsection
+Criticality of the application
+\end_layout
+
+\begin_layout Standard
+The system is not employed in life-critical applications.
+\end_layout
+
+\begin_layout Subsubsection
+Parallel operation
+\end_layout
+
+\begin_layout Standard
+Every feature offered by the system must support, on the back-end, simultaneous
+ operations from multiple users.
+\end_layout
+
+\begin_layout Subsubsection
+Safety and security considerations
+\end_layout
+
+\begin_layout Standard
+Information concerning every active or completed ride, as its duration,
+ destination (if any) and position of the car, must be kept private and
+ available only to the user who is driving the car.
+ Also, information concerning every reservation must be kept private and
+ available only to the user who made the reservation.
+\end_layout
+
+\begin_layout Standard
+Only people with a valid driving license must be able to register to the
+ service and use it.
+\end_layout
+
+\begin_layout Standard
+Sensitive user information such as credentials and billing information must
+ be stored securely (i.e.
+ not in plain text).
+\end_layout
+
+\begin_layout Subsection
+Assumptions and dependencies
+\end_layout
+
+\begin_layout Standard
+We assume that:
+\end_layout
+
+\begin_layout Enumerate
+Users have access to the internet.
+\end_layout
+
+\begin_layout Enumerate
+Every electric car is equipped with a GPS.
+\end_layout
+
+\begin_layout Enumerate
+The GPS always provides an accurate location.
+\end_layout
+
+\begin_layout Enumerate
+Cars' battery level and charge status can be monitored remotely.
+\end_layout
+
+\begin_layout Enumerate
+Cars can be locked and unlocked remotely.
+\end_layout
+
+\begin_layout Enumerate
+The number of people inside the car can always be monitored.
+\end_layout
+
+\begin_layout Enumerate
+Every user has valid credentials of a third party digital payment system.
+\end_layout
+
+\begin_layout Enumerate
+PowerEnJoy employees are given the task to re-charge on-site cars left with
+ less than 20% of battery level.
+\end_layout
+
+\begin_layout Enumerate
+PowerEnJoy employees are given the task to move to a safe area cars which
+ have the engine turned off and are outside a safe area.
+\end_layout
+
+\begin_layout Enumerate
+PowerEnJoy ensures no mechanical failures can happen to cars.
+\end_layout
+
+\begin_layout Enumerate
+PowerEnJoy ensures a car is always nearby.
+ The number of cars is not fixed and depends on the trend of reservations.
+\end_layout
+
+\begin_layout Enumerate
+Car doors can always be opened from the inside.
+\end_layout
+
+\begin_layout Enumerate
+Users can be geolocalized.
+\end_layout
+
+\begin_layout Enumerate
+Cars' engine status can be monitored remotely.
+\end_layout
+
+\begin_layout Enumerate
+Every car is equipped with an information display.
+\end_layout
+
+\begin_layout Enumerate
+The set of safe areas and charging areas is pre-defined by the system.
+\end_layout
+
+\begin_layout Subsection
+Future extensions
+\end_layout
+
+\begin_layout Standard
+The system will be implemented foreseeing the possibility of further extensions,
+ for example:
+\end_layout
+
+\begin_layout Enumerate
+Create a fidelity score for every user, which gives them the opportunity
+ to benefit from special offers.
+ The score increases every time the user drives a PowerEnJoy electric car,
+ proportionally with the time spent.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

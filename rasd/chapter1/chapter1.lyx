@@ -121,22 +121,22 @@ on front-end (PowerEnJoy Web) and in a mobile application (PowerEnJoy Mobile).
 \end_layout
 
 \begin_layout Standard
-The system has the customers as its only type of user.
- It should allow them to register and login with their credentials.
+The system has the customer of the car-sharing service as its only type
+ of user.
+ It must allow them to subscribe to the service and identify themselves
+ with their credentials.
+ Only registered users should be able to make use of the service.
 \end_layout
 
 \begin_layout Standard
-The system has to know the location of both users and cars, in order to
- let users know the position of available cars around them or near a specified
- address.
+The system can show users the location of available cars.
 \end_layout
 
 \begin_layout Standard
-The system allows users to reserve a car for a limited amount of time among
- the available ones around them.
- A user has to be able to tell to the system he/she is near the car via
- mobile app or SMS in order to unlock it.
- The ride can be shared with other people.
+The system allows users to reserve an available car for a limited amount
+ of time.
+ A user has to be able to tell to the system he/she is near the previously
+ reserved car via mobile app or SMS in order to unlock it.
 \end_layout
 
 \begin_layout Standard
@@ -458,6 +458,14 @@ DBMS
 : Data Base Management System.
  It is a computer software application used for the administration of data
  bases.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+API
+\series default
+: Application Programming Interface.
 \end_layout
 
 \begin_layout Subsection

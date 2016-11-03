@@ -6,7 +6,7 @@
 ### Product perspective
 
 ##### User interfaces
-All the user interfaces should be intuitive and user friendly. They should not require the reading of detailed documentation to be used. There should be very little difference between the user interface of the web application and that of the mobile applications, in order to provide a consistent user experience across all platforms.
+All the user interfaces should be intuitive and user friendly, meaning that they should not require the reading of detailed documentation to be used. There should be very little difference between the user interface of the web application and that of the mobile applications, in order to provide a consistent user experience across all platforms.
 
 ##### Hardware interfaces
 The main hardware interface of the system consists in the access to the GPS data in the mobile application. The application also requires Internet connectivity and internal storage access.
@@ -17,7 +17,7 @@ The mobile application must support Android and iOS. The web application works o
 
 ### Product functions
 
-The system allows users to look for a car, reserve it, drive it, and finally pay for the ride.
+The system allows users to look for an available car, reserve it, unlock it, drive it, and finally pay for the ride.
 This is a list of what the users of the service can do.
 - All users can:
 	- create an account
@@ -57,10 +57,10 @@ The system must have a minimum availability of 98%.
 The system is not employed in life-critical applications.
 
 ##### Parallel operations
-Every feature offered by the system must support simultaneous operations from multiple users.
+Every feature offered by the system must support, on the back-end, simultaneous operations from multiple users.
 
 ##### Safety and security considerations
-While the car is running, its position and destination (if any) must be kept private. For security reasons, only people with a valid driving license must be able to register to the service and use it. Sensitive user information such as credentials and billing information must be stored securely (i.e. not in plain text).
+Information concerning every active or completed ride, as its duration, destination (if any) and position of the car, must be kept private and available only to the user who is driving the car. Also, information concerning every reservation must be kept private and available only to the user who made the reservation. Only people with a valid driving license must be able to register to the service and use it. Sensitive user information such as credentials and billing information must be stored securely (i.e. not in plain text).
 
 ### Assumptions and dependencies
 

@@ -1,6 +1,4 @@
-## Chapter 1
-
-# Introduction
+## Introduction
 
 
 ### Purpose
@@ -11,9 +9,9 @@ This document is the Requirement Analysis and Specification Document for the Pow
 
 The system supports a car-sharing service employing electric cars.
 The system consists of a server application (PowerEnJoy Server), a web application front-end (PowerEnJoy Web) and in a mobile application (PowerEnJoy Mobile).
-The system has the customers as its only type of user. It should allow them to register and login with their credentials.
-The system has to know the location of both users and cars, in order to let users know the position of available cars around them or near a specified address.
-The system allows users to reserve a car for a limited amount of time among the available ones around them. A user has to be able to tell to the system he/she is near the car via mobile app or SMS in order to unlock it. The ride can be shared with other people.
+The system has the customer of the car-sharing service as its only type of user. It must allow them to subscribe to the service and identify themselves with their credentials. Only registered users should be able to make use of the service.
+The system can show users the location of available cars.
+The system allows users to reserve an available car for a limited amount of time. A user has to be able to tell to the system he/she is near the previously reserved car via mobile app or SMS in order to unlock it.
 The system should keep track of information related to every active and completed ride.
 The system shouldn't allow users to know the position of cars that are not available.
 The system allows users to pay for the service at the end of each ride, by communicating with a third party digital payment system.
@@ -67,6 +65,7 @@ The goals of the PowerEnJoy software are the following:
 - **Charging area**: station with a power grid and a set of plugs, where electric cars can be recharged. Charging areas are also safe areas.
 - **Plug**: a device that allows cars to be recharged at charging areas.
 - **DBMS**: Data Base Management System. It is a computer software application used for the administration of data bases.
+- **API**: Application Programming Interface.
 
 ### References
 

@@ -5,7 +5,7 @@
 - Car lookup
 - Car reservation
 - Car lock and unlock
+- Price discounts/increases management
 - Money saving option
-- Price discounts and increase management
 - Electronic payment
 - User profile management
