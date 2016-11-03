@@ -10,11 +10,10 @@ This document is the Requirement Analysis and Specification Document for the Pow
 ### Scope
 
 The system supports a car-sharing service employing electric cars.
-Its main goal is to make the access to the service and its use simple and efficient.
 The system consists of a server application (PowerEnJoy Server), a web application front-end (PowerEnJoy Web) and in a mobile application (PowerEnJoy Mobile).
 The system has the customers as its only type of user. It should allow them to register and login with their credentials.
 The system has to know the location of both users and cars, in order to let users know the position of available cars around them or near a specified address.
-The system allows users to reserve a car for a limited amount of time among the available ones around them, and use it as much as they want. The ride can be shared with other people.
+The system allows users to reserve a car for a limited amount of time among the available ones around them. A user has to be able to tell to the system he/she is near the car via mobile app or SMS in order to unlock it. The ride can be shared with other people.
 The system should keep track of information related to every active and completed ride.
 The system shouldn't allow users to know the position of cars that are not available.
 The system allows users to pay for the service at the end of each ride, by communicating with a third party digital payment system.
@@ -28,20 +27,19 @@ The system is provided with an optional module:
 
 The goals of the PowerEnJoy software are the following:
 
-1. Make the access to the service and its use simple and efficient.
-2. Users can register to the system.
-3. Users can log into the system.
-4. Users can find available cars around them.
-5. Users can find available cars near a specified position.
-6. Users can reserve a car.
-7. Users can get into the reserved car.
-8. Users can use the reserved car.
-9. Users can pay for the car-sharing service.
-10. Users can check the current fare while in the car.
-11. Parked cars are automatically locked.
-12. Discounts are applied to the fare of users who have a virtuous behaviour.
-13. Users can choose a money saving option.
-14. A user who can't pay will be banned.
+1. A person can register to the system.
+2. A person can log into the system.
+3. Users can find available cars around them.
+4. Users can find available cars near a specified position.
+5. Users can reserve a car.
+6. Users can get into the reserved car.
+7. Users can use the reserved car.
+8. Users can pay for the car-sharing service.
+9. Users can check the current fare while in the car.
+10. Parked cars are automatically locked.
+11. Discounts are applied to the fare of users who have a virtuous behaviour.
+12. Users can choose a money saving option.
+13. A user who can't pay will be banned.
 
 ### Definitions, acronyms, and abbreviations
 
