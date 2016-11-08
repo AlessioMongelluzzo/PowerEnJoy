@@ -6,6 +6,9 @@
 \origin unavailable
 \textclass article
 \use_default_options true
+\begin_modules
+figs-within-sections
+\end_modules
 \maintain_unincluded_children false
 \language english
 \language_package default
@@ -27,6 +30,7 @@
 \bibtex_command default
 \index_command default
 \paperfontsize default
+\spacing single
 \use_hyperref false
 \papersize default
 \use_geometry false
@@ -260,6 +264,44 @@ Person does not fill all the mandatory fields of the form.
 </cell>
 </row>
 </lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /root/git/PowerEnJoy/rasd/uml/use_case_registration.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Use case diagram for the registration feature.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
 
 \end_inset
 

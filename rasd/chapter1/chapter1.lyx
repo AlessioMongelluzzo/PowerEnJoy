@@ -6,6 +6,9 @@
 \origin unavailable
 \textclass article
 \use_default_options true
+\begin_modules
+figs-within-sections
+\end_modules
 \maintain_unincluded_children false
 \language english
 \language_package default
@@ -162,6 +165,11 @@ The system promotes diligent behaviour of drivers by applying a discount
  The system should charge the user an additional fee when a car is unnecessarily
  reserved or when, at the end of the ride, the car is left in a state requiring
  specific intervention by PowerEnJoy employees.
+\end_layout
+
+\begin_layout Standard
+The system interacts with PowerEnJoy employees in order to notice them when
+ a car needs to be recharged.
 \end_layout
 
 \begin_layout Standard
@@ -342,6 +350,15 @@ Running car
 \begin_layout Itemize
 
 \series bold
+Low battery car
+\series default
+: car which has less than 20% of total battery charge.
+ A low battery car will be taken care of by a PowerEnJoy employee.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
 Ride
 \series default
 : operation performed by a customer when using a car.
@@ -440,6 +457,15 @@ Charging area
 : station with a power grid and a set of plugs, where electric cars can
  be recharged.
  Charging areas are also safe areas.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Employee
+\series default
+: a worker for PowerEnJoy whose task is to recharge on-site cars with less
+ than 20% of battery charge.
 \end_layout
 
 \begin_layout Itemize

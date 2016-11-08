@@ -48,7 +48,7 @@ sig Credential {
 sig Employee {
 	fix: some Car
 	}{
-	fix.state = INTERVENTION_REQUIRED
+	fix.state = LOW_BATTERY
 	}
 
 /*
@@ -66,7 +66,7 @@ abstract sig CarState {}
 one sig AVAILABLE extends CarState {}
 one sig RESERVED extends CarState {}
 one sig RUNNING extends CarState {}
-one sig INTERVENTION_REQUIRED extends CarState {}
+one sig LOW_BATTERY extends CarState {}
 
 sig Car {
 	licensePlate: one Stringa,
@@ -78,11 +78,11 @@ sig Car {
 	}{
 	batteryLevel >= 0
 	batteryLevel =< 100
-	batteryLevel < 20 <=> state = INTERVENTION_REQUIRED
+	batteryLevel < 20 <=> state = LOW_BATTERY
 	state = AVAILABLE implies locked = True
 	state = RESERVED <=> one r: Reservation | r.selectedCar = this
 	state = RUNNING <=> one r: Ride | r.state = ACTIVE and r.car = this
-	state = INTERVENTION_REQUIRED implies locked = True
+	state = LOW_BATTERY implies locked = True
 	}
 
 sig Reservation {
@@ -208,7 +208,7 @@ fact everySafeAreaBelongsToManagementSystem {
 
 // === ASSERTIONS ===
 assert noEmployeeFixesOKCar {
-	no e: Employee | e.fix.state != INTERVENTION_REQUIRED
+	no e: Employee | e.fix.state != LOW_BATTERY
 	}
 check noEmployeeFixesOKCar
 
@@ -235,7 +235,7 @@ check moneySavingRideHasDestination
 pred show() {
 	some r: Ride | r.state = COMPLETED
 	some r: Ride | r.state = ACTIVE
-	some c:  Car | c.state = INTERVENTION_REQUIRED
+	some c:  Car | c.state = LOW_BATTERY
 	}
 
 run show for 4 but 8 int
