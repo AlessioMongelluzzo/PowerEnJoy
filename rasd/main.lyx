@@ -1,0 +1,3627 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\begin_modules
+figs-within-sections
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement H
+\paperfontsize default
+\spacing single
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder false
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle true
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Introduction
+\end_layout
+
+\begin_layout Subsection
+Purpose
+\end_layout
+
+\begin_layout Standard
+This document is the Requirement Analysis and Specification Document for
+ the PowerEnJoy application.
+ Its aim is to completely describe the system to be developed and to lay
+ out functional and non-functional requirements, constraints, relationships
+ with the external world, and typical use cases describing user interactions
+ that the software must provide.
+ Moreover, this document will provide formal specification of some features
+ of the applications, written in Alloy language.
+ This document is written for project managers, developers, testers and
+ software designers.
+ It may be used in a contractual agreement between software suppliers and
+ customers.
+\end_layout
+
+\begin_layout Subsection
+Scope
+\end_layout
+
+\begin_layout Standard
+The system supports a car-sharing service employing electric cars.
+\end_layout
+
+\begin_layout Standard
+The system consists of a server application (PowerEnJoy Server), a web applicati
+on front-end (PowerEnJoy Web) and in a mobile application (PowerEnJoy Mobile).
+\end_layout
+
+\begin_layout Standard
+The system has the customer of the car-sharing service as its only type
+ of user.
+ It must allow them to subscribe to the service and identify themselves
+ with their credentials.
+ Only registered users should be able to make use of the service.
+\end_layout
+
+\begin_layout Standard
+The system can show users the location of available cars.
+\end_layout
+
+\begin_layout Standard
+The system allows users to reserve an available car for a limited amount
+ of time.
+ A user has to be able to tell to the system he/she is near the previously
+ reserved car via mobile app or SMS in order to unlock it.
+\end_layout
+
+\begin_layout Standard
+The system should keep track of information related to every active and
+ completed ride.
+\end_layout
+
+\begin_layout Standard
+The system shouldn't allow users to know the position of cars that are not
+ available.
+\end_layout
+
+\begin_layout Standard
+The system allows users to pay for the service at the end of each ride,
+ by communicating with a third party digital payment system.
+ The system should prevent users who failed to pay due to insufficient funds
+ from using the service until they pay off their debt.
+\end_layout
+
+\begin_layout Standard
+The system promotes diligent behaviour of drivers by applying a discount
+ on the fare.
+ The system should charge the user an additional fee when a car is unnecessarily
+ reserved or when, at the end of the ride, the car is left in a state requiring
+ specific intervention by PowerEnJoy employees.
+\end_layout
+
+\begin_layout Standard
+The system interacts with PowerEnJoy employees in order to notice them when
+ a car needs to be recharged.
+\end_layout
+
+\begin_layout Standard
+The system is provided with an optional module:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Money saving option
+\series default
+ allows the driver to specify the destination of the ride.
+ The system will then suggest an optimal charging area to park at, in order
+ to get a discount on the fare.
+ 
+\end_layout
+
+\begin_layout Subsection
+Goals
+\end_layout
+
+\begin_layout Standard
+The goals of the PowerEnJoy software are the following:
+\end_layout
+
+\begin_layout Enumerate
+A person can register to the system.
+\end_layout
+
+\begin_layout Enumerate
+A person can log into the system.
+\end_layout
+
+\begin_layout Enumerate
+Users can find available cars around them.
+\end_layout
+
+\begin_layout Enumerate
+Users can find available cars near a specified position.
+\end_layout
+
+\begin_layout Enumerate
+Users can reserve a car.
+\end_layout
+
+\begin_layout Enumerate
+Users can get into the reserved car.
+\end_layout
+
+\begin_layout Enumerate
+Users can use the reserved car.
+\end_layout
+
+\begin_layout Enumerate
+Users can pay for the car-sharing service.
+\end_layout
+
+\begin_layout Enumerate
+Users can check the current fare while in the car.
+\end_layout
+
+\begin_layout Enumerate
+Parked cars are automatically locked.
+\end_layout
+
+\begin_layout Enumerate
+Discounts are applied to the fare of users who have a virtuous behaviour.
+\end_layout
+
+\begin_layout Enumerate
+Users can choose a money saving option.
+\end_layout
+
+\begin_layout Enumerate
+A user who can't pay will be banned.
+\end_layout
+
+\begin_layout Subsection
+Definitions, acronyms, and abbreviations
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+RASD
+\series default
+: Requirements Analysis and Specification Document (this document).
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+System
+\series default
+: the car-sharing application to be developed.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Back-end
+\series default
+: application logic and APIs elaborating data coming from users and cars.
+ It allows the web and mobile application to be dynamic.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Module
+\series default
+: an optional software component which uses the core system APIs to provide
+ additional features.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Client
+\series default
+: the web application or the mobile app.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Position
+\series default
+: geographic coordinates (latitude, longitude) specifying where an object
+ is located in the world.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Car
+\series default
+: PowerEnJoy electric car used for the car-sharing service.
+ It has a unique license plate.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Locked car
+\series default
+: car whose doors cannot be opened from the outside.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Available car
+\series default
+: car which position is visible on the map and can be reserved by any non-banned
+ user from the application.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Reserved car
+\series default
+: car which has been reserved by a user from the application.
+ Its position is not visible on the map.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Running car
+\series default
+: car which has a running engine and is being driven by the user who has
+ reserved it.
+ Its position is not visible on the map.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Low battery car
+\series default
+: car which has less than 20% of total battery charge.
+ A low battery car will be taken care of by a PowerEnJoy employee.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Ride
+\series default
+: operation performed by a customer when using a car.
+ A ride begins when the user ignites the engine and ends when the user turns
+ off the engine.
+ Information related to every ride is tracked by the system.
+ During a ride, the car is always a running car.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Money saving ride
+\series default
+: special type of ride that can be chosen optionally.
+ In a money saving ride, the user specifies a destination and the system
+ suggests an optimal charging area to park at, in order to get a discount
+ on the fare.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Active ride
+\series default
+: ride that is currently in progress.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Completed ride
+\series default
+: ride that took place in the past.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+User
+\series default
+ or 
+\series bold
+Customer
+\series default
+: person who has registered to PowerEnJoy service.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Banned
+\series default
+: a user who has been temporarily prevented from using the service.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Credential
+\series default
+: unique set of username and password linked to each user.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Billing information
+\series default
+: data used to access a third party digital payment system.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Reservation
+\series default
+: operation performed by a user who wants to ensure the access to a given
+ car within one hour.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Safe area
+\series default
+: place where cars can be legally parked without any risk for a fine.
+ The set of safe areas for parking cars is pre-defined by the system.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Charging area
+\series default
+: station with a power grid and a set of plugs, where electric cars can
+ be recharged.
+ Charging areas are also safe areas.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Employee
+\series default
+: a worker for PowerEnJoy whose task is to recharge on-site cars with less
+ than 20% of battery charge.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Plug
+\series default
+: a device that allows cars to be recharged at charging areas.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+DBMS
+\series default
+: Data Base Management System.
+ It is a computer software application used for the administration of data
+ bases.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+API
+\series default
+: Application Programming Interface.
+\end_layout
+
+\begin_layout Subsection
+References
+\end_layout
+
+\begin_layout Standard
+This document refers to the project rules of the Software Engineering 2
+ project and to the RASD assignment.
+ The structure of this document is inspired by that of the IEEE Standard
+ 830-1998 for the format of Software Requirements specifications, with some
+ variations.
+ The main changes have been made in Chapter 2, where some general scenarios
+ and some relationships between goals, domain assumptions and requirements
+ have been identified.
+\end_layout
+
+\begin_layout Subsection
+Overview
+\end_layout
+
+\begin_layout Standard
+This document is structured in three parts:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Chapter 1: Introduction
+\series default
+.
+ This section explains the target audience, the purpose and the references
+ of the document.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Chapter 2: Overall description
+\series default
+.
+ This section provides a general description of the system and its features,
+ constraints, and assumptions about the users and the environment.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Chapter 3: Specific requirements
+\series default
+.
+ This section contains all the necessary software requirements to allow
+ a proper implementation.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Overall description
+\end_layout
+
+\begin_layout Subsection
+Product perspective
+\end_layout
+
+\begin_layout Subsubsection
+User interfaces
+\end_layout
+
+\begin_layout Standard
+All the user interfaces should be intuitive and user friendly, meaning that
+ they should not require the reading of detailed documentation to be used.
+ There should be very little difference between the user interface of the
+ web application and that of the mobile applications, in order to provide
+ a consistent user experience across all platforms.
+\end_layout
+
+\begin_layout Subsubsection
+Hardware interfaces
+\end_layout
+
+\begin_layout Standard
+The main hardware interface of the system consists in the access to the
+ GPS data in the mobile application.
+ The application also requires Internet connectivity and internal storage
+ access.
+\end_layout
+
+\begin_layout Subsubsection
+Software interfaces
+\end_layout
+
+\begin_layout Standard
+The mobile application must support Android and iOS.
+ The web application works on any web server that supports Java.
+ The back-end stores its data in a DBMS and can run on every platform that
+ supports the JVM.
+\end_layout
+
+\begin_layout Subsection
+Product functions
+\end_layout
+
+\begin_layout Standard
+The system allows users to look for an available car, reserve it, unlock
+ it, drive it, and finally pay for the ride.
+ This is a list of what the users of the service can do.
+\end_layout
+
+\begin_layout Standard
+All users can:
+\end_layout
+
+\begin_layout Itemize
+create an account
+\end_layout
+
+\begin_layout Itemize
+log in
+\end_layout
+
+\begin_layout Itemize
+edit profile data and billing info
+\end_layout
+
+\begin_layout Itemize
+delete their account
+\end_layout
+
+\begin_layout Itemize
+look for available cars around them
+\end_layout
+
+\begin_layout Itemize
+look for available cars near a particular address
+\end_layout
+
+\begin_layout Itemize
+reserve an available car
+\end_layout
+
+\begin_layout Itemize
+tell the system to open a car they have reserved
+\end_layout
+
+\begin_layout Itemize
+choose a money saving option
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+makebox[
+\backslash
+textwidth][c]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename /root/git/PowerEnJoy/rasd/uml/class_diagram.png
+	width 80page%
+	height 80pheight%
+	keepAspectRatio
+	clip
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+The comprehensive class diagram of the system.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+makebox[
+\backslash
+textwidth][c]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename /root/git/PowerEnJoy/rasd/uml/sequence_diagram.png
+	width 80page%
+	height 80page%
+	keepAspectRatio
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+General sequence diagram of the system.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+makebox[
+\backslash
+textwidth][c]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename /root/git/PowerEnJoy/rasd/uml/statechart_car_ride.png
+	width 80page%
+	height 80page%
+	keepAspectRatio
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Statechart of Car and Ride objects.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+User characteristics
+\end_layout
+
+\begin_layout Standard
+The main user of the system is the customer of the car sharing service.
+ We give for granted that users have access to the Internet.
+ Users can look for a car and reserve it both via the web and the mobile
+ application.
+ Also, PowerEnJoy employees can use the system to check the state of the
+ cars.
+\end_layout
+
+\begin_layout Subsection
+Constraints
+\end_layout
+
+\begin_layout Subsubsection
+Regulatory policies
+\end_layout
+
+\begin_layout Standard
+It's user responsibility to ensure that the use of the system complies with
+ the local laws and policies.
+ The system must ask the user for the permission to acquire, store and process
+ personal data and web cookies.
+ The system must offer to the user the possibility to delete all personal
+ data.
+\end_layout
+
+\begin_layout Subsubsection
+Hardware limitations
+\end_layout
+
+\begin_layout Standard
+The system has to run under the following worst-case conditions:
+\end_layout
+
+\begin_layout Itemize
+Mobile applications:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+3G connection, at 2 Mb/s
+\end_layout
+
+\begin_layout Itemize
+50 MB of free space
+\end_layout
+
+\begin_layout Itemize
+1 GB of RAM
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Web application:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+2 Mb/s Internet connection
+\end_layout
+
+\begin_layout Itemize
+800x600 resolution 
+\end_layout
+
+\end_deeper
+\begin_layout Subsubsection
+Reliability requirements
+\end_layout
+
+\begin_layout Standard
+The system must have a minimum availability of 98%.
+\end_layout
+
+\begin_layout Subsubsection
+Criticality of the application
+\end_layout
+
+\begin_layout Standard
+The system is not employed in life-critical applications.
+\end_layout
+
+\begin_layout Subsubsection
+Parallel operation
+\end_layout
+
+\begin_layout Standard
+Every feature offered by the system must support, on the back-end, simultaneous
+ operations from multiple users.
+\end_layout
+
+\begin_layout Subsubsection
+Safety and security considerations
+\end_layout
+
+\begin_layout Standard
+Information concerning every active or completed ride, as its duration,
+ destination (if any) and position of the car, must be kept private and
+ available only to the user who is driving the car.
+ Also, information concerning every reservation must be kept private and
+ available only to the user who made the reservation.
+\end_layout
+
+\begin_layout Standard
+Only people with a valid driving license must be able to register to the
+ service and use it.
+\end_layout
+
+\begin_layout Standard
+Sensitive user information such as credentials and billing information must
+ be stored securely (i.e.
+ not in plain text).
+\end_layout
+
+\begin_layout Subsection
+Assumptions and dependencies
+\end_layout
+
+\begin_layout Standard
+We assume that:
+\end_layout
+
+\begin_layout Enumerate
+Users have access to the internet.
+\end_layout
+
+\begin_layout Enumerate
+Every electric car is equipped with a GPS.
+\end_layout
+
+\begin_layout Enumerate
+The GPS always provides an accurate location.
+\end_layout
+
+\begin_layout Enumerate
+Cars' battery level and charge status can be monitored remotely.
+\end_layout
+
+\begin_layout Enumerate
+Cars can be locked and unlocked remotely.
+\end_layout
+
+\begin_layout Enumerate
+The number of people inside the car can always be monitored.
+\end_layout
+
+\begin_layout Enumerate
+Every user has valid credentials of a third party digital payment system.
+\end_layout
+
+\begin_layout Enumerate
+PowerEnJoy employees are given the task to re-charge on-site cars left with
+ less than 20% of battery level.
+\end_layout
+
+\begin_layout Enumerate
+PowerEnJoy employees are given the task to move to a safe area cars which
+ have the engine turned off and are outside a safe area.
+\end_layout
+
+\begin_layout Enumerate
+PowerEnJoy ensures no mechanical failures can happen to cars.
+\end_layout
+
+\begin_layout Enumerate
+PowerEnJoy ensures a car is always nearby.
+ The number of cars is not fixed and depends on the trend of reservations.
+\end_layout
+
+\begin_layout Enumerate
+Car doors can always be opened from the inside.
+\end_layout
+
+\begin_layout Enumerate
+Users can be geolocalized.
+\end_layout
+
+\begin_layout Enumerate
+Cars' engine status can be monitored remotely.
+\end_layout
+
+\begin_layout Enumerate
+Every car is equipped with an information display.
+\end_layout
+
+\begin_layout Enumerate
+The set of safe areas and charging areas is pre-defined by the system.
+\end_layout
+
+\begin_layout Subsection
+Scenarios identification
+\end_layout
+
+\begin_layout Subsubsection*
+Scenario 1
+\end_layout
+
+\begin_layout Standard
+Stefano resides in a student campus in Milan.
+ He wants to go to a concert, but there is a public transport strike until
+ 11 p.m.
+ and unfortunately the concert starts at 10 p.m.; so, he decides to reserve
+ a vehicle with PowerEnJoy to get there.
+ Since he has used the service before, he is already registered and, well
+ aware of the reservation time constraints, he reserves a car parked just
+ 100 meters far at 7.30 p.m..
+ He leaves at 8.30 p.m.
+ and reaches its destination one hour later.
+ He has already been there, so he knows that there is a power grid station
+ nearby, but unfortunately he finds it full: in fact, several other people
+ have had his same idea of using the car sharing service to bypass the strike.
+ Luckily, he finds a parking spot just 50 meters far from the power grid
+ station and leaves the car there, with 40% of the battery still available.
+ On the way back, the transport strike is finished, so he manages to take
+ the train.
+\end_layout
+
+\begin_layout Subsubsection*
+Scenario 2
+\end_layout
+
+\begin_layout Standard
+Giacomo and Francesca need to go to the shopping centre to get food for
+ the week, but their car is broken.
+ They decide to reserve a car with PowerEnJoy to get there.
+ This is their first time using the service, so Giacomo has to register
+ to it; then he logs and reserves a car after having searched among the
+ nearest ones to his position.
+ He also enables the money saving option and inserts the shopping center
+ address.
+ A few minutes later, one of Giacomo's friend, Marco, asks him if he can
+ have a lift to the shopping centre.
+ Giacomo agrees, and he, Francesca and Marco start their trip and get to
+ their destination in just fifeteen minutes, so the car still has 75% of
+ the battery available.
+ Giacomo leaves the car in the power grid station and plugs the car to charge
+ the battery, so he gets a total of 30% discount on the ride.
+ Giacomo reserves the car again, since it will take them just 30 minutes
+ to buy what they need.
+ After having done the shopping, Giacomo, Francesca and Marco go back home
+ and Giacomo leaves the car in a parking spot, because this time he has
+ forgot to enable the money saving option and he isn't able to find a station.
+ The car still has 75% of the battery available, so he gets a 20% discount
+ on the ride.
+\end_layout
+
+\begin_layout Subsubsection*
+Scenario 3
+\end_layout
+
+\begin_layout Standard
+Michele is a college student and he is trying to save money as much as possibile
+ since he is very tight on money at the moment.
+ Therefore he decides to reserve a PowerEnJoy car to go to university enabling
+ the money saving option.
+ He is accustomed to using PowerEnJoy so he just logs in and reserves the
+ nearest car without modifying his billing information.
+ That day the traffic jam gets him stuck for a long time so that by the
+ time he reaches college he is charged with 11EUR.
+ Unfortunately Michele is unaware of having only 10EUR on his prepaid card
+ used as payment method, so the payment transaction goes wrong and the system
+ blocks the user linked to Michele until he will pay off his debt.
+ Michele won't be able to get back home with a PowerEnJoy car by the end
+ of the lessons.
+\end_layout
+
+\begin_layout Subsubsection*
+Scenario 4
+\end_layout
+
+\begin_layout Standard
+Alessio is a college student who, during his spare time, goes to the gym.
+ He needs a medical certificate for this activity, so he has arranged a
+ doctor's appointment during the 2 hours break between two lectures on Monday,
+ that is the only gap Alessio could find inside his very busy weekly schedule.
+ On that day, before the first lecture, he thought that he may not get back
+ in time if he took public transport for the whole round trip, so he decided
+ to reserve a car with PowerEnJoy at least to get there much faster.
+ At 10 a.m.
+ he reserves a car near the university.
+ Unfortunately, he has forgotten that car reservation lasts up to one hour
+ before picking it up and the break starts only at 12 a.m..
+ Alessio receives a fine of 1 EUR for not having abided by the car reservation
+ time constraint and he will have to reserve a car again if he wants to
+ get quickly to his appointment.
+\end_layout
+
+\begin_layout Subsubsection*
+Scenario 5
+\end_layout
+
+\begin_layout Standard
+Mattia is a student who is keen on Drum and Bass music.
+ He would really like to go to a gig tonight but his parents left him home
+ alone with no car.
+ He chooses to reserve a PowerEnJoy car.
+ He needs as well to pick his ticket at the mall, which is on the way to
+ the gig.
+ He is in a hurry when he gets out, but he manages to find a very near car.
+ The ticket shop is right at the entrance to the mall, so he just stops
+ his car nearby not to waste much time.
+ He forgets that as he turns off the car PowerEnJoy charges him with the
+ proper fare and turns the car into available to the clients.
+ Fortunately the car is still there once he gets back, but he needs to make
+ another reservation for the same car.
+\end_layout
+
+\begin_layout Subsection
+Future extensions
+\end_layout
+
+\begin_layout Standard
+The system will be implemented foreseeing the possibility of further extensions,
+ for example:
+\end_layout
+
+\begin_layout Enumerate
+Create a fidelity score for every user, which gives them the opportunity
+ to benefit from special offers.
+ The score increases every time the user drives a PowerEnJoy electric car,
+ proportionally with the time spent.
+\end_layout
+
+\begin_layout Enumerate
+Implement a report system so that users can signal to PowerEnJoy vehicles
+ that are damaged, very dirty, or generally not fit for use.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Specific requirements
+\end_layout
+
+\begin_layout Subsection
+External interface requirements
+\end_layout
+
+\begin_layout Subsubsection
+User interfaces
+\end_layout
+
+\begin_layout Subsubsection
+Hardware interfaces
+\end_layout
+
+\begin_layout Subsubsection
+Software interfaces
+\end_layout
+
+\begin_layout Subsubsection
+Communications interfaces
+\end_layout
+
+\begin_layout Subsection
+System features
+\end_layout
+
+\begin_layout Subsubsection
+Registration
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="2">
+<features tabularvalignment="middle">
+<column alignment="right" valignment="top" width="0pt">
+<column alignment="left" valignment="top" width="70text%">
+<row>
+<cell alignment="right" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Actor
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Person
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Goals
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Goal 1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Input condition
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+/
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Event Flow
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Enumerate
+Person clicks the "Register" button on the home page of PowerEnJoy app or
+ website and is redirected to the registration form page.
+\end_layout
+
+\begin_layout Enumerate
+Person fills the form with his email, a chosen password, his personal data
+ and billing information.
+\end_layout
+
+\begin_layout Enumerate
+Person accepts the terms and conditions of use of PowerEnJoy service.
+\end_layout
+
+\begin_layout Enumerate
+Person clicks on the "confirm" button.
+\end_layout
+
+\begin_layout Enumerate
+Person accesses the provided email to verify it.
+\end_layout
+
+\begin_layout Enumerate
+Person is shown a page that confirms registration has succesfully completed.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Output condition
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Person becomes a user of the system and is now able to log into PowerEnJoy
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Exception
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Itemize
+Person fills the form with invalid information.
+\end_layout
+
+\begin_layout Itemize
+Form is filled with information belonging to an already existing account.
+\end_layout
+
+\begin_layout Itemize
+Person does not fill all the mandatory fields of the form.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /root/git/PowerEnJoy/rasd/uml/use_case_registration.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Use case diagram for the registration feature.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+makebox[
+\backslash
+textwidth][c]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename /root/git/PowerEnJoy/rasd/mockups/register.png
+	width 80pheight%
+	height 45page%
+	keepAspectRatio
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Mockup for the registration feature.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Login
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="2">
+<features tabularvalignment="middle">
+<column alignment="right" valignment="top" width="0pt">
+<column alignment="left" valignment="top" width="70text%">
+<row>
+<cell alignment="right" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Actor
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+User, Employee
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Goals
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Goal 2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Input condition
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+/
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Event Flow
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Enumerate
+User or Employee completes the form in the home page of PowerEnJoy app or
+ website by inserting his username and password.
+\end_layout
+
+\begin_layout Enumerate
+User or Employee clicks the "login" button on the page.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Output condition
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+User or Employee's credentials are validated and he can access to PowerEnJoy
+ services.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Exception
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Itemize
+User types an incorrect username and/or password and the system notifies
+ him the error, by asking his credentials again.
+ 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /root/git/PowerEnJoy/rasd/uml/use_case_login.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Use case diagram for the login feature.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+makebox[
+\backslash
+textwidth][c]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename /root/git/PowerEnJoy/rasd/mockups/login.png
+	width 80pheight%
+	height 45page%
+	keepAspectRatio
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Mockup for the login feature.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Car lookup
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="2">
+<features tabularvalignment="middle">
+<column alignment="right" valignment="top" width="0pt">
+<column alignment="left" valignment="top" width="70text%">
+<row>
+<cell alignment="right" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Actor
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+User
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Goals
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Goal 3, Goal 4
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Input condition
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+User is logged into the app or the website.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Event Flow
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Enumerate
+User accesses the "Find a car" area.
+\end_layout
+
+\begin_layout Enumerate
+User inserts an address, otherwise by default his current address is found
+ by the GPS and inserted.
+\end_layout
+
+\begin_layout Enumerate
+User clicks on the "Find a car" button.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Output condition
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+User is shown a page with the location of all the available cars nearby
+ the selected position.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Exception
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Itemize
+User inserts an incorrect address and the system notifies him the error,
+ by asking an address again.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /root/git/PowerEnJoy/rasd/uml/use_case_car_lookup.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Use case diagram for the car lookup feature.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+makebox[
+\backslash
+textwidth][c]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename /root/git/PowerEnJoy/rasd/mockups/lookup.png
+	width 80pheight%
+	height 45page%
+	keepAspectRatio
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Mockup for the car lookup feature.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Car reservation
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="2">
+<features tabularvalignment="middle">
+<column alignment="right" valignment="top" width="0pt">
+<column alignment="left" valignment="top" width="70text%">
+<row>
+<cell alignment="right" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Actor
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+User
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Goals
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Goal 5
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Input condition
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+User looked for available cars nearby a position.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Event Flow
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Enumerate
+User chooses one of the available cars and selects it by clicking on it.
+\end_layout
+
+\begin_layout Enumerate
+User is redirected to the "Reserve a car" page where he is shown the model
+ name of the reserved car, its battery level and location.
+\end_layout
+
+\begin_layout Enumerate
+User confirms the reservation request by clicking on the "√" button.
+\end_layout
+
+\begin_layout Enumerate
+User is notified in another page that the operation was succesful.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Output condition
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+The system flags the car selected by the user as reserved and the user can
+ unlock it.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Exception
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Itemize
+The car the user is trying to reserve is not available anymore, the system
+ notifies him the error and automatically refreshes the available cars page,
+ so that the user can choose a different car.
+ 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /root/git/PowerEnJoy/rasd/uml/use_case_car_reservation.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Use case diagram for the car reservation feature.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+makebox[
+\backslash
+textwidth][c]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename /root/git/PowerEnJoy/rasd/mockups/reserve.png
+	width 80pheight%
+	height 45page%
+	keepAspectRatio
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Mockup for the car reservation feature.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Car lock and unlock
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="2">
+<features tabularvalignment="middle">
+<column alignment="right" valignment="top" width="0pt">
+<column alignment="left" valignment="top" width="70text%">
+<row>
+<cell alignment="right" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Actor
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+User
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Goals
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Goal 6, Goal 7, Goal 10
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Input condition
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+User reserved a car from the PowerEnJoy website or app.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Event Flow
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Enumerate
+User accesses the "My reservation" area.
+\end_layout
+
+\begin_layout Enumerate
+User selects the reserved car and clicks the "unlock" button.
+\end_layout
+
+\begin_layout Enumerate
+Car doors are automatically locked by the system as soon as the user gets
+ out of the car with the engine turned off.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Output condition
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+User can use the reserved car and when he has finished using it, it becomes
+ available again or it is picked up by a PowerEnjoy employee if not parked
+ in a safe area and/or with less than 20% battery charge of the total.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Exception
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+/
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /root/git/PowerEnJoy/rasd/uml/use_case_car_unlock.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Use case diagram for the car unlock feature.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+makebox[
+\backslash
+textwidth][c]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename /root/git/PowerEnJoy/rasd/mockups/unlock.png
+	width 80pheight%
+	height 45page%
+	keepAspectRatio
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Mockup for the car unlock feature.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Price discounts/increases management
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="2">
+<features tabularvalignment="middle">
+<column alignment="right" valignment="top" width="0pt">
+<column alignment="left" valignment="top" width="70text%">
+<row>
+<cell alignment="right" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Actor
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+User
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Goals
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Goal 11
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Input condition
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+User parked the car he was using and the system saved the number of the
+ people that were inside the car.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Event Flow
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Enumerate
+The system checks if the position of the car in at least 3 km far from that
+ of the nearest charging station: if this is the case the sysyem increases
+ the fare for the ride by 30% and skips the other controls.
+\end_layout
+
+\begin_layout Enumerate
+The system checks if the battery level of the car is 20% of the total: if
+ this is the case the sysyem increases the fare for the ride and skips the
+ other controls.
+\end_layout
+
+\begin_layout Enumerate
+The system checks if the position of the car coincides with that of a charging
+ station and if the sensor signals the car is plugged within 2 minutes:
+ if this is the case the sysyem decreases the fare for the ride by 30% and
+ skips other controls.
+\end_layout
+
+\begin_layout Enumerate
+The system checks if the sensor signals that the battery level of the car
+ is at least 50% of the total: if this is the case the sysyem decreases
+ the fare for the ride by 20% and skips other controls.
+\end_layout
+
+\begin_layout Enumerate
+The system checks if the number of the people that were inside the car is
+ at least equal to 3: if this is the case the sysyem decreases the fare
+ for the ride by 10%.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Output condition
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+The fare is possibly increased or decreased by the appropriate amount according
+ to the user's behaviour.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Exception
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+/
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Money saving option
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="2">
+<features tabularvalignment="middle">
+<column alignment="right" valignment="top" width="0pt">
+<column alignment="left" valignment="top" width="70text%">
+<row>
+<cell alignment="right" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Actor
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+System
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Goals
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Goal 12
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Input condition
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+User reserved a car from the PowerEnJoy website or app.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Event Flow
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Enumerate
+User clicks on the money saving option "€" button directly from the car
+ information display or from the "My reservation" area in the website or
+ in the app.
+\end_layout
+
+\begin_layout Enumerate
+User inserts his destination by typing its address.
+\end_layout
+
+\begin_layout Enumerate
+The system estimates a charging station position by taking into account
+ the distance from the user's destination and the available plugs.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Output condition
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Money saving option is enabled and the user's car GPS destination is automatical
+ly set to the estimated charging station by the system.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Exception
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+/
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /root/git/PowerEnJoy/rasd/uml/use_case_money_saving_option.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Use case diagram for the money saving option feature.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Electronic payment
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="2">
+<features tabularvalignment="middle">
+<column alignment="right" valignment="top" width="0pt">
+<column alignment="left" valignment="top" width="70text%">
+<row>
+<cell alignment="right" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Actor
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+System, Third party digital payment system
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Goals
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Goal 8, Goal 13
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Input condition
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Price discounts and increase management possibly increased or decreased
+ the fare by the appropriate amount according to the user's behaviour.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Event Flow
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Enumerate
+The system sends the payment data to the third party digital payment system
+ and waits for the outcome of the payment operation.
+\end_layout
+
+\begin_layout Enumerate
+The system receives the succesful outcome of the payment operation.
+\end_layout
+
+\begin_layout Enumerate
+The system makes the recepit available on the user's account.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Output condition
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+The user's bill is decreased by the fare amount and he can check the receipt
+ on his account
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Exception
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Itemize
+The system receives an unsuccesful outcome from the third party digital
+ payment system, because there are not enough funds on the user's bill to
+ perform the payment operation and the user's account is banned until the
+ system receives a succesful outcome.
+ 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /root/git/PowerEnJoy/rasd/uml/use_case_electronic_payment.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Use case diagram for the electronic payment feature.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Car pickup request
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="2">
+<features tabularvalignment="middle">
+<column alignment="right" valignment="top" width="0pt">
+<column alignment="left" valignment="top" width="70text%">
+<row>
+<cell alignment="right" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Actor
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Employee
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Goals
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Input condition
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Employee logged in and there is a parked car not in charge at a power grid
+ station with low battery level.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Event Flow
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Enumerate
+The system sends a push notification to the employee that is nearest to
+ the car.
+\end_layout
+
+\begin_layout Enumerate
+The employee confirms the request within 5 minutes.
+\end_layout
+
+\begin_layout Enumerate
+The employee unlocks the car through the app.
+\end_layout
+
+\begin_layout Enumerate
+The system estimates the nearest power grid station and automatically sets
+ it as the destination of the car's GPS.
+\end_layout
+
+\begin_layout Enumerate
+If the battery level is not enough to reach the destination, the employee
+ charges the car in place.
+\end_layout
+
+\begin_layout Enumerate
+The employee drives the car to the destination and plugs the car in.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Output condition
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+The car is put into charge in a power grid station.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Exception
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Itemize
+If the employee does not confirm the request within 5 minutes, it is signaled
+ that he did not perform the task and the event flow is repeated with the
+ following nearest employee.
+ 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+User profile visualization
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="2">
+<features tabularvalignment="middle">
+<column alignment="right" valignment="top" width="0pt">
+<column alignment="left" valignment="top" width="70text%">
+<row>
+<cell alignment="right" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Actor
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Goals
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Input condition
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+User is logged in.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Event Flow
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Enumerate
+User selects the "profile settings" button.
+\end_layout
+
+\begin_layout Enumerate
+A dropdown menu with "View profile" and "Delet profile" options is shown
+ to the user.
+\end_layout
+
+\begin_layout Enumerate
+User selects "View profile" option.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Output condition
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+User is shown his profile page and can check his profile information.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Exception
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+/
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+User profile modification
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="2">
+<features tabularvalignment="middle">
+<column alignment="right" valignment="top" width="0pt">
+<column alignment="left" valignment="top" width="70text%">
+<row>
+<cell alignment="right" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Actor
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Goals
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Input condition
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+User is viewing his profile page.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Event Flow
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Enumerate
+User selects the "Edit profile" button.
+\end_layout
+
+\begin_layout Enumerate
+User is shown the profile edit page.
+\end_layout
+
+\begin_layout Enumerate
+User changes the contents of the fields he want to edit.
+ 
+\end_layout
+
+\begin_layout Enumerate
+User selects the "Save changes" button at the end of the page.
+ 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Output condition
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+User profile information is updated.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Exception
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+If the user fills at least one of the fields with invalid strings and then
+ he tries to save changes, the system notifies him the error and shows him
+ his profile unedited.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+User profile deletion
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="2">
+<features tabularvalignment="middle">
+<column alignment="right" valignment="top" width="0pt">
+<column alignment="left" valignment="top" width="70text%">
+<row>
+<cell alignment="right" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Actor
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Goals
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Input condition
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+User is logged in.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Event Flow
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Enumerate
+User selects the "profile settings" button.
+\end_layout
+
+\begin_layout Enumerate
+A dropdown menu with "View profile" and "Delet profile" options is shown
+ to the user.
+\end_layout
+
+\begin_layout Enumerate
+User selects "Delete profile" option.
+\end_layout
+
+\begin_layout Enumerate
+User is asked to confirm his choice by clicking "Yes" or "No" in a pop-up.
+\end_layout
+
+\begin_layout Enumerate
+User clicks the "Yes" button
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Output condition
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+User is logged out and his profile is deleted from the system.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Exception
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+If the user tries to delete his profile while having reserved a car, the
+ system notifies him that it is not possible to delete a profile that is
+ reserving a car.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

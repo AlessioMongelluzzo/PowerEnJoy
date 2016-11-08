@@ -20,6 +20,6 @@ Alessio is a college student who, during his spare time, goes to the gym. He nee
 
 Mattia is a student who is keen on Drum and Bass music. He would really like to go to a gig tonight but his parents left him home alone with no car. He chooses to reserve a PowerEnJoy car. He needs as well to pick his ticket at the mall, which is on the way to the gig. He is in a hurry when he gets out, but he manages to find a very near car. The ticket shop is right at the entrance to the mall, so he just stops his car nearby not to waste much time. He forgets that as he turns off the car PowerEnJoy charges him with the proper fare and turns the car into available to the clients. Fortunately the car is still there once he gets back, but he needs to make another reservation for the same car.
 
-#### Scenario 6
+#### Scenario 6 (REMOVED)
 
 Paola needs to go to the club tonight, but she plans to drink a lot. Therefore, she wants to reserve a car with PowerEnJoy so that someone else would bring her back home. Unfortunately all of her friends had the same idea that night, so Paola, who looks quite sober, has to drive back home. While driving back home the person driving in front of her slams on the brakes and Paola does not manage to stop in time to avoid the crash. Paola is fine, but PowerEnJoy will charge her for the crash. A PowerEnJoy employee is immediately notified about the crash.

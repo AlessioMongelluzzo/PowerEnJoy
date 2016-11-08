@@ -1,6 +1,3 @@
-// === WORK IN PROGRESS ===
-// This model is not complete and not fully checked!
-
 // Alloy model for PowerEnJoy system.
 
 // Defines Bool, True, False
