@@ -333,7 +333,7 @@ Actor
 \begin_inset Text
 
 \begin_layout Plain Layout
-User
+User or employee
 \end_layout
 
 \end_inset
@@ -373,7 +373,7 @@ Input condition
 \begin_inset Text
 
 \begin_layout Plain Layout
-/ (User is by definition registered in the system)
+/
 \end_layout
 
 \end_inset
@@ -393,12 +393,12 @@ Event Flow
 \begin_inset Text
 
 \begin_layout Enumerate
-User completes the form in the home page of PowerEnJoy app or website by
+User or employee completes the form in the home page of PowerEnJoy app or website by
  inserting his username and password.
 \end_layout
 
 \begin_layout Enumerate
-User clicks the "login" button on the page.
+User or emplyee clicks the "login" button on the page.
 \end_layout
 
 \end_inset
@@ -418,7 +418,7 @@ Output condition
 \begin_inset Text
 
 \begin_layout Plain Layout
-User's credentials are validated and he can access to PowerEnJoy services.
+User's or employee's credentials are validated and he can access to PowerEnJoy services.
 \end_layout
 
 \end_inset
@@ -1364,6 +1364,164 @@ The system receives an unsuccesful outcome from the third party digital
  perform the payment operation and the user's account is banned until the
  system receives a succesful outcome.
  
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Car pickup request
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="2">
+<features tabularvalignment="middle">
+<column alignment="right" valignment="top" width="0pt">
+<column alignment="left" valignment="top" width="70text%">
+<row>
+<cell alignment="right" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Actor
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Employee
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Goals
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Input condition
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Employee logged in and there is a parked car not in charge at a power grid station with low battery level.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Event Flow
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Enumerate
+The system sends a push notification to the employee that is nearest to the car.
+\end_layout
+
+\begin_layout Enumerate
+The employee confirms the request within 5 minutes.
+\end_layout
+
+\begin_layout Enumerate
+The employee unlocks the car through the app.
+\end_layout
+
+\begin_layout Enumerate
+The system estimates the nearest power grid station and automatically sets it as the destination of the car's GPS.
+\end_layout
+
+\begin_layout Enumerate
+If the battery level is not enough to reach the destination, the employee charges the car in place.
+\end_layout
+
+\begin_layout Enumerate
+The employee drives the car to the destination and plugs the car in.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Output condition
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+The car is put into charge in a power grid station.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Exception
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Itemize
+If the employee does not confirm the request within 5 minutes, it is signaled that he did not perform the task and the event flow is repeated with the following nearest employee. 
 \end_layout
 
 \end_inset
