@@ -48,7 +48,7 @@ sig Credential {
 sig Employee {
 	fix: some Car
 	}{
-	fix.state = LOW_BATTERY
+	fix.state = INTERVENTION_REQUIRED
 	}
 
 /*
@@ -66,7 +66,7 @@ abstract sig CarState {}
 one sig AVAILABLE extends CarState {}
 one sig RESERVED extends CarState {}
 one sig RUNNING extends CarState {}
-one sig LOW_BATTERY extends CarState {}
+one sig INTERVENTION_REQUIRED extends CarState {}
 
 sig Car {
 	licensePlate: one Stringa,
@@ -78,11 +78,11 @@ sig Car {
 	}{
 	batteryLevel >= 0
 	batteryLevel =< 100
-	batteryLevel < 20 <=> state = LOW_BATTERY
+	batteryLevel < 20 <=> state = INTERVENTION_REQUIRED
 	state = AVAILABLE implies locked = True
 	state = RESERVED <=> one r: Reservation | r.selectedCar = this
 	state = RUNNING <=> one r: Ride | r.state = ACTIVE and r.car = this
-	state = LOW_BATTERY implies locked = True
+	state = INTERVENTION_REQUIRED implies locked = True
 	}
 
 sig Reservation {
@@ -206,15 +206,11 @@ fact everySafeAreaBelongsToManagementSystem {
 	#(SafeArea) = #(ManagementSystem.safeArea)
 	}
 
-fact everyLowBatteryCarHasAnEmployee {
-	all c: Car | c.state = LOW_BATTERY => one e: Employee | e.fix = c
-	}
-
 // === ASSERTIONS ===
-assert noEmployeeFixesHighBatteryCar {
-	no e: Employee | e.fix.state != LOW_BATTERY
+assert noEmployeeFixesOKCar {
+	no e: Employee | e.fix.state != INTERVENTION_REQUIRED
 	}
-check noEmployeeFixesHighBatteryCar 
+check noEmployeeFixesOKCar
 
 assert noUnreservedCarInReservation {
 	all r: Reservation | r.selectedCar.state = RESERVED
@@ -239,7 +235,7 @@ check moneySavingRideHasDestination
 pred show() {
 	some r: Ride | r.state = COMPLETED
 	some r: Ride | r.state = ACTIVE
-	some c:  Car | c.state = LOW_BATTERY
+	some c:  Car | c.state = INTERVENTION_REQUIRED
 	}
 
 run show for 4 but 8 int

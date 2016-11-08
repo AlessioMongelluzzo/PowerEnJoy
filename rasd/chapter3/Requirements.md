@@ -18,22 +18,23 @@
 
 ### Domain assumptions
 
-1. People have access to the internet.
+1. Users have access to the internet.
 2. Every electric car is equipped with a GPS.
 3. The GPS always provides an accurate location.
 4. Cars' battery level and charge status can be monitored remotely.
-5. Cars can be locked and unlocked remotely.
-6. The number of people inside the car can always be monitored.
-7. Every user has valid credentials of a third party digital payment system.
-8. PowerEnJoy employees are given the task to re-charge on-site cars left with less than 20% of battery level.
-9. PowerEnJoy employees are given the task to move to a safe area cars which have the engine turned off and are outside a safe area.
-10. PowerEnJoy ensures no mechanical failures can happen to cars.
-11. PowerEnJoy ensures a car is always nearby. The number of cars is not fixed and depends on the trend of reservations.
-12. Car doors can always be opened from the inside.
-13. Users can be geolocalized.
-14. Cars' engine status can be monitored remotely.
-15. Every car is equipped with an information display.
-16. The set of safe areas and charging areas is pre-defined by the system.
+5. Cars that get damaged trigger a sensor that notices the system.
+6. Cars can be locked and unlocked remotely.
+7. The number of people inside the car can always be monitored.
+8. Every user has valid credentials of a third party digital payment system.
+9. PowerEnJoy employees are given the task to re-charge on-site cars left with less than 20% of battery level.
+10. PowerEnJoy employees are given the task to move to a safe area cars which have the engine turned off and are outside a safe area.
+11. PowerEnJoy ensures no mechanical failures can happen to cars.
+12. PowerEnJoy ensures a car is always nearby. The number of cars is not fixed and depends on the trend of reservations.
+13. Car doors can always be opened from the inside.
+14. Users can be geolocalized.
+15. Cars' engine status can be monitored remotely.
+16. Every car is equipped with an information display.
+17. The set of safe areas and charging areas is pre-defined by the system.
 
 
 - - -
@@ -84,25 +85,26 @@
 - *Domain assumption* 8: PowerEnJoy employees are given the task to re-charge on-site cars left with less than 20% of battery level.
 - *Domain assumption* 10: PowerEnJoy ensures no mechanical failures can happen to cars.
 - *Requirement* 8: The system must unlock a car once the user who reserved it is nearby.
+9. The system must inform an employee if a car needs an intervention
 
 *Goal 8*: Users can pay for the car-sharing service.
 - *Domain assumption* 7: Every user has valid credentials of a third party digital payment system.
 - *Domain assumption* 14: Cars' engine status can be monitored remotely.
 - *Domain assumption* 15: Every car is equipped with an information display.
-9. The system keeps track of the time spent from when the engine turns on until the engine turns off.
-10. At the end of the ride the system interacts with the third party payment service and shows to the user the report of the payment operation.
+10. The system keeps track of the time spent from when the engine turns on until the engine turns off.
+11. At the end of the ride the system interacts with the third party payment service and shows to the user the report of the payment operation.
 
 *Goal 9*: Users can check the current fare while in the car.
 - *Domain assumption* 15: Every car is equipped with an information display.
-- *Requirement* 9: The system keeps track of the time spent from when the engine turns on until the engine turns off.
+- *Requirement* 10: The system keeps track of the time spent from when the engine turns on until the engine turns off.
 
 *Goal 10*: Parked cars are automatically locked.
 - *Domain assumption* 2: Every electric car is equipped with a GPS.
 - *Domain assumption* 5: Cars can be locked and unlocked remotely.
 - *Domain assumption* 12: Car doors can always be opened from the inside.
 - *Domain assumption* 14: Cars' engine status can be monitored remotely.
-11. The system checks if a car is still and if its engine is turned off.
-12. The system must lock a car once the user who just stopped using it is not nearby anymore.
+12. The system checks if a car is still and if its engine is turned off.
+13. The system must lock a car once the user who just stopped using it is not nearby anymore.
 
 *Goal 11*: Discounts are applied to the fare of users who have a virtuous behaviour.
 - *Domain assumption* 2: Every electric car is equipped with a GPS.
@@ -110,22 +112,22 @@
 - *Domain assumption* 6: The number of people inside the car can always be monitored.
 - *Domain assumption* 14: Cars' engine status can be monitored remotely.
 - *Domain assumption* 16: The set of safe areas and charging areas is pre-defined by the system.
-- *Requirement* 11: The system checks if a car is still and if its engine is turned off.
-13. If the number of people inside the car is measured to be 3 or more, the system must apply a 10% discount on the final fare.
-14. If the battery level at the end of the ride is measured to be at least 50% of the total charge, the system must apply a 20% discount on the final fare.
-15. If the position of the car at the end of the ride is a charging area, and the car is plugged in within a 2 minutes time frame, the system must apply a 30% discount on the final fare.
-16. If the position of the car at the end of the ride is more than 3 km away from the nearest charging area or if the battery level is lower than 20% of the total charge, the system must apply a 30% additional charge on the final fare.
+- *Requirement* 12: The system checks if a car is still and if its engine is turned off.
+14. If the number of people inside the car is measured to be 3 or more, the system must apply a 10% discount on the final fare.
+15. If the battery level at the end of the ride is measured to be at least 50% of the total charge, the system must apply a 20% discount on the final fare.
+16. If the position of the car at the end of the ride is a charging area, and the car is plugged in within a 2 minutes time frame, the system must apply a 30% discount on the final fare.
+17. If the position of the car at the end of the ride is more than 3 km away from the nearest charging area or if the battery level is lower than 20% of the total charge, the system must apply a 30% additional charge on the final fare.
 
 *Goal 12*: Users can choose a money saving option.
 - *Domain assumption* 2: Every electric car is equipped with a GPS.
 - *Domain assumption* 15: Every car is equipped with an information display.
 - *Domain assumption* 16: The set of safe areas and charging areas is pre-defined by the system.
-- *Requirement* 15: If the position of the car at the end of the ride is a charging area, and the car is plugged in within a 2 minutes time frame, the system must apply a 30% discount on the final fare.
-17. The system must allow users to insert a specific destination.
-18. The system estimates at which charging area the user has to park the car, depending on the specified destination and plug availability, in order to achieve a uniform distribution of cars.
-19. The system displays to the user the route to follow.
+- *Requirement* 16: If the position of the car at the end of the ride is a charging area, and the car is plugged in within a 2 minutes time frame, the system must apply a 30% discount on the final fare.
+18. The system must allow users to insert a specific destination.
+19. The system estimates at which charging area the user has to park the car, depending on the specified destination and plug availability, in order to achieve a uniform distribution of cars.
+20. The system displays to the user the route to follow.
 
 *Goal 13*: A user who can't pay will be banned.
 - *Domain assumption* 7: Every user has valid credentials of a third party digital payment system.
-20. If the system detects the payment operation of a user fails due to insufficient funds, then that user is banned until he/she pays it off.
-21. If a user is banned, the system must prevent him/her from having access to the service.
+21. If the system detects the payment operation of a user fails due to insufficient funds, then that user is banned until he/she pays it off.
+22. If a user is banned, the system must prevent him/her from having access to the service.

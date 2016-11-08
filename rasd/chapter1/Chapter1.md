@@ -18,6 +18,7 @@ The system allows users to pay for the service at the end of each ride, by commu
 The system should prevent users who failed to pay due to insufficient funds from using the service until they pay off their debt.
 The system promotes diligent behaviour of drivers by applying a discount on the fare.
 The system should charge the user an additional fee when a car is unnecessarily reserved or when, at the end of the ride, the car is left in a state requiring specific intervention by PowerEnJoy employees.
+The system interacts with PowerEnJoy employees in order to notice them when a car needs a maintenance intervention.
 The system is provided with an optional module:
 - **Money saving option** allows the driver to specify the destination of the ride. The system will then suggest an optimal charging area to park at, in order to get a discount on the fare.
 
@@ -63,6 +64,7 @@ The goals of the PowerEnJoy software are the following:
 - **Reservation**: operation performed by a user who wants to ensure the access to a given car within one hour.
 - **Safe area**: place where cars can be legally parked without any risk for a fine. The set of safe areas for parking cars is pre-defined by the system.
 - **Charging area**: station with a power grid and a set of plugs, where electric cars can be recharged. Charging areas are also safe areas.
+- **Employee**: a worker for PowerEnJoy whose task is to recharge cars with less than 20% of battery charge and to reapair damaged cars.
 - **Plug**: a device that allows cars to be recharged at charging areas.
 - **DBMS**: Data Base Management System. It is a computer software application used for the administration of data bases.
 - **API**: Application Programming Interface.

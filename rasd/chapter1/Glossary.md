@@ -22,5 +22,6 @@
 - **Reservation**: operation performed by a user who wants to ensure the access to a given car within one hour.
 - **Safe area**: place where cars can be legally parked without any risk for a fine. The set of safe areas for parking cars is pre-defined by the system.
 - **Charging area**: station with a power grid and a set of plugs, where electric cars can be recharged. Charging areas are also safe areas.
+- **Employee**: a worker for PowerEnJoy whose task is to recharge cars with less than 20% of battery charge and to reapair damaged cars.
 - **Plug**: a device that allows cars to be recharged at charging areas.
 - **API**: Application Programming Interface.
