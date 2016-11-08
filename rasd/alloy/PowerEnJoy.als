@@ -45,6 +45,12 @@ sig Credential {
 	username != password
 	}
 
+sig Employee {
+	fix: some Car
+	}{
+	fix.state = LOW_BATTERY
+	}
+
 /*
  * This signature represents a registered User.
  */
@@ -200,7 +206,15 @@ fact everySafeAreaBelongsToManagementSystem {
 	#(SafeArea) = #(ManagementSystem.safeArea)
 	}
 
+fact everyLowBatteryCarHasAnEmployee {
+	all c: Car | c.state = LOW_BATTERY => one e: Employee | e.fix = c
+	}
+
 // === ASSERTIONS ===
+assert noEmployeeFixesHighBatteryCar {
+	no e: Employee | e.fix.state != LOW_BATTERY
+	}
+check noEmployeeFixesHighBatteryCar 
 
 assert noUnreservedCarInReservation {
 	all r: Reservation | r.selectedCar.state = RESERVED
@@ -225,6 +239,7 @@ check moneySavingRideHasDestination
 pred show() {
 	some r: Ride | r.state = COMPLETED
 	some r: Ride | r.state = ACTIVE
+	some c:  Car | c.state = LOW_BATTERY
 	}
 
 run show for 4 but 8 int

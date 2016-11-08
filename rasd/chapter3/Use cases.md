@@ -2,7 +2,7 @@
 
 ### 1.User registration
 
-Actor: visitor
+Actor: person
 
 Goals: Goal 2
 
@@ -74,7 +74,7 @@ Event Flow:
 
 Output Condition: the system removes the car selected by the user from the available cars and the user can use it.
 
-Excpetion:
+Exception:
 - the car the user is trying to reserve is no more available, the system notifies him the error and automatically refreshes the available cars page, so that the user can choose a different car.
 
 ### 5.Car lock and unlock
