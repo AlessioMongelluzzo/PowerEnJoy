@@ -707,6 +707,7 @@ textwidth][c]{
 	filename uml/class_diagram.png
 	width 80page%
 	height 80pheight%
+	keepAspectRatio
 	clip
 
 \end_inset
@@ -830,6 +831,7 @@ textwidth][c]{
 	filename uml/statechart_car_ride.png
 	width 80page%
 	height 80page%
+	keepAspectRatio
 
 \end_inset
 
@@ -2082,6 +2084,7 @@ textwidth][c]{
 	filename mockups/register.png
 	width 80pheight%
 	height 60page%
+	keepAspectRatio
 
 \end_inset
 
@@ -2327,6 +2330,7 @@ textwidth][c]{
 	filename mockups/login.png
 	width 80pheight%
 	height 60page%
+	keepAspectRatio
 
 \end_inset
 
@@ -2571,6 +2575,7 @@ textwidth][c]{
 	filename mockups/lookup.png
 	width 80pheight%
 	height 60page%
+	keepAspectRatio
 
 \end_inset
 
@@ -2821,6 +2826,7 @@ textwidth][c]{
 	filename mockups/reserve.png
 	width 80pheight%
 	height 60page%
+	keepAspectRatio
 
 \end_inset
 
@@ -3065,6 +3071,7 @@ textwidth][c]{
 	filename mockups/unlock.png
 	width 80pheight%
 	height 60page%
+	keepAspectRatio
 
 \end_inset
 
