@@ -1037,11 +1037,7 @@ PowerEnJoy car doors can always be opened from the inside.
 \begin_layout Enumerate
 PowerEnJoy employees are given the task to re-charge on-site cars left with
  less than 20% of battery level.
-\end_layout
-
-\begin_layout Enumerate
-PowerEnJoy employees are given the task to move to a safe area cars which
- have the engine turned off and are outside a safe area.
+ If the car is also outside a safe area, it will be moved to a safe area.
 \end_layout
 
 \begin_layout Enumerate
@@ -1194,7 +1190,6 @@ Create a fidelity score for every user, which gives them the opportunity
 \begin_layout Enumerate
 Implement a report system so that users can signal to PowerEnJoy vehicles
  that are damaged, very dirty, or generally not fit for use.
- 
 \end_layout
 
 \begin_layout Standard
@@ -1373,7 +1368,7 @@ Domain assumption 12: PowerEnJoy employees are given the task to move to
 \end_layout
 
 \begin_layout Itemize
-Domain assumption 14: PowerEnJoy ensures a car is always nearby.
+Domain assumption 13: PowerEnJoy ensures a car is always nearby.
  The number of cars is not fixed and depends on the trend of reservations.
 \end_layout
 
@@ -1529,7 +1524,7 @@ Domain assumption 11: PowerEnJoy employees are given the task to re-charge
 \end_layout
 
 \begin_layout Itemize
-Domain assumption 13: PowerEnJoy ensures no mechanical failures can happen
+Domain assumption 12: PowerEnJoy ensures no mechanical failures can happen
  to cars.
 \end_layout
 
@@ -1601,8 +1596,9 @@ R16.
 
 \end_inset
 
-At the end of the ride the system interacts with the third party payment
- service and shows to the user the report of the payment operation.
+At the end of the ride the system waits for possible discounts to be applied
+ to the final fare (see Goal 10), and then interacts with the third party
+ payment service and notifies the user with the report of the payment operation.
 \end_layout
 
 \begin_layout Paragraph*
@@ -1679,7 +1675,7 @@ Domain assumption 8: The number of people inside a PowerEnJoy car can always
 \end_layout
 
 \begin_layout Itemize
-Domain assumption 15: The set of safe areas and charging areas is pre-defined
+Domain assumption 14: The set of safe areas and charging areas is pre-defined
  by the system.
 \end_layout
 
@@ -1737,6 +1733,20 @@ R21.
 
 \end_inset
 
+If a ride is eligible for multiple discounts, only the largest is effectively
+ applied to the final fare.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+R22.
+\end_layout
+
+\end_inset
+
 If the position of the car at the end of the ride is more than 3 km away
  from the nearest charging area or if the battery level is lower than 20%
  of the total charge, the system must apply a 30% additional charge on the
@@ -1748,7 +1758,7 @@ If the position of the car at the end of the ride is more than 3 km away
 status open
 
 \begin_layout Plain Layout
-R22.
+R23.
 \end_layout
 
 \end_inset
@@ -1772,7 +1782,7 @@ Domain assumption 5: Every PowerEnJoy car is equipped with an information
 \end_layout
 
 \begin_layout Itemize
-Domain assumption 15: The set of safe areas and charging areas is pre-defined
+Domain assumption 14: The set of safe areas and charging areas is pre-defined
  by the system.
 \end_layout
 
@@ -1787,7 +1797,7 @@ Requirement 20: If the position of the car at the end of the ride is a charging
 status open
 
 \begin_layout Plain Layout
-R23.
+R24.
 \end_layout
 
 \end_inset
@@ -1801,7 +1811,7 @@ The user must be able to enable a money saving option as soon as he/she
 status open
 
 \begin_layout Plain Layout
-R24.
+R25.
 \end_layout
 
 \end_inset
@@ -1816,7 +1826,7 @@ The system estimates at which charging area the user has to park the car,
 status open
 
 \begin_layout Plain Layout
-R25.
+R26.
 \end_layout
 
 \end_inset
@@ -1838,7 +1848,7 @@ Domain assumption 2: Every user has valid credentials of a third party digital
 status open
 
 \begin_layout Plain Layout
-R26.
+R27.
 \end_layout
 
 \end_inset
@@ -1852,7 +1862,7 @@ If the payment operation of a user fails due to insufficient funds, then
 status open
 
 \begin_layout Plain Layout
-R27.
+R28.
 \end_layout
 
 \end_inset
@@ -2093,7 +2103,7 @@ textwidth][c]{
 \begin_inset Graphics
 	filename /root/git/PowerEnJoy/rasd/mockups/register.png
 	width 80pheight%
-	height 45page%
+	height 60page%
 	keepAspectRatio
 
 \end_inset
@@ -2339,7 +2349,7 @@ textwidth][c]{
 \begin_inset Graphics
 	filename /root/git/PowerEnJoy/rasd/mockups/login.png
 	width 80pheight%
-	height 45page%
+	height 60page%
 	keepAspectRatio
 
 \end_inset
@@ -2584,8 +2594,7 @@ textwidth][c]{
 \begin_inset Graphics
 	filename /root/git/PowerEnJoy/rasd/mockups/lookup.png
 	width 80pheight%
-	height 45page%
-	keepAspectRatio
+	height 60page%
 
 \end_inset
 
@@ -2835,8 +2844,7 @@ textwidth][c]{
 \begin_inset Graphics
 	filename /root/git/PowerEnJoy/rasd/mockups/reserve.png
 	width 80pheight%
-	height 45page%
-	keepAspectRatio
+	height 60page%
 
 \end_inset
 
@@ -3080,8 +3088,7 @@ textwidth][c]{
 \begin_inset Graphics
 	filename /root/git/PowerEnJoy/rasd/mockups/unlock.png
 	width 80pheight%
-	height 45page%
-	keepAspectRatio
+	height 60page%
 
 \end_inset
 

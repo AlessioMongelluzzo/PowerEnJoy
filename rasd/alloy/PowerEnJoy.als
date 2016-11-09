@@ -94,6 +94,39 @@ abstract sig RideState {}
 one sig ACTIVE extends RideState {}
 one sig COMPLETED extends RideState {}
 
+/*
+ *		Fare modifiers are expressed in percentage.
+ *		Discounts are expressed as a positive integer between 1 and 100.
+ *		Additional charges are represented as a "negative discount", so a negative integer between -infinity and -1.
+ */
+abstract sig FareModifier {
+	value: one Int
+	}{
+	value <= 100
+	}
+abstract sig Discount extends FareModifier {}{
+	value >= 1
+	}
+abstract sig AdditionalCharge extends FareModifier {}{
+	value <= -1
+	}
+
+// Discounts
+one sig THREE_PEOPLE_DISCOUNT extends Discount {}{
+	value = 10
+	}
+one sig HIGH_BATTERY_DISCOUNT extends Discount {}{
+	value = 20
+	}
+one sig PLUGGED_CAR_DISCOUNT extends Discount {}{
+	value = 30
+	}
+
+// Additional charges
+one sig LOW_BATTERY_ADDITIONAL_CHARGE extends AdditionalCharge {}{
+	value = -30
+	}
+
 sig Ride {
 	driver: one User,
 	car: one Car,
@@ -104,7 +137,10 @@ sig Ride {
 	beginPosition: one Position,
 	endPosition: lone Position,
 	moneySaving: one Bool,
-	moneySavingDestination: lone Position
+	moneySavingDestination: lone Position,
+	discount: lone Discount,
+	additionalCharge: lone AdditionalCharge,
+	paymentSuccessful: one Bool
 	}{
 	numOfTravellers > 0
 	numOfTravellers <= 4
@@ -114,6 +150,8 @@ sig Ride {
 	state = COMPLETED <=> endDate != none
 	moneySaving = True implies some a: ChargingArea | moneySavingDestination & a.point != none
 	moneySaving = False implies moneySavingDestination = none
+	state = ACTIVE implies discount = none and additionalCharge = none
+	paymentSuccessful = False implies driver.banned = True
 	}
 
 // === FACTS ===
