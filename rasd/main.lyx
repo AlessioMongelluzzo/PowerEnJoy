@@ -214,11 +214,7 @@ A person can log into the system.
 \end_layout
 
 \begin_layout Enumerate
-Users can find available cars around them.
-\end_layout
-
-\begin_layout Enumerate
-Users can find available cars near a specified position.
+Users can know the position of available cars.
 \end_layout
 
 \begin_layout Enumerate
@@ -247,6 +243,7 @@ Parked cars are automatically locked.
 
 \begin_layout Enumerate
 Discounts are applied to the fare of users who have a virtuous behaviour.
+ Additional charges are applied to users who have an inconvenient behaviour.
 \end_layout
 
 \begin_layout Enumerate
@@ -327,6 +324,9 @@ Car
 Locked car
 \series default
 : car whose doors cannot be opened from the outside.
+ If the doors of a locked car are opened from the inside, the car will remain
+ in the locked state and the doors will lock automatically as soon as they
+ are closed again.
 \end_layout
 
 \begin_layout Itemize
@@ -504,6 +504,30 @@ API
 : Application Programming Interface.
 \end_layout
 
+\begin_layout Itemize
+
+\series bold
+JVM
+\series default
+: Java Virtual Machine.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+GPS
+\series default
+: Global Positioning System.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+SMS
+\series default
+: Short Message Service.
+\end_layout
+
 \begin_layout Subsection
 References
 \end_layout
@@ -515,8 +539,8 @@ This document refers to the project rules of the Software Engineering 2
  830-1998 for the format of Software Requirements specifications, with some
  variations.
  The main changes have been made in Chapter 2, where some general scenarios
- and some relationships between goals, domain assumptions and requirements
- have been identified.
+ have been identified, and in Chapter 3, where the relationships between
+ goals, domain assumptions and requirements have been identified.
 \end_layout
 
 \begin_layout Subsection
@@ -970,31 +994,44 @@ We assume that:
 \end_layout
 
 \begin_layout Enumerate
-Users have access to the internet.
-\end_layout
-
-\begin_layout Enumerate
-Every electric car is equipped with a GPS.
-\end_layout
-
-\begin_layout Enumerate
-The GPS always provides an accurate location.
-\end_layout
-
-\begin_layout Enumerate
-Cars' battery level and charge status can be monitored remotely.
-\end_layout
-
-\begin_layout Enumerate
-Cars can be locked and unlocked remotely.
-\end_layout
-
-\begin_layout Enumerate
-The number of people inside the car can always be monitored.
+Users have access to the Internet.
 \end_layout
 
 \begin_layout Enumerate
 Every user has valid credentials of a third party digital payment system.
+\end_layout
+
+\begin_layout Enumerate
+Every PowerEnJoy car is equipped with a GPS, which always provides an accurate
+ location.
+\end_layout
+
+\begin_layout Enumerate
+Every PowerEnJoy car is connected to the Internet.
+\end_layout
+
+\begin_layout Enumerate
+Every PowerEnJoy car is equipped with an information display.
+\end_layout
+
+\begin_layout Enumerate
+PowerEnJoy cars' battery level and charge status can be monitored remotely.
+\end_layout
+
+\begin_layout Enumerate
+PowerEnJoy cars' engine status can be monitored remotely.
+\end_layout
+
+\begin_layout Enumerate
+The number of people inside a PowerEnJoy car can always be monitored remotely.
+\end_layout
+
+\begin_layout Enumerate
+PowerEnJoy cars can be locked and unlocked remotely.
+\end_layout
+
+\begin_layout Enumerate
+PowerEnJoy car doors can always be opened from the inside.
 \end_layout
 
 \begin_layout Enumerate
@@ -1014,22 +1051,6 @@ PowerEnJoy ensures no mechanical failures can happen to cars.
 \begin_layout Enumerate
 PowerEnJoy ensures a car is always nearby.
  The number of cars is not fixed and depends on the trend of reservations.
-\end_layout
-
-\begin_layout Enumerate
-Car doors can always be opened from the inside.
-\end_layout
-
-\begin_layout Enumerate
-Users can be geolocalized.
-\end_layout
-
-\begin_layout Enumerate
-Cars' engine status can be monitored remotely.
-\end_layout
-
-\begin_layout Enumerate
-Every car is equipped with an information display.
 \end_layout
 
 \begin_layout Enumerate
@@ -1205,6 +1226,639 @@ Software interfaces
 
 \begin_layout Subsubsection
 Communications interfaces
+\end_layout
+
+\begin_layout Subsection
+Requirements identification
+\end_layout
+
+\begin_layout Paragraph
+Goal 1: A person can register to the system.
+\end_layout
+
+\begin_layout Itemize
+Domain assumption 1: Users have access to the internet.
+\end_layout
+
+\begin_layout Itemize
+Domain assumption 2: Every user has valid credentials of a third party digital
+ payment system.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+R1.
+\end_layout
+
+\end_inset
+
+On registration, a person must be asked: e-mail address, username, password,
+ name, surname, birth date, address, driving license number, billing information.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+R2.
+\end_layout
+
+\end_inset
+
+There mustn't be another user already registered with the same e-mail address,
+ username, or driving license number.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+R3.
+\end_layout
+
+\end_inset
+
+The password must be at least 8 characters long and it must contain at least
+ one lowercase character, one uppercase character, and one digit.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+R4.
+\end_layout
+
+\end_inset
+
+The password must be asked twice.
+ The two passwords must match.
+\end_layout
+
+\begin_layout Paragraph*
+Goal 2: Only registered users can log into the system.
+\end_layout
+
+\begin_layout Itemize
+Domain assumption 1: Users have access to the internet.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+R5.
+\end_layout
+
+\end_inset
+
+On login, the system must grant the user access to the account if and only
+ if the following conditions are met:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+The inserted username corresponds to a username of an existing user, or
+ the inserted e-mail corresponds to the registration e-mail of an existing
+ user.
+\end_layout
+
+\begin_layout Enumerate
+The inserted password matches with that of the user identified above.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+R6.
+\end_layout
+
+\end_inset
+
+If the entered password is wrong, a new attempt can be made only 10 seconds
+ later.
+\end_layout
+
+\begin_layout Paragraph*
+Goal 3: Users can know the position of available cars.
+\end_layout
+
+\begin_layout Itemize
+Domain assumption 1: Users have access to the internet.
+\end_layout
+
+\begin_layout Itemize
+Domain assumption 3: Every PowerEnJoy car is equipped with a GPS, which
+ always provides an accurate location.
+\end_layout
+
+\begin_layout Itemize
+Domain assumption 4: Every PowerEnJoy car is connected to the Internet.
+\end_layout
+
+\begin_layout Itemize
+Domain assumption 12: PowerEnJoy employees are given the task to move to
+ a safe area cars which have the engine turned off and are outside a safe
+ area.
+\end_layout
+
+\begin_layout Itemize
+Domain assumption 14: PowerEnJoy ensures a car is always nearby.
+ The number of cars is not fixed and depends on the trend of reservations.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+R7.
+\end_layout
+
+\end_inset
+
+The user can choose to find cars around his/her position, or around a specified
+ address.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+R8.
+\end_layout
+
+\end_inset
+
+The user must be shown a map of the selected position, on which the locations
+ of available cars are marked.
+\end_layout
+
+\begin_layout Paragraph*
+Goal 4: Users can reserve a car.
+\end_layout
+
+\begin_layout Itemize
+Domain assumption 1: Users have access to the internet.
+\end_layout
+
+\begin_layout Itemize
+Domain assumption 4: Every PowerEnJoy car is connected to the Internet.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+R9.
+\end_layout
+
+\end_inset
+
+The user must be able to click on a marked location on the map in order
+ to view additional information on the car at that position.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+R10.
+\end_layout
+
+\end_inset
+
+The user must be able to view at least the exact address and the battery
+ level of the selected car.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+R11.
+\end_layout
+
+\end_inset
+
+The user must be able to reserve the selected car by clicking on a button
+ in the additional information screen.
+ After the button has been clicked, the car state must be set to RESERVED
+ and a new reservation must be created associated to the user and the selected
+ car.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+R12.
+\end_layout
+
+\end_inset
+
+The user must not be able to reserve the selected car if there already exists
+ a reservation made by the user himself/herself.
+\end_layout
+
+\begin_layout Paragraph*
+Goal 5: Users can get into the reserved car.
+\end_layout
+
+\begin_layout Itemize
+Domain assumption 1: Users have access to the internet.
+\end_layout
+
+\begin_layout Itemize
+Domain assumption 4: Every PowerEnJoy car is connected to the Internet.
+\end_layout
+
+\begin_layout Itemize
+Domain assumption 9: PowerEnJoy cars can be locked and unlocked remotely.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+R13.
+\end_layout
+
+\end_inset
+
+Any user who reserved a car in the last hour must be able to unlock the
+ car he/she has reserved in one of the following ways:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+If the reservation has been made via mobile app, the user must be able to
+ unlock the car by clicking on a button in the reservation screen of the
+ mobile app.
+\end_layout
+
+\begin_layout Enumerate
+If the reservation has been made via web app, the user must be able to unlock
+ the car by sending an SMS.
+\end_layout
+
+\end_deeper
+\begin_layout Paragraph*
+Goal 6: Users can use the reserved car.
+\end_layout
+
+\begin_layout Itemize
+Domain assumption 11: PowerEnJoy employees are given the task to re-charge
+ on-site cars left with less than 20% of battery level.
+\end_layout
+
+\begin_layout Itemize
+Domain assumption 13: PowerEnJoy ensures no mechanical failures can happen
+ to cars.
+\end_layout
+
+\begin_layout Itemize
+Requirement 13: Any user who reserved a car in the last hour must be able
+ to tell the system to unlock the car he/she has reserved.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+R14.
+\end_layout
+
+\end_inset
+
+The system must inform an employee when a car is in low battery state.
+\end_layout
+
+\begin_layout Paragraph*
+Goal 7: Users can pay for the car-sharing service.
+\end_layout
+
+\begin_layout Itemize
+Domain assumption 1: Users have access to the Internet.
+\end_layout
+
+\begin_layout Itemize
+Domain assumption 2: Every user has valid credentials of a third party digital
+ payment system.
+\end_layout
+
+\begin_layout Itemize
+Domain assumption 4: Every PowerEnJoy car is connected to the Internet.
+\end_layout
+
+\begin_layout Itemize
+Domain assumption 5: Every PowerEnJoy car is equipped with an information
+ display.
+\end_layout
+
+\begin_layout Itemize
+Domain assumption 7: PowerEnJoy cars' engine status can be monitored remotely.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+R15.
+\end_layout
+
+\end_inset
+
+The system must keep track of the time spent from when the engine turns
+ on until the engine turns off.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+R16.
+\end_layout
+
+\end_inset
+
+At the end of the ride the system interacts with the third party payment
+ service and shows to the user the report of the payment operation.
+\end_layout
+
+\begin_layout Paragraph*
+Goal 8: Users can check the current fare while in the car.
+\end_layout
+
+\begin_layout Itemize
+Domain assumption 5: Every PowerEnJoy car is equipped with an information
+ display.
+\end_layout
+
+\begin_layout Itemize
+Requirement 15: The system keeps track of the time spent from when the engine
+ turns on until the engine turns off.
+\end_layout
+
+\begin_layout Paragraph*
+Goal 9: Parked cars are automatically locked.
+\end_layout
+
+\begin_layout Itemize
+Domain assumption 4: Every PowerEnJoy car is connected to the Internet.
+\end_layout
+
+\begin_layout Itemize
+Domain assumption 7: PowerEnJoy cars' engine status can be monitored remotely.
+\end_layout
+
+\begin_layout Itemize
+Domain assumption 9: PowerEnJoy cars can be locked and unlocked remotely.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+R17.
+\end_layout
+
+\end_inset
+
+The system must force the car to be locked as soon as the engine is turned
+ off.
+\end_layout
+
+\begin_layout Paragraph*
+Goal 10: Discounts are applied to the fare of users who have a virtuous
+ behaviour.
+ Additional charges are applied to users who have an inconvenient behaviour.
+\end_layout
+
+\begin_layout Itemize
+Domain assumption 3: Every PowerEnJoy car is equipped with a GPS, which
+ always provides an accurate location.
+\end_layout
+
+\begin_layout Itemize
+Domain assumption 4: Every PowerEnJoy car is connected to the Internet.
+\end_layout
+
+\begin_layout Itemize
+Domain assumption 6: PowerEnJoy cars' battery level and charge status can
+ be monitored remotely.
+\end_layout
+
+\begin_layout Itemize
+Domain assumption 7: PowerEnJoy cars' engine status can be monitored remotely.
+\end_layout
+
+\begin_layout Itemize
+Domain assumption 8: The number of people inside a PowerEnJoy car can always
+ be monitored remotely.
+\end_layout
+
+\begin_layout Itemize
+Domain assumption 15: The set of safe areas and charging areas is pre-defined
+ by the system.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+R18.
+\end_layout
+
+\end_inset
+
+If the number of people inside the car is measured to be 3 or more, the
+ system must apply a 10% discount on the final fare.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+R19.
+\end_layout
+
+\end_inset
+
+If the battery level at the end of the ride is measured to be at least 50%
+ of the total charge, the system must apply a 20% discount on the final
+ fare.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+R20.
+\end_layout
+
+\end_inset
+
+If the position of the car at the end of the ride is a charging area, and
+ the car is plugged in within a 2 minutes time frame, the system must apply
+ a 30% discount on the final fare.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+R21.
+\end_layout
+
+\end_inset
+
+If the position of the car at the end of the ride is more than 3 km away
+ from the nearest charging area or if the battery level is lower than 20%
+ of the total charge, the system must apply a 30% additional charge on the
+ final fare.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+R22.
+\end_layout
+
+\end_inset
+
+Any user who doesn't ignite the engine of the car he/she has reserved within
+ an hour is charged with a fee of 1 EUR and his/her reservation is deleted.
+\end_layout
+
+\begin_layout Paragraph*
+Goal 11: Users can choose a money saving option.
+\end_layout
+
+\begin_layout Itemize
+Domain assumption 3: Every PowerEnJoy car is equipped with a GPS, which
+ always provides an accurate location.
+\end_layout
+
+\begin_layout Itemize
+Domain assumption 5: Every PowerEnJoy car is equipped with an information
+ display.
+\end_layout
+
+\begin_layout Itemize
+Domain assumption 15: The set of safe areas and charging areas is pre-defined
+ by the system.
+\end_layout
+
+\begin_layout Itemize
+Requirement 20: If the position of the car at the end of the ride is a charging
+ area, and the car is plugged in within a 2 minutes time frame, the system
+ must apply a 30% discount on the final fare.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+R23.
+\end_layout
+
+\end_inset
+
+The user must be able to enable a money saving option as soon as he/she
+ enters the car, by entering a specific destination.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+R24.
+\end_layout
+
+\end_inset
+
+The system estimates at which charging area the user has to park the car,
+ depending on the specified destination and plug availability, in order
+ to achieve a uniform distribution of cars.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+R25.
+\end_layout
+
+\end_inset
+
+The optimal route to reach the charging area is displayed to the user.
+\end_layout
+
+\begin_layout Paragraph*
+Goal 12: A user who can't pay will be banned.
+\end_layout
+
+\begin_layout Itemize
+Domain assumption 2: Every user has valid credentials of a third party digital
+ payment system.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+R26.
+\end_layout
+
+\end_inset
+
+If the payment operation of a user fails due to insufficient funds, then
+ that user is banned until he/she pays it off.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+R27.
+\end_layout
+
+\end_inset
+
+If a user is banned, the system must prevent him/her from having access
+ to the service.
 \end_layout
 
 \begin_layout Subsection
@@ -3621,6 +4275,38 @@ If the user tries to delete his profile while having reserved a car, the
 \end_inset
 
 
+\end_layout
+
+\begin_layout Subsection
+Performance requirements
+\end_layout
+
+\begin_layout Subsection
+Software system attributes
+\end_layout
+
+\begin_layout Subsubsection
+Reliability
+\end_layout
+
+\begin_layout Subsubsection
+Availability
+\end_layout
+
+\begin_layout Subsubsection
+Security
+\end_layout
+
+\begin_layout Subsubsection
+Maintainability
+\end_layout
+
+\begin_layout Subsubsection
+Portability
+\end_layout
+
+\begin_layout Subsection
+Alloy
 \end_layout
 
 \end_body

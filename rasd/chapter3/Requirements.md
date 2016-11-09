@@ -22,19 +22,18 @@
 2. Every electric car is equipped with a GPS.
 3. The GPS always provides an accurate location.
 4. Cars' battery level and charge status can be monitored remotely.
-5. Cars that get damaged trigger a sensor that notices the system.
-6. Cars can be locked and unlocked remotely.
-7. The number of people inside the car can always be monitored.
-8. Every user has valid credentials of a third party digital payment system.
-9. PowerEnJoy employees are given the task to re-charge on-site cars left with less than 20% of battery level.
-10. PowerEnJoy employees are given the task to move to a safe area cars which have the engine turned off and are outside a safe area.
-11. PowerEnJoy ensures no mechanical failures can happen to cars.
-12. PowerEnJoy ensures a car is always nearby. The number of cars is not fixed and depends on the trend of reservations.
-13. Car doors can always be opened from the inside.
-14. Users can be geolocalized.
-15. Cars' engine status can be monitored remotely.
-16. Every car is equipped with an information display.
-17. The set of safe areas and charging areas is pre-defined by the system.
+5. Cars can be locked and unlocked remotely.
+6. The number of people inside the car can always be monitored.
+7. Every user has valid credentials of a third party digital payment system.
+8. PowerEnJoy employees are given the task to re-charge on-site cars left with less than 20% of battery level.
+9. PowerEnJoy employees are given the task to move to a safe area cars which have the engine turned off and are outside a safe area.
+10. PowerEnJoy ensures no mechanical failures can happen to cars.
+11. PowerEnJoy ensures a car is always nearby. The number of cars is not fixed and depends on the trend of reservations.
+12. Car doors can always be opened from the inside.
+13. Users can be geolocalized.
+14. Cars' engine status can be monitored remotely.
+15. Every car is equipped with an information display.
+16. The set of safe areas and charging areas is pre-defined by the system.
 
 
 - - -
@@ -44,7 +43,7 @@
 *Goal 1*: A person can register to the system.
 - *Domain assumption* 1: Users have access to the internet.
 - *Domain assumption* 7: Every user has valid credentials of a third party digital payment system.
-1. The system shows a registration form to new users.
+1. On registration, a person must be asked: e-mail address, username, password, name, surname, birth date, address, driving license number, billing information.
 2. The system ensures username is unique and password valid.
 
 *Goal 2*: Only registered users can log into the system.
@@ -85,7 +84,7 @@
 - *Domain assumption* 8: PowerEnJoy employees are given the task to re-charge on-site cars left with less than 20% of battery level.
 - *Domain assumption* 10: PowerEnJoy ensures no mechanical failures can happen to cars.
 - *Requirement* 8: The system must unlock a car once the user who reserved it is nearby.
-9. The system must inform an employee if a car needs an intervention
+9. The system must inform an employee if a car needs a recharge intervention
 
 *Goal 8*: Users can pay for the car-sharing service.
 - *Domain assumption* 7: Every user has valid credentials of a third party digital payment system.
