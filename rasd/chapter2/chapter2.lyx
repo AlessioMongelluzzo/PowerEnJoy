@@ -190,10 +190,9 @@ textwidth][c]{
 
 
 \begin_inset Graphics
-	filename /root/git/PowerEnJoy/rasd/uml/class_diagram.png
+	filename class_diagram.png
 	width 80page%
 	height 80pheight%
-	keepAspectRatio
 	clip
 
 \end_inset
@@ -257,10 +256,9 @@ textwidth][c]{
 
 
 \begin_inset Graphics
-	filename /root/git/PowerEnJoy/rasd/uml/sequence_diagram.png
+	filename sequence_diagram.png
 	width 80page%
 	height 80page%
-	keepAspectRatio
 
 \end_inset
 
@@ -323,10 +321,9 @@ textwidth][c]{
 
 
 \begin_inset Graphics
-	filename /root/git/PowerEnJoy/rasd/uml/statechart_car_ride.png
+	filename statechart_car_ride.png
 	width 80page%
 	height 80page%
-	keepAspectRatio
 
 \end_inset
 

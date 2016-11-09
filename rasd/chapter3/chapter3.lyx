@@ -279,7 +279,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename /root/git/PowerEnJoy/rasd/uml/use_case_registration.png
+	filename use_case_registration.png
 	scale 50
 
 \end_inset
@@ -393,8 +393,8 @@ Event Flow
 \begin_inset Text
 
 \begin_layout Enumerate
-User or employee completes the form in the home page of PowerEnJoy app or website by
- inserting his username and password.
+User or employee completes the form in the home page of PowerEnJoy app or
+ website by inserting his username and password.
 \end_layout
 
 \begin_layout Enumerate
@@ -418,7 +418,8 @@ Output condition
 \begin_inset Text
 
 \begin_layout Plain Layout
-User's or employee's credentials are validated and he can access to PowerEnJoy services.
+User's or employee's credentials are validated and he can access to PowerEnJoy
+ services.
 \end_layout
 
 \end_inset
@@ -1441,7 +1442,8 @@ Input condition
 \begin_inset Text
 
 \begin_layout Plain Layout
-Employee logged in and there is a parked car not in charge at a power grid station with low battery level.
+Employee logged in and there is a parked car not in charge at a power grid
+ station with low battery level.
 \end_layout
 
 \end_inset
@@ -1461,7 +1463,8 @@ Event Flow
 \begin_inset Text
 
 \begin_layout Enumerate
-The system sends a push notification to the employee that is nearest to the car.
+The system sends a push notification to the employee that is nearest to
+ the car.
 \end_layout
 
 \begin_layout Enumerate
@@ -1473,11 +1476,13 @@ The employee unlocks the car through the app.
 \end_layout
 
 \begin_layout Enumerate
-The system estimates the nearest power grid station and automatically sets it as the destination of the car's GPS.
+The system estimates the nearest power grid station and automatically sets
+ it as the destination of the car's GPS.
 \end_layout
 
 \begin_layout Enumerate
-If the battery level is not enough to reach the destination, the employee charges the car in place.
+If the battery level is not enough to reach the destination, the employee
+ charges the car in place.
 \end_layout
 
 \begin_layout Enumerate
@@ -1521,7 +1526,10 @@ Exception
 \begin_inset Text
 
 \begin_layout Itemize
-If the employee does not confirm the request within 5 minutes, it is signaled that he did not perform the task and the event flow is repeated with the following nearest employee. 
+If the employee does not confirm the request within 5 minutes, it is signaled
+ that he did not perform the task and the event flow is repeated with the
+ following nearest employee.
+ 
 \end_layout
 
 \end_inset
@@ -1623,7 +1631,8 @@ User selects the "profile settings" button.
 \end_layout
 
 \begin_layout Enumerate
-A dropdown menu with "View profile" and "Delet profile" options is shown to the user.
+A dropdown menu with "View profile" and "Delet profile" options is shown
+ to the user.
 \end_layout
 
 \begin_layout Enumerate
@@ -1773,11 +1782,13 @@ User is shown the profile edit page.
 \end_layout
 
 \begin_layout Enumerate
-User changes the contents of the fields he want to edit. 
+User changes the contents of the fields he want to edit.
+ 
 \end_layout
 
 \begin_layout Enumerate
-User selects the "Save changes" button at the end of the page. 
+User selects the "Save changes" button at the end of the page.
+ 
 \end_layout
 
 \end_inset
@@ -1817,7 +1828,9 @@ Exception
 \begin_inset Text
 
 \begin_layout Plain Layout
-If the user fills at least one of the fields with invalid strings and then he tries to save changes, the system notifies him the error and shows him his profile unedited.
+If the user fills at least one of the fields with invalid strings and then
+ he tries to save changes, the system notifies him the error and shows him
+ his profile unedited.
 \end_layout
 
 \end_inset
@@ -1919,7 +1932,8 @@ User selects the "profile settings" button.
 \end_layout
 
 \begin_layout Enumerate
-A dropdown menu with "View profile" and "Delet profile" options is shown to the user.
+A dropdown menu with "View profile" and "Delet profile" options is shown
+ to the user.
 \end_layout
 
 \begin_layout Enumerate
@@ -1971,7 +1985,9 @@ Exception
 \begin_inset Text
 
 \begin_layout Plain Layout
-If the user tries to delete his profile while having reserved a car, the system notifies him that it is not possible to delete a profile that is reserving a car.
+If the user tries to delete his profile while having reserved a car, the
+ system notifies him that it is not possible to delete a profile that is
+ reserving a car.
 \end_layout
 
 \end_inset

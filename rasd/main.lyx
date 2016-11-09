@@ -704,10 +704,9 @@ textwidth][c]{
 
 
 \begin_inset Graphics
-	filename /root/git/PowerEnJoy/rasd/uml/class_diagram.png
+	filename uml/class_diagram.png
 	width 80page%
 	height 80pheight%
-	keepAspectRatio
 	clip
 
 \end_inset
@@ -767,10 +766,9 @@ textwidth][c]{
 
 
 \begin_inset Graphics
-	filename /root/git/PowerEnJoy/rasd/uml/sequence_diagram.png
+	filename uml/sequence_diagram.png
 	width 80page%
 	height 80page%
-	keepAspectRatio
 
 \end_inset
 
@@ -829,10 +827,9 @@ textwidth][c]{
 
 
 \begin_inset Graphics
-	filename /root/git/PowerEnJoy/rasd/uml/statechart_car_ride.png
+	filename uml/statechart_car_ride.png
 	width 80page%
 	height 80page%
-	keepAspectRatio
 
 \end_inset
 
@@ -995,10 +992,6 @@ We assume that:
 
 \begin_layout Enumerate
 Users have access to the Internet.
-\end_layout
-
-\begin_layout Enumerate
-Every user has valid credentials of a third party digital payment system.
 \end_layout
 
 \begin_layout Enumerate
@@ -1235,11 +1228,6 @@ Goal 1: A person can register to the system.
 Domain assumption 1: Users have access to the internet.
 \end_layout
 
-\begin_layout Itemize
-Domain assumption 2: Every user has valid credentials of a third party digital
- payment system.
-\end_layout
-
 \begin_layout Enumerate
 \begin_inset Argument item:1
 status open
@@ -1353,22 +1341,22 @@ Domain assumption 1: Users have access to the internet.
 \end_layout
 
 \begin_layout Itemize
-Domain assumption 3: Every PowerEnJoy car is equipped with a GPS, which
+Domain assumption 2: Every PowerEnJoy car is equipped with a GPS, which
  always provides an accurate location.
 \end_layout
 
 \begin_layout Itemize
-Domain assumption 4: Every PowerEnJoy car is connected to the Internet.
+Domain assumption 3: Every PowerEnJoy car is connected to the Internet.
 \end_layout
 
 \begin_layout Itemize
-Domain assumption 12: PowerEnJoy employees are given the task to move to
+Domain assumption 11: PowerEnJoy employees are given the task to move to
  a safe area cars which have the engine turned off and are outside a safe
  area.
 \end_layout
 
 \begin_layout Itemize
-Domain assumption 13: PowerEnJoy ensures a car is always nearby.
+Domain assumption 12: PowerEnJoy ensures a car is always nearby.
  The number of cars is not fixed and depends on the trend of reservations.
 \end_layout
 
@@ -1409,7 +1397,7 @@ Domain assumption 1: Users have access to the internet.
 \end_layout
 
 \begin_layout Itemize
-Domain assumption 4: Every PowerEnJoy car is connected to the Internet.
+Domain assumption 3: Every PowerEnJoy car is connected to the Internet.
 \end_layout
 
 \begin_layout Enumerate
@@ -1480,11 +1468,11 @@ Domain assumption 1: Users have access to the internet.
 \end_layout
 
 \begin_layout Itemize
-Domain assumption 4: Every PowerEnJoy car is connected to the Internet.
+Domain assumption 3: Every PowerEnJoy car is connected to the Internet.
 \end_layout
 
 \begin_layout Itemize
-Domain assumption 9: PowerEnJoy cars can be locked and unlocked remotely.
+Domain assumption 8: PowerEnJoy cars can be locked and unlocked remotely.
 \end_layout
 
 \begin_layout Enumerate
@@ -1519,17 +1507,17 @@ Goal 6: Users can use the reserved car.
 \end_layout
 
 \begin_layout Itemize
-Domain assumption 11: PowerEnJoy employees are given the task to re-charge
+Domain assumption 10: PowerEnJoy employees are given the task to re-charge
  on-site cars left with less than 20% of battery level.
 \end_layout
 
 \begin_layout Itemize
-Domain assumption 12: PowerEnJoy ensures no mechanical failures can happen
+Domain assumption 11: PowerEnJoy ensures no mechanical failures can happen
  to cars.
 \end_layout
 
 \begin_layout Itemize
-Requirement 13: Any user who reserved a car in the last hour must be able
+Requirement 12: Any user who reserved a car in the last hour must be able
  to tell the system to unlock the car he/she has reserved.
 \end_layout
 
@@ -1555,21 +1543,16 @@ Domain assumption 1: Users have access to the Internet.
 \end_layout
 
 \begin_layout Itemize
-Domain assumption 2: Every user has valid credentials of a third party digital
- payment system.
+Domain assumption 3: Every PowerEnJoy car is connected to the Internet.
 \end_layout
 
 \begin_layout Itemize
-Domain assumption 4: Every PowerEnJoy car is connected to the Internet.
-\end_layout
-
-\begin_layout Itemize
-Domain assumption 5: Every PowerEnJoy car is equipped with an information
+Domain assumption 4: Every PowerEnJoy car is equipped with an information
  display.
 \end_layout
 
 \begin_layout Itemize
-Domain assumption 7: PowerEnJoy cars' engine status can be monitored remotely.
+Domain assumption 6: PowerEnJoy cars' engine status can be monitored remotely.
 \end_layout
 
 \begin_layout Enumerate
@@ -1606,12 +1589,12 @@ Goal 8: Users can check the current fare while in the car.
 \end_layout
 
 \begin_layout Itemize
-Domain assumption 5: Every PowerEnJoy car is equipped with an information
+Domain assumption 4: Every PowerEnJoy car is equipped with an information
  display.
 \end_layout
 
 \begin_layout Itemize
-Requirement 15: The system keeps track of the time spent from when the engine
+Requirement 14: The system keeps track of the time spent from when the engine
  turns on until the engine turns off.
 \end_layout
 
@@ -1620,15 +1603,15 @@ Goal 9: Parked cars are automatically locked.
 \end_layout
 
 \begin_layout Itemize
-Domain assumption 4: Every PowerEnJoy car is connected to the Internet.
+Domain assumption 3: Every PowerEnJoy car is connected to the Internet.
 \end_layout
 
 \begin_layout Itemize
-Domain assumption 7: PowerEnJoy cars' engine status can be monitored remotely.
+Domain assumption 6: PowerEnJoy cars' engine status can be monitored remotely.
 \end_layout
 
 \begin_layout Itemize
-Domain assumption 9: PowerEnJoy cars can be locked and unlocked remotely.
+Domain assumption 8: PowerEnJoy cars can be locked and unlocked remotely.
 \end_layout
 
 \begin_layout Enumerate
@@ -1652,30 +1635,30 @@ Goal 10: Discounts are applied to the fare of users who have a virtuous
 \end_layout
 
 \begin_layout Itemize
-Domain assumption 3: Every PowerEnJoy car is equipped with a GPS, which
+Domain assumption 2: Every PowerEnJoy car is equipped with a GPS, which
  always provides an accurate location.
 \end_layout
 
 \begin_layout Itemize
-Domain assumption 4: Every PowerEnJoy car is connected to the Internet.
+Domain assumption 3: Every PowerEnJoy car is connected to the Internet.
 \end_layout
 
 \begin_layout Itemize
-Domain assumption 6: PowerEnJoy cars' battery level and charge status can
+Domain assumption 5: PowerEnJoy cars' battery level and charge status can
  be monitored remotely.
 \end_layout
 
 \begin_layout Itemize
-Domain assumption 7: PowerEnJoy cars' engine status can be monitored remotely.
+Domain assumption 8: PowerEnJoy cars' engine status can be monitored remotely.
 \end_layout
 
 \begin_layout Itemize
-Domain assumption 8: The number of people inside a PowerEnJoy car can always
+Domain assumption 9: The number of people inside a PowerEnJoy car can always
  be monitored remotely.
 \end_layout
 
 \begin_layout Itemize
-Domain assumption 14: The set of safe areas and charging areas is pre-defined
+Domain assumption 13: The set of safe areas and charging areas is pre-defined
  by the system.
 \end_layout
 
@@ -1772,17 +1755,17 @@ Goal 11: Users can choose a money saving option.
 \end_layout
 
 \begin_layout Itemize
-Domain assumption 3: Every PowerEnJoy car is equipped with a GPS, which
+Domain assumption 2: Every PowerEnJoy car is equipped with a GPS, which
  always provides an accurate location.
 \end_layout
 
 \begin_layout Itemize
-Domain assumption 5: Every PowerEnJoy car is equipped with an information
+Domain assumption 4: Every PowerEnJoy car is equipped with an information
  display.
 \end_layout
 
 \begin_layout Itemize
-Domain assumption 14: The set of safe areas and charging areas is pre-defined
+Domain assumption 13: The set of safe areas and charging areas is pre-defined
  by the system.
 \end_layout
 
@@ -1836,11 +1819,6 @@ The optimal route to reach the charging area is displayed to the user.
 
 \begin_layout Paragraph*
 Goal 12: A user who can't pay will be banned.
-\end_layout
-
-\begin_layout Itemize
-Domain assumption 2: Every user has valid credentials of a third party digital
- payment system.
 \end_layout
 
 \begin_layout Enumerate
@@ -2052,7 +2030,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename /root/git/PowerEnJoy/rasd/uml/use_case_registration.png
+	filename uml/use_case_registration.png
 	scale 50
 
 \end_inset
@@ -2101,10 +2079,9 @@ textwidth][c]{
 
 
 \begin_inset Graphics
-	filename /root/git/PowerEnJoy/rasd/mockups/register.png
+	filename mockups/register.png
 	width 80pheight%
 	height 60page%
-	keepAspectRatio
 
 \end_inset
 
@@ -2294,7 +2271,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename /root/git/PowerEnJoy/rasd/uml/use_case_login.png
+	filename uml/use_case_login.png
 	scale 50
 
 \end_inset
@@ -2347,10 +2324,9 @@ textwidth][c]{
 
 
 \begin_inset Graphics
-	filename /root/git/PowerEnJoy/rasd/mockups/login.png
+	filename mockups/login.png
 	width 80pheight%
 	height 60page%
-	keepAspectRatio
 
 \end_inset
 
@@ -2543,7 +2519,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename /root/git/PowerEnJoy/rasd/uml/use_case_car_lookup.png
+	filename uml/use_case_car_lookup.png
 	scale 50
 
 \end_inset
@@ -2592,7 +2568,7 @@ textwidth][c]{
 
 
 \begin_inset Graphics
-	filename /root/git/PowerEnJoy/rasd/mockups/lookup.png
+	filename mockups/lookup.png
 	width 80pheight%
 	height 60page%
 
@@ -2793,7 +2769,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename /root/git/PowerEnJoy/rasd/uml/use_case_car_reservation.png
+	filename uml/use_case_car_reservation.png
 	scale 50
 
 \end_inset
@@ -2842,7 +2818,7 @@ textwidth][c]{
 
 
 \begin_inset Graphics
-	filename /root/git/PowerEnJoy/rasd/mockups/reserve.png
+	filename mockups/reserve.png
 	width 80pheight%
 	height 60page%
 
@@ -3037,7 +3013,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename /root/git/PowerEnJoy/rasd/uml/use_case_car_unlock.png
+	filename uml/use_case_car_unlock.png
 	scale 50
 
 \end_inset
@@ -3086,7 +3062,7 @@ textwidth][c]{
 
 
 \begin_inset Graphics
-	filename /root/git/PowerEnJoy/rasd/mockups/unlock.png
+	filename mockups/unlock.png
 	width 80pheight%
 	height 60page%
 
@@ -3449,7 +3425,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename /root/git/PowerEnJoy/rasd/uml/use_case_money_saving_option.png
+	filename uml/use_case_money_saving_option.png
 	scale 50
 
 \end_inset
@@ -3636,7 +3612,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename /root/git/PowerEnJoy/rasd/uml/use_case_electronic_payment.png
+	filename uml/use_case_electronic_payment.png
 	scale 50
 
 \end_inset
