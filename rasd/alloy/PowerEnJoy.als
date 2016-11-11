@@ -145,7 +145,7 @@ sig Ride {
 	moneySavingDestination: lone Position,
 	discount: lone Discount,
 	additionalCharge: lone AdditionalCharge,
-	paymentSuccessful: one Bool
+	paymentSuccessful: lone Bool
 	}{
 	numOfTravellers > 0
 	numOfTravellers <= 4
@@ -159,6 +159,7 @@ sig Ride {
 	paymentSuccessful = False implies driver.banned = True
 	endBatteryLevel>=0 && endBatteryLevel<=100
 	finalDistanceFromChargingArea >= 0
+	state = COMPLETED <=> paymentSuccessful != none
 	}
 
 // === FACTS ===
@@ -224,6 +225,10 @@ fact ridesDoNotOverlapForSameUserOrCar {
 
 fact bannedUserHasNoReservationOrActiveRide {
 	all u: User | u.banned = True implies (no r: Ride | r.state = ACTIVE and r.driver = u) and (no r: Reservation | r.madeBy = u)
+	}
+
+fact userIsBannedIffHeHasSomeUnsuccesfulPayments {
+	all u: User | (some r: Ride | r.state = COMPLETED and r.driver = u and r.paymentSuccessful = False) <=> (u.banned = True)
 	}
 
 fact areasOfTheSameTypeDoNotOverlap {
