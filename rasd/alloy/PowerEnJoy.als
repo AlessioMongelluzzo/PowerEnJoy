@@ -280,6 +280,10 @@ fact noDiscountIfAdditionalCharge {
 	all r: Ride | r.additionalCharge != none => r.discount = none
 	}
 
+fact lowBatteryCarsAreFixed {
+	all c: Car | (c.batteryLevel <20 && c.pluggedIn = none && no r: Ride | r.state = ACTIVE && r.car = c) => some e: Employee | e.fix =c
+	}
+
 // === ASSERTIONS ===
 assert noEmployeeFixesOKCar {
 	no e: Employee | e.fix.state != LOW_BATTERY
@@ -308,11 +312,10 @@ check moneySavingRideHasDestination
 
 pred show() {
 	some r: Ride | r.state = COMPLETED
-	some r: Ride | r.state = ACTIVE
+	some r: Ride | r.state = ACTIVE 
 	some r: Ride | r.numOfTravellers >1
 	some c:  Car | c.state = LOW_BATTERY
 	some r: Ride | r.discount != none
-	some r: Ride | r.car.pluggedIn != none
 	}
 
-run show for 4 but 8 int
+run show for 6 but 8 int
