@@ -162,6 +162,9 @@ sig Ride {
 	}
 
 // === FACTS ===
+fact aRideExistsForEveryRunningCar {
+	all c: Car | c.state = RUNNING => some r: Ride | r.car = c
+	}
 
 fact licensePlatesAreUnique {
 	all c1, c2: Car | (c1 != c2) => c1.licensePlate != c2.licensePlate
@@ -280,8 +283,8 @@ fact noDiscountIfAdditionalCharge {
 	all r: Ride | r.additionalCharge != none => r.discount = none
 	}
 
-fact lowBatteryCarsAreFixed {
-	all c: Car | (c.batteryLevel <20 && c.pluggedIn = none && no r: Ride | r.state = ACTIVE && r.car = c) => some e: Employee | e.fix =c
+fact lowBatteryCarsAreFixedByOneEmployee {
+	all c: Car | (c.batteryLevel <20 && c.pluggedIn = none && no r: Ride | r.state = ACTIVE && r.car = c) => one e: Employee | e.fix =c
 	}
 
 // === ASSERTIONS ===
@@ -314,8 +317,8 @@ pred show() {
 	some r: Ride | r.state = COMPLETED
 	some r: Ride | r.state = ACTIVE 
 	some r: Ride | r.numOfTravellers >1
-	some c:  Car | c.state = LOW_BATTERY
+	some c: Car | c.state = LOW_BATTERY
 	some r: Ride | r.discount != none
 	}
 
-run show for 6 but 8 int
+run show for 4 but 8 int
