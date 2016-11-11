@@ -126,6 +126,9 @@ one sig PLUGGED_CAR_DISCOUNT extends Discount {}{
 one sig LOW_BATTERY_ADDITIONAL_CHARGE extends AdditionalCharge {}{
 	value = -30
 	}
+one sig HIGH_DISTANCE_ADDITIONAL_CHARGE extends AdditionalCharge {}{
+	value = -30
+	}
 
 sig Ride {
 	driver: one User,
@@ -136,6 +139,8 @@ sig Ride {
 	endDate: lone Int,
 	beginPosition: one Position,
 	endPosition: lone Position,
+	finalDistanceFromChargingArea: one Int,
+	endBatteryLevel: one Int,
 	moneySaving: one Bool,
 	moneySavingDestination: lone Position,
 	discount: lone Discount,
@@ -152,6 +157,8 @@ sig Ride {
 	moneySaving = False implies moneySavingDestination = none
 	state = ACTIVE implies discount = none and additionalCharge = none
 	paymentSuccessful = False implies driver.banned = True
+	endBatteryLevel>=0 && endBatteryLevel<=100
+	finalDistanceFromChargingArea >= 0
 	}
 
 // === FACTS ===
@@ -241,6 +248,38 @@ fact everySafeAreaBelongsToManagementSystem {
 	#(SafeArea) = #(ManagementSystem.safeArea)
 	}
 
+fact threePassengersDiscountRides {
+	all r: Ride | (r.numOfTravellers>=3 && r.endBatteryLevel<50 && r.car.pluggedIn = none) => r.discount = THREE_PEOPLE_DISCOUNT
+	}
+
+fact highBatteryDiscountRides {
+	all r: Ride | (r.endBatteryLevel >=50 && r.car.pluggedIn = none) => r.discount = HIGH_BATTERY_DISCOUNT
+	}
+
+fact pluggedInDiscountRides {
+	all r: Ride | r.car.pluggedIn != none => r.discount = PLUGGED_CAR_DISCOUNT
+	}
+
+fact noFreeDiscountsApplied {
+	no r: Ride | r.numOfTravellers<3 && r.endBatteryLevel<50 && r.car.pluggedIn = none && r.discount != none
+	}
+
+fact pluggedInCarsAreLeftInChargingStations {
+	all r: Ride | r.car.pluggedIn != none => r.finalDistanceFromChargingArea=0
+	}
+
+fact lowBatteryAdditionalCharge {
+	all r: Ride | r.endBatteryLevel<20 => r.additionalCharge = LOW_BATTERY_ADDITIONAL_CHARGE
+	}
+
+fact highDistanceAdditionalCharge {
+	all r: Ride | r.finalDistanceFromChargingArea > 3 => r.additionalCharge = HIGH_DISTANCE_ADDITIONAL_CHARGE
+	}
+
+fact noDiscountIfAdditionalCharge {
+	all r: Ride | r.additionalCharge != none => r.discount = none
+	}
+
 // === ASSERTIONS ===
 assert noEmployeeFixesOKCar {
 	no e: Employee | e.fix.state != LOW_BATTERY
@@ -270,7 +309,10 @@ check moneySavingRideHasDestination
 pred show() {
 	some r: Ride | r.state = COMPLETED
 	some r: Ride | r.state = ACTIVE
+	some r: Ride | r.numOfTravellers >1
 	some c:  Car | c.state = LOW_BATTERY
+	some r: Ride | r.discount != none
+	some r: Ride | r.car.pluggedIn != none
 	}
 
 run show for 4 but 8 int

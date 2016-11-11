@@ -1204,6 +1204,20 @@ External interface requirements
 User interfaces
 \end_layout
 
+\begin_layout Itemize
+Moblie application
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+The iOS version must adhere to iOS Human Interface Guide- lines.
+\end_layout
+
+\begin_layout Enumerate
+The Android version must adhere to Android design guidelines.
+\end_layout
+
+\end_deeper
 \begin_layout Subsubsection
 Hardware interfaces
 \end_layout
