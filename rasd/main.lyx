@@ -2022,7 +2022,7 @@ Actor
 \begin_inset Text
 
 \begin_layout Plain Layout
-Person
+Person, System.
 \end_layout
 
 \end_inset
@@ -2042,7 +2042,7 @@ Goals
 \begin_inset Text
 
 \begin_layout Plain Layout
-Goal 1
+Goal 1: A person can register to the system.
 \end_layout
 
 \end_inset
@@ -2286,7 +2286,7 @@ Actor
 \begin_inset Text
 
 \begin_layout Plain Layout
-User, Employee
+User, Employee, System.
 \end_layout
 
 \end_inset
@@ -2306,7 +2306,7 @@ Goals
 \begin_inset Text
 
 \begin_layout Plain Layout
-Goal 2
+Goal 2: Only registered users can log into the system.
 \end_layout
 
 \end_inset
@@ -2395,6 +2395,11 @@ Exception
 User types an incorrect username and/or password and the system notifies
  him the error, by asking his credentials again.
  
+\end_layout
+
+\begin_layout Itemize
+If user is banned and tries to login, the system prevents him from performing
+ this operation and instead shows him an error page.
 \end_layout
 
 \end_inset
@@ -2532,7 +2537,7 @@ Actor
 \begin_inset Text
 
 \begin_layout Plain Layout
-User
+User, System.
 \end_layout
 
 \end_inset
@@ -2552,7 +2557,7 @@ Goals
 \begin_inset Text
 
 \begin_layout Plain Layout
-Goal 3, Goal 4
+Goal 3: Users can know the position of available cars.
 \end_layout
 
 \end_inset
@@ -2777,7 +2782,7 @@ Actor
 \begin_inset Text
 
 \begin_layout Plain Layout
-User
+User, System.
 \end_layout
 
 \end_inset
@@ -2797,7 +2802,7 @@ Goals
 \begin_inset Text
 
 \begin_layout Plain Layout
-Goal 5
+Goal 4: Users can reserve a car.
 \end_layout
 
 \end_inset
@@ -3037,7 +3042,7 @@ Actor
 \begin_inset Text
 
 \begin_layout Plain Layout
-User
+User, System.
 \end_layout
 
 \end_inset
@@ -3057,7 +3062,11 @@ Goals
 \begin_inset Text
 
 \begin_layout Plain Layout
-Goal 6, Goal 7, Goal 10
+Goal 5: Users can get into the reserved car.
+\end_layout
+
+\begin_layout Plain Layout
+Goal 9: Parked cars are automatically locked.
 \end_layout
 
 \end_inset
@@ -3283,7 +3292,7 @@ Actor
 \begin_inset Text
 
 \begin_layout Plain Layout
-User
+System.
 \end_layout
 
 \end_inset
@@ -3303,7 +3312,9 @@ Goals
 \begin_inset Text
 
 \begin_layout Plain Layout
-Goal 11
+Goal 10: Discounts are applied to the fare of users who have a virtuous
+ behaviour.
+ Additional charges are applied to users who have an inconvenient behaviour.
 \end_layout
 
 \end_inset
@@ -3450,7 +3461,7 @@ Actor
 \begin_inset Text
 
 \begin_layout Plain Layout
-System
+User, System.
 \end_layout
 
 \end_inset
@@ -3470,7 +3481,7 @@ Goals
 \begin_inset Text
 
 \begin_layout Plain Layout
-Goal 12
+Goal 11: Users can choose a money saving option.
 \end_layout
 
 \end_inset
@@ -3634,7 +3645,7 @@ Actor
 \begin_inset Text
 
 \begin_layout Plain Layout
-System, Third party digital payment system
+System, Third party digital payment system.
 \end_layout
 
 \end_inset
@@ -3654,7 +3665,15 @@ Goals
 \begin_inset Text
 
 \begin_layout Plain Layout
-Goal 8, Goal 13
+Goal 4: Users can reserve a car.
+\end_layout
+
+\begin_layout Plain Layout
+Goal 7: Users can pay for the car-sharing service.
+\end_layout
+
+\begin_layout Plain Layout
+Goal 12: A user who can't pay will be banned.
 \end_layout
 
 \end_inset
@@ -3827,7 +3846,7 @@ Actor
 \begin_inset Text
 
 \begin_layout Plain Layout
-Employee
+Employee, System.
 \end_layout
 
 \end_inset
@@ -3847,7 +3866,7 @@ Goals
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Goal 6: Users can use the reserved car.
 \end_layout
 
 \end_inset
@@ -4026,7 +4045,7 @@ Actor
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+User, System.
 \end_layout
 
 \end_inset
@@ -4173,7 +4192,7 @@ Actor
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+User, System.
 \end_layout
 
 \end_inset
@@ -4327,7 +4346,7 @@ Actor
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+User, System.
 \end_layout
 
 \end_inset
