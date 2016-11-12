@@ -456,7 +456,7 @@ Reservation
 Safe area
 \series default
 : place where cars can be legally parked without any risk for a fine.
- The set of safe areas for parking cars is pre-defined by the system.
+ 
 \end_layout
 
 \begin_layout Itemize
@@ -1045,7 +1045,17 @@ PowerEnJoy ensures a car is always nearby.
 \end_layout
 
 \begin_layout Enumerate
-The set of safe areas and charging areas is pre-defined by the system.
+The system interacts with a geographical database of areas where cars can
+ be legally parked.
+\end_layout
+
+\begin_layout Enumerate
+The system interacts with a geographical database of cars whose location
+ can be tracked with a GPS system.
+\end_layout
+
+\begin_layout Enumerate
+Cars are equipped with sensors to check whether doors are open or closed.
 \end_layout
 
 \begin_layout Subsection
@@ -1376,6 +1386,11 @@ Domain assumption 12: PowerEnJoy ensures a car is always nearby.
  The number of cars is not fixed and depends on the trend of reservations.
 \end_layout
 
+\begin_layout Itemize
+Domain assumption 14: The system interacts with a geographical database
+ of cars whose location can be tracked with a GPS system.
+\end_layout
+
 \begin_layout Enumerate
 \begin_inset Argument item:1
 status open
@@ -1426,6 +1441,34 @@ R9.
 
 \end_inset
 
+The system charges the user in advance with 1 EUR deposit.
+ The deposit is given back to the user if he turns on the engine.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+R10.
+\end_layout
+
+\end_inset
+
+If an error occurs while charging the user with the down payment then an
+ error message is displayed and the reservation operation is aborted.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+R11.
+\end_layout
+
+\end_inset
+
 The user must be able to click on a marked location on the map in order
  to view additional information on the car at that position.
 \end_layout
@@ -1435,7 +1478,7 @@ The user must be able to click on a marked location on the map in order
 status open
 
 \begin_layout Plain Layout
-R10.
+R12.
 \end_layout
 
 \end_inset
@@ -1449,7 +1492,7 @@ The user must be able to view at least the exact address and the battery
 status open
 
 \begin_layout Plain Layout
-R11.
+R13.
 \end_layout
 
 \end_inset
@@ -1466,7 +1509,7 @@ The user must be able to reserve the selected car by clicking on a button
 status open
 
 \begin_layout Plain Layout
-R12.
+R14.
 \end_layout
 
 \end_inset
@@ -1496,7 +1539,7 @@ Domain assumption 8: PowerEnJoy cars can be locked and unlocked remotely.
 status open
 
 \begin_layout Plain Layout
-R13.
+R15.
 \end_layout
 
 \end_inset
@@ -1533,7 +1576,7 @@ Domain assumption 11: PowerEnJoy ensures no mechanical failures can happen
 \end_layout
 
 \begin_layout Itemize
-Requirement 12: Any user who reserved a car in the last hour must be able
+Requirement 15: Any user who reserved a car in the last hour must be able
  to tell the system to unlock the car he/she has reserved.
 \end_layout
 
@@ -1542,7 +1585,7 @@ Requirement 12: Any user who reserved a car in the last hour must be able
 status open
 
 \begin_layout Plain Layout
-R14.
+R16.
 \end_layout
 
 \end_inset
@@ -1576,7 +1619,7 @@ Domain assumption 6: PowerEnJoy cars' engine status can be monitored remotely.
 status open
 
 \begin_layout Plain Layout
-R15.
+R17.
 \end_layout
 
 \end_inset
@@ -1590,7 +1633,7 @@ The system must keep track of the time spent from when the engine turns
 status open
 
 \begin_layout Plain Layout
-R16.
+R18.
 \end_layout
 
 \end_inset
@@ -1610,7 +1653,7 @@ Domain assumption 4: Every PowerEnJoy car is equipped with an information
 \end_layout
 
 \begin_layout Itemize
-Requirement 14: The system keeps track of the time spent from when the engine
+Requirement 17: The system keeps track of the time spent from when the engine
  turns on until the engine turns off.
 \end_layout
 
@@ -1630,18 +1673,57 @@ Domain assumption 6: PowerEnJoy cars' engine status can be monitored remotely.
 Domain assumption 8: PowerEnJoy cars can be locked and unlocked remotely.
 \end_layout
 
+\begin_layout Itemize
+Domain assumption 9: PowerEnJoy car doors can always be opened from the
+ inside.
+\end_layout
+
+\begin_layout Itemize
+Domain assumption 15: Cars are equipped with sensors to check whether doors
+ are open or closed.
+\end_layout
+
 \begin_layout Enumerate
 \begin_inset Argument item:1
 status open
 
 \begin_layout Plain Layout
-R17.
+R19.
 \end_layout
 
 \end_inset
 
-The system must force the car to be locked as soon as the engine is turned
- off.
+The system locks the car if it detects that nobody is inside the vehicle
+ and doors are closed.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+R20.
+\end_layout
+
+\end_inset
+
+If the system fails in locking the car (e.g.
+ doors are not closed) then a warning message in sent to the respective
+ user.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+R21.
+\end_layout
+
+\end_inset
+
+If a user unlocks a locked car from the inside, then the system locks the
+ car again.
 \end_layout
 
 \begin_layout Paragraph*
@@ -1674,8 +1756,8 @@ Domain assumption 9: The number of people inside a PowerEnJoy car can always
 \end_layout
 
 \begin_layout Itemize
-Domain assumption 13: The set of safe areas and charging areas is pre-defined
- by the system.
+Domain assumption 13: The system interacts with a geographical database
+ of areas where cars can be legally parked.
 \end_layout
 
 \begin_layout Enumerate
@@ -1683,7 +1765,21 @@ Domain assumption 13: The set of safe areas and charging areas is pre-defined
 status open
 
 \begin_layout Plain Layout
-R18.
+R22.
+\end_layout
+
+\end_inset
+
+If the car is detected to be at a charging area, then the system must wait
+ for a fixed timeout of 2 minutes before charging the user.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+R23.
 \end_layout
 
 \end_inset
@@ -1697,7 +1793,7 @@ If the number of people inside the car is measured to be 3 or more, the
 status open
 
 \begin_layout Plain Layout
-R19.
+R24.
 \end_layout
 
 \end_inset
@@ -1712,7 +1808,7 @@ If the battery level at the end of the ride is measured to be at least 50%
 status open
 
 \begin_layout Plain Layout
-R20.
+R25.
 \end_layout
 
 \end_inset
@@ -1727,7 +1823,7 @@ If the position of the car at the end of the ride is a charging area, and
 status open
 
 \begin_layout Plain Layout
-R21.
+R26.
 \end_layout
 
 \end_inset
@@ -1741,7 +1837,7 @@ If a ride is eligible for multiple discounts, only the largest is effectively
 status open
 
 \begin_layout Plain Layout
-R22.
+R27.
 \end_layout
 
 \end_inset
@@ -1757,7 +1853,7 @@ If the position of the car at the end of the ride is more than 3 km away
 status open
 
 \begin_layout Plain Layout
-R23.
+R28.
 \end_layout
 
 \end_inset
@@ -1781,12 +1877,12 @@ Domain assumption 4: Every PowerEnJoy car is equipped with an information
 \end_layout
 
 \begin_layout Itemize
-Domain assumption 13: The set of safe areas and charging areas is pre-defined
- by the system.
+Domain assumption 13: The system interacts with a geographical database
+ of areas where cars can be legally parked.
 \end_layout
 
 \begin_layout Itemize
-Requirement 20: If the position of the car at the end of the ride is a charging
+Requirement 25: If the position of the car at the end of the ride is a charging
  area, and the car is plugged in within a 2 minutes time frame, the system
  must apply a 30% discount on the final fare.
 \end_layout
@@ -1796,7 +1892,7 @@ Requirement 20: If the position of the car at the end of the ride is a charging
 status open
 
 \begin_layout Plain Layout
-R24.
+R29.
 \end_layout
 
 \end_inset
@@ -1810,7 +1906,7 @@ The user must be able to enable a money saving option as soon as he/she
 status open
 
 \begin_layout Plain Layout
-R25.
+R30.
 \end_layout
 
 \end_inset
@@ -1825,7 +1921,7 @@ The system estimates at which charging area the user has to park the car,
 status open
 
 \begin_layout Plain Layout
-R26.
+R31.
 \end_layout
 
 \end_inset
@@ -1842,7 +1938,7 @@ Goal 12: A user who can't pay will be banned.
 status open
 
 \begin_layout Plain Layout
-R27.
+R32.
 \end_layout
 
 \end_inset
@@ -1856,13 +1952,45 @@ If the payment operation of a user fails due to insufficient funds, then
 status open
 
 \begin_layout Plain Layout
-R28.
+R33.
 \end_layout
 
 \end_inset
 
 If a user is banned, the system must prevent him/her from having access
  to the service.
+\end_layout
+
+\begin_layout Subsubsection
+Other requirements
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+R34.
+\end_layout
+
+\end_inset
+
+The system must generate special credential for employees.
+ Employees' account can lock and unlock every car.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+R35.
+\end_layout
+
+\end_inset
+
+Employees must be able to access an area where cars can be inserted to/deleted
+ from the database.
 \end_layout
 
 \begin_layout Subsection
@@ -2722,6 +2850,10 @@ User confirms the reservation request by clicking on the "√" button.
 \end_layout
 
 \begin_layout Enumerate
+User is charged with 1 EUR deposit.
+\end_layout
+
+\begin_layout Enumerate
 User is notified in another page that the operation was succesful.
 \end_layout
 
@@ -2761,6 +2893,11 @@ Exception
 </cell>
 <cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
+
+\begin_layout Itemize
+The operation is interrupted if the user cannot successfully make 1 EUR
+ down payment.
+\end_layout
 
 \begin_layout Itemize
 The car the user is trying to reserve is not available anymore, the system
@@ -2969,7 +3106,7 @@ User selects the reserved car and clicks the "unlock" button.
 
 \begin_layout Enumerate
 Car doors are automatically locked by the system as soon as the user gets
- out of the car with the engine turned off.
+ out of the vehicle and closes the doors.
 \end_layout
 
 \end_inset
@@ -3010,8 +3147,9 @@ Exception
 <cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
-\begin_layout Plain Layout
-/
+\begin_layout Itemize
+The system cannot successfully lock a car and a warning message is sent
+ to the user's profile.
 \end_layout
 
 \end_inset
@@ -3607,10 +3745,16 @@ Exception
 \begin_inset Text
 
 \begin_layout Itemize
-The system receives an unsuccesful outcome from the third party digital
- payment system, because there are not enough funds on the user's bill to
- perform the payment operation and the user's account is banned until the
- system receives a succesful outcome.
+The system receives an unsuccessful outcome w.r.t.
+ a reservation deposit, then the transaction is aborted and the user is
+ not banned.
+\end_layout
+
+\begin_layout Itemize
+The system receives an unsuccesful outcome w.r.t.
+ a ride from the third party digital payment system because there are not
+ enough funds on the user's bill to perform the payment operation and the
+ user's account is banned until the system receives a succesful outcome.
  
 \end_layout
 
@@ -3633,7 +3777,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename uml/use_case_electronic_payment.png
+	filename uml/activity_diagram_electronic_payment.png
 	scale 50
 
 \end_inset
@@ -3645,7 +3789,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Use case diagram for the electronic payment feature.
+Activity diagram for the electronic payment feature.
 \end_layout
 
 \end_inset
@@ -3817,6 +3961,40 @@ If the employee does not confirm the request within 5 minutes, it is signaled
 </cell>
 </row>
 </lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename uml/activity_diagram_car_pickup_request.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Activity diagram for the car pickup feature.
+\end_layout
+
+\end_inset
+
+
+\end_layout
 
 \end_inset
 
@@ -4275,6 +4453,40 @@ If the user tries to delete his profile while having reserved a car, the
 </cell>
 </row>
 </lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename uml/use_case_user_profile_management.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Use case diagram for the user profile management.
+\end_layout
+
+\end_inset
+
+
+\end_layout
 
 \end_inset
 
