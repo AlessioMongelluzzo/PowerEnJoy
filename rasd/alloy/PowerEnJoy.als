@@ -183,12 +183,24 @@ fact credentialsAreUnique {
 	all u1, u2: User | (u1 != u2) => u1.credential != u2.credential
 	}
 
+fact billingInfoIsUnique {
+	all u1, u2: User | (u1 != u2) => u1.billingInfo != u2.billingInfo
+	}
+
 fact plugCannotBelongToDifferentChargingAreas {
 	no disjoint c1, c2: ChargingArea | c1.hasPlug & c2.hasPlug != none
 	}
 
+fact carsCannotBePluggedInTheSamePlug {
+	all c1, c2: Car | ((c1 != c2) && (c1.pluggedIn != none) && (c2.pluggedIn != none)) => c1.pluggedIn != c2.pluggedIn
+	}
+
 fact chargingCarIsAtChargingArea {
 	all c: Car | c.pluggedIn != none implies c.currentPosition & c.pluggedIn.(~hasPlug).point != none
+	}
+
+fact noOverlappingPositions {
+	all p1, p2: Position | (p1 != p2) => (p1.latitude != p2.latitude) || (p1.longitude != p2.longitude)
 	}
 
 fact carsCannotHaveTheSamePosition {
@@ -227,8 +239,12 @@ fact bannedUserHasNoReservationOrActiveRide {
 	all u: User | u.banned = True implies (no r: Ride | r.state = ACTIVE and r.driver = u) and (no r: Reservation | r.madeBy = u)
 	}
 
-fact userIsBannedIffHeHasSomeUnsuccesfulPayments {
-	all u: User | (some r: Ride | r.state = COMPLETED and r.driver = u and r.paymentSuccessful = False) <=> (u.banned = True)
+fact bannedUsersHaveExactlyOneUnsuccessfulPayment {
+	all u: User | u.banned = True => (one r: Ride | (r.driver = u) && (r.paymentSuccessful = False))
+	}
+
+fact noRidesAfterUnsuccessfulPayment {
+	all r1, r2: Ride | r1 != r2 && r1.driver = r2.driver && r1.paymentSuccessful = False => r1.beginDate > r2.beginDate
 	}
 
 fact areasOfTheSameTypeDoNotOverlap {
@@ -242,6 +258,10 @@ fact noUnusedPlug {
 
 fact noUnusedPosition {
 	#(Position) = #(User.currentPosition + Car.currentPosition)
+	}
+
+fact noUnusedBillingInfo {
+	#(BillingInfo) = #(User.billingInfo)
 	}
 
 fact everyUserBelongsToManagementSystem {
@@ -290,6 +310,13 @@ fact noDiscountIfAdditionalCharge {
 
 fact lowBatteryCarsAreFixedByOneEmployee {
 	all c: Car | (c.batteryLevel <20 && c.pluggedIn = none && no r: Ride | r.state = ACTIVE && r.car = c) => one e: Employee | e.fix =c
+	}
+fact pluggedCarsAreNotFixedByEmployees {
+	all c: Car | (c.pluggedIn != none => no e: Employee | e.fix = c)
+	}
+
+fact EmployeeFixesOnlyOneCarAtATime {
+	all e1, e2: Employee | e1 != e2 => e1.fix != e2.fix
 	}
 
 // === ASSERTIONS ===
