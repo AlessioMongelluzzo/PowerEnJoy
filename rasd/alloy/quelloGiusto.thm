@@ -1,0 +1,143 @@
+<?xml version="1.0"?>
+<alloy>
+
+<view nodetheme="Martha">
+
+<defaultnode/>
+
+<defaultedge/>
+
+<node>
+   <type name="ACTIVE"/>
+   <type name="AVAILABLE"/>
+   <type name="COMPLETED"/>
+   <type name="FareModifier"/>
+   <type name="HIGH_BATTERY_DISCOUNT"/>
+   <type name="HIGH_DISTANCE_ADDITIONAL_CHARGE"/>
+   <type name="LOW_BATTERY"/>
+   <type name="LOW_BATTERY_ADDITIONAL_CHARGE"/>
+   <type name="PLUGGED_CAR_DISCOUNT"/>
+   <type name="RESERVED"/>
+   <type name="RUNNING"/>
+   <type name="String"/>
+   <type name="THREE_PEOPLE_DISCOUNT"/>
+   <type name="univ"/>
+   <type name="boolean/False"/>
+   <type name="boolean/True"/>
+   <type name="seq/Int"/>
+   <set name="$show_c&apos;" type="Car"/>
+   <set name="$show_r&apos;&apos;&apos;&apos;" type="Ride"/>
+</node>
+
+<node color="Black">
+   <type name="ManagementSystem"/>
+</node>
+
+<node color="Blue">
+   <type name="Area"/>
+   <type name="Reservation"/>
+</node>
+
+<node color="Gray">
+   <type name="Stringa"/>
+</node>
+
+<node color="Green">
+   <type name="Position"/>
+</node>
+
+<node color="Red">
+   <type name="Ride"/>
+</node>
+
+<node color="White">
+   <type name="User"/>
+</node>
+
+<node color="Yellow">
+   <type name="Plug"/>
+</node>
+
+<node shape="Box">
+   <type name="ChargingArea"/>
+</node>
+
+<node shape="Ellipse" color="Yellow">
+   <type name="BillingInfo"/>
+</node>
+
+<node shape="Hexagon" color="White">
+   <type name="Float"/>
+</node>
+
+<node shape="Inv Triangle" color="Red">
+   <type name="Credential"/>
+</node>
+
+<node shape="Lined Diamond" color="Gray">
+   <type name="Employee"/>
+</node>
+
+<node shape="Parallelogram" color="Green">
+   <type name="Car"/>
+</node>
+
+<node shape="Trapezoid">
+   <type name="SafeArea"/>
+</node>
+
+<node style="Bold" label="r">
+   <set name="$show_r" type="Ride"/>
+</node>
+
+<node style="Bold" label="r&apos;">
+   <set name="$show_r&apos;" type="Ride"/>
+</node>
+
+<node style="Bold" label="r&apos;&apos;">
+   <set name="$show_r&apos;&apos;" type="Ride"/>
+</node>
+
+<node style="Bold" label="r&apos;&apos;&apos;">
+   <set name="$show_r&apos;&apos;&apos;" type="Ride"/>
+</node>
+
+<node visible="no">
+   <type name="AdditionalCharge"/>
+   <type name="CarState"/>
+   <type name="Discount"/>
+   <type name="Int"/>
+   <type name="RideState"/>
+   <type name="boolean/Bool"/>
+</node>
+
+<edge attribute="yes">
+   <relation name="finalDistanceFromChargingArea"> <type name="Ride"/> <type name="Int"/> </relation>
+</edge>
+
+<edge color="Gray" visible="no" attribute="yes" constraint="no">
+   <relation name="additionalCharge"> <type name="Ride"/> <type name="AdditionalCharge"/> </relation>
+   <relation name="banned"> <type name="User"/> <type name="boolean/Bool"/> </relation>
+   <relation name="discount"> <type name="Ride"/> <type name="Discount"/> </relation>
+   <relation name="locked"> <type name="Car"/> <type name="boolean/Bool"/> </relation>
+   <relation name="moneySaving"> <type name="Ride"/> <type name="boolean/Bool"/> </relation>
+   <relation name="paymentSuccessful"> <type name="Ride"/> <type name="boolean/Bool"/> </relation>
+   <relation name="state"> <type name="Car"/> <type name="CarState"/> </relation>
+   <relation name="state"> <type name="Ride"/> <type name="RideState"/> </relation>
+</edge>
+
+<edge visible="no">
+   <relation name="$show_c"> <type name="Stringa"/> <type name="Car"/> </relation>
+   <relation name="$show_p"> <type name="Float"/> <type name="Position"/> </relation>
+   <relation name="$show_u"> <type name="Stringa"/> <type name="User"/> </relation>
+</edge>
+
+<edge visible="no" attribute="yes">
+   <relation name="beginDate"> <type name="Ride"/> <type name="Int"/> </relation>
+   <relation name="endBatteryLevel"> <type name="Ride"/> <type name="Int"/> </relation>
+   <relation name="endDate"> <type name="Ride"/> <type name="Int"/> </relation>
+</edge>
+
+</view>
+
+</alloy>

@@ -276,6 +276,10 @@ fact everySafeAreaBelongsToManagementSystem {
 	#(SafeArea) = #(ManagementSystem.safeArea)
 	}
 
+fact everyCredentialBelongsToAUser {
+	#Credential = #(User.credential)
+	}
+
 fact threePassengersDiscountRides {
 	all r: Ride | (r.numOfTravellers>=3 && r.endBatteryLevel<50 && r.car.pluggedIn = none) => r.discount = THREE_PEOPLE_DISCOUNT
 	}
@@ -319,6 +323,19 @@ fact EmployeeFixesOnlyOneCarAtATime {
 	all e1, e2: Employee | e1 != e2 => e1.fix != e2.fix
 	}
 
+fact noNewCarsAreLowBattery {
+	no c: Car | (no r: Ride | r.car = c) && c.state = LOW_BATTERY
+	}
+
+fact noRandomFloatsShown {	
+	all f: Float | (some p: Position | p.latitude = f || p.longitude = f)
+	}
+
+fact noRandomStringaShown {
+	all s: Stringa | (some u: User, c: Car | (u.licenseNo = s ||
+	u.credential.username = s || u.credential.password = s || c.licensePlate = s))	
+	}
+
 // === ASSERTIONS ===
 assert noEmployeeFixesOKCar {
 	no e: Employee | e.fix.state != LOW_BATTERY
@@ -345,12 +362,18 @@ assert moneySavingRideHasDestination {
 	}
 check moneySavingRideHasDestination
 
+assert allRunningCarsHaveActiveRide {
+	no c: Car | c.state = RUNNING && (no r: Ride | r.car = c && r.state = ACTIVE)
+	}
+check allRunningCarsHaveActiveRide
+
 pred show() {
 	some r: Ride | r.state = COMPLETED
 	some r: Ride | r.state = ACTIVE 
 	some r: Ride | r.numOfTravellers >1
 	some c: Car | c.state = LOW_BATTERY
 	some r: Ride | r.discount != none
+	some r: Ride | r.discount != HIGH_BATTERY_DISCOUNT
 	}
 
 run show for 4 but 8 int
