@@ -4812,6 +4812,7 @@ textwidth][c]{
 	filename alloy/world.png
 	width 80page%
 	height 80pheight%
+	keepAspectRatio
 	clip
 
 \end_inset
