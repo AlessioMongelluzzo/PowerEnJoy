@@ -4582,7 +4582,8 @@ The code should be documented using JavaDoc.
 \end_layout
 
 \begin_layout Itemize
-The system must support modules extensions, keeping a stable divided core.
+The system must support modules extensions, keeping a stable core decoupled
+ from the modules.
 \end_layout
 
 \begin_layout Subsubsection
