@@ -2175,6 +2175,10 @@ Person accesses the provided email to verify it.
 \end_layout
 
 \begin_layout Enumerate
+System stores information provided by person.
+\end_layout
+
+\begin_layout Enumerate
 Person is shown a page that confirms registration has succesfully completed.
 \end_layout
 
@@ -2215,15 +2219,21 @@ Exception
 \begin_inset Text
 
 \begin_layout Itemize
-Person fills the form with invalid information.
+Person fills the form with invalid information: system highlights the fields
+ with invalid information and informs person that these fields have to be
+ filled with valid information.
 \end_layout
 
 \begin_layout Itemize
-Form is filled with information belonging to an already existing account.
+Form is filled with information belonging to an already existing account:
+ system informs the person that there already exists a user associated to
+ provided information and prevents person to register with provided information.
 \end_layout
 
 \begin_layout Itemize
-Person does not fill all the mandatory fields of the form.
+Person does not fill all the mandatory fields of the form: system highlights
+ the fields with missing information and informs person that these fields
+ have to be filled.
 \end_layout
 
 \end_inset
@@ -4789,7 +4799,6 @@ textwidth][c]{
 	filename alloy/world.png
 	width 80page%
 	height 80pheight%
-	keepAspectRatio
 	clip
 
 \end_inset
