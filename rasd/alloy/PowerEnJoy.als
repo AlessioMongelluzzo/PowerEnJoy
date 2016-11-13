@@ -32,6 +32,7 @@ sig ChargingArea extends SafeArea {
 one sig ManagementSystem {
 	registeredUser: some User,
 	registeredCar: some Car,
+	registeredEmployee: some Employee,
 	safeArea: some SafeArea
 	}
 
