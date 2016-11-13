@@ -262,6 +262,10 @@ Users can choose a money saving option.
 A user who can't pay will be banned.
 \end_layout
 
+\begin_layout Enumerate
+Users can manage their profile.
+\end_layout
+
 \begin_layout Subsection
 Definitions, acronyms, and abbreviations
 \end_layout
@@ -4583,6 +4587,19 @@ Use case diagram for the user profile management.
 Performance requirements
 \end_layout
 
+\begin_layout Itemize
+The system must support at least 1000 simultaneously active rides.
+\end_layout
+
+\begin_layout Itemize
+Any request must be processed in less than 5 seconds.
+\end_layout
+
+\begin_layout Itemize
+The payment operation should be processed in less than 5 seconds after the
+ end of the ride.
+\end_layout
+
 \begin_layout Subsection
 Software system attributes
 \end_layout
@@ -4600,6 +4617,10 @@ The reliability of the system is related to the one of the server it runs
 The system should grant a MTTF (Mean Time To Failure) greater than 1 year.
 \end_layout
 
+\begin_layout Itemize
+The system should grant a MTTR (Mean Time To Repair) smaller than 24 hours.
+\end_layout
+
 \begin_layout Subsubsection
 Availability
 \end_layout
@@ -4613,7 +4634,8 @@ Security
 \end_layout
 
 \begin_layout Itemize
-All the communications must be protected by encryption.
+All the communications must be protected by encryption using the TLS (Transport
+ Layer Security) protocol.
 \end_layout
 
 \begin_layout Itemize
@@ -4764,7 +4786,7 @@ textwidth][c]{
 
 
 \begin_inset Graphics
-	filename /root/git/PowerEnJoy/rasd/alloy/world.png
+	filename alloy/world.png
 	width 80page%
 	height 80pheight%
 	keepAspectRatio
@@ -4850,15 +4872,15 @@ Hours of work
 \end_layout
 
 \begin_layout Itemize
-Alessio Mongelluzzo: ?? hours
+Alessio Mongelluzzo: 30 hours
 \end_layout
 
 \begin_layout Itemize
-Michele Ferri: ?? hours
+Michele Ferri: 35 hours
 \end_layout
 
 \begin_layout Itemize
-Mattia Maffioli: ?? hours
+Mattia Maffioli: 30 hours
 \end_layout
 
 \end_body

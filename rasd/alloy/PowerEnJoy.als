@@ -363,15 +363,10 @@ fact noRandomStringaShown {
 	u.credential.username = s || u.credential.password = s || c.licensePlate = s))	
 	}
 
-/*
- *		After the last ride, the car could have been:
- *			- plugged in (and possibly plugged out) starting from any battery level
- *			- fixed by an employee if the battery level was low
- */
-fact batteryLevelOfCarIsGreaterOrEqualToThatOfLastRide {
-	all r1: Ride | r1.state = COMPLETED and (no r2: Ride | r2 != r1 and
-		r2.car = r1.car and r2.beginDate > r1.endDate) implies
-		r1.car.batteryLevel >= r1.endBatteryLevel
+fact lowBatteryCarHasLastCompletedRideWithLowEndBatteryLevel {
+	all r1: Ride | (no r2: Ride | r2 != r1 and r2.car = r1.car and
+		r2.beginDate > r1.endDate) and r1.endBatteryLevel < 20 <=>
+			r1.car.state = LOW_BATTERY
 	}
 
 // === ASSERTIONS ===
@@ -408,10 +403,10 @@ check allRunningCarsHaveActiveRide
 pred show() {
 	some r: Ride | r.state = COMPLETED
 	some r: Ride | r.state = ACTIVE 
-	some r: Ride | r.numOfTravellers > 1
+	some r: Ride | r.numOfTravellers >1
 	some c: Car | c.state = LOW_BATTERY
 	some r: Ride | r.discount != none
 	some r: Ride | r.discount != HIGH_BATTERY_DISCOUNT
 	}
 
-run show for 3 but 8 int
+run show for 4 but 8 int
