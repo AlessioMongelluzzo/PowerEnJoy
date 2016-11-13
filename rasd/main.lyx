@@ -92,6 +92,30 @@ figs-within-sections
 
 \begin_body
 
+\begin_layout Title
+Software Engineering 2 Project: PowerEnJoy RASD: Requirements Analysis and
+ Specification Document
+\end_layout
+
+\begin_layout Itemize
+Ferri Michele
+\end_layout
+
+\begin_layout Itemize
+Maffioli Mattia
+\end_layout
+
+\begin_layout Itemize
+Mongelluzzo Alessio
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
 \begin_layout Standard
 \begin_inset CommandInset toc
 LatexCommand tableofcontents
@@ -99,6 +123,9 @@ LatexCommand tableofcontents
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
 \begin_inset Newpage pagebreak
 \end_inset
 
