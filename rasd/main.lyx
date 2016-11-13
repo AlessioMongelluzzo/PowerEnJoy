@@ -97,16 +97,53 @@ Software Engineering 2 Project: PowerEnJoy RASD: Requirements Analysis and
  Specification Document
 \end_layout
 
-\begin_layout Itemize
-Ferri Michele
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename polimi.png
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace vfill
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
-Maffioli Mattia
+Alessio Mongelluzzo
 \end_layout
 
 \begin_layout Itemize
-Mongelluzzo Alessio
+Michele Ferri
+\end_layout
+
+\begin_layout Itemize
+Mattia Maffioli
 \end_layout
 
 \begin_layout Standard
@@ -700,11 +737,7 @@ delete their account
 \end_layout
 
 \begin_layout Itemize
-look for available cars around them
-\end_layout
-
-\begin_layout Itemize
-look for available cars near a particular address
+look for available cars around them or near a particular address
 \end_layout
 
 \begin_layout Itemize
@@ -712,7 +745,7 @@ reserve an available car
 \end_layout
 
 \begin_layout Itemize
-tell the system to open a car they have reserved
+tell the system to unlock a car they have reserved
 \end_layout
 
 \begin_layout Itemize
@@ -914,8 +947,8 @@ The main user of the system is the customer of the car sharing service.
  We give for granted that users have access to the Internet.
  Users can look for a car and reserve it both via the web and the mobile
  application.
- Also, PowerEnJoy employees can use the system to check the state of the
- cars.
+ Also, PowerEnJoy employees can use the system to receive a push notification
+ when a car needs an intervention.
 \end_layout
 
 \begin_layout Subsection
@@ -4691,7 +4724,7 @@ All the communications must be protected by encryption using the TLS (Transport
 
 \begin_layout Itemize
 Passwords must not be stored in plain text in the database, but should be
- hashed.
+ hashed and salted instead.
 \end_layout
 
 \begin_layout Subsubsection
