@@ -4548,6 +4548,13 @@ Maintainability
 Portability
 \end_layout
 
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 Alloy
 \end_layout
@@ -4640,6 +4647,13 @@ selectfont,
 lstinputlisting{alloy/PowerEnJoy.als}
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
 \end_inset
 
 
