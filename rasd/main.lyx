@@ -4645,5 +4645,56 @@ lstinputlisting{alloy/PowerEnJoy.als}
 
 \end_layout
 
+\begin_layout Section
+\start_of_appendix
+Appendix A
+\end_layout
+
+\begin_layout Subsection
+Software and tools used
+\end_layout
+
+\begin_layout Itemize
+\SpecialChar LaTeX
+ for typesetting the document.
+\end_layout
+
+\begin_layout Itemize
+\SpecialChar LyX
+ as a document processor.
+\end_layout
+
+\begin_layout Itemize
+GitHub for version control and teamwork.
+\end_layout
+
+\begin_layout Itemize
+Pencil for mockups.
+\end_layout
+
+\begin_layout Itemize
+Draw.io for UML diagrams.
+\end_layout
+
+\begin_layout Itemize
+Alloy Analyzer to check the consistence of the model.
+\end_layout
+
+\begin_layout Subsection
+Hours of work
+\end_layout
+
+\begin_layout Itemize
+Alessio Mongelluzzo: ?? hours
+\end_layout
+
+\begin_layout Itemize
+Michele Ferri: ?? hours
+\end_layout
+
+\begin_layout Itemize
+Mattia Maffioli: ?? hours
+\end_layout
+
 \end_body
 \end_document
