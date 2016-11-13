@@ -5,7 +5,7 @@ open util/boolean
 
 // Dates are expressed as the number of seconds
 // that have passed from January 1, 1970,
-// because other signatures aren’t comparable.
+// because other signatures are not comparable.
 
 // === SIGNATURES ===
 
@@ -97,7 +97,8 @@ one sig COMPLETED extends RideState {}
 /*
  *		Fare modifiers are expressed in percentage.
  *		Discounts are expressed as a positive integer between 1 and 100.
- *		Additional charges are represented as a "negative discount", so a negative integer between -infinity and -1.
+ *		Additional charges are represented as a "negative discount",
+ *		so a negative integer between -infinity and -1.
  */
 abstract sig FareModifier {
 	value: one Int
@@ -153,7 +154,8 @@ sig Ride {
 	endDate != none implies endDate > beginDate
 	state = COMPLETED <=> endPosition != none
 	state = COMPLETED <=> endDate != none
-	moneySaving = True implies some a: ChargingArea | moneySavingDestination & a.point != none
+	moneySaving = True implies some a: ChargingArea |
+		moneySavingDestination & a.point != none
 	moneySaving = False implies moneySavingDestination = none
 	state = ACTIVE implies discount = none and additionalCharge = none
 	paymentSuccessful = False implies driver.banned = True
@@ -192,15 +194,18 @@ fact plugCannotBelongToDifferentChargingAreas {
 	}
 
 fact carsCannotBePluggedInTheSamePlug {
-	all c1, c2: Car | ((c1 != c2) && (c1.pluggedIn != none) && (c2.pluggedIn != none)) => c1.pluggedIn != c2.pluggedIn
+	all c1, c2: Car | ((c1 != c2) && (c1.pluggedIn != none) &&
+		(c2.pluggedIn != none)) => c1.pluggedIn != c2.pluggedIn
 	}
 
 fact chargingCarIsAtChargingArea {
-	all c: Car | c.pluggedIn != none implies c.currentPosition & c.pluggedIn.(~hasPlug).point != none
+	all c: Car | c.pluggedIn != none implies
+		c.currentPosition & c.pluggedIn.(~hasPlug).point != none
 	}
 
 fact noOverlappingPositions {
-	all p1, p2: Position | (p1 != p2) => (p1.latitude != p2.latitude) || (p1.longitude != p2.longitude)
+	all p1, p2: Position | (p1 != p2) => (p1.latitude != p2.latitude) ||
+		(p1.longitude != p2.longitude)
 	}
 
 fact carsCannotHaveTheSamePosition {
@@ -220,31 +225,42 @@ fact carHasOnlyOneReservation {
 	}
 
 fact userHasOnlyOneActiveRide {
-	no disjoint r1, r2: Ride | r1.state = ACTIVE and r2.state = ACTIVE and r1.driver = r2.driver
+	no disjoint r1, r2: Ride | r1.state = ACTIVE and r2.state = ACTIVE and
+		r1.driver = r2.driver
 	}
 
 fact carHasOnlyOneActiveRide {
-	no disjoint r1, r2: Ride | r1.state = ACTIVE and r2.state = ACTIVE and r1.car = r2.car
+	no disjoint r1, r2: Ride | r1.state = ACTIVE and r2.state = ACTIVE and
+		r1.car = r2.car
 	}
 
 fact ridesDoNotOverlapForSameUserOrCar {
 	all r1, r2: Ride | {
-			(r1 != r2) and (r1.driver = r2.driver or r1.car = r2.car) and (r1.state = COMPLETED) and (r2.state = COMPLETED) implies r1.endDate < r2.beginDate or r2.endDate < r1.beginDate
-			(r1 != r2) and (r1.driver = r2.driver or r1.car = r2.car) and (r1.state = ACTIVE) and (r2.state = COMPLETED) implies r2.endDate < r1.beginDate
-			(r1 != r2) and (r1.driver = r2.driver or r1.car = r2.car) and (r1.state = COMPLETED) and (r2.state = ACTIVE) implies r1.endDate < r2.beginDate
+			(r1 != r2) and (r1.driver = r2.driver or r1.car = r2.car) and
+				(r1.state = COMPLETED) and (r2.state = COMPLETED) implies
+				r1.endDate < r2.beginDate or r2.endDate < r1.beginDate
+			(r1 != r2) and (r1.driver = r2.driver or r1.car = r2.car) and
+				(r1.state = ACTIVE) and (r2.state = COMPLETED) implies
+				r2.endDate < r1.beginDate
+			(r1 != r2) and (r1.driver = r2.driver or r1.car = r2.car) and
+				(r1.state = COMPLETED) and (r2.state = ACTIVE) implies
+				r1.endDate < r2.beginDate
 			}
 	}
 
 fact bannedUserHasNoReservationOrActiveRide {
-	all u: User | u.banned = True implies (no r: Ride | r.state = ACTIVE and r.driver = u) and (no r: Reservation | r.madeBy = u)
+	all u: User | u.banned = True implies (no r: Ride | r.state = ACTIVE and
+		r.driver = u) and (no r: Reservation | r.madeBy = u)
 	}
 
 fact bannedUsersHaveExactlyOneUnsuccessfulPayment {
-	all u: User | u.banned = True => (one r: Ride | (r.driver = u) && (r.paymentSuccessful = False))
+	all u: User | u.banned = True => (one r: Ride | (r.driver = u) &&
+		(r.paymentSuccessful = False))
 	}
 
 fact noRidesAfterUnsuccessfulPayment {
-	all r1, r2: Ride | r1 != r2 && r1.driver = r2.driver && r1.paymentSuccessful = False => r1.beginDate > r2.beginDate
+	all r1, r2: Ride | r1 != r2 && r1.driver = r2.driver &&
+		r1.paymentSuccessful = False => r1.beginDate > r2.beginDate
 	}
 
 fact areasOfTheSameTypeDoNotOverlap {
@@ -281,31 +297,36 @@ fact everyCredentialBelongsToAUser {
 	}
 
 fact threePassengersDiscountRides {
-	all r: Ride | (r.numOfTravellers>=3 && r.endBatteryLevel<50 && r.car.pluggedIn = none) => r.discount = THREE_PEOPLE_DISCOUNT
+	all r: Ride | (r.numOfTravellers>=3 && r.endBatteryLevel<50 &&
+		r.car.pluggedIn = none) implies r.discount = THREE_PEOPLE_DISCOUNT
 	}
 
 fact highBatteryDiscountRides {
-	all r: Ride | (r.endBatteryLevel >=50 && r.car.pluggedIn = none) => r.discount = HIGH_BATTERY_DISCOUNT
+	all r: Ride | (r.endBatteryLevel >=50 && r.car.pluggedIn = none) implies
+		r.discount = HIGH_BATTERY_DISCOUNT
 	}
 
 fact pluggedInDiscountRides {
-	all r: Ride | r.car.pluggedIn != none => r.discount = PLUGGED_CAR_DISCOUNT
+	all r: Ride | r.car.pluggedIn != none implies r.discount = PLUGGED_CAR_DISCOUNT
 	}
 
 fact noFreeDiscountsApplied {
-	no r: Ride | r.numOfTravellers<3 && r.endBatteryLevel<50 && r.car.pluggedIn = none && r.discount != none
+	no r: Ride | r.numOfTravellers<3 && r.endBatteryLevel<50 &&
+		r.car.pluggedIn = none && r.discount != none
 	}
 
 fact pluggedInCarsAreLeftInChargingStations {
-	all r: Ride | r.car.pluggedIn != none => r.finalDistanceFromChargingArea=0
+	all r: Ride | r.car.pluggedIn != none implies r.finalDistanceFromChargingArea=0
 	}
 
 fact lowBatteryAdditionalCharge {
-	all r: Ride | r.endBatteryLevel<20 => r.additionalCharge = LOW_BATTERY_ADDITIONAL_CHARGE
+	all r: Ride | r.endBatteryLevel<20 implies
+		r.additionalCharge = LOW_BATTERY_ADDITIONAL_CHARGE
 	}
 
 fact highDistanceAdditionalCharge {
-	all r: Ride | r.finalDistanceFromChargingArea > 3 => r.additionalCharge = HIGH_DISTANCE_ADDITIONAL_CHARGE
+	all r: Ride | r.finalDistanceFromChargingArea > 3 implies
+		r.additionalCharge = HIGH_DISTANCE_ADDITIONAL_CHARGE
 	}
 
 fact noDiscountIfAdditionalCharge {
@@ -313,7 +334,8 @@ fact noDiscountIfAdditionalCharge {
 	}
 
 fact lowBatteryCarsAreFixedByOneEmployee {
-	all c: Car | (c.batteryLevel <20 && c.pluggedIn = none && no r: Ride | r.state = ACTIVE && r.car = c) => one e: Employee | e.fix =c
+	all c: Car | (c.batteryLevel <20 && c.pluggedIn = none && no r: Ride |
+		r.state = ACTIVE && r.car = c) => one e: Employee | e.fix = c
 	}
 fact pluggedCarsAreNotFixedByEmployees {
 	all c: Car | (c.pluggedIn != none => no e: Employee | e.fix = c)

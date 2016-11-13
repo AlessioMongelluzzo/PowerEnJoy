@@ -5,6 +5,14 @@
 \save_transient_properties true
 \origin unavailable
 \textclass article
+\begin_preamble
+\usepackage{listings}
+\usepackage{alloy}
+\usepackage{color}
+\definecolor{alloy-keyword}{rgb}{0.23, 0.23, 0.7}
+\definecolor{alloy-comment}{rgb}{0.18, 0.64, 0.18}
+\definecolor{alloy-string}{rgb}{0.71, 0.18, 0.71}
+\end_preamble
 \use_default_options true
 \begin_modules
 figs-within-sections
@@ -4542,6 +4550,99 @@ Portability
 
 \begin_layout Subsection
 Alloy
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstset{
+\end_layout
+
+\begin_layout Plain Layout
+
+	language=alloy,
+\end_layout
+
+\begin_layout Plain Layout
+
+	numbers=left,
+\end_layout
+
+\begin_layout Plain Layout
+
+	numberstyle=
+\backslash
+tiny,
+\end_layout
+
+\begin_layout Plain Layout
+
+	stepnumber=2,
+\end_layout
+
+\begin_layout Plain Layout
+
+	tabsize=4,
+\end_layout
+
+\begin_layout Plain Layout
+
+	keywordstyle=
+\backslash
+color{alloy-keyword}
+\backslash
+bfseries,
+\end_layout
+
+\begin_layout Plain Layout
+
+	commentstyle=
+\backslash
+color{alloy-comment},
+\end_layout
+
+\begin_layout Plain Layout
+
+	stringstyle=
+\backslash
+color{alloy-string},
+\end_layout
+
+\begin_layout Plain Layout
+
+	basicstyle=
+\backslash
+small
+\backslash
+fontfamily{pcr}
+\backslash
+selectfont,
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting{alloy/PowerEnJoy.als}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_body
