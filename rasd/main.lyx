@@ -2064,6 +2064,19 @@ Employees must be able to access an area where cars can be inserted to/deleted
  from the database.
 \end_layout
 
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+R39.
+\end_layout
+
+\end_inset
+
+The system must store users' information into a database.
+\end_layout
+
 \begin_layout Subsection
 System features
 \end_layout
