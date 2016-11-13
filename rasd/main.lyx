@@ -1980,6 +1980,54 @@ If a user is banned, the system must prevent him/her from having access
  to the service.
 \end_layout
 
+\begin_layout Subsubsection*
+Goal 13: Users can manage their profile.
+\end_layout
+
+\begin_layout Itemize
+Domain assumption 1: Users have access to the Internet.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+R34.
+\end_layout
+
+\end_inset
+
+The user must be able to view the information in his/her profile.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+R35.
+\end_layout
+
+\end_inset
+
+The user must be able to edit the information in his/her profile, according
+ to information fields' constraints.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+R36.
+\end_layout
+
+\end_inset
+
+The user must be able to delete his/her profile.
+\end_layout
+
 \begin_layout Subsubsection
 Other requirements
 \end_layout
@@ -1989,7 +2037,7 @@ Other requirements
 status open
 
 \begin_layout Plain Layout
-R34.
+R37.
 \end_layout
 
 \end_inset
@@ -2003,7 +2051,7 @@ The system must generate special credential for employees.
 status open
 
 \begin_layout Plain Layout
-R35.
+R38.
 \end_layout
 
 \end_inset
@@ -4084,7 +4132,7 @@ Goals
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Goal 13: Users can manage their profile.
 \end_layout
 
 \end_inset
@@ -4231,7 +4279,7 @@ Goals
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Goal 13: Users can manage their profile.
 \end_layout
 
 \end_inset
@@ -4385,7 +4433,7 @@ Goals
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Goal 13: Users can manage their profile.
 \end_layout
 
 \end_inset
