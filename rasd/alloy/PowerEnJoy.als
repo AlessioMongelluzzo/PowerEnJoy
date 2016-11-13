@@ -43,6 +43,7 @@ sig Credential {
 	}
 
 sig Employee {
+	position: one Position,
 	fix: some Car
 	}{
 	fix.state = LOW_BATTERY
@@ -294,6 +295,10 @@ fact everySafeAreaBelongsToManagementSystem {
 	#(SafeArea) = #(ManagementSystem.safeArea)
 	}
 
+fact everyEmployeeBelongsToManagementSystem {
+	#(Employee) = #(ManagementSystem.registeredEmployee)
+	}
+
 fact everyCredentialBelongsToAUser {
 	#Credential = #(User.credential)
 	}
@@ -344,10 +349,6 @@ fact lowBatteryCarsAreFixedByOneEmployee {
 
 fact pluggedCarsAreNotFixedByEmployees {
 	all c: Car | (c.pluggedIn != none => no e: Employee | e.fix = c)
-	}
-
-fact EmployeeFixesOnlyOneCarAtATime {
-	all e1, e2: Employee | e1 != e2 => e1.fix != e2.fix
 	}
 
 fact noNewCarsAreLowBattery {
