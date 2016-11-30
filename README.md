@@ -15,8 +15,8 @@ Repository for the project of the Software Engineering 2 course, a.y. 2016/2017,
 - ~~Project assignment (excluding code inspection) 16/10~~
 - ~~Open discussion on RASD during the project lab of 26/10~~
 - ~~RASD submission deadline 13/11~~
-- Presentation of RASDs and peer review on 16/11
-- Open discussion on Design Document 30/11
+- ~~Presentation of RASDs and peer review on 16/11~~
+- ~~Open discussion on Design Document 30/11~~
 - Design Document submission deadline 11/12
 - Presentation of Design Documents and peer review 14/12
 - Open discussion on testing assignment 21/12 

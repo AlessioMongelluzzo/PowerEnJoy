@@ -1,0 +1,863 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\begin_modules
+figs-within-sections
+eqs-within-sections
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement H
+\paperfontsize default
+\spacing single
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder false
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle true
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Software Engineering 2 Project: PowerEnJoy DD: Design Document
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /root/git/PowerEnJoy/rasd/polimi.png
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace vfill
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Alessio Mongelluzzo
+\end_layout
+
+\begin_layout Itemize
+Michele Ferri
+\end_layout
+
+\begin_layout Itemize
+Mattia Maffioli
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Introduction
+\end_layout
+
+\begin_layout Subsection
+Purpose
+\end_layout
+
+\begin_layout Standard
+This is the Design Document for the PowerEnJoy application.
+ Its aim is to provide a functional description of the main architectural
+ components, their interfaces and their interactions, together with the
+ algorithms to implement the application logic and the User Interface design.
+ Using UML standards, this document will show the structure of the system
+ and the relationships between the modules.
+ This document is written for project managers, developers, testers and
+ Quality Assurance.
+ It can be used for a structural overview to help maintenance and further
+ development.
+\end_layout
+
+\begin_layout Subsection
+Scope
+\end_layout
+
+\begin_layout Standard
+TODO: finire
+\end_layout
+
+\begin_layout Standard
+Design patterns and architectural styles will be used for solving architectural
+ problems in order to simplify the system comprehension and avoid misunderstandi
+ngs during the implementation phase.
+\end_layout
+
+\begin_layout Subsection
+Definitions, Acronyms, Abbreviations
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+RASD
+\series default
+: Requirements Analysis and Specification Document.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+DD
+\series default
+: Design Document (this document).
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+RDBMS
+\series default
+: Relational Data Base Management System.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+DB
+\series default
+: the database layer, handled by a RDBMS.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+UI
+\series default
+: User Interface.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Application server
+\series default
+: the layer which provides the application logic and interacts with the
+ DB and with the front-ends.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Back-end
+\series default
+: term used to identify the Application server.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Front-end
+\series default
+: the components which use the application server services, namely the web
+ front-end and the mobile applications.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Web server
+\series default
+: the component that implements the web-based front-end.
+ It interacts with the application server and with the users' browsers.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+MVC
+\series default
+: Model-View-Controller.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+JDBC
+\series default
+: Java DataBase Connectivity.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+JPA
+\series default
+: Java Persistence API.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+EJB
+\series default
+: Enterprise JavaBean.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+ACID
+\series default
+: Atomicity, Consistency, Integrity and Durability.
+\end_layout
+
+\begin_layout Subsection
+Reference Documents
+\end_layout
+
+\begin_layout Standard
+This document refers to the project rules of the Software Engineering 2
+ project, to the DD assignment, and to the previous deliverable (RASD).
+\end_layout
+
+\begin_layout Subsection
+Document Structure
+\end_layout
+
+\begin_layout Standard
+This document is structured in five parts:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Chapter 1: Introduction.
+
+\series default
+ This section provides general information about the DD document and the
+ system to be developed.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Chapter 2: Architectural Design.
+
+\series default
+ This section shows the main components of the systems with their sub-components
+ and their relationships, along with their static and dynamic design.
+ This section will also focus on design choices, styles, patterns and paradigms.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Chapter 3: Algorithm Design.
+
+\series default
+ This section will present and discuss in detail the algorithms designed
+ for the system functionalities, independently from their concrete implementatio
+n.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Chapter 4: User Interface Design.
+
+\series default
+ This section shows how the user interface will look like and behave, by
+ means of concept graphics and UX modeling.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Chapter 5: Requirements Traceability.
+
+\series default
+ This section shows how the requirements in the RASD are satisfied by the
+ design choices of the DD.
+\end_layout
+
+\begin_layout Section
+Architectural Design
+\end_layout
+
+\begin_layout Subsection
+Overview
+\end_layout
+
+\begin_layout Subsection
+High level components and their interaction
+\end_layout
+
+\begin_layout Standard
+The high level components of the system are:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Mobile application: 
+\series default
+the mobile client on the user's device.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+User's browser: 
+\series default
+it represents the browser of the user's computer.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Web server: 
+\series default
+it provides the web interface the user accesses through his/her browser.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Application server: 
+\series default
+it contains the application logic: all the functionalities and algorithms
+ that make the system work.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+DBMS: 
+\series default
+software application that interacts with databases.
+ It allows to query, update and administrate the database.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Database:
+\series default
+ it is the layer where all data are stored.
+ It is a relational database, therefore ACID properties must be guaranteed.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+makebox[
+\backslash
+textwidth][c]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename DD_highlevel.png
+	width 80page%
+	height 80page%
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+High level representation of the system architecture.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+makebox[
+\backslash
+textwidth][c]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Tiers interaction.jpg
+	width 80page%
+	height 80page%
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Representation of high level components detailed with JEE components.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Component view
+\end_layout
+
+\begin_layout Subsection
+Deployment view
+\end_layout
+
+\begin_layout Subsection
+Runtime view
+\end_layout
+
+\begin_layout Subsection
+Component interfaces
+\end_layout
+
+\begin_layout Subsection
+Selected architectural styles and patterns
+\end_layout
+
+\begin_layout Subsection
+Other design decisions
+\end_layout
+
+\begin_layout Section
+Algorithm Design
+\end_layout
+
+\begin_layout Subsection
+Final price calculation with discounts and additional charges
+\end_layout
+
+\begin_layout Standard
+As stated in the RASD, discounts are applied to the fare of users who have
+ a virtuous behaviour, and additional charges are applied to users who have
+ an inconvenient behaviour instead.
+\end_layout
+
+\begin_layout Standard
+Specifically, the discounts and additional charges pre-defined by the systems
+ are:
+\end_layout
+
+\begin_layout Itemize
+30% discount if the car is plugged into a plug within a 2 minutes time frame
+ from the moment the engine stops.
+\end_layout
+
+\begin_layout Itemize
+20% discount if the battery level at the end of the ride is measured to
+ be at least 50% of the total charge.
+\end_layout
+
+\begin_layout Itemize
+10% discount if the number of people in the car during the ride is measured
+ to be 3 or more.
+\end_layout
+
+\begin_layout Itemize
+30% additional charge if the location of the car is more than 3 km away
+ from the nearest charging area or if the battery level is lower than 20%
+ of the total charge.
+\end_layout
+
+\begin_layout Standard
+This algorithm is run by the back-end every time the state of a ride is
+ set to completed.
+ The state of a ride is automatically set to completed as soon as the engine
+ is stopped by the driver.
+\end_layout
+
+\begin_layout Standard
+The input data are:
+\end_layout
+
+\begin_layout Itemize
+
+\shape italic
+r
+\shape default
+: the ride which has to be checked for discount or additional charge eligibility.
+\end_layout
+
+\begin_layout Itemize
+
+\shape italic
+D
+\shape default
+: list of discounts
+\end_layout
+
+\begin_layout Itemize
+
+\shape italic
+A
+\shape default
+: list of additional charges
+\end_layout
+
+\begin_layout Standard
+The price per second is supposed to be a system constant.
+\end_layout
+
+\begin_layout Standard
+The algorithm returns the final price the user has to be charged with.
+\end_layout
+
+\begin_layout Standard
+A discount has an integer value between 1 and 100 representing the value
+ of the discount in percentage.
+ Similarly, an additional charge has an integer value between the minimum
+ representable integer value and -1.
+\end_layout
+
+\begin_layout Standard
+Discount/additional charge applicability can be checked by calling a method
+ on the modifier itself, that takes 
+\shape italic
+r
+\shape default
+ (the ride) as input and returns 
+\shape italic
+true
+\shape default
+ or 
+\shape italic
+false
+\shape default
+ depending on whether that modifier is applicable or not.
+\end_layout
+
+\begin_layout Standard
+In order to make the algorithm as reusable as possible, and ease the future
+ insertion of new discounts/additional charges or the removal of existing
+ ones, the algorithm iterates over a generic list of discounts, and a generic
+ list of additional charges.
+\end_layout
+
+\begin_layout Standard
+The algorithm works as follows:
+\end_layout
+
+\begin_layout Enumerate
+D is sorted by descending value (e.g.
+ 30, 20, 10...).
+\end_layout
+
+\begin_layout Enumerate
+The standard price is calculated as:
+\begin_inset Formula 
+\[
+price=(r.endDate-r.beginDate)\ast PRICEPERSECOND
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+For every discount 
+\begin_inset Formula $d_{i}$
+\end_inset
+
+ in 
+\shape italic
+D:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+if the discount is applicable on 
+\shape italic
+r
+\shape default
+:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+update 
+\shape italic
+price
+\shape default
+ according to this formula:
+\begin_inset Formula 
+\begin{equation}
+price=price\ast(1-\frac{d_{i}.value}{100})
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+exit the loop.
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Enumerate
+For every additional charge 
+\begin_inset Formula $a_{i}$
+\end_inset
+
+ in 
+\shape italic
+A
+\shape default
+:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+if the additional charge is applicable on 
+\shape italic
+r
+\shape default
+:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+update 
+\shape italic
+price
+\shape default
+ according to formula (3.1).
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Enumerate
+Return 
+\shape italic
+price
+\shape default
+, which is the final price the user has to be charged with.
+\end_layout
+
+\begin_layout Standard
+Notice that every additional charge is applied, while only the largest discount
+ is applied.
+ This is achieved by sorting the discount list by descending value at step
+ 1 of the algorithm and exiting the loop as soon as the first discount of
+ that list is applied.
+\end_layout
+
+\begin_layout Standard
+Also notice that because of the way discount and additional charge values
+ are represented, the formula for calculating the updated price is the same
+ in both cases and can be isolated in a separate function.
+\end_layout
+
+\begin_layout Subsection
+Money saving ride destination calculation
+\end_layout
+
+\begin_layout Standard
+As stated in the RASD, money saving option allows the driver to specify
+ the destination of the ride.
+ The system will then suggest an optimal charging area to park at, in order
+ to get a discount on the fare.
+\end_layout
+
+\begin_layout Standard
+The applied discount would be the one already described in Section 3.1, Final
+ price calculation with discounts and additional charges, for plugging the
+ car within a 2 minutes time frame from the moment the engine stops.
+\end_layout
+
+\begin_layout Standard
+The money saving option serves the purpose of simplifying the operation
+ of driving to a charging area, because such an area is suggested to the
+ user.
+\end_layout
+
+\begin_layout Standard
+The suggested charging area has to be optimal depending on the user-specified
+ destination, plug availability, and distribution of cars in the city.
+\end_layout
+
+\begin_layout Standard
+TODO: finire
+\end_layout
+
+\end_body
+\end_document
