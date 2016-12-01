@@ -98,7 +98,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename /root/git/PowerEnJoy/rasd/polimi.png
+	filename C:/root/git/PowerEnJoy/rasd/polimi.png
 	scale 60
 
 \end_inset
@@ -386,6 +386,69 @@ Overview
 
 \begin_layout Subsection
 High level components and their interaction
+\end_layout
+
+\begin_layout Standard
+A client/server architectural style is chosen to undergo the need for a
+ distributed application.
+ In particular, the server side is divided into three main components, to
+ separate the data, the application logic and the presentation.
+ These three components are:
+\end_layout
+
+\begin_layout Standard
+- a DBMS, that manages the storage and retrieval of all the data needed
+ by the application to work;
+\end_layout
+
+\begin_layout Standard
+- an Application Server, that contains all the application logic to provide
+ the services requested by clients;
+\end_layout
+
+\begin_layout Standard
+- a Presentation Server, whose job is to provide the web interface for the
+ users.
+\end_layout
+
+\begin_layout Standard
+In particular, the DBMSr communicates with the Application Server by providing
+ the data needed for the computation, but the Data Server does not implement
+ any kind of application logic.
+ The Presentation Server communicates with the Application Server but it
+ does not contain any application logic as well.
+ The application layer is service-oriented, in order to increase the independenc
+e among the services and the global fault tolerance of the architecture.
+\end_layout
+
+\begin_layout Standard
+From the client side, there can be three kinds of clients:
+\end_layout
+
+\begin_layout Standard
+- Mobile, that request services through the mobile application (PowerEnJoy
+ Mobile);
+\end_layout
+
+\begin_layout Standard
+- Browser, that request services through the web front-end (PowerEnJoy Web);
+\end_layout
+
+\begin_layout Standard
+- Employee App, that request employee's functionalities;
+\end_layout
+
+\begin_layout Standard
+Mobile clients are fatter, as they directly communicate with the Application
+ Server of the server side and incorporate the presentation; instead, in
+ the case of Browser clients the GUI is distributed between the two sides
+ and this kind of client, which is therefore thinner, has to go through
+ the Presentation Server in order to request the services of the Application
+ Server.
+\end_layout
+
+\begin_layout Standard
+
 \end_layout
 
 \begin_layout Standard
