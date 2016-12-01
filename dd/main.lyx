@@ -98,7 +98,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename C:/root/git/PowerEnJoy/rasd/polimi.png
+	filename polimi.png
 	scale 60
 
 \end_inset
@@ -537,7 +537,7 @@ textwidth][c]{
 
 
 \begin_inset Graphics
-	filename DD_highlevel.png
+	filename img/DD_highlevel.png
 	width 80page%
 	height 80page%
 
@@ -598,7 +598,7 @@ textwidth][c]{
 
 
 \begin_inset Graphics
-	filename Tiers interaction.jpg
+	filename img/tiers_interaction.jpg
 	width 80page%
 	height 80page%
 
@@ -715,7 +715,7 @@ The input data are:
 \shape italic
 r
 \shape default
-: the ride which has to be checked for discount or additional charge eligibility.
+: the ride which has to be checked for discount or additional charge eligibility
 \end_layout
 
 \begin_layout Itemize
@@ -735,11 +735,11 @@ A
 \end_layout
 
 \begin_layout Standard
-The price per second is supposed to be a system constant.
+The algorithm returns the final price the user has to be charged with.
 \end_layout
 
 \begin_layout Standard
-The algorithm returns the final price the user has to be charged with.
+The price per second is supposed to be a system constant.
 \end_layout
 
 \begin_layout Standard
@@ -778,16 +778,20 @@ The algorithm works as follows:
 \end_layout
 
 \begin_layout Enumerate
-D is sorted by descending value (e.g.
+
+\shape italic
+D
+\shape default
+ is sorted by descending value (e.g.
  30, 20, 10...).
 \end_layout
 
 \begin_layout Enumerate
 The standard price is calculated as:
 \begin_inset Formula 
-\[
+\begin{equation}
 price=(r.endDate-r.beginDate)\ast PRICEPERSECOND
-\]
+\end{equation}
 
 \end_inset
 
@@ -863,7 +867,7 @@ update
 \shape italic
 price
 \shape default
- according to formula (3.1).
+ according to formula (3.2).
 \end_layout
 
 \end_deeper
@@ -914,12 +918,303 @@ The money saving option serves the purpose of simplifying the operation
 \end_layout
 
 \begin_layout Standard
-The suggested charging area has to be optimal depending on the user-specified
- destination, plug availability, and distribution of cars in the city.
+The suggested charging area has to be optimal depending on:
+\end_layout
+
+\begin_layout Enumerate
+closeness to the user-specified destination;
+\end_layout
+
+\begin_layout Enumerate
+availability of plugs;
+\end_layout
+
+\begin_layout Enumerate
+uniform distribution of cars in the city.
 \end_layout
 
 \begin_layout Standard
-TODO: finire
+This algorithm is run by the back-end every time the user enables the money
+ saving option and inputs the destination that he/she wants to reach.
+\end_layout
+
+\begin_layout Standard
+The input data are:
+\end_layout
+
+\begin_layout Itemize
+
+\shape italic
+dest
+\shape default
+: the coordinates of the location the user wants to reach (latitude, longitude).
+\end_layout
+
+\begin_layout Itemize
+
+\shape italic
+A
+\shape default
+: list of charging areas.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $w_{d}$
+\end_inset
+
+: the weight associated to the distance of the charging area from the user-speci
+fied destination.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $w_{p}$
+\end_inset
+
+: the weight associated to the availability of plugs at the charging area.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $w_{c}$
+\end_inset
+
+: the weight associated to the number of cars near the charging area.
+\end_layout
+
+\begin_layout Standard
+The algorithm returns the charging area which is calculated to be the best
+ w.r.t.
+ the three constraints stated above.
+\end_layout
+
+\begin_layout Standard
+The default value of each weight is 1.
+ Different weight values can be used for increasing/reducing the influence
+ of a certain factor (e.g.
+ 
+\begin_inset Formula $w_{d}=2$
+\end_inset
+
+ means that the distance of the charging area from the user-specified destinatio
+n would impact the choice twice as much as with the default value).
+\end_layout
+
+\begin_layout Standard
+The number of cars which are 
+\begin_inset Quotes eld
+\end_inset
+
+near
+\begin_inset Quotes erd
+\end_inset
+
+ a certain charging area can be calculated by calling a specific method
+ on the charging area itself.
+ The method returns the number of cars which are located within a certain
+ radius from the charging area (including the ones which are plugged in
+ the charging area itself).
+\end_layout
+
+\begin_layout Standard
+The algorithm works as follows:
+\end_layout
+
+\begin_layout Enumerate
+Initialize two variables:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\shape italic
+a
+\shape default
+, the charging area to be returned (initially null).
+\end_layout
+
+\begin_layout Enumerate
+
+\shape italic
+v
+\shape default
+, the value associated with 
+\shape italic
+a
+\shape default
+ (initially
+\begin_inset Formula $+\infty$
+\end_inset
+
+)
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+For every charging area 
+\begin_inset Formula $a_{i}$
+\end_inset
+
+ in 
+\shape italic
+A
+\shape default
+:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+if the charging area is full, meaning that 
+\begin_inset Formula $a_{i}.availablePlugs=0$
+\end_inset
+
+: skip to the next charging area; else calculate:
+\begin_inset Formula 
+\begin{equation}
+p=a_{i}.totalPlugs-a_{i}.availablePlugs
+\end{equation}
+
+\end_inset
+
+which is the number of busy plugs at the charging area 
+\begin_inset Formula $a_{i}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+calculate the distance 
+\shape italic
+d
+\shape default
+ between 
+\shape italic
+dest
+\shape default
+ and 
+\begin_inset Formula $a_{i}$
+\end_inset
+
+ using a suitable formula for calculating distances between two Latitude/Longitu
+de points, for example the Haversine formula.
+ 
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Haversine formula: 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://en.wikipedia.org/wiki/Haversine_formula
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Calculate distance, bearing and more between Latitude/Longitude points:
+ 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+http://www.movable-type.co.uk/scripts/latlong.html
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+calculate the number 
+\shape italic
+c
+\shape default
+ of cars near 
+\begin_inset Formula $a_{i}$
+\end_inset
+
+ by calling the method mentioned above.
+\end_layout
+
+\begin_layout Enumerate
+calculate the value 
+\begin_inset Formula $v_{i}$
+\end_inset
+
+ associated with 
+\begin_inset Formula $a_{i}$
+\end_inset
+
+ according to the following formula (weighted sum):
+\begin_inset Formula 
+\begin{equation}
+v_{i}=\frac{w_{d}d+w_{p}p+w_{c}c}{w_{d}+w_{p}+w_{c}}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+if 
+\begin_inset Formula $v_{i}<v$
+\end_inset
+
+:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+update 
+\shape italic
+a
+\shape default
+ and 
+\shape italic
+v
+\shape default
+ with the current values of 
+\begin_inset Formula $a_{i}$
+\end_inset
+
+ and 
+\begin_inset Formula $v_{i}$
+\end_inset
+
+ respectively.
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Enumerate
+Return 
+\shape italic
+a
+\shape default
+.
+\end_layout
+
+\begin_layout Standard
+TODO: add example
 \end_layout
 
 \end_body
