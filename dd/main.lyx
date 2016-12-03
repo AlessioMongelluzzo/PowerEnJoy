@@ -639,12 +639,125 @@ Representation of high level components detailed with JEE components.
 Component view
 \end_layout
 
+\begin_layout Itemize
+
+\series bold
+Mobile app
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+detail?
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+Web Server
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+detail?
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+Application Server
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+modules/ class diag module interaction
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+Database
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+makebox[
+\backslash
+textwidth][c]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename img/er.png
+	width 80page%
+	height 80page%
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+High level representation of the system architecture.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
 \begin_layout Subsection
 Deployment view
 \end_layout
 
+\begin_layout Standard
+deployment diag
+\end_layout
+
 \begin_layout Subsection
 Runtime view
+\end_layout
+
+\begin_layout Standard
+dynamic behaviour w/ sequence
 \end_layout
 
 \begin_layout Subsection
