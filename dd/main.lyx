@@ -491,9 +491,10 @@ it contains the application logic: all the functionalities and algorithms
 \begin_layout Itemize
 
 \series bold
-DBMS: 
+(R)DBMS: 
 \series default
-software application that interacts with databases.
+(Relational) Database Management System.
+ Software application that interacts with databases.
  It allows to query, update and administrate the database.
 \end_layout
 
@@ -538,8 +539,9 @@ textwidth][c]{
 
 \begin_inset Graphics
 	filename img/DD_highlevel.png
-	width 80page%
-	height 80page%
+	width 40page%
+	height 40page%
+	keepAspectRatio
 
 \end_inset
 
@@ -639,12 +641,196 @@ Representation of high level components detailed with JEE components.
 Component view
 \end_layout
 
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+makebox[
+\backslash
+textwidth][c]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename img/BCE_DD.png
+	width 80page%
+	height 80page%
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Boundary-Control-Entities diagram representing the interaction between UI,
+ business components and database entities.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Mobile app
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+detail?
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+Web Server
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+detail?
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+Application Server
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+modules/ class diag module interaction
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+Database
+\end_layout
+
+\begin_layout Standard
+MySQL Community Edition is used as RDBMS and InnoDB is used as storage engine.
+ The database tier communicates with the application logic tier: object-relation
+s mapping is managed using Java Persistence API.
+ Access to data must be secure: only authorized users with valid credentials
+ can retrieve their personal data.
+ The conceptual schema of the database is represented by the following E-R
+ diagram.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+makebox[
+\backslash
+textwidth][c]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename img/er.png
+	width 60page%
+	height 60page%
+	keepAspectRatio
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+ER diagram of the database relations
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 Deployment view
 \end_layout
 
+\begin_layout Standard
+deployment diag
+\end_layout
+
 \begin_layout Subsection
 Runtime view
+\end_layout
+
+\begin_layout Standard
+dynamic behaviour w/ sequence
 \end_layout
 
 \begin_layout Subsection
@@ -987,7 +1173,19 @@ The algorithm returns the charging area which is calculated to be the best
 \end_layout
 
 \begin_layout Standard
-The default value of each weight is 1.
+The default value of 
+\begin_inset Formula $w_{d}$
+\end_inset
+
+ and 
+\begin_inset Formula $w_{c}$
+\end_inset
+
+ is 1, and the default value of 
+\begin_inset Formula $w_{p}$
+\end_inset
+
+ is 0.5.
  Different weight values can be used for increasing/reducing the influence
  of a certain factor (e.g.
  
@@ -1213,8 +1411,452 @@ a
 .
 \end_layout
 
+\begin_layout Subsubsection
+Example
+\end_layout
+
 \begin_layout Standard
-TODO: add example
+Let's imagine a possible scenario where a user chooses the money saving
+ option and the algorithm has to determine the best charging area according
+ to the factors mentioned above:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+makebox[
+\backslash
+textwidth][c]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename algorithm_design/example.png
+	width 40page%
+	height 40page%
+	keepAspectRatio
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Simple example map showing position of user-specified destination, charging
+ areas with number of busy and available plugs, and cars.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For the sake of simplicity, in this example the coordinates are not represented
+ as Latitude/Longitude but as simple 
+\begin_inset Formula $(row,column)$
+\end_inset
+
+ pairs.
+\end_layout
+
+\begin_layout Standard
+Assuming the default values for 
+\begin_inset Formula $w_{d}$
+\end_inset
+
+, 
+\begin_inset Formula $w_{p}$
+\end_inset
+
+ and 
+\begin_inset Formula $w_{c}$
+\end_inset
+
+, and that the method calculating the number of cars which are 
+\begin_inset Quotes eld
+\end_inset
+
+near
+\begin_inset Quotes erd
+\end_inset
+
+ a certain charging area detects cars which are distant at most 
+\begin_inset Formula $\sqrt{5}$
+\end_inset
+
+ units of distance, the intermediate values calculated by the algorithm
+ at step 2 are:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="5">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\shape italic
+Charging Area
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\shape italic
+d
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\shape italic
+c
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\shape italic
+p
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+v
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $(9,0)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\sqrt{50}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $2.828$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $(6,1)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\sqrt{20}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $3$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $2.989$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $(2,4)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\sqrt{5}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $4$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $3$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $3.094$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $(7,7)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\sqrt{13}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $2$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $2$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $2.642$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The lowest value of v is the one associated with the charging area at 
+\begin_inset Formula $(7,7)$
+\end_inset
+
+, so that charging area is returned.
+ It's not the nearest one, but it's much nearer than the one at 
+\begin_inset Formula $(9,0)$
+\end_inset
+
+ and it has only 2 cars nearby.
+ The nearest charging area has 4 cars nearby and therefore it has a higher
+ value.
 \end_layout
 
 \end_body
