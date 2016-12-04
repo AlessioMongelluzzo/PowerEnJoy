@@ -491,9 +491,10 @@ it contains the application logic: all the functionalities and algorithms
 \begin_layout Itemize
 
 \series bold
-DBMS: 
+(R)DBMS: 
 \series default
-software application that interacts with databases.
+(Relational) Database Management System.
+ Software application that interacts with databases.
  It allows to query, update and administrate the database.
 \end_layout
 
@@ -639,6 +640,68 @@ Representation of high level components detailed with JEE components.
 Component view
 \end_layout
 
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+makebox[
+\backslash
+textwidth][c]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename img/BCE_DD.png
+	width 80page%
+	height 80page%
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Boundary-Control-Entities diagram representing the interaction between UI,
+ components and database entities.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Itemize
 
 \series bold
@@ -681,7 +744,16 @@ modules/ class diag module interaction
 Database
 \end_layout
 
-\begin_deeper
+\begin_layout Standard
+MySQL Community Edition is used as RDBMS and InnoDB is used as storage engine.
+ The database tier communicates with the application logic tier: object-relation
+s mapping is managed using Java Persistence API.
+ Access to data must be secure: only authorized users with valid credentials
+ can retrieve their personal data.
+ The conceptual schema of the database is represented by the following E-R
+ diagram.
+\end_layout
+
 \begin_layout Standard
 \begin_inset Float figure
 wide false
@@ -730,7 +802,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-High level representation of the system architecture.
+ER diagram of the database relations
 \end_layout
 
 \end_inset
@@ -743,7 +815,6 @@ High level representation of the system architecture.
 
 \end_layout
 
-\end_deeper
 \begin_layout Subsection
 Deployment view
 \end_layout
