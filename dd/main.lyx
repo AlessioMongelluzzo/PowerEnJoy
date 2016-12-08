@@ -1859,5 +1859,187 @@ The lowest value of v is the one associated with the charging area at
  value.
 \end_layout
 
+\begin_layout Section
+User Interface Design
+\end_layout
+
+\begin_layout Subsection
+UX diagram
+\end_layout
+
+\begin_layout Standard
+The UX diagram shows the different screens of the User Interface of the
+ clients and the interaction between them.
+\end_layout
+
+\begin_layout Standard
+The normal flow of a logged user who wants to reserve and use a car is:
+\end_layout
+
+\begin_layout Enumerate
+look for a car on the map;
+\end_layout
+
+\begin_layout Enumerate
+select the desired car and view car data;
+\end_layout
+
+\begin_layout Enumerate
+confirm car reservation;
+\end_layout
+
+\begin_layout Enumerate
+view reservation info such as the data of the reserved car, reservation
+ date, and time left to unlock the car;
+\end_layout
+
+\begin_layout Enumerate
+unlock the car from the reservation info screen.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+makebox[
+\backslash
+textwidth][c]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename interface_design/ux_diagram.png
+	width 60page%
+	height 60page%
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+The UX diagram.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+User Interface concept
+\end_layout
+
+\begin_layout Subsubsection
+Web interface
+\end_layout
+
+\begin_layout Standard
+mockups
+\end_layout
+
+\begin_layout Subsubsection
+Mobile interface
+\end_layout
+
+\begin_layout Standard
+more mockups
+\end_layout
+
+\begin_layout Section
+Requirements traceability
+\end_layout
+
+\begin_layout Subsection
+Functional requirements and components
+\end_layout
+
+\begin_layout Subsection
+Non-functional requirements
+\end_layout
+
+\begin_layout Section
+\start_of_appendix
+Appendix A
+\end_layout
+
+\begin_layout Subsection
+Software and tools used
+\end_layout
+
+\begin_layout Itemize
+\SpecialChar LaTeX
+ for typesetting the document.
+\end_layout
+
+\begin_layout Itemize
+\SpecialChar LyX
+ as a document processor.
+\end_layout
+
+\begin_layout Itemize
+GitHub for version control and teamwork.
+\end_layout
+
+\begin_layout Itemize
+Pencil for mockups.
+\end_layout
+
+\begin_layout Itemize
+Draw.io for UML diagrams.
+\end_layout
+
+\begin_layout Itemize
+Signavio for UML diagrams.
+\end_layout
+
+\begin_layout Subsection
+Hours of work
+\end_layout
+
+\begin_layout Itemize
+Alessio Mongelluzzo: ?? hours
+\end_layout
+
+\begin_layout Itemize
+Michele Ferri: ?? hours
+\end_layout
+
+\begin_layout Itemize
+Mattia Maffioli: ?? hours
+\end_layout
+
 \end_body
 \end_document
