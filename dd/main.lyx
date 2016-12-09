@@ -642,6 +642,51 @@ Component view
 \end_layout
 
 \begin_layout Standard
+The system architecture is based on 4 main components:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Mobile app
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+detail?
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+Web Server
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+detail?
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+Application Server
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+The following diagram is meant to show the flow of information from boundary
+ classes to database entities.
+ However, the system has to be developed so that the interaction between
+ boundary and control classes is filtered by an orchestrator whose task
+ is to dispatch boundary requests to the corresponding application manager
+ (i.e.
+ a session bean in jee environment).
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float figure
 wide false
 sideways false
@@ -701,41 +746,6 @@ Boundary-Control-Entities diagram representing the interaction between UI,
 \end_inset
 
 
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-Mobile app
-\end_layout
-
-\begin_deeper
-\begin_layout Standard
-detail?
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-
-\series bold
-Web Server
-\end_layout
-
-\begin_deeper
-\begin_layout Standard
-detail?
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-
-\series bold
-Application Server
-\end_layout
-
-\begin_deeper
-\begin_layout Standard
-modules/ class diag module interaction
 \end_layout
 
 \end_deeper
