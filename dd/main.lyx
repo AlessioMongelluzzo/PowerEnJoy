@@ -307,6 +307,14 @@ ACID
 : Atomicity, Consistency, Integrity and Durability.
 \end_layout
 
+\begin_layout Itemize
+
+\series bold
+MVC
+\series default
+: Model-View-Controller design pattern.
+\end_layout
+
 \begin_layout Subsection
 Reference Documents
 \end_layout
@@ -382,6 +390,15 @@ Architectural Design
 
 \begin_layout Subsection
 Overview
+\end_layout
+
+\begin_layout Standard
+//alla fine.
+ percorso seguito in doc
+\end_layout
+
+\begin_layout Standard
+//ATAM ?
 \end_layout
 
 \begin_layout Subsection
@@ -651,12 +668,10 @@ The system architecture is based on 4 main components:
 Mobile app
 \end_layout
 
-\begin_deeper
 \begin_layout Standard
-detail?
+//detail?
 \end_layout
 
-\end_deeper
 \begin_layout Itemize
 
 \series bold
@@ -665,7 +680,11 @@ Web Server
 
 \begin_deeper
 \begin_layout Standard
-detail?
+JSF (Java Server Faces) is used to implement the web server.
+ JSF is a MVC-based framework to perform web pages presentation.
+ The web tier only works as a presentantion layer: RESTful APIs are used
+ to interface with the application server, where all the business logic
+ is set.
 \end_layout
 
 \end_deeper
@@ -749,6 +768,236 @@ Boundary-Control-Entities diagram representing the interaction between UI,
 \end_layout
 
 \end_deeper
+\begin_layout Standard
+Client requests are forwarded to the orchestrator.
+ This software module dispatches requests to the correct application module
+ so that the client layer results fully decoupled from the application layer:
+ further modules can be added in the future without affecting the system
+ structure.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+makebox[
+\backslash
+textwidth][c]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename img/ApplicationServerModules.png
+	width 80page%
+	height 80page%
+	keepAspectRatio
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+A high-level representation of client-server interaction w/ orchestrator.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\noun on
+Account Manager
+\end_layout
+
+\begin_layout Standard
+The task of this module deals with account editing and information retrieval.
+ It interacts with the 
+\begin_inset Quotes eld
+\end_inset
+
+user and personnel
+\begin_inset Quotes erd
+\end_inset
+
+ DB accessing and modifying the 
+\begin_inset Quotes eld
+\end_inset
+
+user
+\begin_inset Quotes erd
+\end_inset
+
+ entity.
+\end_layout
+
+\begin_layout Standard
+It allows to log in/register to the system, consult/modify personal information,
+ delete profile.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\noun on
+Reservation Manager
+\end_layout
+
+\begin_layout Standard
+The task of this module deals with car reservation.
+\end_layout
+
+\begin_layout Standard
+It interacts with the 
+\begin_inset Quotes eld
+\end_inset
+
+rides and reservation
+\begin_inset Quotes erd
+\end_inset
+
+ DB creating new 
+\begin_inset Quotes eld
+\end_inset
+
+reservation
+\begin_inset Quotes erd
+\end_inset
+
+ entities every time a new reservation is made by a user.
+\end_layout
+
+\begin_layout Standard
+It allows to look for a car, make a reservation, unlock cars managing the
+ reservation logic.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\noun on
+Ride Manager
+\end_layout
+
+\begin_layout Standard
+The task of this module is to manage rides.
+ It has to compute the ride cost taking into account possible fare modifiers,
+ i.e.
+ discounts/extra charges.
+\end_layout
+
+\begin_layout Standard
+It interacts with the 
+\begin_inset Quotes eld
+\end_inset
+
+rides and reservation
+\begin_inset Quotes erd
+\end_inset
+
+ DB creating new 
+\begin_inset Quotes eld
+\end_inset
+
+ride
+\begin_inset Quotes erd
+\end_inset
+
+ entities every time a new ride is started.
+\end_layout
+
+\begin_layout Standard
+It allows to start a ride, even with money-saving option enabled, complete
+ a ride, pay for the ride.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\noun on
+Maintenance Manager
+\end_layout
+
+\begin_layout Standard
+This module allows PowerEnJoy to manage its employees so that every time
+ a car needs maintenance a request for intervention is created.
+ 
+\end_layout
+
+\begin_layout Standard
+It implements an Observable-Observer pattern to track battery levels and
+ cars position.
+\end_layout
+
+\begin_layout Standard
+It interacts with the 
+\begin_inset Quotes eld
+\end_inset
+
+user and personnel
+\begin_inset Quotes erd
+\end_inset
+
+ DB, 
+\begin_inset Quotes eld
+\end_inset
+
+cars
+\begin_inset Quotes erd
+\end_inset
+
+ DB, 
+\begin_inset Quotes eld
+\end_inset
+
+areas
+\begin_inset Quotes erd
+\end_inset
+
+ DB in order to find availbale employees, check battery levels and cars
+ position, update cars states and employees' history.
+\end_layout
+
+\begin_layout Standard
+It allows the system to dispatch requests to the nearest available employee,
+ who can accept/decline.
+\end_layout
+
 \begin_layout Itemize
 
 \series bold
@@ -827,12 +1076,112 @@ ER diagram of the database relations
 
 \end_layout
 
+\begin_layout Standard
+Four subject-oriented databases are used to store data:
+\end_layout
+
+\begin_layout Itemize
+User and Personnel DB
+\end_layout
+
+\begin_layout Itemize
+Cars DB
+\end_layout
+
+\begin_layout Itemize
+Areas DB
+\end_layout
+
+\begin_layout Itemize
+Rides and Reservations DB
+\end_layout
+
 \begin_layout Subsection
 Deployment view
 \end_layout
 
 \begin_layout Standard
-deployment diag
+The allocation of software components to hardware components has to be as
+ follows:
+\end_layout
+
+\begin_layout Standard
+Web Server and Application Server are set on two different tiers.
+\end_layout
+
+\begin_layout Standard
+Database Server is set on its own tier.
+\end_layout
+
+\begin_layout Standard
+The communication with the application server uses JAX-RS to allow RESTful
+ API client side.
+ The application server interacts with the database server with SQL DBMS.
+\end_layout
+
+\begin_layout Standard
+The following diagram represents the deployment of the system:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+makebox[
+\backslash
+textwidth][c]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename img/deploymentdiagram.png
+	width 60page%
+	height 60page%
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+The deployment diagram of the system.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -840,7 +1189,437 @@ Runtime view
 \end_layout
 
 \begin_layout Standard
-dynamic behaviour w/ sequence
+We represent the dynamic behaviour of the system with sequence diagrams.
+ Each diagram shows a specific feature of the application.
+\end_layout
+
+\begin_layout Subsubsection
+Web Registration
+\end_layout
+
+\begin_layout Standard
+This diagram shows the behaviour of the application when a user performs
+ a registration action.
+ We chose to represent the system dynamics in case of web application.
+ The same diagram would state the mobile app behaviour if we do not consider
+ the Registration servlet.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+makebox[
+\backslash
+textwidth][c]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename img/webregistrationsequence.png
+	width 60page%
+	height 60page%
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Sequence Diagram for registration action.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Web Login
+\end_layout
+
+\begin_layout Standard
+This diagram shows the behaviour of the application when a user performs
+ a login action.
+ We chose to represent the system dynamics in case of web application.
+ The same diagram would state the mobile app behaviour if we do not consider
+ the Login servlet.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+makebox[
+\backslash
+textwidth][c]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename img/webloginsequence.png
+	width 60page%
+	height 60page%
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Sequence Diagram for login action.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Web lookup-reserve
+\end_layout
+
+\begin_layout Standard
+The following diagram represents the behaviour of the application when a
+ user looks for a car to reserve.
+ We chose to represent the system dynamics in case of web application.
+ The same diagram would state the mobile app behaviour if we do not consider
+ the Lookup servlet.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+makebox[
+\backslash
+textwidth][c]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename img/weblookupreservesequence.png
+	width 60page%
+	height 60page%
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Sequence Diagram for car look-up and reservation.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Unlock/Lock and Ride
+\end_layout
+
+\begin_layout Standard
+This diagram shows how the system behaves when a user wants to unlock a
+ reserved car and performe a ride:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+makebox[
+\backslash
+textwidth][c]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename img/unlockrideandlocksequence.png
+	width 60page%
+	height 60page%
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Sequence Diagram for car unlock and ride management.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Web User profile management
+\end_layout
+
+\begin_layout Standard
+The following diagram shows the dynamics of the system in case a user wants
+ to manage its personal information:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+makebox[
+\backslash
+textwidth][c]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename img/userprofilemanagementsequence.png
+	width 60page%
+	height 60page%
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Sequence Diagram for profile info management.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Car Maintenance
+\end_layout
+
+\begin_layout Standard
+This diagram represents the flow of actions performed by the system when
+ cars maintenance is needed:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+makebox[
+\backslash
+textwidth][c]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename img/maintainancesequence.png
+	width 60page%
+	height 60page%
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Sequence Diagram for car maintenance.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
