@@ -1626,6 +1626,406 @@ Sequence Diagram for car maintenance.
 Component interfaces
 \end_layout
 
+\begin_layout Subsubsection
+Front-end to Application Server
+\end_layout
+
+\begin_layout Standard
+The Mobile app and the Web App must communicate with the application server
+ through a RESTful interface, which is implemented in the application server
+ using JAX-RS.
+ XML is used as the data representation language.
+\end_layout
+
+\begin_layout Standard
+The REST resources and the offered functionalities are implemented as follows:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\noun on
+Account Manager
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+registration: 
+\series default
+this function takes as input the personal information of the user and his/her
+ payment information and driving license.
+ It checks whether the input information is valid.
+ If information is correct and no conflicts are spotted with already registered
+ users a new User tuple is created in the database, otherwise an error message
+ is returned.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+login:
+\series default
+ this function takes as input a couple username/e-mail and password and
+ checks whether there is an existing tuple in the database with the given
+ username and password and the ban field set to false.
+ If so, the access to the app services is granted.
+ Otherwise, an error message is returned.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+viewProfile: 
+\series default
+this function retrieves the user's profile information from the User relation
+ in the database and returns them.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+editProfile: 
+\series default
+this function allows the user to modify retrieved data: it takes as input
+ the modified personal/payment information or driving license number.
+ It checks whether provided information is valid and, if so, updates the
+ corresponding user tuple in the database.
+ Otherwise an error message is returned.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+deleteProfile: 
+\series default
+this function deletes the tuple corresponding to the caller user in the
+ database.
+ It returns a confirmation message, then a final log-out is performed.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+ban:
+\series default
+ this function takes as input a user and sets his/her 
+\begin_inset Quotes eld
+\end_inset
+
+ban
+\begin_inset Quotes erd
+\end_inset
+
+ attribute to true.
+ It then performs a log-out to the user.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+unban:
+\series default
+ this function takes as input a user and sets his/her 
+\begin_inset Quotes eld
+\end_inset
+
+ban
+\begin_inset Quotes erd
+\end_inset
+
+ attribute to false.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+generateEmployee: 
+\series default
+this function generates special username and password for an employee and
+ returns them.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+\noun on
+Reservation Manager
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+findAvailableCars: 
+\series default
+this function takes as input a position and queries the 
+\begin_inset Quotes eld
+\end_inset
+
+Car
+\begin_inset Quotes erd
+\end_inset
+
+ database in order to return all the cars whose state is 
+\begin_inset Quotes eld
+\end_inset
+
+available
+\begin_inset Quotes erd
+\end_inset
+
+ and whose position is near to position parameter.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+reserve: 
+\series default
+this function takes as input the user and a car and updates the selected
+ car tuple in the database changing the attribute 
+\begin_inset Quotes eld
+\end_inset
+
+state
+\begin_inset Quotes erd
+\end_inset
+
+ to 
+\begin_inset Quotes eld
+\end_inset
+
+reserved
+\begin_inset Quotes erd
+\end_inset
+
+.
+ It creates a new 
+\begin_inset Quotes eld
+\end_inset
+
+reservation
+\begin_inset Quotes erd
+\end_inset
+
+ tuple in the database and calls for the digital payment service to perform
+ the pre-reservation deposit.
+ It eventually returns a confirmation message once the operation is accomplished.
+ If the operation fails an error message is returned.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+unlock: 
+\series default
+this function takes as input a car and updates the selected car tuple in
+ the database setting its 
+\begin_inset Quotes eld
+\end_inset
+
+lock
+\begin_inset Quotes erd
+\end_inset
+
+ attribute to false.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+\noun on
+Ride Manager
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+createRide: 
+\series default
+this function takes as input a car and a user and creates a new ride tuple
+ in the database whose attribute 
+\begin_inset Quotes eld
+\end_inset
+
+state
+\begin_inset Quotes erd
+\end_inset
+
+ is 
+\begin_inset Quotes eld
+\end_inset
+
+active
+\begin_inset Quotes erd
+\end_inset
+
+.
+ It calls for the digital payment service to refund the pre-reservation
+ deposit.
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+computeMoneySavDest: 
+\series default
+this function takes as input the location specified by the user and returns
+ the optimal destination, i.e.
+ the location of a charging area with optimal:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+distance from destination parameter
+\end_layout
+
+\begin_layout Itemize
+number of available plugs
+\end_layout
+
+\begin_layout Itemize
+distribution of cars in the city
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+computeCost: 
+\series default
+this function takes as input the time of the ride and returns the cost the
+ user must pay.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+terminateRide: 
+\series default
+this function takes as input a ride and updates its state to 
+\begin_inset Quotes eld
+\end_inset
+
+completed
+\begin_inset Quotes erd
+\end_inset
+
+.
+ It calls for the digital payment service to perform the payment transaction.
+ If the operation is successful, then a confirmation message is returnes.
+ Otherwise, it calls for the account manager to ban the user and an error
+ message is returned.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+lock: 
+\series default
+this function takes as input a car and updates the selected car tuple in
+ the database setting its 
+\begin_inset Quotes eld
+\end_inset
+
+lock
+\begin_inset Quotes erd
+\end_inset
+
+ attribute to true.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+\noun on
+Maintenance Manager
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+findAvailableEmployees: 
+\series default
+this function takes as input a car and queries the database in order to
+ returns a collection of employees whose attribute 
+\begin_inset Quotes eld
+\end_inset
+
+state
+\begin_inset Quotes erd
+\end_inset
+
+ is 
+\begin_inset Quotes eld
+\end_inset
+
+available
+\begin_inset Quotes erd
+\end_inset
+
+, ordered by distance from the car.
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+generateRequest: 
+\series default
+this function takes as input a car and an employee and generates an intervention
+ message to send to the employee.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+forwardRequest: 
+\series default
+this function takes as input an intervention request and sends a notification
+ message to the employee.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+findDestination: 
+\series default
+this function takes as input the GPS location of the car and returns the
+ optimal destination, i.e.
+ the location of the nearest charging area to the car.
+\end_layout
+
+\end_deeper
+\begin_layout Subsubsection
+Browser to Web Server
+\end_layout
+
+\begin_layout Standard
+All the communications between users' browser and web server are implemented
+ with HTTPS requests, thus all the traffic must be protected with SSL encryption.
+\end_layout
+
+\begin_layout Subsubsection
+Application Server to Database
+\end_layout
+
+\begin_layout Standard
+The communication between the application server and the DBMS must be via
+ Java Persistence API (JPA).
+ Thus, object-relation mapping is performed by JPA and JPQL (Java Persistence
+ Query Language) allows to write queries that work regardless of the underlying
+ data store.
+\end_layout
+
 \begin_layout Subsection
 Selected architectural styles and patterns
 \end_layout
