@@ -3175,6 +3175,353 @@ Requirements traceability
 Functional requirements and components
 \end_layout
 
+\begin_layout Standard
+The following table shows the mapping between specific requirements identified
+ in section 3.2 of the RASD and business logic components described in the
+ DD.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="2">
+<features tabularvalignment="middle">
+<column alignment="right" valignment="top" width="0pt">
+<column alignment="left" valignment="top" width="70text%">
+<row>
+<cell alignment="right" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Account Manager
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+R1.
+ On registration, a person must be asked: e-mail address, username, pass-
+ word, name, surname, birth date, address, phone number, driving license
+ number, billing information.
+\end_layout
+
+\begin_layout Plain Layout
+R2.
+ There mustn't be another user already registered with the same e-mail address,
+ username, or driving license number.
+\end_layout
+
+\begin_layout Plain Layout
+R3.
+ The password must be at least 8 characters long and it must contain at
+ least one lowercase character, one uppercase character, and one digit.
+\end_layout
+
+\begin_layout Plain Layout
+R4.
+ The password must be asked twice.
+ The two passwords must match.
+\end_layout
+
+\begin_layout Plain Layout
+R5.
+ On login, the system must grant the user access to the account if and only
+ if the following conditions are met:
+\end_layout
+
+\begin_layout Itemize
+(a) The inserted username corresponds to a username of an existing user,
+ or the inserted e-mail corresponds to the registration e-mail of an existing
+ user.
+\end_layout
+
+\begin_layout Itemize
+(b) The inserted password matches with that of the user identified above.
+\end_layout
+
+\begin_layout Plain Layout
+R6.
+ If the entered password is wrong, a new attempt can be made only 10 seconds
+ later.
+\end_layout
+
+\begin_layout Plain Layout
+R32.
+ If the payment operation of a user fails due to insuffcient funds, then
+ that user is banned until he/she pays it off.
+\end_layout
+
+\begin_layout Plain Layout
+R33.
+ If a user is banned, the system must prevent him/her from having access
+ to the service.
+\end_layout
+
+\begin_layout Plain Layout
+R34.
+ The user must be able to view the information in his/her profile.
+\end_layout
+
+\begin_layout Plain Layout
+R35.
+ The user must be able to edit the information in his/her profile, according
+ to information fields' constraints.
+\end_layout
+
+\begin_layout Plain Layout
+R36.
+ The user must be able to delete his/her profile.
+\end_layout
+
+\begin_layout Plain Layout
+R37.
+ The system must generate special credential for employees.
+\end_layout
+
+\begin_layout Plain Layout
+R40.
+ The system must store users' information into a database.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Reservation Manager
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+R7.
+ The user can choose to find cars around his/her position, or around a specied
+ address.
+\end_layout
+
+\begin_layout Plain Layout
+R8.
+ The user must be shown a map of the selected position, on which the locations
+ of available cars are marked.
+\end_layout
+
+\begin_layout Plain Layout
+R9.
+ The system charges the user in advance with 1 EUR deposit.
+ The deposit is given back to the user if he turns on the engine.
+\end_layout
+
+\begin_layout Plain Layout
+R10.
+ If an error occurs while charging the user with the down payment then an
+ error message is displayed and the reservation operation is aborted.
+\end_layout
+
+\begin_layout Plain Layout
+R11.
+ The user must be able to click on a marked location on the map in order
+ to view additional information on the car at that position.
+\end_layout
+
+\begin_layout Plain Layout
+R12.
+ The user must be able to view at least the exact address and the battery
+ level of the selected car.
+\end_layout
+
+\begin_layout Plain Layout
+R13.
+ The user must be able to reserve the selected car by clicking on a button
+ in the additional information screen.
+ After the button has been clicked, the car state must be set to RESERVED
+ and a new reservation must be created associated to the user and the selected
+ car.
+\end_layout
+
+\begin_layout Plain Layout
+R14.
+ The user must not be able to reserve the selected car if there already
+ exists a reservation made by the user himself/herself.
+\end_layout
+
+\begin_layout Plain Layout
+R15.
+ Any user who reserved a car in the last hour must be able to unlock the
+ car he/she has reserved in one of the following ways:
+\end_layout
+
+\begin_layout Itemize
+(a) If the reservation has been made via mobile app, the user must be able
+ to unlock the car by clicking on a button in the reservation screen of
+ the mobile app.
+\end_layout
+
+\begin_layout Itemize
+(b) If the reservation has been made via web app, the user must be able
+ to unlock the car by sending an SMS.
+\end_layout
+
+\begin_layout Plain Layout
+R28.
+ Any user who doesn't ignite the engine of the car he/she has reserved within
+ an hour is charged with a fee of 1 EUR and his/her reservation is deleted.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Ride Manager
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+R17.
+ The system must keep track of the time spent from when the engine turns
+ on until the engine turns off.
+\end_layout
+
+\begin_layout Plain Layout
+R18.
+ At the end of the ride the system waits for possible discounts to be applied
+ to the final fare, and then interacts with the third party payment service
+ and notifies the user with the report of the payment operation.
+\end_layout
+
+\begin_layout Plain Layout
+R19.
+ The system locks the car if it detects that nobody is inside the vehicle
+ and doors are closed.
+\end_layout
+
+\begin_layout Plain Layout
+R20.
+ If the system fails in locking the car (e.g.
+ doors are not closed) then a warning message is sent to the respective
+ user.
+\end_layout
+
+\begin_layout Plain Layout
+R21.
+ If a user unlocks a locked car from the inside, then the system locks the
+ car again.
+\end_layout
+
+\begin_layout Plain Layout
+R22.
+ If the car is detected to be at a charging area, then the system must wait
+ for a fixed timeout of 2 minutes or until the car is plugged before charging
+ the user.
+\end_layout
+
+\begin_layout Plain Layout
+R23.
+ If the number of people inside the car is measured to be 3 or more, the
+ system must apply a 10% discount on the final fare.
+\end_layout
+
+\begin_layout Plain Layout
+R24.
+ If the battery level at the end of the ride is measured to be at least
+ 50% of the total charge, the system must apply a 20% discount on the final
+ fare.
+ R25.
+ If the position of the car at the end of the ride is a charging area, and
+ the car is plugged in within a 2 minutes time frame, the system must apply
+ a 30% discount on the final fare.
+\end_layout
+
+\begin_layout Plain Layout
+R26.
+ If a ride is eligible for multiple discounts, only the largest is effectively
+ applied to the final fare.
+\end_layout
+
+\begin_layout Plain Layout
+R27.
+ If the position of the car at the end of the ride is more than 3 km away
+ from the nearest charging area or if the battery level is lower than 20%
+ of the total charge, the system must apply a 30% additional charge on the
+ final fare.
+\end_layout
+
+\begin_layout Plain Layout
+R29.
+ The user must be able to enable a money saving option as soon as he/she
+ enters the car, by entering a specific destination.
+\end_layout
+
+\begin_layout Plain Layout
+R30.
+ The system estimates at which charging area the user has to park the car,
+ depending on the specified destination and plug availability, in order
+ to achieve a uniform distribution of cars.
+\end_layout
+
+\begin_layout Plain Layout
+R31.
+ The optimal route to reach the charging area is displayed to the user.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Maintenance Manager
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+R16.
+ The system must inform an employee when a car is in low battery state.
+\end_layout
+
+\begin_layout Plain Layout
+R38.
+ Employees' account can lock and unlock every car.
+\end_layout
+
+\begin_layout Plain Layout
+R39.
+ Employees must be able to access an area where cars can be inserted to/deleted
+ from the database.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 Non-functional requirements
 \end_layout
