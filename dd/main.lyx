@@ -1900,8 +1900,8 @@ distribution of cars in the city
 \series bold
 computeCost: 
 \series default
-this function takes as input the time of the ride and returns the cost the
- user must pay.
+this function takes as input the time of the ride and car sensors values
+ and returns the cost the user must pay considering fare modifiers.
 \end_layout
 
 \begin_layout Itemize
