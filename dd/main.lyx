@@ -400,12 +400,15 @@ Overview
 \end_layout
 
 \begin_layout Standard
-//alla fine.
- percorso seguito in doc
-\end_layout
-
-\begin_layout Standard
-//ATAM ?
+In this chapter we will analyze the components that build up PowerEnJoy
+ system.
+ To begin with, a high-level analysis is carried out, showing how the main
+ blocks interact.
+ Then the single components are detailed in chapter 2.3 and the relation
+ between logic layers and physical tiers is described in chapter 2.4.
+ In chapter 2.6 we anlyze in depth the interfaces that allow the different
+ components to communicate.
+ The dynamics of each feature of the system is detailed in chapter 2.5.
 \end_layout
 
 \begin_layout Subsection
@@ -2061,25 +2064,39 @@ The following architectural styles have been used:
 \begin_layout Standard
 
 \series bold
-Client-server
+Client-server: 
 \series default
- blabla
+the front end (mobile app and employee app) are clients communicating with
+ the application server.
+ The browser supporting the web app is a client communicating with the web
+ server.
+ The application server behaves as a client quering the database (server).
 \end_layout
 
 \begin_layout Standard
 
 \series bold
-Service-Oriented Architecture (SOA)
+Service-Oriented Architecture (SOA): 
 \series default
- blabla
+the way components interact with the application server is thought to be
+ service-oriented.
+ The single components are analyzed from a high-level point of view depending
+ on the service the offer.
+ SOA allows to easily extend the system by building and adding independent
+ modules to the core.
+ Moreover, being the modules decoupled, their testing can be carried out
+ independently module by module.
 \end_layout
 
 \begin_layout Standard
 
 \series bold
-Model-View-Controller (MVC)
+Model-View-Controller (MVC): 
 \series default
- blabla
+MVC pattern is followed throughout the whole system design.
+ The clients are front-end components (views) interacting with logic components
+ (controllers) which drive the information flow and the information retrieval
+ from the database (model).
 \end_layout
 
 \begin_layout Subsection
