@@ -400,13 +400,13 @@ Overview
 \end_layout
 
 \begin_layout Standard
-In this chapter we will analyze the components that build up PowerEnJoy
+In this chapter we will analyse the components that build up PowerEnJoy
  system.
  To begin with, a high-level analysis is carried out, showing how the main
  blocks interact.
  Then the single components are detailed in chapter 2.3 and the relation
  between logic layers and physical tiers is described in chapter 2.4.
- In chapter 2.6 we anlyze in depth the interfaces that allow the different
+ In chapter 2.6 we anlyse in depth the interfaces that allow the different
  components to communicate.
  The dynamics of each feature of the system is detailed in chapter 2.5.
 \end_layout
@@ -2080,7 +2080,7 @@ Service-Oriented Architecture (SOA):
 \series default
 the way components interact with the application server is thought to be
  service-oriented.
- The single components are analyzed from a high-level point of view depending
+ The single components are analysed from a high-level point of view depending
  on the service the offer.
  SOA allows to easily extend the system by building and adding independent
  modules to the core.
