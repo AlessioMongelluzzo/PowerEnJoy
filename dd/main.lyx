@@ -1649,6 +1649,72 @@ Sequence Diagram for car maintenance.
 
 \end_layout
 
+\begin_layout Subsubsection
+Database Maintenance
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+makebox[
+\backslash
+textwidth][c]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename img/databasemanagementsequence.png
+	width 70page%
+	height 70page%
+	keepAspectRatio
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Sequence Diagram for cars insertion/deletion-safe areas insertion/deletion.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 Component interfaces
 \end_layout
@@ -4152,8 +4218,8 @@ R38.
 
 \begin_layout Plain Layout
 R39.
- Employees must be able to access an area where cars can be inserted to/deleted
- from the database.
+ Employees must be able to access an area where cars and safe areas can
+ be inserted to/deleted from the database.
 \end_layout
 
 \end_inset
@@ -4171,7 +4237,125 @@ Non-functional requirements
 \end_layout
 
 \begin_layout Standard
-fare
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="2">
+<features islongtable="true" longtabularalignment="center">
+<column alignment="right" valignment="top" width="0pt">
+<column alignment="left" valignment="top" width="70text%">
+<row>
+<cell alignment="right" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Availability
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+The architecture we design does not take into account partitions or duplications
+ of the application server, so we can ensure no more than the 98% availability
+ we stated in the RASD.
+ 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Reliability
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+All the information stored in the database must be periodically dumped into
+ a back-up server.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Maintainability
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+The SOA architecture grants high modules decoupling and facilitates future
+ extensions.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Security
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Encryption algorithms, like SSL, are used.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Portability
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+The architecture models are based on the J2EE framework.
+ Java code can be ported across multiple platforms, thus Java driven Web
+ Services may be developed on one platform, but deployed and executed on
+ another.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -4214,15 +4398,15 @@ Hours of work
 \end_layout
 
 \begin_layout Itemize
-Alessio Mongelluzzo: ?? hours
+Alessio Mongelluzzo: 35 hours
 \end_layout
 
 \begin_layout Itemize
-Michele Ferri: ?? hours
+Michele Ferri: 35 hours
 \end_layout
 
 \begin_layout Itemize
-Mattia Maffioli: ?? hours
+Mattia Maffioli: 35 hours
 \end_layout
 
 \end_body
