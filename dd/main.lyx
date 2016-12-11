@@ -179,7 +179,14 @@ Scope
 \end_layout
 
 \begin_layout Standard
-TODO: finire
+The system supports a car-sharing service employing electric cars.
+\end_layout
+
+\begin_layout Standard
+The software system is divided into four layers, which will be presented
+ in the document.
+ The architecture has to be easily extensible and maintainable in order
+ to provide new functionalities.
 \end_layout
 
 \begin_layout Standard
@@ -620,6 +627,7 @@ textwidth][c]{
 	filename img/tiers_interaction.jpg
 	width 80page%
 	height 80page%
+	keepAspectRatio
 
 \end_inset
 
@@ -668,10 +676,18 @@ The system architecture is based on 4 main components:
 Mobile app
 \end_layout
 
+\begin_deeper
 \begin_layout Standard
-//detail?
+The mobile client implementation depends on the specific platform.
+ The iOS application is implemented in Swift and mainly uses UIKit framework
+ to manage the UI interface.
+ Instead, the Android application is implemented in Java and mainly uses
+ android.view package for graphical management.
+ The application core is composed by a controller which translates the inputs
+ from the UI into remote functions calls via RESTful APIs.
 \end_layout
 
+\end_deeper
 \begin_layout Itemize
 
 \series bold
@@ -732,6 +748,7 @@ textwidth][c]{
 	filename img/BCE_DD.png
 	width 80page%
 	height 80page%
+	keepAspectRatio
 
 \end_inset
 
@@ -1150,6 +1167,7 @@ textwidth][c]{
 	filename img/deploymentdiagram.png
 	width 60page%
 	height 60page%
+	keepAspectRatio
 
 \end_inset
 
@@ -1230,8 +1248,9 @@ textwidth][c]{
 
 \begin_inset Graphics
 	filename img/webregistrationsequence.png
-	width 60page%
-	height 60page%
+	width 70page%
+	height 70page%
+	keepAspectRatio
 
 \end_inset
 
@@ -1303,8 +1322,9 @@ textwidth][c]{
 
 \begin_inset Graphics
 	filename img/webloginsequence.png
-	width 60page%
-	height 60page%
+	width 80page%
+	height 70page%
+	keepAspectRatio
 
 \end_inset
 
@@ -1376,8 +1396,9 @@ textwidth][c]{
 
 \begin_inset Graphics
 	filename img/weblookupreservesequence.png
-	width 60page%
-	height 60page%
+	width 70page%
+	height 70page%
+	keepAspectRatio
 
 \end_inset
 
@@ -1418,7 +1439,7 @@ Unlock/Lock and Ride
 
 \begin_layout Standard
 This diagram shows how the system behaves when a user wants to unlock a
- reserved car and performe a ride:
+ reserved car and perform a ride:
 \end_layout
 
 \begin_layout Standard
@@ -1446,8 +1467,9 @@ textwidth][c]{
 
 \begin_inset Graphics
 	filename img/unlockrideandlocksequence.png
-	width 60page%
-	height 60page%
+	width 80page%
+	height 70page%
+	keepAspectRatio
 
 \end_inset
 
@@ -1516,8 +1538,9 @@ textwidth][c]{
 
 \begin_inset Graphics
 	filename img/userprofilemanagementsequence.png
-	width 60page%
-	height 60page%
+	width 80page%
+	height 70page%
+	keepAspectRatio
 
 \end_inset
 
@@ -1586,8 +1609,9 @@ textwidth][c]{
 
 \begin_inset Graphics
 	filename img/maintenancesequence.png
-	width 60page%
-	height 60page%
+	width 70page%
+	height 70page%
+	keepAspectRatio
 
 \end_inset
 
@@ -2030,8 +2054,84 @@ The communication between the application server and the DBMS must be via
 Selected architectural styles and patterns
 \end_layout
 
+\begin_layout Standard
+The following architectural styles have been used:
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Client-server
+\series default
+ blabla
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Service-Oriented Architecture (SOA)
+\series default
+ blabla
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Model-View-Controller (MVC)
+\series default
+ blabla
+\end_layout
+
 \begin_layout Subsection
 Other design decisions
+\end_layout
+
+\begin_layout Subsubsection
+Password storage
+\end_layout
+
+\begin_layout Standard
+Users’ passwords are not stored in plaintext, but they are hashed and salted
+ with strong cryptographic hash functions.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+Maps
+\end_layout
+
+\begin_layout Standard
+The system uses an external service, 
+\shape italic
+Google Maps
+\shape default
+, to calculate distances and visualize maps.
+ The reasons of this choice are the following:
+\end_layout
+
+\begin_layout Itemize
+manually developing maps is not a viable solution due to the enormous effort
+ required to code and collect data;
+\end_layout
+
+\begin_layout Itemize
+
+\shape slanted
+Google Maps
+\shape default
+ is a well-established, tested and reliable software component already used
+ by millions of people around the world, and therefore the users feel comfortabl
+e with a software they know and use everyday;
+\end_layout
+
+\begin_layout Itemize
+
+\shape slanted
+Google Maps
+\shape default
+ offers APIs, enabling programmatic access to its features, and can be used
+ both on the server side (calculations, shortest paths...) and on the client
+ side (map visualization).
 \end_layout
 
 \begin_layout Section
@@ -3712,7 +3812,7 @@ The following table shows the mapping between specific requirements identified
 \align center
 \begin_inset Tabular
 <lyxtabular version="3" rows="4" columns="2">
-<features tabularvalignment="middle">
+<features islongtable="true" longtabularalignment="center">
 <column alignment="right" valignment="top" width="0pt">
 <column alignment="left" valignment="top" width="70text%">
 <row>
@@ -4051,6 +4151,10 @@ R39.
 
 \begin_layout Subsection
 Non-functional requirements
+\end_layout
+
+\begin_layout Standard
+fare
 \end_layout
 
 \begin_layout Section
