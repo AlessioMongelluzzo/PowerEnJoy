@@ -7,11 +7,13 @@
 \textclass article
 \begin_preamble
 \date{}
+\usepackage{graphicx}
 \end_preamble
 \use_default_options true
 \begin_modules
 figs-within-sections
 eqs-within-sections
+tabs-within-sections
 \end_modules
 \maintain_unincluded_children false
 \language english
@@ -279,12 +281,141 @@ Integration Strategy
 Entry Criteria
 \end_layout
 
+\begin_layout Standard
+This section describes the prerequisites that need to be met before integration
+ testing can be started.
+\end_layout
+
+\begin_layout Standard
+All the classes and methods must pass thorough unit tests which should reasonabl
+y discover major issues in the structure of the classes or in the implementation
+ of the algorithms.
+ Unit tests should have a minimum coverage of 90% of the LOC and should
+ be run automatically at each build using JUnit.
+ Unit testing is not in the scope of this document and will not be specified
+ in further detail.
+\end_layout
+
+\begin_layout Standard
+Moreover, code inspection has to be performed on all the codebase in order
+ to ensure maintainability, respect of conventions and find possible issues
+ which could increase the effort of the testers in the next testing phases.
+ Code inspection must be performed using automated tools as much as possible:
+ manual testing should be reserved for the most difficult features to test.
+\end_layout
+
+\begin_layout Standard
+Finally, the documentation of all classes and functions, written using JavaDoc,
+ has to be complete and up-to-date in order to be used as a reference for
+ integration testing development.
+ In particular the public interfaces of each class and module should be
+ well specified.
+ Where necessary, a formal specification language can be used.
+\end_layout
+
+\begin_layout Standard
+The following documents must be delivered before integration testing can
+ begin:
+\end_layout
+
+\begin_layout Itemize
+Requirement Analysis and Specification Document of PowerEnJoy
+\end_layout
+
+\begin_layout Itemize
+Design Document of PowerEnJoy
+\end_layout
+
+\begin_layout Itemize
+Integration Testing Plan Document (this document)
+\end_layout
+
 \begin_layout Subsection
 Elements to be integrated
 \end_layout
 
+\begin_layout Standard
+In the Design Document we outlined four major high-level components, correspondi
+ng to the system tiers, which from now on will be referred to as subsystems:
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Database tier
+\series default
+.
+ This is the DBMS: it is not part of the software to be developed, but has
+ to be integrated.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Business tier
+\series default
+.
+ This subsystem implements all the application logic and communicates with
+ the front-ends.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Web tier
+\series default
+.
+ The web tier implements the web interface and communicates with the business
+ tier and the browser clients.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Client tier
+\series default
+.
+ The client tier consists of desktop web browsers and our mobile applications.
+\end_layout
+
+\begin_layout Standard
+The integration process of our software is performed on two levels.
+\end_layout
+
+\begin_layout Enumerate
+integration of the different components (classes, Java Beans) inside the
+ same subsystem;
+\end_layout
+
+\begin_layout Enumerate
+integration of different subsystems.
+\end_layout
+
+\begin_layout Standard
+The first step needs to be performed only for the component which contains
+ the pieces of software that we are going to develop, namely the business
+ tier, the mobile application in the client tier and part of the web tier
+ (which, as stated in the DD, uses JSF to implement the web application).
+\end_layout
+
 \begin_layout Subsection
 Integration Testing Strategy
+\end_layout
+
+\begin_layout Standard
+The integration strategy of choice is the bottom-up approach.
+ This choice comes natural since we assume we already have the unit tests
+ for the smaller components, so we can proceed from the bottom.
+\end_layout
+
+\begin_layout Standard
+Moreover, the higher-level subsystems outlined in section 2.2 are well separated
+ and loosely coupled since they correspond to different tiers; they also
+ communicate through well-defined interfaces (REST API, HTTP), so they will
+ not be hard to integrate at a later time.
+ In this way it will be possible also to limit the stubs needed in order
+ to accomplish the integration, because the specific components do not use
+ the general ones, so they do not require stubs.
 \end_layout
 
 \begin_layout Standard
@@ -311,7 +442,7 @@ textwidth][c]{
 
 
 \begin_inset Graphics
-	filename ComponentInteraction.png
+	filename diagrams/ComponentInteraction.png
 	width 60page%
 	height 60page%
 	keepAspectRatio
@@ -358,18 +489,55 @@ Software Integration Sequence
 \end_layout
 
 \begin_layout Standard
+The integration sequence of the components is described in Table 2.1 and
+ in Figure 2.1.
+ The components are tested starting from the most independent one to the
+ less independent one.
+ This gives the opportunity to avoid the implementation of useless stubs,
+ because when less independent components are tested, the components which
+ they rely on have already been integrated.
+ The components are integrated within their classes in order to create an
+ integrated subsystem which is ready for subsystem integration.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+makebox[
+\backslash
+textwidth][c]{
+\end_layout
+
+\end_inset
+
+
 \begin_inset Tabular
 <lyxtabular version="3" rows="17" columns="4">
 <features tabularvalignment="middle">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
 <column alignment="center" valignment="top" width="0pt">
+<column alignment="center" valignment="top" width="0pt">
+<column alignment="center" valignment="top" width="0pt">
+<column alignment="center" valignment="top" width="50text%">
 <row>
 <cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 #
 \end_layout
 
@@ -379,6 +547,8 @@ Software Integration Sequence
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 Involved subsystems
 \end_layout
 
@@ -388,6 +558,8 @@ Involved subsystems
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 Component
 \end_layout
 
@@ -397,6 +569,8 @@ Component
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 Integrates with
 \end_layout
 
@@ -701,7 +875,11 @@ Business
 \begin_inset Text
 
 \begin_layout Plain Layout
-(JEB) Car, (JEB) Reservation
+(JEB) Car
+\end_layout
+
+\begin_layout Plain Layout
+(JEB) Reservation
 \end_layout
 
 \end_inset
@@ -712,18 +890,6 @@ Business
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\uuline off
-\uwave off
-\noun off
-\color none
 I9
 \end_layout
 
@@ -827,7 +993,15 @@ Business
 \begin_inset Text
 
 \begin_layout Plain Layout
-(JEB) Safe Area, (JEB) Employee, (JEB) Car
+(JEB) Safe Area
+\end_layout
+
+\begin_layout Plain Layout
+(JEB) Employee
+\end_layout
+
+\begin_layout Plain Layout
+(JEB) Car
 \end_layout
 
 \end_inset
@@ -903,8 +1077,19 @@ Orchestrator
 \begin_inset Text
 
 \begin_layout Plain Layout
-(SB) AccountManager, (SB) ReservationManager, (SB) RideManager, (SB) Maintenance
-Manager
+(SB) AccountManager
+\end_layout
+
+\begin_layout Plain Layout
+(SB) ReservationManager
+\end_layout
+
+\begin_layout Plain Layout
+(SB) RideManager
+\end_layout
+
+\begin_layout Plain Layout
+(SB) MaintenanceManager
 \end_layout
 
 \end_inset
@@ -1029,10 +1214,272 @@ Web Server
 \end_inset
 
 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Integration order of the system components.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsubsection
 Subsystem Integration Sequence
+\end_layout
+
+\begin_layout Standard
+The integration sequence of the subsystems is described in Table 2.2 and
+ in Figure 2.2.
+\end_layout
+
+\begin_layout Standard
+A choice was made to proceed with the integration process from the server
+ side towards the client applications, of which mobile app is integrated
+ before the web tier.
+ The reason to do so is that, first of all, in order to have a functioning
+ client you need to have a working business tier.
+ The business tier, instead, can be tested without any client, by making
+ API calls also in an automated fashion.
+ And secondly, by integrating the mobile application before the web tier,
+ we aim to obtain a fully operational client-server system as soon as possible.
+ The web tier is less essential and can be integrated after the app.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+makebox[
+\backslash
+textwidth][c]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="3">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0pt">
+<column alignment="center" valignment="top" width="0pt">
+<column alignment="center" valignment="top" width="0pt">
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+#
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Subsystem
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Integrates with
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+SI1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Business tier
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Database tier
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+SI2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Mobile application
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Business tier
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+SI3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Web tier
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Business tier
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+SI4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Client browser
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Web tier
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Integration order of the subsystem components.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
