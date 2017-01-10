@@ -12,6 +12,7 @@
 \definecolor{alloy-keyword}{rgb}{0.23, 0.23, 0.7}
 \definecolor{alloy-comment}{rgb}{0.18, 0.64, 0.18}
 \definecolor{alloy-string}{rgb}{0.71, 0.18, 0.71}
+\date{}
 \end_preamble
 \use_default_options true
 \begin_modules

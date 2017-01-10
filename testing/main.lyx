@@ -1,0 +1,307 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+\date{}
+\end_preamble
+\use_default_options true
+\begin_modules
+figs-within-sections
+eqs-within-sections
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement H
+\paperfontsize default
+\spacing single
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder false
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle true
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Software Engineering 2 Project: PowerEnJoy Integration Test Plan Document
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename polimi.png
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace vfill
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Alessio Mongelluzzo
+\end_layout
+
+\begin_layout Itemize
+Michele Ferri
+\end_layout
+
+\begin_layout Itemize
+Mattia Maffioli
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Introduction
+\end_layout
+
+\begin_layout Subsection
+Purpose and Scope
+\end_layout
+
+\begin_layout Subsubsection
+Purpose
+\end_layout
+
+\begin_layout Standard
+This document is the Integration Test Plan Document (ITPD) for the PowerEnJoy
+ software.
+ Its purpose is to determine how to accomplish the integration test of the
+ software, which tools are to be used and which approach will be followed.
+\end_layout
+
+\begin_layout Subsubsection
+Scope
+\end_layout
+
+\begin_layout Standard
+PowerEnJoy is a system which supports a car-sharing service employing electric
+ cars.
+\end_layout
+
+\begin_layout Subsection
+List of Definitions and Abbreviations
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+RASD
+\series default
+: Requirements Analysis and Specification Document.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+DD
+\series default
+: Design Document.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+ITPD
+\series default
+: Integration Test Plan Document (this document).
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+RDBMS
+\series default
+: Relational Data Base Management System.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+DB
+\series default
+: the database layer, handled by a RDBMS.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Application server
+\series default
+: the layer which provides the application logic and interacts with the
+ DB and with the front-ends.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Back-end
+\series default
+: term used to identify the Application server.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Front-end
+\series default
+: the components which use the application server services, namely the web
+ front-end and the mobile applications.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Web server
+\series default
+: the component that implements the web-based front-end.
+ It interacts with the application server and with the users' browsers.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+JSF
+\series default
+: Java Server Faces.
+\end_layout
+
+\begin_layout Section
+Integration Strategy
+\end_layout
+
+\begin_layout Subsection
+Entry Criteria
+\end_layout
+
+\begin_layout Subsection
+Elements to be integrated
+\end_layout
+
+\begin_layout Subsection
+Integration Testing Strategy
+\end_layout
+
+\begin_layout Subsection
+Sequence of Component / Function Integration
+\end_layout
+
+\begin_layout Subsubsection
+Software Integration Sequence
+\end_layout
+
+\begin_layout Subsubsection
+Subsystem Integration Sequence
+\end_layout
+
+\begin_layout Section
+Individual Steps and Test Description
+\end_layout
+
+\end_body
+\end_document

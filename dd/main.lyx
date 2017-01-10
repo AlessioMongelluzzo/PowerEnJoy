@@ -5,6 +5,9 @@
 \save_transient_properties true
 \origin unavailable
 \textclass article
+\begin_preamble
+\date{}
+\end_preamble
 \use_default_options true
 \begin_modules
 figs-within-sections
