@@ -1692,7 +1692,7 @@ Test Case Identifier
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+ST2
 \end_layout
 
 \end_inset
@@ -1714,7 +1714,7 @@ Test Items
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Mobile application, Business tier 
 \end_layout
 
 \end_inset
@@ -1736,7 +1736,7 @@ Input
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Mobile application requests for Business tier's services through REST API
 \end_layout
 
 \end_inset
@@ -1758,7 +1758,8 @@ Output
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+The Business tier must process the requests and offer the correct service
+ to the Mobile tier 
 \end_layout
 
 \end_inset
@@ -1780,7 +1781,8 @@ Environmental Needs
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+The Business tier has to be fully implemented and a mockup of the Mobile
+ application is needed to send the requests
 \end_layout
 
 \end_inset
@@ -1802,7 +1804,11 @@ Description
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+The Business tier's called services are checked to test whether REST API
+ works correctly and the involved resources correspond to what the Mobile
+ application asked.
+ In case of incorrect requests the Mobile application should receive an
+ error code instead
 \end_layout
 
 \end_inset
@@ -1824,7 +1830,7 @@ Testing Method
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+JUnit, Mockito
 \end_layout
 
 \end_inset
@@ -1866,7 +1872,7 @@ Test Case Identifier
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+ST3
 \end_layout
 
 \end_inset
@@ -1888,7 +1894,7 @@ Test Items
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Web tier, Business tier
 \end_layout
 
 \end_inset
@@ -1910,7 +1916,7 @@ Input
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Web tier requests for Business tier's offered services
 \end_layout
 
 \end_inset
@@ -1932,7 +1938,8 @@ Output
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+The Business tier must process the Web tier's requests and call the proper
+ services, accordingly to REST API specifications
 \end_layout
 
 \end_inset
@@ -1954,7 +1961,8 @@ Environmental Needs
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+The Business tier has to be fully implemented and a Web tier stub is necessary
+ to mock services' requests
 \end_layout
 
 \end_inset
@@ -1976,7 +1984,11 @@ Description
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+The objective of this test is to check that to the Web tier's HTTP requests
+ correspond Business tier's calls for the correct services, as stated in
+ the REST API specifications.
+ Besides, in case of incorrect requests the Web tier should receive an error
+ code
 \end_layout
 
 \end_inset
@@ -1998,7 +2010,7 @@ Testing Method
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+JUnit, Mockito
 \end_layout
 
 \end_inset
@@ -2040,7 +2052,7 @@ Test Case Identifier
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+ST4
 \end_layout
 
 \end_inset
@@ -2062,7 +2074,7 @@ Test Items
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Client browser, Web tier
 \end_layout
 
 \end_inset
@@ -2084,7 +2096,7 @@ Input
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+HTTPS pages requests by Client browser 
 \end_layout
 
 \end_inset
@@ -2106,7 +2118,7 @@ Output
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+The Web tier must show to the Client browser the requested pages
 \end_layout
 
 \end_inset
@@ -2128,7 +2140,9 @@ Environmental Needs
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+The server side has to be fully implemented, included the Web tier in order
+ to process the web pages requests; a Client browser driver capable of sending
+ HTTP requests is required for the client side
 \end_layout
 
 \end_inset
@@ -2150,7 +2164,10 @@ Description
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+This test has to ensure that the HTTP requests are correctly handled by
+ the server, which has to show the requested web pages to the client, while
+ in case of incorrect HTTP requests the result has to be an error code sent
+ to the client
 \end_layout
 
 \end_inset
@@ -2172,7 +2189,7 @@ Testing Method
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+JUnit, Mockito
 \end_layout
 
 \end_inset
