@@ -3541,7 +3541,8 @@ Test Items
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Reservation Manager Session Bean, Reservation Java Entity Bean, Car Java
+ Entity Bean
 \end_layout
 
 \end_inset
@@ -3563,7 +3564,7 @@ Input
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Reservation Manager calls for JPA methods to reserve a car
 \end_layout
 
 \end_inset
@@ -3585,7 +3586,8 @@ Output
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+A reservation must be created for the requested car and the reserved car
+ state has to be updated
 \end_layout
 
 \end_inset
@@ -3607,7 +3609,8 @@ Environmental Needs
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+JPA fully implemented, Reservation Manager driver that calls for JPA methods,
+ GlassFish server
 \end_layout
 
 \end_inset
@@ -3629,7 +3632,10 @@ Description
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Check that JPA calls made by the Reservation Manager succesfully lead to
+ the creation of a tuple for the reservation in the database and that it
+ is referred to the correct user and to the requested car; verify that the
+ car state is coherently updated
 \end_layout
 
 \end_inset
@@ -3651,7 +3657,7 @@ Testing Method
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+JUnit, Mockito
 \end_layout
 
 \end_inset
@@ -3720,7 +3726,7 @@ Test Items
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Ride Manager Session Bean, Ride Java Entity Bean, Car Java Entity Bean
 \end_layout
 
 \end_inset
@@ -3742,7 +3748,7 @@ Input
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Ride Manager calls for JPA methods to reserve a car
 \end_layout
 
 \end_inset
@@ -3764,7 +3770,8 @@ Output
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+A ride must be created for the selected car and the selected car state has
+ to be updated
 \end_layout
 
 \end_inset
@@ -3786,7 +3793,8 @@ Environmental Needs
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+JPA fully implemented, Ride Manager driver that calls for JPA methods, GlassFish
+ server
 \end_layout
 
 \end_inset
@@ -3808,7 +3816,10 @@ Description
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Check that JPA calls made by the Ride Manager succesfully lead to the creation
+ of a tuple for the ride in the database and that it is referred to the
+ correct user and to the selected car; verify that the car state is coherently
+ updated
 \end_layout
 
 \end_inset
@@ -3830,7 +3841,7 @@ Testing Method
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+JUnit, Mockito
 \end_layout
 
 \end_inset
