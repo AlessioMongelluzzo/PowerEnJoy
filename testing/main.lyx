@@ -3910,7 +3910,8 @@ Test Items
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+RideManager Session Bean, Safe Area Java Entity Bean, User Java Entity Bean,
+ Car Java Entity Bean
 \end_layout
 
 \end_inset
@@ -3932,7 +3933,7 @@ Input
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Ride Manager calls for JPA methods to conclude a ride.
 \end_layout
 
 \end_inset
@@ -3954,7 +3955,7 @@ Output
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+JEBs return an outcome message and changes to the database are made persistent.
 \end_layout
 
 \end_inset
@@ -3976,7 +3977,8 @@ Environmental Needs
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+JPA fully implemented, RideManager driver that calls for JPA methods, GlassFish
+ server, stub mocking payment interaction.
 \end_layout
 
 \end_inset
@@ -3998,7 +4000,11 @@ Description
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+RideManager can retrieve the information to correctly compute a possible
+ discount or additional charge and coherently updates the database; the
+ car state is coherently updated to AVAILABLE; the ride state is coherently
+ updated to COMPLETED; the user table is updated with a 'banned' flag if
+ the payment is not successful.
 \end_layout
 
 \end_inset
@@ -4020,7 +4026,7 @@ Testing Method
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+JUnit, Mockito
 \end_layout
 
 \end_inset
