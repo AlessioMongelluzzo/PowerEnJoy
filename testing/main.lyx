@@ -4632,7 +4632,7 @@ Test Items
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Mobile Client, Orchestrator
 \end_layout
 
 \end_inset
@@ -4654,7 +4654,7 @@ Input
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+The mobile client calls for REST API to exploit business functionalities
 \end_layout
 
 \end_inset
@@ -4676,7 +4676,8 @@ Output
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+The orchestrator processes the request and calls the correct REST resource
+ methods
 \end_layout
 
 \end_inset
@@ -4698,7 +4699,7 @@ Environmental Needs
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Driver for client APIs, fully developed business layer, GlassFish server
 \end_layout
 
 \end_inset
@@ -4720,7 +4721,8 @@ Description
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Verify that the mobile client can successfully access to the business functional
+ities
 \end_layout
 
 \end_inset
@@ -4742,7 +4744,7 @@ Testing Method
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+JUnit, Mockito
 \end_layout
 
 \end_inset
@@ -4811,7 +4813,7 @@ Test Items
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Web Server, Orchestrator
 \end_layout
 
 \end_inset
@@ -4833,7 +4835,7 @@ Input
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+The Web Server calls for REST API to exploit business functionalities
 \end_layout
 
 \end_inset
@@ -4855,7 +4857,8 @@ Output
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+The orchestrator processes the request and calls the correct REST resource
+ methods
 \end_layout
 
 \end_inset
@@ -4877,7 +4880,7 @@ Environmental Needs
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Driver for the Web Server, fully developed business layer, GlassFish server
 \end_layout
 
 \end_inset
@@ -4899,7 +4902,8 @@ Description
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Verify that the Web Server can successfully access to the business functionaliti
+es the web client has asked for
 \end_layout
 
 \end_inset
@@ -4921,7 +4925,7 @@ Testing Method
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+JUnit, Mockito
 \end_layout
 
 \end_inset
@@ -4983,7 +4987,7 @@ Test Items
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Web Client, Web Server
 \end_layout
 
 \end_inset
@@ -5005,7 +5009,8 @@ Input
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Web client browser connects to the web application and sends HTTP requests
+ to the web server
 \end_layout
 
 \end_inset
@@ -5027,7 +5032,8 @@ Output
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+The web server processes the HTTP request and displays to the client the
+ correct dynamic web page
 \end_layout
 
 \end_inset
@@ -5049,7 +5055,7 @@ Environmental Needs
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Fully developed Web Server, driver for client APIs , GlassFish server
 \end_layout
 
 \end_inset
@@ -5071,7 +5077,8 @@ Description
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Verify that the web server can display the correct web pages to the web
+ client browser
 \end_layout
 
 \end_inset
@@ -5093,7 +5100,7 @@ Testing Method
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+JUnit, Mockito
 \end_layout
 
 \end_inset
@@ -5118,6 +5125,41 @@ Tools and Test Equipment Required
 \end_layout
 
 \begin_layout Standard
+The tools and software we plan to use to perform the integration testing
+ are the following:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+JUnit: 
+\series default
+JUnit is a unit testing and integration testing framework for the Java programmi
+ng language.
+ We plan to use it together with the unit testing to perform the integration
+ testing.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Mockito: 
+\series default
+Mockito is an open source testing framework for Java.
+ We use it to create stubs and drivers to mock the behaviour of called and
+ caller programs respectively.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+GlassFish: 
+\series default
+GlassFish is an open-source application server project for the Java EE platform.
+ 
+\end_layout
+
+\begin_layout Standard
 \begin_inset Newpage pagebreak
 \end_inset
 
@@ -5126,6 +5168,57 @@ Tools and Test Equipment Required
 
 \begin_layout Section
 Program Stubs and Test Data Required
+\end_layout
+
+\begin_layout Standard
+We use stubs and drivers to mock the behaviour of the software components
+ that don’t exist yet and to test the parts interacting with them.
+ In order to perform integration testing without having developed the entire
+ system first, we need to use stubs and drivers to take the part of the
+ software components that still don’t exist and test the others.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Client
+\series default
+: in order to test the REST API of the business tier without the actual
+ client application, a simple API client which interacts with the business
+ tier by simple HTTP requests is needed.
+ 
+\end_layout
+
+\begin_layout Standard
+Stubs of the 
+\series bold
+Business
+\series default
+ components: used to provide a minimum set of data to test the web tier
+ when the business tier is not fully developed.
+\end_layout
+
+\begin_layout Standard
+Drivers for the 
+\series bold
+Java Entity Beans
+\series default
+: they are used to test the Java Entity Beans when the Business Tier is
+ not fully developed.
+ They call the relevant methods of the EJBs to test the correctness of the
+ queries.
+\end_layout
+
+\begin_layout Standard
+Testing 
+\series bold
+Database
+\series default
+: the test data contained in this database includes a reduced set of instances
+ of all the entities described in the Entity-Relation diagram of the Design
+ Document.
+ 
 \end_layout
 
 \begin_layout Standard
