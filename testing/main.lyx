@@ -3635,7 +3635,7 @@ Description
 Check that JPA calls made by the Reservation Manager succesfully lead to
  the creation of a tuple for the reservation in the database and that it
  is referred to the correct user and to the requested car; verify that the
- car state is coherently updated to RESERVED
+ car state is coherently updated to RESERVED 
 \end_layout
 
 \end_inset
@@ -4081,7 +4081,8 @@ Test Items
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Maintenance Manager Session Bean, Safe Area Java Entity Bean, Employee Entity
+ Bean, Car Entity Bean
 \end_layout
 
 \end_inset
@@ -4103,7 +4104,7 @@ Input
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Maintenance Manager methods call to modify the database
 \end_layout
 
 \end_inset
@@ -4125,7 +4126,7 @@ Output
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Java Entity Beans return a message stating the outcome of the operations
 \end_layout
 
 \end_inset
@@ -4147,7 +4148,8 @@ Environmental Needs
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+JPA fully implemented, Maintenance Manager driver to mock methods call to
+ JEBs, GlassFish server
 \end_layout
 
 \end_inset
@@ -4169,7 +4171,8 @@ Description
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Check that Cars, Safe Areas and Employees information stored in the database
+ can be modified
 \end_layout
 
 \end_inset
@@ -4191,7 +4194,7 @@ Testing Method
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+JUnit, Mockito
 \end_layout
 
 \end_inset
