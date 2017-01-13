@@ -645,7 +645,7 @@ Database, Business
 \begin_inset Text
 
 \begin_layout Plain Layout
-(JEB) Car
+(JEB) Reservation
 \end_layout
 
 \end_inset
@@ -683,7 +683,7 @@ Database, Business
 \begin_inset Text
 
 \begin_layout Plain Layout
-(JEB) Reservation
+(JEB) Car
 \end_layout
 
 \end_inset
@@ -962,7 +962,7 @@ Business
 \begin_inset Text
 
 \begin_layout Plain Layout
-(JEB) Safe Area
+(JEB) Safe Area, (JEB) Car
 \end_layout
 
 \end_inset
@@ -1731,6 +1731,190 @@ Test Items
 \begin_inset Text
 
 \begin_layout Plain Layout
+Web tier, Business tier
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Input
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Web tier requests for Business tier's offered services through REST API
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Output
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+The Business tier must process the Web tier's requests and call the proper
+ services, accordingly to REST API specifications
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Environmental Needs
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+The Business tier has to be fully implemented and a Web tier driver is necessary
+ to mock services' requests
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Description
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+The objective of this test is to check that the Business tier calls for
+ the correct service corresponding to the Web tier's HTTP request , as stated
+ in the REST API specifications.
+ In case of incorrect requests the Web tier should receive an error code
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Testing Method
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+JUnit, Mockito
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Integration test case ST3
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="7" columns="2">
+<features tabularvalignment="middle">
+<column alignment="right" valignment="top" width="30text%">
+<column alignment="left" valignment="top" width="70text%">
+<row>
+<cell alignment="right" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Test Case Identifier
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ST3
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="right" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Test Items
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
 Mobile application, Business tier 
 \end_layout
 
@@ -1826,190 +2010,6 @@ The Business tier's called services are checked to test whether REST API
  application asked for.
  In case of incorrect requests the Mobile application should receive an
  error code
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="right" valignment="top" topline="true" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-Testing Method
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-JUnit, Mockito
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Newpage pagebreak
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsection
-Integration test case ST3
-\end_layout
-
-\begin_layout Standard
-\align center
-\begin_inset Tabular
-<lyxtabular version="3" rows="7" columns="2">
-<features tabularvalignment="middle">
-<column alignment="right" valignment="top" width="30text%">
-<column alignment="left" valignment="top" width="70text%">
-<row>
-<cell alignment="right" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-Test Case Identifier
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-ST3
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="right" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-Test Items
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Web tier, Business tier
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="right" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-Input
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Web tier requests for Business tier's offered services through REST API
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="right" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-Output
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-The Business tier must process the Web tier's requests and call the proper
- services, accordingly to REST API specifications
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="right" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-Environmental Needs
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-The Business tier has to be fully implemented and a Web tier driver is necessary
- to mock services' requests
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="right" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-Description
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-The objective of this test is to check that the Business tier calls for
- the correct service corresponding to the Web tier's HTTP request , as stated
- in the REST API specifications.
- In case of incorrect requests the Web tier should receive an error code
 \end_layout
 
 \end_inset
@@ -3635,7 +3635,7 @@ Description
 Check that JPA calls made by the Reservation Manager succesfully lead to
  the creation of a tuple for the reservation in the database and that it
  is referred to the correct user and to the requested car; verify that the
- car state is coherently updated
+ car state is coherently updated to RESERVED
 \end_layout
 
 \end_inset
@@ -3726,7 +3726,7 @@ Test Items
 \begin_inset Text
 
 \begin_layout Plain Layout
-Ride Manager Session Bean, Ride Java Entity Bean, Car Java Entity Bean
+Ride Manager Session Bean, Ride Java Entity Bean
 \end_layout
 
 \end_inset
@@ -3748,7 +3748,7 @@ Input
 \begin_inset Text
 
 \begin_layout Plain Layout
-Ride Manager calls for JPA methods to reserve a car
+Ride Manager calls for JPA methods to modify ride table
 \end_layout
 
 \end_inset
@@ -3770,8 +3770,7 @@ Output
 \begin_inset Text
 
 \begin_layout Plain Layout
-A ride must be created for the selected car and the selected car state has
- to be updated
+Ride JEB modifies ride relation and returns an outcome message
 \end_layout
 
 \end_inset
@@ -3819,7 +3818,7 @@ Description
 Check that JPA calls made by the Ride Manager succesfully lead to the creation
  of a tuple for the ride in the database and that it is referred to the
  correct user and to the selected car; verify that the car state is coherently
- updated
+ updated to RUNNING
 \end_layout
 
 \end_inset
