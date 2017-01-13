@@ -962,7 +962,15 @@ Business
 \begin_inset Text
 
 \begin_layout Plain Layout
-(JEB) Safe Area, (JEB) Car
+(JEB) Safe Area
+\end_layout
+
+\begin_layout Plain Layout
+(JEB) User
+\end_layout
+
+\begin_layout Plain Layout
+(JEB) Car
 \end_layout
 
 \end_inset
@@ -4256,7 +4264,8 @@ Test Items
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+RideManager Session Bean, ReservationManager Session Bean, Reservation Java
+ Entity Bean, Car Java Entity Bean
 \end_layout
 
 \end_inset
@@ -4278,7 +4287,8 @@ Input
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+RideManager interacts with ReservationManager to retrieve information necessary
+ to initialize a ride.
 \end_layout
 
 \end_inset
@@ -4300,7 +4310,9 @@ Output
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+ReservationManager provides the correct information needed for the ride
+ to be initialized; Car JEB returns a confirmation message and updates on
+ Car entity are made persistent.
 \end_layout
 
 \end_inset
@@ -4322,7 +4334,8 @@ Environmental Needs
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+JPA fully implemented, RideManager driver that interacts with ReservationManager
+ and calls for JPA methods, GlassFish server.
 \end_layout
 
 \end_inset
@@ -4344,7 +4357,9 @@ Description
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+RideManager can retrieve the correct data in order to create a ride from
+ a pending reservation; verify that the car state is coherently updated
+ to RUNNING.
 \end_layout
 
 \end_inset
@@ -4366,7 +4381,7 @@ Testing Method
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+JUnit, Mockito.
 \end_layout
 
 \end_inset
@@ -4435,7 +4450,8 @@ Test Items
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Orchestrator, AccountManager Session Bean, ReservationManager Session Bean,
+ RideManager Session Bean, MaintenanceManager Session Bean
 \end_layout
 
 \end_inset
@@ -4457,7 +4473,8 @@ Input
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Requests from the Orchestrator for the functionalities offered by Session
+ Beans.
 \end_layout
 
 \end_inset
@@ -4479,7 +4496,8 @@ Output
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+The Orchestrator has to be able to provide the right functionality carrying
+ out the proper request to the Session Beans.
 \end_layout
 
 \end_inset
@@ -4501,7 +4519,7 @@ Environmental Needs
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+GlassFish server.
 \end_layout
 
 \end_inset
@@ -4523,7 +4541,8 @@ Description
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Ensure that the Orchestrator is able to provide the functionalities of the
+ system offered by the Session Beans.
 \end_layout
 
 \end_inset
@@ -4545,7 +4564,7 @@ Testing Method
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+JUnit.
 \end_layout
 
 \end_inset
