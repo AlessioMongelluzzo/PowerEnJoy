@@ -1586,7 +1586,7 @@ Input
 \begin_inset Text
 
 \begin_layout Plain Layout
-Business tier method calls of Java Persistence API
+Business tier method calls of Java Persistence API.
 \end_layout
 
 \end_inset
@@ -1608,7 +1608,7 @@ Output
 \begin_inset Text
 
 \begin_layout Plain Layout
-The DBMS must perform the correct queries and retrieve the requested tuples
+The DBMS must perform the correct queries and retrieve the requested tuples.
 \end_layout
 
 \end_inset
@@ -1631,7 +1631,7 @@ Environmental Needs
 
 \begin_layout Plain Layout
 Java Entity Beans and Java Persistence API, driver of a Session Bean that
- mocks information retrieval request
+ mocks information retrieval request.
 \end_layout
 
 \end_inset
@@ -1655,7 +1655,7 @@ Description
 \begin_layout Plain Layout
 Information retrieval is tested checking if the right information is returned.
  The DBMS should properly react returning a warning message if it is requested
- invalid data
+ invalid data.
 \end_layout
 
 \end_inset
@@ -1761,7 +1761,7 @@ Input
 \begin_inset Text
 
 \begin_layout Plain Layout
-Web tier requests for Business tier's offered services through REST API
+Web tier requests for Business tier's offered services through REST API.
 \end_layout
 
 \end_inset
@@ -1784,7 +1784,7 @@ Output
 
 \begin_layout Plain Layout
 The Business tier must process the Web tier's requests and call the proper
- services, accordingly to REST API specifications
+ services, accordingly to REST API specifications.
 \end_layout
 
 \end_inset
@@ -1807,7 +1807,7 @@ Environmental Needs
 
 \begin_layout Plain Layout
 The Business tier has to be fully implemented and a Web tier driver is necessary
- to mock services' requests
+ to mock services' requests.
 \end_layout
 
 \end_inset
@@ -1832,7 +1832,7 @@ Description
 The objective of this test is to check that the Business tier calls for
  the correct service corresponding to the Web tier's HTTP request , as stated
  in the REST API specifications.
- In case of incorrect requests the Web tier should receive an error code
+ In case of incorrect requests the Web tier should receive an error code.
 \end_layout
 
 \end_inset
@@ -1945,7 +1945,7 @@ Input
 \begin_inset Text
 
 \begin_layout Plain Layout
-Mobile application requests for Business tier's services through REST API
+Mobile application requests for Business tier's services through REST API.
 \end_layout
 
 \end_inset
@@ -1968,7 +1968,7 @@ Output
 
 \begin_layout Plain Layout
 The Business tier must process the requests and offer the correct service
- to the Mobile tier 
+ to the Mobile tier .
 \end_layout
 
 \end_inset
@@ -1991,7 +1991,7 @@ Environmental Needs
 
 \begin_layout Plain Layout
 The Business tier has to be fully implemented and a mockup of the Mobile
- application is needed to send the requests
+ application is needed to send the requests.
 \end_layout
 
 \end_inset
@@ -2017,7 +2017,7 @@ The Business tier's called services are checked to test whether REST API
  works correctly and the selected resources correspond to the ones the Mobile
  application asked for.
  In case of incorrect requests the Mobile application should receive an
- error code
+ error code.
 \end_layout
 
 \end_inset
@@ -2123,7 +2123,7 @@ Input
 \begin_inset Text
 
 \begin_layout Plain Layout
-HTTPS pages requests by Client browser 
+HTTPS pages requests by Client browser.
 \end_layout
 
 \end_inset
@@ -2145,7 +2145,7 @@ Output
 \begin_inset Text
 
 \begin_layout Plain Layout
-The Web tier must show to the Client browser the requested pages
+The Web tier must show to the Client browser the requested pages.
 \end_layout
 
 \end_inset
@@ -2169,7 +2169,7 @@ Environmental Needs
 \begin_layout Plain Layout
 The server side has to be fully implemented, included the Web tier in order
  to process the web pages requests; a Client browser driver capable of sending
- HTTP requests is required for the client side
+ HTTP requests is required for the client side.
 \end_layout
 
 \end_inset
@@ -2194,7 +2194,7 @@ Description
 This test has to ensure that the HTTP requests are correctly handled by
  the server, which has to show the requested web pages to the client, while
  in case of incorrect HTTP requests the result has to be an error code sent
- to the client
+ to the client.
 \end_layout
 
 \end_inset
@@ -2307,7 +2307,7 @@ Input
 \begin_inset Text
 
 \begin_layout Plain Layout
-JEB queries on User relation
+JEB queries on User relation.
 \end_layout
 
 \end_inset
@@ -2329,7 +2329,7 @@ Output
 \begin_inset Text
 
 \begin_layout Plain Layout
-Expected query result
+Expected query result.
 \end_layout
 
 \end_inset
@@ -2352,7 +2352,7 @@ Environmental Needs
 
 \begin_layout Plain Layout
 Testing database to perform queries on, JEB stubs to access Java Persistence
- API, GlassFish server
+ API, GlassFish server.
 \end_layout
 
 \end_inset
@@ -2379,7 +2379,7 @@ This test aims at checking that the queries performed through the JPA retrieve
  and persistent.
  If the Entity bean queries the database for invalid information or tries
  to illegally modify some values, then the DBMS should return a warning
- message
+ message.
 \end_layout
 
 \end_inset
@@ -2485,7 +2485,7 @@ Input
 \begin_inset Text
 
 \begin_layout Plain Layout
-JEB queries on Car relation
+JEB queries on Car relation.
 \end_layout
 
 \end_inset
@@ -2507,7 +2507,7 @@ Output
 \begin_inset Text
 
 \begin_layout Plain Layout
-Expected query result
+Expected query result.
 \end_layout
 
 \end_inset
@@ -2530,7 +2530,7 @@ Environmental Needs
 
 \begin_layout Plain Layout
 Testing database to perform queries on, JEB stubs to access Java Persistence
- API, GlassFish server
+ API, GlassFish server.
 \end_layout
 
 \end_inset
@@ -2557,7 +2557,7 @@ This test aims at checking that the queries performed through the JPA retrieve
  and persistent.
  If the Entity bean queries the database for invalid information or tries
  to illegally modify some values, then the DBMS should return a warning
- message
+ message.
 \end_layout
 
 \end_inset
@@ -2670,7 +2670,7 @@ Input
 \begin_inset Text
 
 \begin_layout Plain Layout
-JEB queries on Reservation relation
+JEB queries on Reservation relation.
 \end_layout
 
 \end_inset
@@ -2692,7 +2692,7 @@ Output
 \begin_inset Text
 
 \begin_layout Plain Layout
-Expected query result
+Expected query result.
 \end_layout
 
 \end_inset
@@ -2715,7 +2715,7 @@ Environmental Needs
 
 \begin_layout Plain Layout
 Testing database to perform queries on, JEB stubs to access Java Persistence
- API, GlassFish server
+ API, GlassFish server.
 \end_layout
 
 \end_inset
@@ -2742,7 +2742,7 @@ This test aims at checking that the queries performed through the JPA retrieve
  and persistent.
  If the Entity bean queries the database for invalid information or tries
  to illegally modify some values, then the DBMS should return a warning
- message
+ message.
 \end_layout
 
 \end_inset
@@ -2848,7 +2848,7 @@ Input
 \begin_inset Text
 
 \begin_layout Plain Layout
-JEB queries on Ride relation
+JEB queries on Ride relation.
 \end_layout
 
 \end_inset
@@ -2870,7 +2870,7 @@ Output
 \begin_inset Text
 
 \begin_layout Plain Layout
-Expected query result
+Expected query result.
 \end_layout
 
 \end_inset
@@ -2893,7 +2893,7 @@ Environmental Needs
 
 \begin_layout Plain Layout
 Testing database to perform queries on, JEB stubs to access Java Persistence
- API, GlassFish server
+ API, GlassFish server.
 \end_layout
 
 \end_inset
@@ -2920,7 +2920,7 @@ This test aims at checking that the queries performed through the JPA retrieve
  and persistent.
  If the Entity bean queries the database for invalid information or tries
  to illegally modify some values, then the DBMS should return a warning
- message
+ message.
 \end_layout
 
 \end_inset
@@ -3033,7 +3033,7 @@ Input
 \begin_inset Text
 
 \begin_layout Plain Layout
-JEB queries on Safe Area relation
+JEB queries on Safe Area relation.
 \end_layout
 
 \end_inset
@@ -3055,7 +3055,7 @@ Output
 \begin_inset Text
 
 \begin_layout Plain Layout
-Expected query result
+Expected query result.
 \end_layout
 
 \end_inset
@@ -3078,7 +3078,7 @@ Environmental Needs
 
 \begin_layout Plain Layout
 Testing database to perform queries on, JEB stubs to access Java Persistence
- API, GlassFish server
+ API, GlassFish server.
 \end_layout
 
 \end_inset
@@ -3105,7 +3105,7 @@ This test aims at checking that the queries performed through the JPA retrieve
  and persistent.
  If the Entity bean queries the database for invalid information or tries
  to illegally modify some values, then the DBMS should return a warning
- message
+ message.
 \end_layout
 
 \end_inset
@@ -3211,7 +3211,7 @@ Input
 \begin_inset Text
 
 \begin_layout Plain Layout
-JEB queries on Employee relation
+JEB queries on Employee relation.
 \end_layout
 
 \end_inset
@@ -3233,7 +3233,7 @@ Output
 \begin_inset Text
 
 \begin_layout Plain Layout
-Expected query result
+Expected query result.
 \end_layout
 
 \end_inset
@@ -3256,7 +3256,7 @@ Environmental Needs
 
 \begin_layout Plain Layout
 Testing database to perform queries on, JEB stubs to access Java Persistence
- API, GlassFish server
+ API, GlassFish server.
 \end_layout
 
 \end_inset
@@ -3283,7 +3283,7 @@ This test aims at checking that the queries performed through the JPA retrieve
  and persistent.
  If the Entity bean queries the database for invalid information or tries
  to illegally modify some values, then the DBMS should return a warning
- message
+ message.
 \end_layout
 
 \end_inset
@@ -3374,7 +3374,7 @@ Test Items
 \begin_inset Text
 
 \begin_layout Plain Layout
-Account Manager Session Bean, User Java Entity Bean
+AccountManager Session Bean, User Java Entity Bean
 \end_layout
 
 \end_inset
@@ -3396,7 +3396,7 @@ Input
 \begin_inset Text
 
 \begin_layout Plain Layout
-Account Manager calls for JPA methods to modify user tuples
+AccountManager calls for JPA methods to modify user tuples.
 \end_layout
 
 \end_inset
@@ -3419,7 +3419,7 @@ Output
 
 \begin_layout Plain Layout
 JEB confirmation message of successful modification over user information
- 
+ .
 \end_layout
 
 \end_inset
@@ -3441,8 +3441,8 @@ Environmental Needs
 \begin_inset Text
 
 \begin_layout Plain Layout
-JPA fully implemented, Account Manager driver that calls for JPA methods,
- GlassFish server
+JPA fully implemented, AccountManager driver that calls for JPA methods,
+ GlassFish server.
 \end_layout
 
 \end_inset
@@ -3464,8 +3464,8 @@ Description
 \begin_inset Text
 
 \begin_layout Plain Layout
-Check that account manager session bean successfully calls for JPA to modify
- database tables
+Check that AccountManager session bean successfully calls for JPA to modify
+ database tables.
 \end_layout
 
 \end_inset
@@ -3549,7 +3549,7 @@ Test Items
 \begin_inset Text
 
 \begin_layout Plain Layout
-Reservation Manager Session Bean, Reservation Java Entity Bean, Car Java
+ReservationManager Session Bean, Reservation Java Entity Bean, Car Java
  Entity Bean
 \end_layout
 
@@ -3572,7 +3572,7 @@ Input
 \begin_inset Text
 
 \begin_layout Plain Layout
-Reservation Manager calls for JPA methods to reserve a car
+ReservationManager calls for JPA methods to reserve a car.
 \end_layout
 
 \end_inset
@@ -3595,7 +3595,7 @@ Output
 
 \begin_layout Plain Layout
 A reservation must be created for the requested car and the reserved car
- state has to be updated
+ state has to be updated.
 \end_layout
 
 \end_inset
@@ -3617,8 +3617,8 @@ Environmental Needs
 \begin_inset Text
 
 \begin_layout Plain Layout
-JPA fully implemented, Reservation Manager driver that calls for JPA methods,
- GlassFish server
+JPA fully implemented, ReservationManager driver that calls for JPA methods,
+ GlassFish server.
 \end_layout
 
 \end_inset
@@ -3640,10 +3640,10 @@ Description
 \begin_inset Text
 
 \begin_layout Plain Layout
-Check that JPA calls made by the Reservation Manager succesfully lead to
+Check that JPA calls made by the ReservationManager succesfully lead to
  the creation of a tuple for the reservation in the database and that it
  is referred to the correct user and to the requested car; verify that the
- car state is coherently updated to RESERVED 
+ car state is coherently updated to RESERVED.
 \end_layout
 
 \end_inset
@@ -3734,7 +3734,7 @@ Test Items
 \begin_inset Text
 
 \begin_layout Plain Layout
-Ride Manager Session Bean, Ride Java Entity Bean
+RideManager Session Bean, Ride Java Entity Bean
 \end_layout
 
 \end_inset
@@ -3756,7 +3756,7 @@ Input
 \begin_inset Text
 
 \begin_layout Plain Layout
-Ride Manager calls for JPA methods to modify ride table
+RideManager calls for JPA methods to modify ride table.
 \end_layout
 
 \end_inset
@@ -3778,7 +3778,7 @@ Output
 \begin_inset Text
 
 \begin_layout Plain Layout
-Ride JEB modifies ride relation and returns an outcome message
+Ride JEB modifies ride relation and returns an outcome message.
 \end_layout
 
 \end_inset
@@ -3800,8 +3800,8 @@ Environmental Needs
 \begin_inset Text
 
 \begin_layout Plain Layout
-JPA fully implemented, Ride Manager driver that calls for JPA methods, GlassFish
- server
+JPA fully implemented, RideManager driver that calls for JPA methods, GlassFish
+ server.
 \end_layout
 
 \end_inset
@@ -3823,10 +3823,10 @@ Description
 \begin_inset Text
 
 \begin_layout Plain Layout
-Check that JPA calls made by the Ride Manager succesfully lead to the creation
+Check that JPA calls made by the RideManager succesfully lead to the creation
  of a tuple for the ride in the database and that it is referred to the
  correct user and to the selected car; verify that the car state is coherently
- updated to RUNNING
+ updated to RUNNING.
 \end_layout
 
 \end_inset
@@ -3933,7 +3933,7 @@ Input
 \begin_inset Text
 
 \begin_layout Plain Layout
-Ride Manager calls for JPA methods to conclude a ride.
+RideManager calls for JPA methods to conclude a ride.
 \end_layout
 
 \end_inset
@@ -4095,7 +4095,7 @@ Test Items
 \begin_inset Text
 
 \begin_layout Plain Layout
-Maintenance Manager Session Bean, Safe Area Java Entity Bean, Employee Entity
+MaintenanceManager Session Bean, Safe Area Java Entity Bean, Employee Entity
  Bean, Car Entity Bean
 \end_layout
 
@@ -4118,7 +4118,7 @@ Input
 \begin_inset Text
 
 \begin_layout Plain Layout
-Maintenance Manager methods call to modify the database
+MaintenanceManager methods call to modify the database.
 \end_layout
 
 \end_inset
@@ -4140,7 +4140,7 @@ Output
 \begin_inset Text
 
 \begin_layout Plain Layout
-Java Entity Beans return a message stating the outcome of the operations
+Java Entity Beans return a message stating the outcome of the operations.
 \end_layout
 
 \end_inset
@@ -4162,8 +4162,8 @@ Environmental Needs
 \begin_inset Text
 
 \begin_layout Plain Layout
-JPA fully implemented, Maintenance Manager driver to mock methods call to
- JEBs, GlassFish server
+JPA fully implemented, MaintenanceManager driver to mock methods call to
+ JEBs, GlassFish server.
 \end_layout
 
 \end_inset
@@ -4186,7 +4186,7 @@ Description
 
 \begin_layout Plain Layout
 Check that Cars, Safe Areas and Employees information stored in the database
- can be modified
+ can be modified.
 \end_layout
 
 \end_inset
@@ -4365,7 +4365,7 @@ Description
 \begin_layout Plain Layout
 RideManager can retrieve the correct data in order to create a ride from
  a pending reservation; verify that the car state is coherently updated
- to RUNNING.
+ from RESERVED to RUNNING.
 \end_layout
 
 \end_inset
@@ -4387,7 +4387,7 @@ Testing Method
 \begin_inset Text
 
 \begin_layout Plain Layout
-JUnit, Mockito.
+JUnit, Mockito
 \end_layout
 
 \end_inset
@@ -4570,7 +4570,7 @@ Testing Method
 \begin_inset Text
 
 \begin_layout Plain Layout
-JUnit.
+JUnit
 \end_layout
 
 \end_inset
@@ -4654,7 +4654,7 @@ Input
 \begin_inset Text
 
 \begin_layout Plain Layout
-The mobile client calls for REST API to exploit business functionalities
+The mobile client calls for REST API to exploit business functionalities.
 \end_layout
 
 \end_inset
@@ -4677,7 +4677,7 @@ Output
 
 \begin_layout Plain Layout
 The orchestrator processes the request and calls the correct REST resource
- methods
+ methods.
 \end_layout
 
 \end_inset
@@ -4699,7 +4699,7 @@ Environmental Needs
 \begin_inset Text
 
 \begin_layout Plain Layout
-Driver for client APIs, fully developed business layer, GlassFish server
+Driver for client APIs, fully developed business layer, GlassFish server.
 \end_layout
 
 \end_inset
@@ -4722,7 +4722,7 @@ Description
 
 \begin_layout Plain Layout
 Verify that the mobile client can successfully access to the business functional
-ities
+ities.
 \end_layout
 
 \end_inset
@@ -4835,7 +4835,7 @@ Input
 \begin_inset Text
 
 \begin_layout Plain Layout
-The Web Server calls for REST API to exploit business functionalities
+The Web Server calls for REST API to exploit business functionalities.
 \end_layout
 
 \end_inset
@@ -4858,7 +4858,7 @@ Output
 
 \begin_layout Plain Layout
 The orchestrator processes the request and calls the correct REST resource
- methods
+ methods.
 \end_layout
 
 \end_inset
@@ -4880,7 +4880,7 @@ Environmental Needs
 \begin_inset Text
 
 \begin_layout Plain Layout
-Driver for the Web Server, fully developed business layer, GlassFish server
+Driver for the Web Server, fully developed business layer, GlassFish server.
 \end_layout
 
 \end_inset
@@ -4903,7 +4903,7 @@ Description
 
 \begin_layout Plain Layout
 Verify that the Web Server can successfully access to the business functionaliti
-es the web client has asked for
+es the web client has asked for.
 \end_layout
 
 \end_inset
@@ -5010,7 +5010,7 @@ Input
 
 \begin_layout Plain Layout
 Web client browser connects to the web application and sends HTTP requests
- to the web server
+ to the web server.
 \end_layout
 
 \end_inset
@@ -5033,7 +5033,7 @@ Output
 
 \begin_layout Plain Layout
 The web server processes the HTTP request and displays to the client the
- correct dynamic web page
+ correct dynamic web page.
 \end_layout
 
 \end_inset
@@ -5055,7 +5055,7 @@ Environmental Needs
 \begin_inset Text
 
 \begin_layout Plain Layout
-Fully developed Web Server, driver for client APIs , GlassFish server
+Fully developed Web Server, driver for client APIs , GlassFish server.
 \end_layout
 
 \end_inset
@@ -5078,7 +5078,7 @@ Description
 
 \begin_layout Plain Layout
 Verify that the web server can display the correct web pages to the web
- client browser
+ client browser.
 \end_layout
 
 \end_inset
@@ -5136,8 +5136,8 @@ JUnit:
 \series default
 JUnit is a unit testing and integration testing framework for the Java programmi
 ng language.
- We plan to use it together with the unit testing to perform the integration
- testing.
+ We plan to use it both to perform the unit testing and the integration
+ testing together with other tools.
 \end_layout
 
 \begin_layout Itemize
@@ -5147,7 +5147,7 @@ Mockito:
 \series default
 Mockito is an open source testing framework for Java.
  We use it to create stubs and drivers to mock the behaviour of called and
- caller programs respectively.
+ caller functions respectively.
 \end_layout
 
 \begin_layout Itemize
@@ -5156,7 +5156,7 @@ Mockito is an open source testing framework for Java.
 GlassFish: 
 \series default
 GlassFish is an open-source application server project for the Java EE platform.
- 
+ We use it as the server for our project.
 \end_layout
 
 \begin_layout Standard
