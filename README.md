@@ -9,7 +9,8 @@ Repository for the project of the Software Engineering 2 course, a.y. 2016/2017,
 
 ### Deliverables
 1. **RASD**: download [here](https://github.com/AlessioMongelluzzo/PowerEnJoy/raw/master/deliveries/RASD.pdf).
-1. **DD**: download [here](https://github.com/AlessioMongelluzzo/PowerEnJoy/raw/master/deliveries/DD.pdf).
+2. **DD**: download [here](https://github.com/AlessioMongelluzzo/PowerEnJoy/raw/master/deliveries/DD.pdf).
+3. **ITPD**: download [here](https://github.com/AlessioMongelluzzo/PowerEnJoy/raw/master/deliveries/ITPD.pdf).
 
 ### Project schedule
 - ~~Group registration 16/10~~
@@ -21,7 +22,7 @@ Repository for the project of the Software Engineering 2 course, a.y. 2016/2017,
 - ~~Design Document submission deadline 11/12~~
 - ~~Presentation of Design Documents and peer review 14/12~~
 - ~~Open discussion on testing assignment 21/12~~
-- Testing document submission deadline 15/01
+- ~~Testing document submission deadline 15/01~~
 - ~~Open discussion on project management 11/01~~
 - Project management document submission deadline 22/01
 - ~~Code inspection assignment 11/01~~
