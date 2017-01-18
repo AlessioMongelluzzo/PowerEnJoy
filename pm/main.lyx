@@ -981,10 +981,10 @@ all the information the system needs to manage in order to perform payment
 \series bold
 Google maps retrieval system: 
 \series default
-maps are retrieved specifying couple of float numbers (latitude and longitude)
- which correspond the user position, i.e.
+maps are retrieved specifying a couple of float numbers (latitude and longitude)
+ which corresponds the user position, i.e.
  the center of the map, and a parameter to determine how far from the user
- the map should extend.
+ the map should be extended.
  Two record elements and 3 data elements are involved, so this EIF is again
  of low complexity.
 \end_layout
@@ -992,7 +992,7 @@ maps are retrieved specifying couple of float numbers (latitude and longitude)
 \begin_layout Itemize
 
 \series bold
-Driving Licenses external interface: 
+Driving Licenses interface: 
 \series default
 in order to check whether the user actually owns a valid driving license,
  the system sends the user credentials (name, surname, date of birth, address)
@@ -1462,8 +1462,370 @@ High
 Complexity analysis
 \end_layout
 
+\begin_layout Itemize
+
+\series bold
+Registration: 
+\series default
+when a user wants to register to the system he/she must provide the following
+ data: e-mail, name, surname, date of birth, address, username, password,
+ billing information, license number.
+ The register operation modifies the User ILF and interacts with the Payment
+ System EIF and Driving Licenses EIF.
+ This EI complexity must be considered average.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Login: 
+\series default
+in order to perform a login the user needs to provide only 2 data elements
+ (username and password).
+ This operation only interacts with the User entity, i.e.
+ the User ILF.
+ Therefore, we can state this EI complexity to be low.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Edit profile: 
+\series default
+considering the worst case possible of profile editing, a user could modify
+ every information he/she provided at registration, except for the e-mail
+ and username (name, surname, date of birth, address, password, billing
+ information, license number).
+ In case of validation of the modified information, this operation would
+ involve the User ILF and the EIF, which are the Payment System and the
+ Driving Liceses interface.
+ This EI can be considered of average complexity.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Reserve a car: 
+\series default
+the reservation of a car requires the user to query the system for available
+ cars around a position, therefore it must involve the Google Maps retrieval
+ system EIF.
+ To perform the reservation 2 data elements are necessary (user identifier,
+ car identifier).
+ An interaction with the User ILF, Reservation ILF and Car ILF is necessary.
+ As we stated in the Design Document, the user is immediately charged with
+ the reservation deposit as he/she reserves a car, therefore this operation
+ interacts with the Payment System EIF as well.
+ Dealing with 2 data elements and 5 record elements this activity can be
+ claimed to have an average complexity.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Begin a ride: 
+\series default
+by the time the user turns on the car within the reservation deadline (1
+ hour), he is immediately refunded with the deposit.
+ The Payment System EIF must then be involved in this operation together
+ with the User ILF.
+ A new tuple is inserted into the Ride entity, i.e.
+ the Ride ILF and the Car ILF is updated.
+ To perform this operation the information about the corresponding reservation
+ is necessary (Reservation ILF).
+ The data elements necessary to create a ride are the ones provided by the
+ corresponding reservation (User and Car) together with the car position.
+ In case the money-saving option is enabled an interaction with the Google
+ Maps retrieval system is necessary.
+ We can once again state this EI complexity to be average.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Complete a ride: 
+\series default
+once the car is switched off, the Car ILF is updated, and the User is charged
+ with the ride price.
+ User ILF and Payment System EIF are involved.
+ The car position and battery level are the only data elements required.
+ In order to determine whether a fare modifier can be applied, an interaction
+ with the Safe Area ILF and Charging Area ILF is necessary.
+ In case of low battery car the Employee ILF is involved.
+ This EI complexity is assessed to be average.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Employee car fix: 
+\series default
+once an employee intervention is completed, he updates the Car ILF with
+ the new data: position, battery level.
+ Of course the Employee ILF is involved in this operation.
+ This EI has a low complexity.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Edit Safe Areas: 
+\series default
+In order to insert a safe area a set of coordinates have to be provided
+ to update the Safe Area ILF.
+ This simple activity has a low complexity.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Edit Cars: 
+\series default
+the insertion of a new car into the database requires the Car ILF to be
+ updated.
+ The data necessary to perform a valid car insertion are a license plate,
+ the battery level and the position.
+ This EI has a low complexity too.
+\end_layout
+
 \begin_layout Standard
-[function identification and complexity analysis]
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="11" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0pt">
+<column alignment="center" valignment="top" width="0pt">
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+EI
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+FPs
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Registration
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Login
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Edit profile
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Reserve a car
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Begin a ride
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Complete a ride
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Employee car fix
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Edit Safe Areas
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Edit Cars
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+TOT
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+32
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
