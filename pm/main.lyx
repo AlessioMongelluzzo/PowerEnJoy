@@ -960,8 +960,169 @@ High
 Complexity analysis
 \end_layout
 
+\begin_layout Itemize
+
+\series bold
+Payment System: 
+\series default
+all the information the system needs to manage in order to perform payment
+ transactions.
+ The functionalities involved in such operations are mainly 3: initial validity
+ check for billing information (e-mail address, password) provided by the
+ user at the registration, the actual transaction operations with the amount
+ to pay and the outcome the external system has to provide to determine
+ whether a user must be banned or not.
+ Therefore 3 Record Elements and 4 data elements are involved, so this EIF
+ has a low complexity.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Google maps retrieval system: 
+\series default
+maps are retrieved specifying couple of float numbers (latitude and longitude)
+ which correspond the user position, i.e.
+ the center of the map, and a parameter to determine how far from the user
+ the map should extend.
+ Two record elements and 3 data elements are involved, so this EIF is again
+ of low complexity.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Driving Licenses external interface: 
+\series default
+in order to check whether the user actually owns a valid driving license,
+ the system sends the user credentials (name, surname, date of birth, address)
+ and the license number to the validation system.
+ Two record elements and 5 data elements are used, therefore it is a low
+ complexity EIF.
+\end_layout
+
 \begin_layout Standard
-[function identification and complexity analysis]
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0pt">
+<column alignment="center" valignment="top" width="0pt">
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+EIF
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+FPs
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Payment
+\series bold
+ 
+\series default
+System
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Google maps retrieval system.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Driving Licenses external interface
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+TOT
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+15
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -1310,8 +1471,8 @@ External Outputs
 \end_layout
 
 \begin_layout Standard
-An External Output (EO) is defined as an elementary operation that gener-
- ates data for the external environment.
+An External Output (EO) is defined as an elementary operation that generates
+ data for the external environment.
  It usually includes the elaboration of data from logic files.
 \end_layout
 
