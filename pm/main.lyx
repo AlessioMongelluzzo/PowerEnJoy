@@ -596,31 +596,352 @@ In order to measure the FPs for a specific ILF, we need to analyze the structure
 \end_layout
 
 \begin_layout Itemize
+
+\series bold
+User.
+
+\series default
+ This file contains data about registered users interacting with the system.
+ For each user we can think of the data as structured into 4 RETs, which
+ are: the basic personal details (name, surname, date of birth...), login credentia
+ls (email, username, password), address (street, house number, city, state,
+ postcode, country), and billing information (e.g.
+ credit card number, expiry date, CVV, cardholder name and surname).
+ Given that the DETs are 20 or more, we assume the complexity of this ILF
+ is average.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Reservation
+\series default
+.
+ This file contains data about car reservations, made by users, which are
+ currently active.
+ The only RET present in this file is the reservation data itself, which
+ is composed of few DETs: date and time, reserved car, and a reference to
+ the user who reserved it.
+ Therefore, we assume the complexity of this ILF is low.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Ride
+\series default
+.
+ This file contains information about active and completed rides.
+ For each ride, we can think of the data as structured into 2 RETs, which
+ are: the core information of the ride (driver, car, ride state, begin/end
+ date, payment outcome) and the additional information needed to possibly
+ compute fare modifiers (number of travellers, begin/end position, money
+ saving destination, final distance from charging area, final battery level,
+ the possible discount, and one or more possible additional charges).
+ Given that the DETs are 20 or more, we assume the complexity of this ILF
+ is average.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Car
+\series default
+.
+ This file contains information about cars.
+ The only RET present in this file is the car data itself, which is composed
+ of few DETs: license plate, locked, current position, battery level, car
+ state, plugged in.
+ Therefore, we assume the complexity of this ILF is low.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+SafeArea and ChargingArea
+\series default
+.
+ This file contains information about safe areas.
+ There are two types of safe areas: normal safe areas and charging areas.
+ Each safe area is described by an identifier and the vertices of the polygon
+ which delimits it.
+ Furthermore, recharging stations also need to have the number of plugs
+ specified.
+ This accounts for 3 Data Elements, so this ILF should be considered of
+ low complexity.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Employee
+\series default
+.
+ This file contains data about employees working for PowerEnJoy.
+ For each employee we can think of the data as structured into 4 RETs, which
+ are: basic personal details (name, surname, date of birth...), login credentials
+ (email, username, password), address (street, house number, city, state,
+ postcode, country), and the employee's core information (current state,
+ and possibly a car which the employee is taking care of).
+ Given that the DETs are less than 20, we assume the complexity of this
+ ILF is low.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="8" columns="3">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0pt">
+<column alignment="center" valignment="top" width="0pt">
+<column alignment="center" valignment="top" width="0pt">
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+ILF
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Complexity
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+FPs
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
 User
 \end_layout
 
-\begin_layout Itemize
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Average
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+10
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
 Reservation
 \end_layout
 
-\begin_layout Itemize
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Low
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+7
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
 Ride
 \end_layout
 
-\begin_layout Itemize
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Average
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+10
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
 Car
 \end_layout
 
-\begin_layout Itemize
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Low
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+7
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
 SafeArea
 \end_layout
 
-\begin_layout Itemize
-ChargingArea
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Low
 \end_layout
 
-\begin_layout Itemize
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+7
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
 Employee
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Low
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+7
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multicolumn="1" alignment="center" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+TOTAL
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+48
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -979,7 +1300,7 @@ all the information the system needs to manage in order to perform payment
 \begin_layout Itemize
 
 \series bold
-Google maps retrieval system: 
+Google Maps retrieval system: 
 \series default
 maps are retrieved specifying a couple of float numbers (latitude and longitude)
  which corresponds the user position, i.e.
@@ -1004,8 +1325,9 @@ in order to check whether the user actually owns a valid driving license,
 \begin_layout Standard
 \align center
 \begin_inset Tabular
-<lyxtabular version="3" rows="5" columns="2">
+<lyxtabular version="3" rows="5" columns="3">
 <features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0pt">
 <column alignment="center" valignment="top" width="0pt">
 <column alignment="center" valignment="top" width="0pt">
 <row>
@@ -1016,6 +1338,17 @@ in order to check whether the user actually owns a valid driving license,
 
 \series bold
 EIF
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Complexity
 \end_layout
 
 \end_inset
@@ -1046,6 +1379,15 @@ System
 
 \end_inset
 </cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Low
+\end_layout
+
+\end_inset
+</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
@@ -1061,7 +1403,16 @@ System
 \begin_inset Text
 
 \begin_layout Plain Layout
-Google maps retrieval system.
+Google Maps retrieval system
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Low
 \end_layout
 
 \end_inset
@@ -1086,6 +1437,15 @@ Driving Licenses external interface
 
 \end_inset
 </cell>
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Low
+\end_layout
+
+\end_inset
+</cell>
 <cell alignment="center" valignment="top" bottomline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
@@ -1097,13 +1457,22 @@ Driving Licenses external interface
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" bottomline="true" leftline="true" usebox="none">
+<cell multicolumn="1" alignment="center" valignment="top" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
 \series bold
-TOT
+TOTAL
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
 \end_layout
 
 \end_inset
@@ -1112,6 +1481,8 @@ TOT
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 15
 \end_layout
 
@@ -1591,8 +1962,9 @@ the insertion of a new car into the database requires the Car ILF to be
 \begin_layout Standard
 \align center
 \begin_inset Tabular
-<lyxtabular version="3" rows="11" columns="2">
+<lyxtabular version="3" rows="11" columns="3">
 <features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0pt">
 <column alignment="center" valignment="top" width="0pt">
 <column alignment="center" valignment="top" width="0pt">
 <row>
@@ -1603,6 +1975,17 @@ the insertion of a new car into the database requires the Car ILF to be
 
 \series bold
 EI
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Complexity
 \end_layout
 
 \end_inset
@@ -1629,6 +2012,15 @@ Registration
 
 \end_inset
 </cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Average
+\end_layout
+
+\end_inset
+</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
@@ -1645,6 +2037,15 @@ Registration
 
 \begin_layout Plain Layout
 Login
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Low
 \end_layout
 
 \end_inset
@@ -1669,6 +2070,15 @@ Edit profile
 
 \end_inset
 </cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Average
+\end_layout
+
+\end_inset
+</cell>
 <cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
@@ -1685,6 +2095,15 @@ Edit profile
 
 \begin_layout Plain Layout
 Reserve a car
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Average
 \end_layout
 
 \end_inset
@@ -1709,6 +2128,15 @@ Begin a ride
 
 \end_inset
 </cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Average
+\end_layout
+
+\end_inset
+</cell>
 <cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
@@ -1725,6 +2153,15 @@ Begin a ride
 
 \begin_layout Plain Layout
 Complete a ride
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Average
 \end_layout
 
 \end_inset
@@ -1749,6 +2186,15 @@ Employee car fix
 
 \end_inset
 </cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Low
+\end_layout
+
+\end_inset
+</cell>
 <cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
@@ -1765,6 +2211,15 @@ Employee car fix
 
 \begin_layout Plain Layout
 Edit Safe Areas
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Low
 \end_layout
 
 \end_inset
@@ -1789,6 +2244,15 @@ Edit Cars
 
 \end_inset
 </cell>
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Low
+\end_layout
+
+\end_inset
+</cell>
 <cell alignment="center" valignment="top" bottomline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
@@ -1800,13 +2264,22 @@ Edit Cars
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" bottomline="true" leftline="true" usebox="none">
+<cell multicolumn="1" alignment="center" valignment="top" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
 \series bold
-TOT
+TOTAL
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
 \end_layout
 
 \end_inset
@@ -1815,6 +2288,8 @@ TOT
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 32
 \end_layout
 
@@ -2560,7 +3035,7 @@ Internal Logic Files
 \begin_inset Text
 
 \begin_layout Plain Layout
-?
+48
 \end_layout
 
 \end_inset
@@ -2580,7 +3055,7 @@ External Logic Files
 \begin_inset Text
 
 \begin_layout Plain Layout
-?
+15
 \end_layout
 
 \end_inset
@@ -2600,7 +3075,7 @@ External Inputs
 \begin_inset Text
 
 \begin_layout Plain Layout
-?
+32
 \end_layout
 
 \end_inset
