@@ -2641,8 +2641,390 @@ High
 Complexity analysis
 \end_layout
 
+\begin_layout Itemize
+
+\series bold
+Unlock message for Ride:
+\series default
+ this message is sent by the system to a reserved car, in order to unlock
+ its doors and let its user start the ride as soon as he turns on the engine.
+ Sending this message only requires knowing what car the user reserved,
+ an information that is contained in a Reservation tuple.
+ Hence, interacting with only 1 ILF, this EO has a low complexity.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Lock message for Ride:
+\series default
+ this message is the opposite of the 
+\series bold
+Unlock message
+\series default
+ and is then sent so that car doors are locked at the end of the ride.
+ This message involves the Car ILF, in order to check which car the message
+ has to be sent to, based on the position.
+ Therefore, also this EO can be considered of low complexity.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Unlock message for Employee:
+\series default
+ this message is sent by the system to a reserved car, in order to unlock
+ its doors and let the employee start mantaining it.
+ Sending this message only requires knowing the car associated to the employee,
+ which is an information contained in the Employee ILF.
+ Hence, interacting with only 1 ILF, this EO has a low complexity.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Lock message for Employee:
+\series default
+ this message is the opposite of the 
+\series bold
+Unlock message
+\series default
+ and is then sent in order to lock the car doors after the maintainance
+ is finished.
+ This message involves again the Employee ILF.
+ As the previous one, this EO can be considered of low complexity.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Current fare:
+\series default
+ this output is computed in the car side and showed in its monitor during
+ a ride.
+ The only information needed for this is contained in the Ride ILF (the
+ begin_date_time attribute), which is shared with the car only to notify
+ the user about the fare (while the final price is based on the information
+ that is in the system, for security reason).
+ Besides, since it only needs one data element, the complexity of this EO
+ is low.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Payment:
+\series default
+ this output is sent to the Third Part Payment System and requires billing_infor
+mation (found in User ILF) and begin_date_time and end_date_time of the
+ Ride ILF.
+ These are not sufficient, as the final price is decided upon a list of
+ discounts/additional charges computed after values sent by the car sensors.
+ This has to be taken into account, since, for the additional charge, the
+ distance from the nearest Charging Area (hence another ILF) has to be considere
+d.
+ Furthermore, the payment requires the interaction with the Third Party
+ Payment System EIF.
+ In conclusion, the complexity of this output can be considered average.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Maintainance Request message:
+\series default
+ this output message is sent to an employee in order to request the maintainance
+ of a car.
+ In this case it needs to interact with 2 ILFs (the Car tuple and the Employee
+ ones, in order to compute their distance, based on their position), so
+ that the message is sent to the employee that is nearest to the car.
+ Hence we can consider it of low complexity.
+\end_layout
+
 \begin_layout Standard
-[function identification and complexity analysis]
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="9" columns="3">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0pt">
+<column alignment="center" valignment="top" width="0pt">
+<column alignment="center" valignment="top" width="0pt">
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+EO
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Complexity
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+FPs
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Unlock message for Ride
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Low
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Lock message for Ride
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Low
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Unlock message for Employee
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Low
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Lock message for Employee
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Low
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Current fare
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Low
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Payment
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Average
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Maintainance Request message
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Low
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+TOTAL
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+29
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -2982,8 +3364,329 @@ High
 Complexity analysis
 \end_layout
 
+\begin_layout Itemize
+
+\series bold
+Car lookup:
+\series default
+ this inquiry requires an address string, which is translated into a couple
+ of coordinates (that determine the center of the map), and a float (to
+ specify the maximum distance from the address), both received as input
+ from the user.
+ Besides, positions of nearby cars (couples of float) are used to signal
+ them on the map, along with their plate and their battery charge level
+ in order to provide also information about cars in output to the users.
+ So, the inquiry deals with 3 data elements, 1 ILF (because of the car tuples)
+ and 1 EIF (in order to retrieve the map from the Google Maps Retrieval
+ System) and therefore we consider it is of average complexity.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Billing information checking:
+\series default
+ this inquiry deals with the checking of the billing information provided
+ by users during registration: it interacts with a Third Party Payment System
+ EIF and it deals with the billing information of the user (email, password
+ or in alternative name, surname, address, date_of_birth, credit_car_number,
+ CVV).
+ The only output it provides is whether the billing information is correct
+ or not.
+ It can deal with 6 data elements, but the ILF is only 1, so this inquiry
+ is considered of low complexity.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Driving licenses checking:
+\series default
+ this inquiry is very similar to the previous one (
+\series bold
+Billing information checking
+\series default
+); it requires as user's provided inputs: name, surname, date of birth,
+ address and driving license number, which accounts to a total of 5 data
+ elements.
+ However, the interaction happens to be only with 1 ILF (user) and with
+ 1 EIF (Driving Licenses external interface) and the output is still simply
+ a 
+\begin_inset Quotes eld
+\end_inset
+
+validity
+\begin_inset Quotes erd
+\end_inset
+
+.
+ As such, the inquiry is again quite simple and we consider it of low complexity.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Money saving option:
+\series default
+ this inquiry requires a very simple input, that is the destination address
+ provided by the user (which will be translated into a couple of floats
+ representing two coordinates).
+ Providing the output is instead quite complex, since it has to deal with
+ several tuples of the Charging Area ILF, whose position has to be compared
+ with the one from the user's input by going through the interaction with
+ the Google Maps retrieval system EIF, similarly to what happened in the
+ 
+\series bold
+Car lookup
+\series default
+.
+ Furthermore, here our system is required to compare Charging Areas accordingly
+ to several parameters (such as cars' distribution) and the output is a
+ path consisting in the directions to reach the computed Charging Area.
+ Considering a trade-off between the simple input and the effort to produce
+ the output, we consider the complexity of this inquiry average.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+View Profile:
+\series default
+ this inquiry requires a very simple input too: just the username.
+ As for the output, instead, it provides not only user information (all
+ the attributes of the user entity, which were provided by the user himself
+ during the registration), but also a history of his reservations and his
+ rides.
+ So, the total amount of ILF is 3 and since there are no other interactions
+ we can consider that the complexity of this inquiry is average.
+\end_layout
+
 \begin_layout Standard
-[function identification and complexity analysis]
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="7" columns="3">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0pt">
+<column alignment="center" valignment="top" width="0pt">
+<column alignment="center" valignment="top" width="0pt">
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+EI
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Complexity
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+FPs
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Car lookup
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Average
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Billing information checking
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Low
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Driving licenses checking
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Low
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Money saving option
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Average
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+View Profile
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Average
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+TOTAL
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+23
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -3095,7 +3798,7 @@ External Outputs
 \begin_inset Text
 
 \begin_layout Plain Layout
-?
+29
 \end_layout
 
 \end_inset
@@ -3115,14 +3818,14 @@ External Inquiries
 \begin_inset Text
 
 \begin_layout Plain Layout
-?
+23
 \end_layout
 
 \end_inset
 </cell>
 </row>
 <row>
-<cell alignment="right" valignment="top" bottomline="true" leftline="true" usebox="none">
+<cell alignment="right" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -3133,11 +3836,11 @@ TOTAL
 
 \end_inset
 </cell>
-<cell alignment="left" valignment="top" bottomline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-?
+147
 \end_layout
 
 \end_inset
@@ -3183,7 +3886,7 @@ average approximation
 , which is
 \begin_inset Formula 
 \[
-SLOC=??*46=??
+SLOC=147*46=6672
 \]
 
 \end_inset
@@ -3199,7 +3902,7 @@ conservative approximation
 , which is
 \begin_inset Formula 
 \[
-SLOC=??*67=??
+SLOC=147*67=9849
 \]
 
 \end_inset
