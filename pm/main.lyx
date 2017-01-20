@@ -5693,7 +5693,7 @@ DD
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -5750,6 +5750,26 @@ DD detailed Gantt diagram.
 \end_inset
 
 
+\end_layout
+
+\begin_layout Subsubsection*
+ITPD
+\end_layout
+
+\begin_layout Subsubsection*
+Project Management
+\end_layout
+
+\begin_layout Subsubsection*
+Presentation
+\end_layout
+
+\begin_layout Subsubsection*
+Implementation
+\end_layout
+
+\begin_layout Subsubsection*
+Integration Testing
 \end_layout
 
 \begin_layout Standard
