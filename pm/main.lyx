@@ -5388,7 +5388,11 @@ Where:
 \end_layout
 
 \begin_layout Standard
-This would result in 2.2 developers needed for this project.
+This would result in 
+\begin_inset Formula $\frac{PM}{TDEV}=\mathbf{2.2}$
+\end_inset
+
+ developers needed for this project.
 \end_layout
 
 \begin_layout Standard
@@ -5416,6 +5420,388 @@ Since our group consists of 3 people, a reasonable development time would
 
 \begin_layout Section
 Tasks and schedule
+\end_layout
+
+\begin_layout Standard
+The main tasks to be scheduled so that the project can be developed are:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+RASD:
+\series default
+ the delivery of the document containing the domain assumptions, the functional
+ and non-functional requirement and the goals of our project.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+DD: 
+\series default
+the comletion of the Design Document, where the structure of the software
+ is outlined so that the actual development can begin.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+ITPD: 
+\series default
+the delivery of the Integration Test Plan Document, where we devise how
+ to integrate the components and subsystems our software is made of.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Project Management document:
+\series default
+ the delivery of this document where the scheduling for each task is defined.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Implementation: 
+\series default
+the actual development of the software devised in the previous documents.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Integration Test: 
+\series default
+carry out the integration test planned in the ITPD.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Presentation: 
+\series default
+brief meeting with stakeholders where we present our project.
+\end_layout
+
+\begin_layout Subsection*
+Dependencies
+\end_layout
+
+\begin_layout Standard
+Some tasks cannot begin if other tasks are not completed:
+\end_layout
+
+\begin_layout Standard
+In order to start with the 
+\series bold
+DD
+\series default
+, the 
+\series bold
+RASD
+\series default
+ must be completed.
+\end_layout
+
+\begin_layout Standard
+In order to start with the 
+\series bold
+Implementation
+\series default
+, the 
+\series bold
+DD
+\series default
+ must be completed.
+\end_layout
+
+\begin_layout Standard
+In order to start with the 
+\series bold
+ITPD
+\series default
+, the 
+\series bold
+DD
+\series default
+ must be completed.
+\end_layout
+
+\begin_layout Standard
+In order to start with the 
+\series bold
+Integration Test
+\series default
+, the 
+\series bold
+Implementation
+\series default
+ must be completed.
+\end_layout
+
+\begin_layout Subsection*
+Gantt Chart
+\end_layout
+
+\begin_layout Standard
+The tasks scheduling is defined in the following Gantt Chart.
+ For each task, a corresponding start and end date is defined in order to
+ respect the dependecies we described in the previous paragraph:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="8" columns="3">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="0pt">
+<column alignment="left" valignment="top" width="0pt">
+<column alignment="left" valignment="top" width="0pt">
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Task
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Start Date
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Deadline
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+RASD
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+DD
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ITPD
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Project Management
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Implementation
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Integration Test
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Presentation
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
