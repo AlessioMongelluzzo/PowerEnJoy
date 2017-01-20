@@ -5578,7 +5578,6 @@ textwidth][c]{
 	filename gantt/highlevel.png
 	width 80page%
 	height 80pheight%
-	keepAspectRatio
 	clip
 
 \end_inset
@@ -5602,6 +5601,78 @@ status open
 
 \begin_layout Plain Layout
 High level Gantt diagram.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For each task we provide a detailed Gantt diagram describing the sub-activities
+ scheduling:
+\end_layout
+
+\begin_layout Subsubsection*
+RASD
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+makebox[
+\backslash
+textwidth][c]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename gantt/RASD_detail.png
+	width 80page%
+	height 80pheight%
+	keepAspectRatio
+	clip
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+RASD detailed Gantt diagram.
 \end_layout
 
 \end_inset
