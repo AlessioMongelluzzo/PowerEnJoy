@@ -7958,7 +7958,7 @@ Risks associated with the project
 \begin_layout Standard
 \align center
 \begin_inset Tabular
-<lyxtabular version="3" rows="20" columns="4">
+<lyxtabular version="3" rows="13" columns="4">
 <features tabularvalignment="middle">
 <column alignment="left" valignment="top" width="0pt">
 <column alignment="left" valignment="top" width="0pt">
@@ -8024,7 +8024,8 @@ Lack of cooperation from team members
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Team members' tasks overlap and make carrying on the project in parallel
+ very difficult.
 \end_layout
 
 \end_inset
@@ -8062,7 +8063,7 @@ Inexperience team members
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Inexperienced team members require time and effort to carry on their job.
 \end_layout
 
 \end_inset
@@ -8100,7 +8101,9 @@ Unrealistic time and cost estimates
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+The actual deadline and cost for the project were slightly different the
+ estimated ones.
+ 
 \end_layout
 
 \end_inset
@@ -8138,7 +8141,8 @@ Client loss
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+The client is not satisfied of the project and decides not to do business
+ with us anymore.
 \end_layout
 
 \end_inset
@@ -8176,7 +8180,8 @@ Misunderstanding of the requirements
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+It is not well understood what the software has to do in order to satisfy
+ the goals of the project.
 \end_layout
 
 \end_inset
@@ -8214,7 +8219,8 @@ Unclear or misunderstood objectives
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+The goal of the project are not clear and as a consequence it is also difficult
+ to understand the requirements of the software.
 \end_layout
 
 \end_inset
@@ -8252,7 +8258,7 @@ Developing the wrong software functions
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+The developed software does not respect the defined requirements.
 \end_layout
 
 \end_inset
@@ -8290,7 +8296,8 @@ Deployment delay
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+The software is not ready for the deadline because one or more features
+ are not completed.
 \end_layout
 
 \end_inset
@@ -8328,7 +8335,8 @@ Competitors
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Other companies are building a software that is similar to the one we are
+ developing.
 \end_layout
 
 \end_inset
@@ -8366,7 +8374,8 @@ Scalability and downtime issues
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+The software cannot bear a large number of users and this may cause the
+ server to go down.
 \end_layout
 
 \end_inset
@@ -8405,7 +8414,7 @@ Legislative modification w.r.t.
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Due to legislation, driving licenses need to be validated differently.
 \end_layout
 
 \end_inset
@@ -8430,7 +8439,7 @@ High
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -8439,16 +8448,17 @@ Bankruptcy
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+The company goes through financial difficulties and has no more money to
+ carry on the project.
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -8457,7 +8467,7 @@ Low
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -8467,267 +8477,340 @@ Very High
 \end_inset
 </cell>
 </row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="13" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
 <row>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
+\series bold
+Risk
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
+\series bold
+Strategy
 \end_layout
 
 \end_inset
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Lack of cooperation from team members
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
+This risk can be mitigated by adopting a schedule to decide which tasks
+ are asssigned to each member of the group.
+ In order to decide this, experience, skills and willingness of the members
+ have to be taken into account.
+ This allows the members of the groups to work even if they are not in the
+ same place.
 \end_layout
 
 \end_inset
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Inexperienced team members
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
+Inexperienced team members should be assigned less complex tasks (in terms
+ of difficulty, but not in terms of quantity) and in case of troubles should
+ be helped by more experienced team members.
+ The effort made by the latter ones will be economically compensated.
+ In this way, experienced member are motivated to help inexperienced member
+ who can become more skilled in between.
+ Besides, the group should always be motivated and cohesion has to be constantly
+ created in order to make everyone feel as part it.
 \end_layout
 
 \end_inset
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Unrealistic time and cost estimates
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
+Estimates need to be done accordingly to other similar projects and to previous
+ experiences of the team members.
+ Besides, the esimate is done with a pessimistic view, in order to take
+ into account possible unexpected issues which the project may go through.
+ If the first release is ready some time before the final deadline, we plan
+ to offer technical support to the client and to ask him whether the software
+ can be enriched with new requested features, after taking into account
+ their feasibility in the remaining time.
+ If the project is proceeding slowly or if it starts to cost too much, refine
+ its management, in particular by cutting the resource allocations that
+ are less necessary.
 \end_layout
 
 \end_inset
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Client loss
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
+There are different factors that could cause the loss of the client: these
+ may regard the software itself (it does not do what the client asked for
+ or the interface is not appreciated, and in this case it is suggested to
+ have frequent meetings with the client so that the software satisfies him;
+ user acceptance tests may also help to show if it is appreciated by the
+ stakeholders) or time constraints (the software is finished too early or
+ too late compared to the deadline, and there are already sections where
+ it is described what to do in this situation).
 \end_layout
 
 \end_inset
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Minsunderstanding of the software requirements
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
+The remedy to mitigate this risk is to keep in touch with the client: whenever
+ something is unclear we ask further explanations to the client.
+ It is also useful to have periodical meetings with him to show how the
+ project is going and if it is satisfying what he asked for.
 \end_layout
 
 \end_inset
 </cell>
 </row>
 <row>
-<cell alignment="left" valignment="top" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Unclear or misunderstood objectives
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="left" valignment="top" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Similarly to the previous risk, the advised strategy is to ask the client
+ for further explanations that can help the team understanding and clarifying
+ doubts about the goals of the software that is under development.
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" bottomline="true" leftline="true" usebox="none">
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Developing the wrong software functions
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="left" valignment="top" bottomline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
+Since this is a programming issue, this risk can be easily mitigated through
+ testing.
+ Tests should be done starting from well defined requirements, so it is
+ very important that the chance of misunderstanding the requirements is
+ decreased as much as possible.
+ Tests have to cover the highest portion of the code that is possible so
+ that this risk is mitigated as much as we can.
+\end_layout
 
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Deployment delay
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+The adopted strategy is to deploy a first release of the software that includes
+ its main features (for example, the ones regarding the employee may be
+ left as the last ones to be developed as they are less critical than the
+ ones regarding car reservation and rides).
+ A second deadline will be discussed with the client and we are going to
+ release the project finished in all its functionalities in a second release.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Competitors
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Concurrent softwares need to be overcome by developing a software that is
+ competitive in the market through the presence of innovative and appealing
+ features.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Scalability and downtime issues
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+A good system testing can help understanding what are the loads that the
+ software can bear w.r.t.
+ the number of users.
+ Design, Architecture and code have to take into account also the performance
+ that the software needs to have in order to satisfy non-functional requirements.
+ By increasing redundancy of the components and using load balancers the
+ system should be up even with high loads.
+ In case the system goes down, a well thought architecture makes repairs
+ easy and minimizes the MTTR
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Legislative modification w.r.t.
+ driving licenses
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+By interfacing with an updated Driving License System we can ensure that
+ new users' driving licenses will be verified accordingly to the latest
+ legislations.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Bankruptcy
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Before starting with the project it is important to consider whether it
+ is worth it or not from an economical point of view, that is whether the
+ sale of the software will eventually be able to cover all the costs and
+ to grant an adequate profit.
+ A good and reasoned feasibility study can help us in the decision.
 \end_layout
 
 \end_inset
