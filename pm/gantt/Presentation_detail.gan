@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?><project name="Presentation_detail" company="" webLink="http://" view-date="2017-01-20" view-index="0" gantt-divider-location="445" resource-divider-location="300" version="2.8.1" locale="it_IT">
+    <description/>
+    <view zooming-state="default:1" id="gantt-chart">
+        <field id="tpd3" name="Nome" width="263" order="0"/>
+        <field id="tpd4" name="Data d'inizio" width="73" order="1"/>
+        <field id="tpd5" name="Data di fine" width="105" order="2"/>
+        <option id="color.recent"><![CDATA[#9999ff #3399ff #ff3300 #ff6600]]></option>
+    </view>
+    <view id="resource-table">
+        <field id="0" name="Nome" width="210" order="0"/>
+        <field id="1" name="Ruolo predefinito" width="86" order="1"/>
+    </view>
+    <!-- -->
+    <calendars>
+        <day-types>
+            <day-type id="0"/>
+            <day-type id="1"/>
+            <default-week id="1" name="default" sun="1" mon="0" tue="0" wed="0" thu="0" fri="0" sat="1"/>
+            <only-show-weekends value="false"/>
+            <overriden-day-types/>
+            <days/>
+        </day-types>
+    </calendars>
+    <tasks empty-milestones="true">
+        <taskproperties>
+            <taskproperty id="tpd0" name="type" type="default" valuetype="icon"/>
+            <taskproperty id="tpd1" name="priority" type="default" valuetype="icon"/>
+            <taskproperty id="tpd2" name="info" type="default" valuetype="icon"/>
+            <taskproperty id="tpd3" name="name" type="default" valuetype="text"/>
+            <taskproperty id="tpd4" name="begindate" type="default" valuetype="date"/>
+            <taskproperty id="tpd5" name="enddate" type="default" valuetype="date"/>
+            <taskproperty id="tpd6" name="duration" type="default" valuetype="int"/>
+            <taskproperty id="tpd7" name="completion" type="default" valuetype="int"/>
+            <taskproperty id="tpd8" name="coordinator" type="default" valuetype="text"/>
+            <taskproperty id="tpd9" name="predecessorsr" type="default" valuetype="text"/>
+        </taskproperties>
+        <task id="0" name="Presentation" meeting="false" start="2017-01-23" duration="10" complete="0" expand="true">
+            <task id="4" name="Complete project review" color="#8cb6ce" meeting="false" start="2017-01-23" duration="1" complete="0" expand="true"/>
+            <task id="12" name="RASD review and summary" meeting="false" start="2017-01-24" duration="2" complete="0" expand="true"/>
+            <task id="13" name="DD review and summary" meeting="false" start="2017-01-26" duration="2" complete="0" expand="true"/>
+            <task id="16" name="ITPD review and summary" meeting="false" start="2017-01-30" duration="1" complete="0" expand="true"/>
+            <task id="17" name="PM review and summary" meeting="false" start="2017-01-31" duration="1" complete="0" expand="true"/>
+            <task id="18" name="Presentation slides composition" meeting="false" start="2017-02-01" duration="2" complete="0" expand="true"/>
+            <task id="19" name="Internal meeting" color="#8cb6ce" meeting="true" start="2017-02-03" duration="0" complete="0" expand="true"/>
+            <task id="23" name="refinements" meeting="false" start="2017-02-03" duration="1" complete="0" expand="true"/>
+        </task>
+    </tasks>
+    <resources/>
+    <allocations/>
+    <vacations/>
+    <previous/>
+    <roles roleset-name="Default"/>
+</project>
