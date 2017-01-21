@@ -5847,7 +5847,7 @@ textwidth][c]{
 
 
 \begin_inset Graphics
-	filename @TODO
+	filename gantt/PM_detail.png
 	width 80page%
 	height 80pheight%
 	keepAspectRatio
@@ -5873,7 +5873,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Implementation and unit testing detailed Gantt diagram.
+Project Management detailed Gantt diagram.
 \end_layout
 
 \end_inset
