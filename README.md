@@ -24,8 +24,8 @@ Repository for the project of the Software Engineering 2 course, a.y. 2016/2017,
 - ~~Open discussion on testing assignment 21/12~~
 - ~~Testing document submission deadline 15/01~~
 - ~~Open discussion on project management 11/01~~
-- Project management document submission deadline 22/01
+- ~~Project management document submission deadline 22/01~~
 - ~~Code inspection assignment 11/01~~
 - ~~Open discussion on inspection 18/01~~
 - Inspection document submission deadline 05/02
-- Final presentation
+- Final presentation 01/03

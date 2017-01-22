@@ -5403,7 +5403,7 @@ Since our group consists of 3 people, a reasonable development time would
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\frac{20.8\textrm{ person months}}{3\textrm{ people}}\simeq7\textrm{ months}
+\frac{20.8\textrm{ person months}}{3\textrm{ people}}\simeq\boldsymbol{7}\textrm{ months}
 \]
 
 \end_inset
@@ -5474,7 +5474,15 @@ the actual development of the software devised in the previous documents.
 \series bold
 Integration Test: 
 \series default
-carry out the integration test planned in the ITPD.
+carry out the integration test planned in the ITPD in order to avoid 
+\begin_inset Quotes eld
+\end_inset
+
+big bang
+\begin_inset Quotes erd
+\end_inset
+
+ integration testing.
 \end_layout
 
 \begin_layout Itemize
@@ -7474,7 +7482,7 @@ Resource
 \begin_layout Plain Layout
 
 \series bold
-2017-02-06 to 2017-??-??
+2017-02-06 to 2017-05-04
 \end_layout
 
 \end_inset
@@ -7760,7 +7768,7 @@ Resource
 \begin_layout Plain Layout
 
 \series bold
-2017-??-?? to 2017-??-??
+2017-03-29 to 2017-04-17
 \end_layout
 
 \end_inset
@@ -7836,7 +7844,7 @@ Alessio
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Business - Database
 \end_layout
 
 \end_inset
@@ -7845,7 +7853,7 @@ Alessio
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Mobile - Business
 \end_layout
 
 \end_inset
@@ -7865,7 +7873,7 @@ Michele
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Business - Database
 \end_layout
 
 \end_inset
@@ -7874,7 +7882,7 @@ Michele
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Client - Web
 \end_layout
 
 \end_inset
@@ -7894,7 +7902,7 @@ Mattia
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Business - Web
 \end_layout
 
 \end_inset
@@ -7903,7 +7911,7 @@ Mattia
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Mobile - Business
 \end_layout
 
 \end_inset
@@ -7955,17 +7963,43 @@ Resource allocation for Integration Testing.
 Risks associated with the project
 \end_layout
 
+\begin_layout Subsection
+Risk identification and evaluation
+\end_layout
+
 \begin_layout Standard
 \align center
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+makebox[
+\backslash
+textwidth][c]{
+\end_layout
+
+\end_inset
+
+
 \begin_inset Tabular
 <lyxtabular version="3" rows="13" columns="4">
 <features tabularvalignment="middle">
-<column alignment="left" valignment="top" width="0pt">
-<column alignment="left" valignment="top" width="0pt">
+<column alignment="left" valignment="top" width="30text%">
+<column alignment="left" valignment="top" width="60text%">
 <column alignment="left" valignment="top" width="0pt">
 <column alignment="left" valignment="top" width="0pt">
 <row>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -7976,7 +8010,7 @@ Risk
 
 \end_inset
 </cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -8011,7 +8045,7 @@ Effect
 </cell>
 </row>
 <row>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -8020,7 +8054,7 @@ Lack of cooperation from team members
 
 \end_inset
 </cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="left" valignment="top" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -8050,7 +8084,7 @@ High
 </cell>
 </row>
 <row>
-<cell alignment="left" valignment="top" leftline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -8059,7 +8093,7 @@ Inexperience team members
 
 \end_inset
 </cell>
-<cell alignment="left" valignment="top" leftline="true" usebox="none">
+<cell alignment="left" valignment="top" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -8068,7 +8102,7 @@ Inexperienced team members require time and effort to carry on their job.
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -8077,7 +8111,7 @@ Low
 
 \end_inset
 </cell>
-<cell alignment="left" valignment="top" leftline="true" rightline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -8088,7 +8122,7 @@ Moderate
 </cell>
 </row>
 <row>
-<cell alignment="left" valignment="top" leftline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -8097,7 +8131,7 @@ Unrealistic time and cost estimates
 
 \end_inset
 </cell>
-<cell alignment="left" valignment="top" leftline="true" usebox="none">
+<cell alignment="left" valignment="top" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -8108,7 +8142,7 @@ The actual deadline and cost for the project were slightly different the
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -8117,7 +8151,7 @@ Moderate
 
 \end_inset
 </cell>
-<cell alignment="left" valignment="top" leftline="true" rightline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -8128,7 +8162,7 @@ Moderate
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -8137,7 +8171,7 @@ Client loss
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
+<cell alignment="left" valignment="top" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -8147,7 +8181,7 @@ The client is not satisfied of the project and decides not to do business
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -8156,7 +8190,7 @@ Moderate
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -8167,7 +8201,7 @@ High
 </cell>
 </row>
 <row>
-<cell alignment="left" valignment="top" leftline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -8176,7 +8210,7 @@ Misunderstanding of the requirements
 
 \end_inset
 </cell>
-<cell alignment="left" valignment="top" leftline="true" usebox="none">
+<cell alignment="left" valignment="top" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -8186,7 +8220,7 @@ It is not well understood what the software has to do in order to satisfy
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -8195,7 +8229,7 @@ Low
 
 \end_inset
 </cell>
-<cell alignment="left" valignment="top" leftline="true" rightline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -8206,7 +8240,7 @@ High
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -8215,7 +8249,7 @@ Unclear or misunderstood objectives
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
+<cell alignment="left" valignment="top" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -8225,7 +8259,7 @@ The goal of the project are not clear and as a consequence it is also difficult
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -8234,7 +8268,7 @@ Low
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -8245,7 +8279,7 @@ High
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -8254,7 +8288,7 @@ Developing the wrong software functions
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
+<cell alignment="left" valignment="top" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -8263,7 +8297,7 @@ The developed software does not respect the defined requirements.
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -8272,7 +8306,7 @@ Low
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -8283,7 +8317,7 @@ High
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -8292,7 +8326,7 @@ Deployment delay
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
+<cell alignment="left" valignment="top" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -8302,7 +8336,7 @@ The software is not ready for the deadline because one or more features
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -8311,7 +8345,7 @@ Moderate
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -8322,7 +8356,7 @@ Low
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -8331,7 +8365,7 @@ Competitors
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
+<cell alignment="left" valignment="top" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -8341,7 +8375,7 @@ Other companies are building a software that is similar to the one we are
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -8350,7 +8384,7 @@ Low
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -8361,7 +8395,7 @@ Moderate
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -8370,7 +8404,7 @@ Scalability and downtime issues
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
+<cell alignment="left" valignment="top" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -8380,7 +8414,7 @@ The software cannot bear a large number of users and this may cause the
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -8389,7 +8423,7 @@ Moderate
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -8400,7 +8434,7 @@ Low
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -8410,7 +8444,7 @@ Legislative modification w.r.t.
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
+<cell alignment="left" valignment="top" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -8419,7 +8453,7 @@ Due to legislation, driving licenses need to be validated differently.
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -8428,7 +8462,7 @@ Low
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -8439,7 +8473,7 @@ High
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" bottomline="true" leftline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -8448,7 +8482,7 @@ Bankruptcy
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" bottomline="true" leftline="true" usebox="none">
+<cell alignment="left" valignment="top" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -8458,7 +8492,7 @@ The company goes through financial difficulties and has no more money to
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -8467,7 +8501,7 @@ Low
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" bottomline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -8482,53 +8516,46 @@ Very High
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-\begin_inset Tabular
-<lyxtabular version="3" rows="13" columns="2">
-<features tabularvalignment="middle">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
+\begin_inset ERT
+status open
 
 \begin_layout Plain Layout
 
-\series bold
-Risk
+}
 \end_layout
 
 \end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
+
+
+\end_layout
 
 \begin_layout Plain Layout
+\begin_inset Caption Standard
 
-\series bold
-Strategy
+\begin_layout Plain Layout
+Risk identification and evaluation: probability and effects of each risk.
 \end_layout
 
 \end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
 
-\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Adopted strategies
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
 Lack of cooperation from team members
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-This risk can be mitigated by adopting a schedule to decide which tasks
+\series default
+: this risk can be mitigated by adopting a schedule to decide which tasks
  are asssigned to each member of the group.
  In order to decide this, experience, skills and willingness of the members
  have to be taken into account.
@@ -8536,81 +8563,46 @@ This risk can be mitigated by adopting a schedule to decide which tasks
  same place.
 \end_layout
 
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
+\begin_layout Itemize
 
-\begin_layout Plain Layout
+\series bold
 Inexperienced team members
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Inexperienced team members should be assigned less complex tasks (in terms
- of difficulty, but not in terms of quantity) and in case of troubles should
- be helped by more experienced team members.
+\series default
+: inexperienced team members should be assigned less complex tasks (in terms
+ of difficulty, but not in terms of quantity) and in case of trouble they
+ should be helped by more experienced team members.
  The effort made by the latter ones will be economically compensated.
- In this way, experienced member are motivated to help inexperienced member
- who can become more skilled in between.
- Besides, the group should always be motivated and cohesion has to be constantly
- created in order to make everyone feel as part it.
+ In this way, experienced members are motivated to help inexperienced members
+ who can become more skilled.
+ Besides, the group should always be motivated and cohese in order to make
+ everyone feel part of it.
 \end_layout
 
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
+\begin_layout Itemize
 
-\begin_layout Plain Layout
+\series bold
 Unrealistic time and cost estimates
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Estimates need to be done accordingly to other similar projects and to previous
- experiences of the team members.
- Besides, the esimate is done with a pessimistic view, in order to take
- into account possible unexpected issues which the project may go through.
+\series default
+: estimates need to be done according to other similar projects and to previous
+ experience of the team members.
+ Besides, the esimate is done with a pessimistic point of view, in order
+ to take into account possible unexpected issues through which the project
+ may go.
  If the first release is ready some time before the final deadline, we plan
  to offer technical support to the client and to ask him whether the software
  can be enriched with new requested features, after taking into account
  their feasibility in the remaining time.
- If the project is proceeding slowly or if it starts to cost too much, refine
- its management, in particular by cutting the resource allocations that
- are less necessary.
+ If the project is proceeding slowly or if it starts to cost too much, its
+ management needs to be replanned, in particular by cutting the less necessary
+ resources.
 \end_layout
 
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
+\begin_layout Itemize
 
-\begin_layout Plain Layout
+\series bold
 Client loss
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-There are different factors that could cause the loss of the client: these
+\series default
+: there are different factors that could cause the loss of the client: these
  may regard the software itself (it does not do what the client asked for
  or the interface is not appreciated, and in this case it is suggested to
  have frequent meetings with the client so that the software satisfies him;
@@ -8620,69 +8612,33 @@ There are different factors that could cause the loss of the client: these
  it is described what to do in this situation).
 \end_layout
 
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
+\begin_layout Itemize
 
-\begin_layout Plain Layout
-Minsunderstanding of the software requirements
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-The remedy to mitigate this risk is to keep in touch with the client: whenever
- something is unclear we ask further explanations to the client.
+\series bold
+Misunderstanding of the software requirements
+\series default
+: the remedy to mitigate this risk is to keep in touch with the client:
+ whenever something is unclear we ask further explanations to the client.
  It is also useful to have periodical meetings with him to show how the
  project is going and if it is satisfying what he asked for.
 \end_layout
 
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
+\begin_layout Itemize
 
-\begin_layout Plain Layout
+\series bold
 Unclear or misunderstood objectives
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Similarly to the previous risk, the advised strategy is to ask the client
- for further explanations that can help the team understanding and clarifying
+\series default
+: similarly to the previous risk, the advised strategy is to ask the client
+ for further explanations that can help the team understand and clarify
  doubts about the goals of the software that is under development.
 \end_layout
 
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
+\begin_layout Itemize
 
-\begin_layout Plain Layout
+\series bold
 Developing the wrong software functions
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Since this is a programming issue, this risk can be easily mitigated through
+\series default
+: since this is a programming issue, this risk can be easily mitigated through
  testing.
  Tests should be done starting from well defined requirements, so it is
  very important that the chance of misunderstanding the requirements is
@@ -8691,136 +8647,65 @@ Since this is a programming issue, this risk can be easily mitigated through
  that this risk is mitigated as much as we can.
 \end_layout
 
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
+\begin_layout Itemize
 
-\begin_layout Plain Layout
+\series bold
 Deployment delay
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-The adopted strategy is to deploy a first release of the software that includes
- its main features (for example, the ones regarding the employee may be
- left as the last ones to be developed as they are less critical than the
- ones regarding car reservation and rides).
+\series default
+: the adopted strategy is to deploy a first release of the software that
+ includes its main features (for example, the ones regarding the employee
+ may be left as the last ones to be developed as they are less critical
+ than the ones regarding car reservation and rides).
  A second deadline will be discussed with the client and we are going to
  release the project finished in all its functionalities in a second release.
 \end_layout
 
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
+\begin_layout Itemize
 
-\begin_layout Plain Layout
+\series bold
 Competitors
+\series default
+: rival products need to be defeated by developing a software that is competitiv
+e in the market through the presence of innovative and appealing features.
 \end_layout
 
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
+\begin_layout Itemize
 
-\begin_layout Plain Layout
-Concurrent softwares need to be overcome by developing a software that is
- competitive in the market through the presence of innovative and appealing
- features.
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
+\series bold
 Scalability and downtime issues
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-A good system testing can help understanding what are the loads that the
- software can bear w.r.t.
+\series default
+: a good system testing can help in understanding what is the load that
+ the software can bear w.r.t.
  the number of users.
- Design, Architecture and code have to take into account also the performance
+ Design, Architecture and code have to take into account the performance
  that the software needs to have in order to satisfy non-functional requirements.
  By increasing redundancy of the components and using load balancers the
  system should be up even with high loads.
  In case the system goes down, a well thought architecture makes repairs
- easy and minimizes the MTTR
+ easy and minimizes the MTTR.
 \end_layout
 
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
+\begin_layout Itemize
 
-\begin_layout Plain Layout
+\series bold
 Legislative modification w.r.t.
  driving licenses
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-By interfacing with an updated Driving License System we can ensure that
+\series default
+: by interfacing with an updated Driving License System we can ensure that
  new users' driving licenses will be verified accordingly to the latest
  legislations.
 \end_layout
 
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
+\begin_layout Itemize
 
-\begin_layout Plain Layout
+\series bold
 Bankruptcy
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Before starting with the project it is important to consider whether it
- is worth it or not from an economical point of view, that is whether the
- sale of the software will eventually be able to cover all the costs and
- to grant an adequate profit.
- A good and reasoned feasibility study can help us in the decision.
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
-
-\end_inset
-
-
+\series default
+: before starting the project it is important to consider whether it is
+ worth it or not from an economical point of view, that is whether the sale
+ of the software will eventually be able to cover all the costs and to grant
+ an adequate profit.
+ A good and well-thought feasibility study can help us in the decision.
 \end_layout
 
 \begin_layout Standard
@@ -8862,15 +8747,15 @@ Hours of work
 \end_layout
 
 \begin_layout Itemize
-Alessio Mongelluzzo: ? hours
+Alessio Mongelluzzo: 9 hours
 \end_layout
 
 \begin_layout Itemize
-Michele Ferri: ? hours
+Michele Ferri: 11 hours
 \end_layout
 
 \begin_layout Itemize
-Mattia Maffioli: ? hours
+Mattia Maffioli: 11 hours
 \end_layout
 
 \end_body
