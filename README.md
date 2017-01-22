@@ -11,6 +11,7 @@ Repository for the project of the Software Engineering 2 course, a.y. 2016/2017,
 1. **RASD**: download [here](https://github.com/AlessioMongelluzzo/PowerEnJoy/raw/master/deliveries/RASD.pdf).
 2. **DD**: download [here](https://github.com/AlessioMongelluzzo/PowerEnJoy/raw/master/deliveries/DD.pdf).
 3. **ITPD**: download [here](https://github.com/AlessioMongelluzzo/PowerEnJoy/raw/master/deliveries/ITPD.pdf).
+4. **Project Management**: download [here](https://github.com/AlessioMongelluzzo/PowerEnJoy/raw/master/deliveries/PM.pdf).
 
 ### Project schedule
 - ~~Group registration 16/10~~
