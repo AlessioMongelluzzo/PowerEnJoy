@@ -205,7 +205,68 @@ Results of inspection
 \end_layout
 
 \begin_layout Standard
-[...]
+Notes:
+\end_layout
+
+\begin_layout Standard
+2.1 ok except for 2.1.7
+\end_layout
+
+\begin_layout Standard
+2.2 ok
+\end_layout
+
+\begin_layout Standard
+2.3 ok
+\end_layout
+
+\begin_layout Standard
+2.4 vedi foglio mattia, screen X
+\end_layout
+
+\begin_layout Standard
+2.5 ok
+\end_layout
+
+\begin_layout Standard
+2.6.18 no commenti classi/metodi, unici commenti pointless
+\end_layout
+
+\begin_layout Standard
+2.6.19 ok
+\end_layout
+
+\begin_layout Standard
+2.7.20 ok
+\end_layout
+
+\begin_layout Standard
+2.7.21 ok
+\end_layout
+
+\begin_layout Standard
+2.7.22 non ho javadoc e non ci sono external interf
+\end_layout
+
+\begin_layout Standard
+2.7.23 non c'è JD
+\end_layout
+
+\begin_layout Standard
+2.8 ok
+\end_layout
+
+\begin_layout Standard
+2.9.25D public private alternate
+\end_layout
+
+\begin_layout Standard
+2.9.25F: tutti i metodi sono statici, la classe deve avere solo un costruttore
+ privato ( CHE MANCA)
+\end_layout
+
+\begin_layout Standard
+26 si
 \end_layout
 
 \end_body
