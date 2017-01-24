@@ -2062,7 +2062,7 @@ Code line 469 exceedes 80 characters length convention due to a side comment.
 \begin_layout Standard
 Some of the lines discussed in the previous section even exceed the 120
  characters length convention.
- We report the list those lines: L213, 268, 269, 361, 403, 407, 411.
+ We report the list of those lines: L213, 268, 269, 361, 403, 407, 411.
 \end_layout
 
 \begin_layout Subsection*
