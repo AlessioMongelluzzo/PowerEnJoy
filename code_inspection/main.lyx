@@ -2590,16 +2590,170 @@ Another issue dealing with declarations is that of the absence of a constructor
 \end_layout
 
 \begin_layout Subsection*
-@Todo
+2.9.27 Code is free of duplicates, long methods, big classes, breaking encapsulati
+on, coupling and cohesion are adequate
 \end_layout
 
 \begin_layout Standard
-Notes:
-\end_layout
+Some functions within the file contains pieces of code that were replicated:
+ in particular at lines 61, 164, 233 and 301 there is the same check on
+ the variable 
+\begin_inset Quotes eld
+\end_inset
 
-\begin_layout Standard
-fino a punto 26 ok.
- Continue from 27 on.
+api
+\begin_inset Quotes erd
+\end_inset
+
+ (if null the same error is returned) after its initialization in the respective
+ly previous lines.
+ The try- block catch at lines 66 - 70 of 
+\begin_inset Quotes eld
+\end_inset
+
+ccAuth
+\begin_inset Quotes erd
+\end_inset
+
+ function is also present in function ccCreditRefund (at lines 307 - 311).
+ Another block try - catch is repeated in four different functions: 
+\begin_inset Quotes eld
+\end_inset
+
+ccAuth
+\begin_inset Quotes erd
+\end_inset
+
+ (lines 85 - 96, apart from line 88 where there is a call to 
+\begin_inset Quotes eld
+\end_inset
+
+logInfo
+\begin_inset Quotes erd
+\end_inset
+
+ method of the class Debug), 
+\begin_inset Quotes eld
+\end_inset
+
+ccCapture
+\begin_inset Quotes erd
+\end_inset
+
+ (lines 172 - 182), 
+\begin_inset Quotes eld
+\end_inset
+
+ccVoid
+\begin_inset Quotes erd
+\end_inset
+
+ (lines 248 - 258), 
+\begin_inset Quotes eld
+\end_inset
+
+ccCreditRefund
+\begin_inset Quotes erd
+\end_inset
+
+ (lines 317 - 327): the length of this methods could be shorten by using
+ a support private method that contains the code of this lines.
+ At the end of 
+\begin_inset Quotes eld
+\end_inset
+
+ccAuth
+\begin_inset Quotes erd
+\end_inset
+
+ method (lines 130, 131, 133) the same method put is called for result with
+ the same parameters as in 
+\begin_inset Quotes eld
+\end_inset
+
+ccCapture
+\begin_inset Quotes erd
+\end_inset
+
+ at lines 194, 195 and 196.
+ Overall the class is cohese as it contains only methods that have to do
+ with credit cards operation.
+ It is highly coupled with the 
+\begin_inset Quotes eld
+\end_inset
+
+RitaApi
+\begin_inset Quotes erd
+\end_inset
+
+ class: there are a lot of calls made to this class' setters to initialize
+ the fields of the object api in functions 
+\begin_inset Quotes eld
+\end_inset
+
+ccAuth
+\begin_inset Quotes erd
+\end_inset
+
+, 
+\begin_inset Quotes eld
+\end_inset
+
+ccCapture
+\begin_inset Quotes erd
+\end_inset
+
+, 
+\begin_inset Quotes eld
+\end_inset
+
+ccVoid
+\begin_inset Quotes erd
+\end_inset
+
+, 
+\begin_inset Quotes eld
+\end_inset
+
+ccCreditRefund
+\begin_inset Quotes erd
+\end_inset
+
+, 
+\begin_inset Quotes eld
+\end_inset
+
+setCreditCardInfo
+\begin_inset Quotes erd
+\end_inset
+
+ and 
+\begin_inset Quotes eld
+\end_inset
+
+getApi
+\begin_inset Quotes erd
+\end_inset
+
+ (both the method with one and with two parameters).
+ The class encapsulates only two fields (
+\begin_inset Quotes eld
+\end_inset
+
+decimales
+\begin_inset Quotes erd
+\end_inset
+
+ and 
+\begin_inset Quotes eld
+\end_inset
+
+rounding
+\begin_inset Quotes erd
+\end_inset
+
+), but methods to access them are not provided; as for the other fields,
+ they are exposed (public), but final, so they cannot be modified.
 \end_layout
 
 \end_body
