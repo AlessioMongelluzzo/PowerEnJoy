@@ -197,7 +197,51 @@ Functional role of classes
 \end_layout
 
 \begin_layout Standard
-[...]
+The class to review is part of the OFBiz implementation by Apache.
+\end_layout
+
+\begin_layout Standard
+The complete documentation of the OFBiz software is available on Apache’s
+ website and defines it as follows:
+\end_layout
+
+\begin_layout Verse
+Apache OFBiz® is an open source product for the automation of enterprise
+ processes that includes framework components and business applications
+ for ERP (Enterprise Resource Planning), CRM (Customer Relationship Management),
+ E-Business / E-Commerce, SCM (Supply Chain Management), MRP (Manufacturing
+ Resource Planning), MMS/EAM (Maintenance Management System/Enterprise Asset
+ Management).
+\end_layout
+
+\begin_layout Standard
+The class is part of a subpackage called 
+\family typewriter
+thirdparty.gosoftware
+\family default
+, so another search gives us this information:
+\end_layout
+
+\begin_layout Verse
+RiTA (Rapid Transaction Authority) Server is a highly scalable transaction
+ switch that supports high volume, multi-threaded transaction processing.
+ RiTA is a cost effective product that can be easily integrated into any
+ POS, e-Commerce or MOTO (mail order/telephone order) application, regardless
+ of the operating system or development platform.
+ RiTA 2.1 offers additional features that further enhance transaction processing
+ speed, reliability, security and cost savings for the merchant.
+\end_layout
+
+\begin_layout Standard
+So, we are analyzing a payment processing engine which is part of an ERP
+ software and offers API for managing credit card transactions.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -234,7 +278,23 @@ x
 \end_layout
 
 \begin_layout Subsection*
-Naming Conventions
+2.1 Naming Conventions
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+addcontentsline{toc}{subsection}{2.1 Naming Conventions}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsubsection*
@@ -243,8 +303,8 @@ Naming Conventions
 \end_layout
 
 \begin_layout Standard
-As we can see in L50,53,54 the final strings names are not compliant with
- the upper case convention.
+As we can see in L50,53,54 the constants' names are not compliant with the
+ upper case convention.
 \end_layout
 
 \begin_layout Standard
@@ -297,7 +357,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Constants declarations not using upper case.
+Lines 50, 53, 54: constants declarations not using upper case.
 \end_layout
 
 \end_inset
@@ -311,7 +371,23 @@ Constants declarations not using upper case.
 \end_layout
 
 \begin_layout Subsection*
-File organization
+2.4 File organization
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+addcontentsline{toc}{subsection}{2.4 File organization}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsubsection*
@@ -319,15 +395,18 @@ File organization
 \end_layout
 
 \begin_layout Standard
-The following lines in the code exceed 80 characters lenght: L18, 51, 52
- 56, 73, 116, 125, 144, 145, 153, 158, 169, 193, 205, 209, 213, 214, 222,
- 227, 238, 239, 264, 266, 268, 269, 270, 271, 272, 281, 282, 290, 295, 314,
- 338, 350, 353, 357, 360, 361, 371, 372, 379, 380, 381, 391, 393, 397, 402,
- 403, 407, 408, 411, 414, 453, 455, 456, 458, 465, 469, 511, 517-524, 528,
- 532, 536, 555.
- We will analyse those sections that could have been structured so that
- these lines could be shortened.
- Morover, we focus on those lines whose length breaks the 80 char limits
+The following lines in the code exceed 80 characters of length: L18, 51,
+ 52 56, 73, 116, 125, 144, 145, 153, 158, 169, 193, 205, 209, 213, 214,
+ 222, 227, 238, 239, 264, 266, 268, 269, 270, 271, 272, 281, 282, 290, 295,
+ 314, 338, 350, 353, 357, 360, 361, 371, 372, 379, 380, 381, 391, 393, 397,
+ 402, 403, 407, 408, 411, 414, 453, 455, 456, 458, 465, 469, 511, 517-524,
+ 528, 532, 536, 555.
+\end_layout
+
+\begin_layout Standard
+We will analyse those sections that could have been structured so that these
+ lines could be shortened.
+ Moreover, we focus on those lines whose length breaks the 80 char limits
  due to many extra characters.
 \end_layout
 
@@ -392,8 +471,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Code line 56 exceedes 80 characters length convention due to the long list
- of parameters.
+Line 56 exceedes 80 characters of length due to the long list of parameters.
 \end_layout
 
 \end_inset
@@ -460,8 +538,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Code line 144 exceedes 80 characters length convention due to the long list
- of parameters.
+Line 144 exceedes 80 characters of length due to the long list of parameters.
 \end_layout
 
 \end_inset
@@ -528,8 +605,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Code line 205 exceedes 80 characters length convention due to the long list
- of parameters.
+Line 205 exceedes 80 characters of length due to the long list of parameters.
 \end_layout
 
 \end_inset
@@ -596,8 +672,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Code line 209 exceedes 80 characters length convention due to the long list
- of parameters.
+Line 209 exceedes 80 characters of length due to the long list of parameters.
 \end_layout
 
 \end_inset
@@ -664,8 +739,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Code line 213 exceedes 80 characters length convention due to the long list
- of parameters.
+Line 213 exceedes 80 characters of length due to the long list of parameters.
 \end_layout
 
 \end_inset
@@ -732,8 +806,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Code line 281 exceedes 80 characters length convention due to the long list
- of parameters.
+Line 281 exceedes 80 characters of length due to the long list of parameters.
 \end_layout
 
 \end_inset
@@ -800,8 +873,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Code line 350 exceedes 80 characters length convention due to the long list
- of parameters.
+Line 350 exceedes 80 characters of length due to the long list of parameters.
 \end_layout
 
 \end_inset
@@ -868,8 +940,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Code line 361 exceedes 80 characters length convention due to the long list
- of parameters.
+Line 361 exceedes 80 characters of length due to the long list of parameters.
 \end_layout
 
 \end_inset
@@ -936,8 +1007,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Code line 397 exceedes 80 characters length convention due to the long list
- of parameters.
+Line 397 exceedes 80 characters of length due to the long list of parameters.
 \end_layout
 
 \end_inset
@@ -1004,8 +1074,8 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Code lines 402 and 403 exceede 80 characters length convention due to the
- long list of parameters.declarations not using upper case.
+Lines 402 and 403 exceed 80 characters of length due to the long list of
+ parameters.declarations not using upper case.
 \end_layout
 
 \end_inset
@@ -1072,8 +1142,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Code line 407 exceedes 80 characters length convention due to the long list
- of parameters.
+Line 407 exceedes 80 characters of length due to the long list of parameters.
 \end_layout
 
 \end_inset
@@ -1140,8 +1209,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Code line 411 exceedes 80 characters length convention due to the long list
- of parameters.
+Line 411 exceedes 80 characters of length due to the long list of parameters.
 \end_layout
 
 \end_inset
@@ -1208,8 +1276,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Code line 511 exceedes 80 characters length convention due to the long list
- of parameters.
+Line 511 exceedes 80 characters of length due to the long list of parameters.
 \end_layout
 
 \end_inset
@@ -1276,8 +1343,8 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Code line from 517 to 524 exceede 80 characters length convention due to
- the long list of parameters.
+Lines from 517 to 524 exceed 80 characters of length due to the long list
+ of parameters.
 \end_layout
 
 \end_inset
@@ -1344,8 +1411,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Code line 528 exceedes 80 characters length convention due to the long list
- of parameters.
+Line 528 exceedes 80 characters of length due to the long list of parameters.
 \end_layout
 
 \end_inset
@@ -1412,8 +1478,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Code line 532 exceedes 80 characters length convention due to the long list
- of parameters.
+Line 532 exceedes 80 characters of length due to the long list of parameters.
 \end_layout
 
 \end_inset
@@ -1480,8 +1545,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Code line 535 exceedes 80 characters length convention due to the long list
- of parameters.
+Line 535 exceedes 80 characters of length due to the long list of parameters.
 \end_layout
 
 \end_inset
@@ -1548,8 +1612,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Code line 555 exceedes 80 characters length convention due to the long list
- of parameters.
+Line 555 exceedes 80 characters of length due to the long list of parameters.
 \end_layout
 
 \end_inset
@@ -1616,8 +1679,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Code line 295 exceedes 80 characters length convention due to the long list
- of parameters.
+Line 295 exceedes 80 characters of length due to the long list of parameters.
  However this issue might also be related to a problem with the message
  getter method.
  Getting a message with such a parameter complicates the code and facilitates
@@ -1637,8 +1699,8 @@ Code line 295 exceedes 80 characters length convention due to the long list
 \begin_layout Standard
 Another issue concerning lines length is related to the way the logical
  or arithmetical expressions are written.
- Choosing not to break the expression results in a long straight line expression
-, like the follolowing:
+ Choosing not to break the expression into multiple lines results in a long
+ straight line expression, like the following:
 \end_layout
 
 \begin_layout Itemize
@@ -1695,8 +1757,8 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Code line 116 exceedes 80 characters length convention to avoid breaking
- an expression line.
+Line 116 exceedes 80 characters of length in order to avoid breaking an
+ expression into multiple lines.
 \end_layout
 
 \end_inset
@@ -1763,8 +1825,8 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Code line 125 exceedes 80 characters length convention to avoid breaking
- an expression line.
+Line 125 exceedes 80 characters of length in order to avoid breaking an
+ expression into multiple lines.
 \end_layout
 
 \end_inset
@@ -1831,8 +1893,8 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Code line 193 exceedes 80 characters length convention to avoid breaking
- an expression line.
+Line 193 exceedes 80 characters of length in order to avoid breaking an
+ expression into multiple lines.
 \end_layout
 
 \end_inset
@@ -1899,8 +1961,8 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Code line 269 exceedes 80 characters length convention to avoid breaking
- an expression line.
+Line 269 exceedes 80 characters of length in order to avoid breaking an
+ expression into multiple lines.
 \end_layout
 
 \end_inset
@@ -1967,8 +2029,8 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Code line 338 exceedes 80 characters length convention to avoid breaking
- an expression line.
+Line 338 exceedes 80 characters of length in order to avoid breaking an
+ expression into multiple lines.
 \end_layout
 
 \end_inset
@@ -1984,7 +2046,7 @@ Code line 338 exceedes 80 characters length convention to avoid breaking
 \begin_layout Standard
 Even if this problem might be reported in the comments section, the choice
  to write a comment on the same line might result in a very long code line
- not compliant with the 80 characters length convention:
+ not compliant with the 80 characters of length:
 \end_layout
 
 \begin_layout Itemize
@@ -2041,7 +2103,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Code line 469 exceedes 80 characters length convention due to a side comment.
+Line 469 exceedes 80 characters of length due to a side comment.
 \end_layout
 
 \end_inset
@@ -2060,13 +2122,29 @@ Code line 469 exceedes 80 characters length convention due to a side comment.
 \end_layout
 
 \begin_layout Standard
-Some of the lines discussed in the previous section even exceed the 120
- characters length convention.
+Some of the lines discussed in the previous section even exceed 120 characters
+ of length.
  We report the list of those lines: L213, 268, 269, 361, 403, 407, 411.
 \end_layout
 
 \begin_layout Subsection*
-Comments
+2.6 Comments
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+addcontentsline{toc}{subsection}{2.6 Comments}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsubsection*
@@ -2080,9 +2158,8 @@ In our class, comments are rarely used.
  from methods or classes.
  The only written comments are vague and are usually not usueful to undersand
  the context of the program.
- Moreover, even though classes and methods have abbreviations in their names,
- those same abbreviations are often used in the comments referring those
- methods.
+ Moreover, classes and methods have abbreviations in their names, and those
+ same abbreviations are often used in the comments referring those methods.
  This prevents an immediate intuition of what the names refer to.
  Here we list some examples:
 \end_layout
@@ -2141,7 +2218,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Code line 72 comment is not clear and incomplete.
+Line 72 comment is not clear and incomplete.
 \end_layout
 
 \end_inset
@@ -2208,7 +2285,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Code line 81 comment is not clear and incomplete.
+Line 81 comment is not clear and incomplete.
 \end_layout
 
 \end_inset
@@ -2275,7 +2352,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Code line 286 comment is vague.
+Line 286 comment is vague.
 \end_layout
 
 \end_inset
@@ -2342,7 +2419,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Code line 306 comment is not clear.
+Line 306 comment is not clear.
 \end_layout
 
 \end_inset
@@ -2409,7 +2486,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Code line 526 comment is vague.
+Line 526 comment is vague.
 \end_layout
 
 \end_inset
@@ -2476,7 +2553,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Code line 540 comment is not clear vague.
+Line 540 comment is not clear vague.
 \end_layout
 
 \end_inset
@@ -2490,11 +2567,27 @@ Code line 540 comment is not clear vague.
 \end_layout
 
 \begin_layout Subsection*
-Java Source Files
+2.7 Java Source Files
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+addcontentsline{toc}{subsection}{2.7 Java Source Files}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsubsection*
-2.7.23 Check that the javadoc is complete
+2.7.23 Check that the JavaDoc is complete
 \end_layout
 
 \begin_layout Standard
@@ -2505,7 +2598,23 @@ In this class JavaDoc is not used at all.
 \end_layout
 
 \begin_layout Subsection*
-Class and Interface Declarations 
+2.9 Class and Interface Declarations
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+addcontentsline{toc}{subsection}{2.9 Class and Interface Declarations}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsubsection*
@@ -2513,8 +2622,8 @@ Class and Interface Declarations
 \end_layout
 
 \begin_layout Standard
-As far as variables scope is concerned(point D), in our class there is no
- order in declarations: 
+As far as variable declarations are concerned (point d), in our class there
+ is no order in declarations: 
 \end_layout
 
 \begin_layout Standard
@@ -2567,8 +2676,11 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Public and private variables declarations alternate without following the
- conventional hierarchy order.
+Lines 50-54: public and private declarations alternate without following
+ the conventional order.
+ Moreover, final and non-final attributes are interleaved, and also the
+ modifiers' order does not comply with the specification (static final,
+ final static).
 \end_layout
 
 \end_inset
@@ -2583,21 +2695,559 @@ Public and private variables declarations alternate without following the
 
 \begin_layout Standard
 Another issue dealing with declarations is that of the absence of a constructor
- (point F).
+ (point f).
  Our class has no explicit constructor.
- However RitaServices only declares static methods, therefore a private
- constructor was expected.
+ RitaServices only declares static methods, therefore a private constructor
+ was expected to hide the implicit public one.
 \end_layout
 
-\begin_layout Subsection*
-2.9.27 Code is free of duplicates, long methods, big classes, breaking encapsulati
-on, coupling and cohesion are adequate
+\begin_layout Subsubsection*
+2.9.27 Check that the code is free of duplicates, long methods, big classes,
+ breaking encapsulation, as well as if coupling and cohesion are adequate.
+\end_layout
+
+\begin_layout Subsubsection*
+Duplicated code
 \end_layout
 
 \begin_layout Standard
-Some functions within the file contains pieces of code that were replicated:
- in particular at lines 61, 164, 233 and 301 there is the same check on
- the variable 
+The class is full of duplicated code, which is very bad for maintainability.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+makebox[
+\backslash
+textwidth][c]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="1">
+<features booktabs="true" tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0pt">
+<row>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Code screenshots/dup01_ccAuth.png
+	width 50page%
+	height 50page%
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Code screenshots/dup02_ccCreditRefund.png
+	width 50page%
+	height 50page%
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Duplicated code between ccAuth (L59-70) and ccCreditRefund (L299-311) methods.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+makebox[
+\backslash
+textwidth][c]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Tabular
+<lyxtabular version="3" rows="3" columns="1">
+<features booktabs="true" tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0pt">
+<row>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Code screenshots/dup11_ccCapture.png
+	width 70page%
+	height 70page%
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Code screenshots/dup12_ccVoid.png
+	width 70page%
+	height 70page%
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Code screenshots/dup13_ccCreditRefund.png
+	width 70page%
+	height 70page%
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Duplicated code between ccCapture (L144-159), ccVoid (L213-228) and ccCreditRefu
+nd (L281-296) methods.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+makebox[
+\backslash
+textwidth][c]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="1">
+<features booktabs="true" tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0pt">
+<row>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Code screenshots/dup21_ccAuth.png
+	width 50page%
+	height 50page%
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Code screenshots/dup22_ccCapture.png
+	width 50page%
+	height 50page%
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Code screenshots/dup23_ccVoid.png
+	width 50page%
+	height 50page%
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Code screenshots/dup24_ccCreditRefund.png
+	width 50page%
+	height 50page%
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Duplicated code between ccAuth (L85-100), ccCapture (L172-186), ccVoid (L248-262
+) and ccCreditRefund (L317-331) methods.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Method length and complexity
+\end_layout
+
+\begin_layout Standard
+The class' methods are quite long (~60 lines long each), and given that
+ part of this code is often duplicated among them as seen in the previous
+ section, the code could surely benefit from some refactoring.
+\end_layout
+
+\begin_layout Standard
+Smaller methods help achieving a better understanding of what they do, if
+ they are given a meaningful name.
+ This way, the long methods of the class would become a short sequence of
+ method calls, which may not even need further investigation for a high-level
+ understanding, rather than a long sequence of micro-operations, which instead
+ forces you to understand the code starting from the details.
+\end_layout
+
+\begin_layout Standard
+Moreover, long methods tend to raise the overall complexity of the program,
+ which has an impact on software testing, cohesion, and frequency of defects.
+ For example nesting a lot of 
+\begin_inset Quotes eld
+\end_inset
+
+if statements
+\begin_inset Quotes erd
+\end_inset
+
+ one inside the other, as seen in the following figure of the ccRefund method.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+makebox[
+\backslash
+textwidth][c]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Code screenshots/nested_ifs.png
+	width 70page%
+	height 70pheight%
+	keepAspectRatio
+	clip
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Lines 364-382: 4 nested if statements in the method ccRefund.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+2.10 Initialization and Declarations
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+addcontentsline{toc}{subsection}{2.10 Initialization and Declarations}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+2.10.32 Variables are initialized where they are declared, unless dependent
+ upon a computation.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+makebox[
+\backslash
+textwidth][c]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Code screenshots/2.10.32.png
+	width 70page%
+	height 70pheight%
+	keepAspectRatio
+	clip
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Line 489: the 
 \begin_inset Quotes eld
 \end_inset
 
@@ -2605,155 +3255,376 @@ api
 \begin_inset Quotes erd
 \end_inset
 
- (if null the same error is returned) after its initialization in the respective
-ly previous lines.
- The try- block catch at lines 66 - 70 of 
+ variable is dependent upon the next computation, so the useless assignment
+ to null could be removed.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+2.10.33 Declarations appear at the beginning of blocks
+\end_layout
+
+\begin_layout Standard
+In our class, it's fairly common for declarations to appear in the middle
+ of methods.
+\end_layout
+
+\begin_layout Standard
+This is probably to keep variable declarations closer to usage, which is
+ good in long methods (our class' methods are ~60 lines long each), but
+ then the code could be refactored in smaller methods to achieve a better
+ understanding of what each part of a method does by giving the new smaller
+ method a meaningful name, as stated in Section 2.9.27.
+\end_layout
+
+\begin_layout Standard
+Here are the lines which contain a declaration in the middle of a method:
+ L86, 162-163, 173, 231-232, 249, 299-300, 318, 388, 440-442, 453, 465,
+ 480-481, 487, 489, 517-524, 541.
+\end_layout
+
+\begin_layout Subsection*
+2.15 Computation, Comparisons and Assignments
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+addcontentsline{toc}{subsection}{2.15 Computation, Comparisons and Assignments}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+2.15.50 Check throw-catch expressions, and check that the error condition
+ is actually legitimate.
+\end_layout
+
+\begin_layout Standard
+Some catch blocks have the same body and are copy-pasted a couple of times,
+ when they could be combined instead.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+makebox[
+\backslash
+textwidth][c]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Code screenshots/2.15.50.png
+	width 70page%
+	height 70pheight%
+	keepAspectRatio
+	clip
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Line 93: the two exceptions are handled in the same way but the code is
+ copy-pasted.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The exact same thing also happens at L179, 255, 324.
+\end_layout
+
+\begin_layout Subsection*
+2.19 Other code smells
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+addcontentsline{toc}{subsection}{2.19 Other code smells}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+2.19.61 Risk of NullPointerException
+\end_layout
+
+\begin_layout Standard
+The getApi method at line 504 might throw a NullPointerException as the
+ variable 
 \begin_inset Quotes eld
 \end_inset
 
-ccAuth
+api
 \begin_inset Quotes erd
 \end_inset
 
- function is also present in function ccCreditRefund (at lines 307 - 311).
- Another block try - catch is repeated in four different functions: 
+ is nullable.
+\end_layout
+
+\begin_layout Standard
+This happens when the method is called with a first parameter which is null.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+makebox[
+\backslash
+textwidth][c]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Code screenshots/null_pointer.png
+	width 70page%
+	height 70pheight%
+	keepAspectRatio
+	clip
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Line 506: the variable 
 \begin_inset Quotes eld
 \end_inset
 
-ccAuth
+api
 \begin_inset Quotes erd
 \end_inset
 
- (lines 85 - 96, apart from line 88 where there is a call to 
+ is nullable.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If we examine the method called at line 505, we see that it returns null
+ when called with a null parameter.
+ The result is assigned to the 
 \begin_inset Quotes eld
 \end_inset
 
-logInfo
+api
 \begin_inset Quotes erd
 \end_inset
 
- method of the class Debug), 
-\begin_inset Quotes eld
+ variable and then, at line 506, that null pointer is dereferenced without
+ any additional check, resulting in a NullPointerException\SpecialChar endofsentence
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+makebox[
+\backslash
+textwidth][c]{
+\end_layout
+
 \end_inset
 
-ccCapture
-\begin_inset Quotes erd
+
+\begin_inset Graphics
+	filename Code screenshots/null_pointer2.png
+	width 70page%
+	height 70pheight%
+	keepAspectRatio
+	clip
+
 \end_inset
 
- (lines 172 - 182), 
-\begin_inset Quotes eld
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
 \end_inset
 
-ccVoid
-\begin_inset Quotes erd
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Lines 475-479: this method returns null when called with a null parameter.
+\end_layout
+
 \end_inset
 
- (lines 248 - 258), 
-\begin_inset Quotes eld
+
+\end_layout
+
 \end_inset
 
-ccCreditRefund
-\begin_inset Quotes erd
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
 \end_inset
 
- (lines 317 - 327): the length of this methods could be shorten by using
- a support private method that contains the code of this lines.
- At the end of 
-\begin_inset Quotes eld
-\end_inset
 
-ccAuth
-\begin_inset Quotes erd
-\end_inset
+\end_layout
 
- method (lines 130, 131, 133) the same method put is called for result with
- the same parameters as in 
-\begin_inset Quotes eld
-\end_inset
+\begin_layout Section
+\start_of_appendix
+Appendix A
+\end_layout
 
-ccCapture
-\begin_inset Quotes erd
-\end_inset
+\begin_layout Subsection
+Software and tools used
+\end_layout
 
- at lines 194, 195 and 196.
- Overall the class is cohese as it contains only methods that have to do
- with credit cards operation.
- It is highly coupled with the 
-\begin_inset Quotes eld
-\end_inset
+\begin_layout Itemize
+\SpecialChar LaTeX
+ for typesetting the document.
+\end_layout
 
-RitaApi
-\begin_inset Quotes erd
-\end_inset
+\begin_layout Itemize
+\SpecialChar LyX
+ as a document processor.
+\end_layout
 
- class: there are a lot of calls made to this class' setters to initialize
- the fields of the object api in functions 
-\begin_inset Quotes eld
-\end_inset
+\begin_layout Itemize
+GitHub for version control and teamwork.
+\end_layout
 
-ccAuth
-\begin_inset Quotes erd
-\end_inset
+\begin_layout Subsection
+Hours of work
+\end_layout
 
-, 
-\begin_inset Quotes eld
-\end_inset
+\begin_layout Itemize
+Alessio Mongelluzzo: ? hours
+\end_layout
 
-ccCapture
-\begin_inset Quotes erd
-\end_inset
+\begin_layout Itemize
+Michele Ferri: ? hours
+\end_layout
 
-, 
-\begin_inset Quotes eld
-\end_inset
-
-ccVoid
-\begin_inset Quotes erd
-\end_inset
-
-, 
-\begin_inset Quotes eld
-\end_inset
-
-ccCreditRefund
-\begin_inset Quotes erd
-\end_inset
-
-, 
-\begin_inset Quotes eld
-\end_inset
-
-setCreditCardInfo
-\begin_inset Quotes erd
-\end_inset
-
- and 
-\begin_inset Quotes eld
-\end_inset
-
-getApi
-\begin_inset Quotes erd
-\end_inset
-
- (both the method with one and with two parameters).
- The class encapsulates only two fields (
-\begin_inset Quotes eld
-\end_inset
-
-decimales
-\begin_inset Quotes erd
-\end_inset
-
- and 
-\begin_inset Quotes eld
-\end_inset
-
-rounding
-\begin_inset Quotes erd
-\end_inset
-
-), but methods to access them are not provided; as for the other fields,
- they are exposed (public), but final, so they cannot be modified.
+\begin_layout Itemize
+Mattia Maffioli: ? hours
 \end_layout
 
 \end_body
