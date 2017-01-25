@@ -184,7 +184,17 @@ org.apache.ofbiz.accounting.thirdparty.gosoftware
 status open
 
 \begin_layout Plain Layout
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
 https://ofbiz.apache.org/
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -471,7 +481,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Line 56 exceedes 80 characters of length due to the long list of parameters.
+Line 56 exceeds 80 characters of length due to the long list of parameters.
 \end_layout
 
 \end_inset
@@ -538,7 +548,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Line 144 exceedes 80 characters of length due to the long list of parameters.
+Line 144 exceeds 80 characters of length due to the long list of parameters.
 \end_layout
 
 \end_inset
@@ -605,7 +615,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Line 205 exceedes 80 characters of length due to the long list of parameters.
+Line 205 exceeds 80 characters of length due to the long list of parameters.
 \end_layout
 
 \end_inset
@@ -672,7 +682,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Line 209 exceedes 80 characters of length due to the long list of parameters.
+Line 209 exceeds 80 characters of length due to the long list of parameters.
 \end_layout
 
 \end_inset
@@ -739,7 +749,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Line 213 exceedes 80 characters of length due to the long list of parameters.
+Line 213 exceeds 80 characters of length due to the long list of parameters.
 \end_layout
 
 \end_inset
@@ -806,7 +816,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Line 281 exceedes 80 characters of length due to the long list of parameters.
+Line 281 exceeds 80 characters of length due to the long list of parameters.
 \end_layout
 
 \end_inset
@@ -873,7 +883,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Line 350 exceedes 80 characters of length due to the long list of parameters.
+Line 350 exceeds 80 characters of length due to the long list of parameters.
 \end_layout
 
 \end_inset
@@ -940,7 +950,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Line 361 exceedes 80 characters of length due to the long list of parameters.
+Line 361 exceeds 80 characters of length due to the long list of parameters.
 \end_layout
 
 \end_inset
@@ -1007,7 +1017,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Line 397 exceedes 80 characters of length due to the long list of parameters.
+Line 397 exceeds 80 characters of length due to the long list of parameters.
 \end_layout
 
 \end_inset
@@ -1142,7 +1152,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Line 407 exceedes 80 characters of length due to the long list of parameters.
+Line 407 exceeds 80 characters of length due to the long list of parameters.
 \end_layout
 
 \end_inset
@@ -1209,7 +1219,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Line 411 exceedes 80 characters of length due to the long list of parameters.
+Line 411 exceeds 80 characters of length due to the long list of parameters.
 \end_layout
 
 \end_inset
@@ -1276,7 +1286,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Line 511 exceedes 80 characters of length due to the long list of parameters.
+Line 511 exceeds 80 characters of length due to the long list of parameters.
 \end_layout
 
 \end_inset
@@ -1411,7 +1421,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Line 528 exceedes 80 characters of length due to the long list of parameters.
+Line 528 exceeds 80 characters of length due to the long list of parameters.
 \end_layout
 
 \end_inset
@@ -1478,7 +1488,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Line 532 exceedes 80 characters of length due to the long list of parameters.
+Line 532 exceeds 80 characters of length due to the long list of parameters.
 \end_layout
 
 \end_inset
@@ -1545,7 +1555,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Line 535 exceedes 80 characters of length due to the long list of parameters.
+Line 535 exceeds 80 characters of length due to the long list of parameters.
 \end_layout
 
 \end_inset
@@ -1612,7 +1622,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Line 555 exceedes 80 characters of length due to the long list of parameters.
+Line 555 exceeds 80 characters of length due to the long list of parameters.
 \end_layout
 
 \end_inset
@@ -1679,7 +1689,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Line 295 exceedes 80 characters of length due to the long list of parameters.
+Line 295 exceeds 80 characters of length due to the long list of parameters.
  However this issue might also be related to a problem with the message
  getter method.
  Getting a message with such a parameter complicates the code and facilitates
@@ -1757,8 +1767,8 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Line 116 exceedes 80 characters of length in order to avoid breaking an
- expression into multiple lines.
+Line 116 exceeds 80 characters of length in order to avoid breaking an expressio
+n into multiple lines.
 \end_layout
 
 \end_inset
@@ -1825,8 +1835,8 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Line 125 exceedes 80 characters of length in order to avoid breaking an
- expression into multiple lines.
+Line 125 exceeds 80 characters of length in order to avoid breaking an expressio
+n into multiple lines.
 \end_layout
 
 \end_inset
@@ -1893,8 +1903,8 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Line 193 exceedes 80 characters of length in order to avoid breaking an
- expression into multiple lines.
+Line 193 exceeds 80 characters of length in order to avoid breaking an expressio
+n into multiple lines.
 \end_layout
 
 \end_inset
@@ -1961,8 +1971,8 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Line 269 exceedes 80 characters of length in order to avoid breaking an
- expression into multiple lines.
+Line 269 exceeds 80 characters of length in order to avoid breaking an expressio
+n into multiple lines.
 \end_layout
 
 \end_inset
@@ -2029,8 +2039,8 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Line 338 exceedes 80 characters of length in order to avoid breaking an
- expression into multiple lines.
+Line 338 exceeds 80 characters of length in order to avoid breaking an expressio
+n into multiple lines.
 \end_layout
 
 \end_inset
@@ -2103,7 +2113,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Line 469 exceedes 80 characters of length due to a side comment.
+Line 469 exceeds 80 characters of length due to a side comment.
 \end_layout
 
 \end_inset
