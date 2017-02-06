@@ -18,7 +18,7 @@ eqs-within-sections
 \language_package default
 \inputencoding auto
 \fontencoding global
-\font_roman "default" "default"
+\font_roman "ae" "default"
 \font_sans "default" "default"
 \font_typewriter "default" "default"
 \font_math "auto" "auto"
@@ -392,6 +392,13 @@ Chapter 5: Requirements Traceability.
 \series default
  This section shows how the requirements in the RASD are satisfied by the
  design choices of the DD.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -1017,8 +1024,7 @@ areas
 \end_layout
 
 \begin_layout Standard
-It allows the system to dispatch requests to the nearest available employee,
- who can accept/decline.
+It allows the system to dispatch requests to the nearest available employee.
 \end_layout
 
 \begin_layout Itemize
@@ -2220,6 +2226,13 @@ Google Maps
  side (map visualization).
 \end_layout
 
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Algorithm Design
 \end_layout
@@ -3234,6 +3247,13 @@ The lowest value of v is the one associated with the charging area at
  value.
 \end_layout
 
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 User Interface Design
 \end_layout
@@ -3895,14 +3915,13 @@ The following table shows the mapping between specific requirements identified
 \end_layout
 
 \begin_layout Standard
-\align center
 \begin_inset Tabular
 <lyxtabular version="3" rows="4" columns="2">
 <features islongtable="true" longtabularalignment="center">
-<column alignment="right" valignment="top" width="0pt">
+<column alignment="right" valignment="top">
 <column alignment="left" valignment="top" width="70text%">
 <row>
-<cell alignment="right" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="right" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -3911,7 +3930,7 @@ Account Manager
 
 \end_inset
 </cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -3941,6 +3960,13 @@ R4.
 
 \begin_layout Plain Layout
 R5.
+ The system must send the user a confirmation email with an activation link,
+ and it must effectively insert the new user only when he/she has confirmed
+ his/her registration.
+\end_layout
+
+\begin_layout Plain Layout
+R6.
  On login, the system must grant the user access to the account if and only
  if the following conditions are met:
 \end_layout
@@ -3956,7 +3982,7 @@ R5.
 \end_layout
 
 \begin_layout Plain Layout
-R6.
+R7.
  If the entered password is wrong, a new attempt can be made only 10 seconds
  later.
 \end_layout
@@ -3994,11 +4020,6 @@ R37.
  The system must generate special credential for employees.
 \end_layout
 
-\begin_layout Plain Layout
-R40.
- The system must store users' information into a database.
-\end_layout
-
 \end_inset
 </cell>
 </row>
@@ -4016,43 +4037,43 @@ Reservation Manager
 \begin_inset Text
 
 \begin_layout Plain Layout
-R7.
+R8.
  The user can choose to find cars around his/her position, or around a specied
  address.
 \end_layout
 
 \begin_layout Plain Layout
-R8.
+R9.
  The user must be shown a map of the selected position, on which the locations
  of available cars are marked.
 \end_layout
 
 \begin_layout Plain Layout
-R9.
+R10.
  The system charges the user in advance with 1 EUR deposit.
  The deposit is given back to the user if he turns on the engine.
 \end_layout
 
 \begin_layout Plain Layout
-R10.
+R11.
  If an error occurs while charging the user with the down payment then an
  error message is displayed and the reservation operation is aborted.
 \end_layout
 
 \begin_layout Plain Layout
-R11.
+R12.
  The user must be able to click on a marked location on the map in order
  to view additional information on the car at that position.
 \end_layout
 
 \begin_layout Plain Layout
-R12.
+R13.
  The user must be able to view at least the exact address and the battery
  level of the selected car.
 \end_layout
 
 \begin_layout Plain Layout
-R13.
+R14.
  The user must be able to reserve the selected car by clicking on a button
  in the additional information screen.
  After the button has been clicked, the car state must be set to RESERVED
@@ -4061,13 +4082,13 @@ R13.
 \end_layout
 
 \begin_layout Plain Layout
-R14.
+R15.
  The user must not be able to reserve the selected car if there already
  exists a reservation made by the user himself/herself.
 \end_layout
 
 \begin_layout Plain Layout
-R15.
+R16.
  Any user who reserved a car in the last hour must be able to unlock the
  car he/she has reserved in one of the following ways:
 \end_layout
@@ -4113,9 +4134,11 @@ R17.
 
 \begin_layout Plain Layout
 R18.
- At the end of the ride the system waits for possible discounts to be applied
- to the final fare, and then interacts with the third party payment service
- and notifies the user with the report of the payment operation.
+ When a ride is COMPLETED, the system waits for possible discounts to be
+ applied to the final fare (see Goal 10), then updates the state of the
+ car to either AVAILABLE or INTERVENTION_REQUIRED and interacts with the
+ third party payment service, notifying the user with the outcome of the
+ payment operation.
 \end_layout
 
 \begin_layout Plain Layout
@@ -4155,7 +4178,10 @@ R24.
  If the battery level at the end of the ride is measured to be at least
  50% of the total charge, the system must apply a 20% discount on the final
  fare.
- R25.
+\end_layout
+
+\begin_layout Plain Layout
+R25.
  If the position of the car at the end of the ride is a charging area, and
  the car is plugged in within a 2 minutes time frame, the system must apply
  a 30% discount on the final fare.
@@ -4210,19 +4236,15 @@ Maintenance Manager
 \begin_inset Text
 
 \begin_layout Plain Layout
-R16.
- The system must inform an employee when a car is in low battery state.
-\end_layout
-
-\begin_layout Plain Layout
 R38.
- Employees' account can lock and unlock every car.
+ Employees can lock and unlock every car.
 \end_layout
 
 \begin_layout Plain Layout
 R39.
- Employees must be able to access an area where cars and safe areas can
- be inserted to/deleted from the database.
+ Whenever a car's state is INTERVENTION_REQUIRED, an employee which is not
+ fixing any car at the moment receives a notification containing information
+ about the issue.
 \end_layout
 
 \end_inset
@@ -4356,6 +4378,13 @@ The architecture models are based on the J2EE framework.
 </row>
 </lyxtabular>
 
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
 \end_inset
 
 

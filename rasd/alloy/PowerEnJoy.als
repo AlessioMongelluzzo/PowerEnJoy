@@ -47,7 +47,7 @@ sig Employee {
 	position: one Position,
 	fix: some Car
 	}{
-	fix.state = LOW_BATTERY
+	fix.state = INTERVENTION_REQUIRED
 	}
 
 /*
@@ -65,7 +65,7 @@ abstract sig CarState {}
 one sig AVAILABLE extends CarState {}
 one sig RESERVED extends CarState {}
 one sig RUNNING extends CarState {}
-one sig LOW_BATTERY extends CarState {}
+one sig INTERVENTION_REQUIRED extends CarState {}
 
 sig Car {
 	licensePlate: one Stringa,
@@ -77,11 +77,13 @@ sig Car {
 	}{
 	batteryLevel >= 0
 	batteryLevel =< 100
-	batteryLevel < 20 <=> state = LOW_BATTERY
+	batteryLevel < 20 and state != RUNNING implies state = INTERVENTION_REQUIRED
+    state != RUNNING and all a: SafeArea | currentPosition & a.point = none
+        implies state = INTERVENTION_REQUIRED
 	state = AVAILABLE implies locked = True
 	state = RESERVED <=> one r: Reservation | r.selectedCar = this
 	state = RUNNING <=> one r: Ride | r.state = ACTIVE and r.car = this
-	state = LOW_BATTERY implies locked = True
+	state = INTERVENTION_REQUIRED implies locked = True
 	}
 
 sig Reservation {
@@ -343,8 +345,8 @@ fact noDiscountIfAdditionalCharge {
 	all r: Ride | r.additionalCharge != none implies r.discount = none
 	}
 
-fact lowBatteryCarsAreFixedByOneEmployee {
-	all c: Car | (c.batteryLevel < 20 and c.pluggedIn = none and no r: Ride |
+fact brokenCarsAreFixedByOneEmployee {
+	all c: Car | (c.state = INTERVENTION_REQUIRED and c.pluggedIn = none and no r: Ride |
 		r.state = ACTIVE and r.car = c) => one e: Employee | e.fix = c
 	}
 
@@ -352,8 +354,8 @@ fact pluggedCarsAreNotFixedByEmployees {
 	all c: Car | (c.pluggedIn != none => no e: Employee | e.fix = c)
 	}
 
-fact noNewCarsAreLowBattery {
-	no c: Car | (no r: Ride | r.car = c) and c.state = LOW_BATTERY
+fact noNewCarsRequireIntervention {
+	no c: Car | (no r: Ride | r.car = c) and c.state = INTERVENTION_REQUIRED
 	}
 
 fact noRandomFloatsShown {	
@@ -365,15 +367,16 @@ fact noRandomStringaShown {
 	u.credential.username = s || u.credential.password = s || c.licensePlate = s))	
 	}
 
-fact lowBatteryCarHasLastCompletedRideWithLowEndBatteryLevel {
+fact interventionRequiredCarHasLastCompletedRideWithSomethingWrong {
 	all r1: Ride | (no r2: Ride | r2 != r1 and r2.car = r1.car and
-		r2.beginDate > r1.endDate) and r1.endBatteryLevel < 20 <=>
-			r1.car.state = LOW_BATTERY
+		r2.beginDate > r1.endDate) and (r1.endBatteryLevel < 20 or
+        all a: SafeArea | r1.car.currentPosition & a.point = none)  <=>
+			r1.car.state = INTERVENTION_REQUIRED
 	}
 
 // === ASSERTIONS ===
 assert noEmployeeFixesOKCar {
-	no e: Employee | e.fix.state != LOW_BATTERY
+	no e: Employee | e.fix.state != INTERVENTION_REQUIRED
 	}
 check noEmployeeFixesOKCar
 
@@ -406,7 +409,7 @@ pred show() {
 	some r: Ride | r.state = COMPLETED
 	some r: Ride | r.state = ACTIVE 
 	some r: Ride | r.numOfTravellers >1
-	some c: Car | c.state = LOW_BATTERY
+	some c: Car | c.state = INTERVENTION_REQUIRED
 	some r: Ride | r.discount != none
 	some r: Ride | r.discount != HIGH_BATTERY_DISCOUNT
 	}

@@ -23,7 +23,7 @@ figs-within-sections
 \language_package default
 \inputencoding auto
 \fontencoding global
-\font_roman "default" "default"
+\font_roman "ae" "default"
 \font_sans "default" "default"
 \font_typewriter "default" "default"
 \font_math "auto" "auto"
@@ -207,11 +207,14 @@ on front-end (PowerEnJoy Web) and in a mobile application (PowerEnJoy Mobile).
 \end_layout
 
 \begin_layout Standard
-The system has the customer of the car-sharing service as its only type
- of user.
- It must allow them to subscribe to the service and identify themselves
+The system has the customer and the employees of the car-sharing service
+ as its only type of users.
+ It must allow customers to subscribe to the service and identify themselves
  with their credentials.
  Only registered users should be able to make use of the service.
+ It must also allow employees to receive notifications about cars that need
+ to be fixed, i.e.
+ cars with a low battery or which are parked outside of a safe area.
 \end_layout
 
 \begin_layout Standard
@@ -329,6 +332,11 @@ A user who can't pay will be banned.
 
 \begin_layout Enumerate
 Users can manage their profile.
+\end_layout
+
+\begin_layout Enumerate
+Employees can take care of cars needing an intervention, so that they can
+ be reserved again.
 \end_layout
 
 \begin_layout Subsection
@@ -533,7 +541,8 @@ Reservation
 Safe area
 \series default
 : place where cars can be legally parked without any risk for a fine.
- 
+ A car which is parked outside of a safe area will be taken care of by a
+ PowerEnJoy employee.
 \end_layout
 
 \begin_layout Itemize
@@ -552,7 +561,8 @@ Charging area
 Employee
 \series default
 : a worker for PowerEnJoy whose task is to recharge on-site cars with less
- than 20% of battery charge.
+ than 20% of battery charge, and move to a safe area cars which are parked
+ outside of a safe area.
 \end_layout
 
 \begin_layout Itemize
@@ -754,6 +764,14 @@ choose a money saving option
 \end_layout
 
 \begin_layout Standard
+Employees can:
+\end_layout
+
+\begin_layout Itemize
+receive notifications about cars that need to be fixed
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float figure
 wide false
 sideways false
@@ -865,6 +883,8 @@ status open
 
 \begin_layout Plain Layout
 General sequence diagram of the system.
+ The scenario where a car is left outside of a safe area is similar to the
+ one where the car is left with less than 20% of battery charge.
 \end_layout
 
 \end_inset
@@ -1066,7 +1086,7 @@ We assume that:
 \end_layout
 
 \begin_layout Enumerate
-Users have access to the Internet.
+Users and Employees have access to the Internet.
 \end_layout
 
 \begin_layout Enumerate
@@ -1103,9 +1123,8 @@ PowerEnJoy car doors can always be opened from the inside.
 \end_layout
 
 \begin_layout Enumerate
-PowerEnJoy employees are given the task to re-charge on-site cars left with
- less than 20% of battery level.
- If the car is also outside a safe area, it will be moved to a safe area.
+When a PowerEnJoy employee receives a notification about a car which needs
+ an intervention, he/she will always take care of the issue.
 \end_layout
 
 \begin_layout Enumerate
@@ -1115,16 +1134,6 @@ PowerEnJoy ensures no mechanical failures can happen to cars.
 \begin_layout Enumerate
 PowerEnJoy ensures a car is always nearby.
  The number of cars is not fixed and depends on the trend of reservations.
-\end_layout
-
-\begin_layout Enumerate
-The system interacts with a geographical database of areas where cars can
- be legally parked.
-\end_layout
-
-\begin_layout Enumerate
-The system interacts with a geographical database of cars whose location
- can be tracked with a GPS system.
 \end_layout
 
 \begin_layout Enumerate
@@ -1270,6 +1279,13 @@ Implement a report system so that users can signal to PowerEnJoy vehicles
  that are damaged, very dirty, or generally not fit for use.
 \end_layout
 
+\begin_layout Enumerate
+Implement a web and/or mobile graphical interface for employees to easily
+ manage the system (cars, safe areas...).
+ For now this kind of data is managed by directly querying the DBMS, because
+ it is rarely modified.
+\end_layout
+
 \begin_layout Standard
 \begin_inset Newpage pagebreak
 \end_inset
@@ -1290,11 +1306,11 @@ User interfaces
 \end_layout
 
 \begin_layout Itemize
-The iOS version must adhere to iOS Human Interface Guide- lines.
+The iOS version of the app must adhere to iOS Human Interface Guidelines.
 \end_layout
 
 \begin_layout Itemize
-The Android version must adhere to Android design guidelines.
+The Android version of the app must adhere to Android design guidelines.
 \end_layout
 
 \begin_layout Itemize
@@ -1311,6 +1327,24 @@ The app must be able to access the GPS data of the user’s device.
 
 \begin_layout Subsubsection
 Software interfaces
+\end_layout
+
+\begin_layout Itemize
+The system interacts with a driving license database, in order to check
+ whether the license numer provided by the user during the registration
+ is valid or not.
+\end_layout
+
+\begin_layout Itemize
+The system interacts with a web mapping service, in order to retrieve maps
+ when the user looks for a car and when the user needs to be shown the route
+ to the destination (money saving option).
+\end_layout
+
+\begin_layout Itemize
+The system interacts with a third party digital payment system, which at
+ least needs to support transactions involving PayPal and the major credit
+ card companies.
 \end_layout
 
 \begin_layout Itemize
@@ -1335,7 +1369,7 @@ Goal 1: A person can register to the system.
 \end_layout
 
 \begin_layout Itemize
-Domain assumption 1: Users have access to the internet.
+Domain assumption 1: Users and Employees have access to the Internet.
 \end_layout
 
 \begin_layout Enumerate
@@ -1395,12 +1429,27 @@ The password must be asked twice.
  The two passwords must match.
 \end_layout
 
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+R5.
+\end_layout
+
+\end_inset
+
+The system must send the user a confirmation email with an activation link,
+ and it must effectively insert the new user only when he/she has confirmed
+ his/her registration.
+\end_layout
+
 \begin_layout Paragraph*
 Goal 2: Only registered users can log into the system.
 \end_layout
 
 \begin_layout Itemize
-Domain assumption 1: Users have access to the internet.
+Domain assumption 1: Users and Employees have access to the Internet.
 \end_layout
 
 \begin_layout Enumerate
@@ -1408,7 +1457,7 @@ Domain assumption 1: Users have access to the internet.
 status open
 
 \begin_layout Plain Layout
-R5.
+R6.
 \end_layout
 
 \end_inset
@@ -1434,7 +1483,7 @@ The inserted password matches with that of the user identified above.
 status open
 
 \begin_layout Plain Layout
-R6.
+R7.
 \end_layout
 
 \end_inset
@@ -1448,7 +1497,7 @@ Goal 3: Users can know the position of available cars.
 \end_layout
 
 \begin_layout Itemize
-Domain assumption 1: Users have access to the internet.
+Domain assumption 1: Users and Employees have access to the Internet.
 \end_layout
 
 \begin_layout Itemize
@@ -1461,9 +1510,9 @@ Domain assumption 3: Every PowerEnJoy car is connected to the Internet.
 \end_layout
 
 \begin_layout Itemize
-Domain assumption 11: PowerEnJoy employees are given the task to move to
- a safe area cars which have the engine turned off and are outside a safe
- area.
+Domain assumption 10: When a PowerEnJoy employee receives a notification
+ about a car which needs an intervention, he/she will always take care of
+ the issue.
 \end_layout
 
 \begin_layout Itemize
@@ -1471,17 +1520,12 @@ Domain assumption 12: PowerEnJoy ensures a car is always nearby.
  The number of cars is not fixed and depends on the trend of reservations.
 \end_layout
 
-\begin_layout Itemize
-Domain assumption 14: The system interacts with a geographical database
- of cars whose location can be tracked with a GPS system.
-\end_layout
-
 \begin_layout Enumerate
 \begin_inset Argument item:1
 status open
 
 \begin_layout Plain Layout
-R7.
+R8.
 \end_layout
 
 \end_inset
@@ -1495,13 +1539,13 @@ The user can choose to find cars around his/her position, or around a specified
 status open
 
 \begin_layout Plain Layout
-R8.
+R9.
 \end_layout
 
 \end_inset
 
 The user must be shown a map of the selected position, on which the locations
- of available cars are marked.
+ of AVAILABLE cars are marked.
 \end_layout
 
 \begin_layout Paragraph*
@@ -1509,7 +1553,7 @@ Goal 4: Users can reserve a car.
 \end_layout
 
 \begin_layout Itemize
-Domain assumption 1: Users have access to the internet.
+Domain assumption 1: Users and Employees have access to the Internet.
 \end_layout
 
 \begin_layout Itemize
@@ -1521,7 +1565,7 @@ Domain assumption 3: Every PowerEnJoy car is connected to the Internet.
 status open
 
 \begin_layout Plain Layout
-R9.
+R10.
 \end_layout
 
 \end_inset
@@ -1535,7 +1579,7 @@ The system charges the user in advance with 1 EUR deposit.
 status open
 
 \begin_layout Plain Layout
-R10.
+R11.
 \end_layout
 
 \end_inset
@@ -1549,7 +1593,7 @@ If an error occurs while charging the user with the down payment then an
 status open
 
 \begin_layout Plain Layout
-R11.
+R12.
 \end_layout
 
 \end_inset
@@ -1563,7 +1607,7 @@ The user must be able to click on a marked location on the map in order
 status open
 
 \begin_layout Plain Layout
-R12.
+R13.
 \end_layout
 
 \end_inset
@@ -1577,7 +1621,7 @@ The user must be able to view at least the exact address and the battery
 status open
 
 \begin_layout Plain Layout
-R13.
+R14.
 \end_layout
 
 \end_inset
@@ -1594,7 +1638,7 @@ The user must be able to reserve the selected car by clicking on a button
 status open
 
 \begin_layout Plain Layout
-R14.
+R15.
 \end_layout
 
 \end_inset
@@ -1608,7 +1652,7 @@ Goal 5: Users can get into the reserved car.
 \end_layout
 
 \begin_layout Itemize
-Domain assumption 1: Users have access to the internet.
+Domain assumption 1: Users and Employees have access to the Internet.
 \end_layout
 
 \begin_layout Itemize
@@ -1624,7 +1668,7 @@ Domain assumption 8: PowerEnJoy cars can be locked and unlocked remotely.
 status open
 
 \begin_layout Plain Layout
-R15.
+R16.
 \end_layout
 
 \end_inset
@@ -1651,31 +1695,13 @@ Goal 6: Users can use the reserved car.
 \end_layout
 
 \begin_layout Itemize
-Domain assumption 10: PowerEnJoy employees are given the task to re-charge
- on-site cars left with less than 20% of battery level.
-\end_layout
-
-\begin_layout Itemize
 Domain assumption 11: PowerEnJoy ensures no mechanical failures can happen
  to cars.
 \end_layout
 
 \begin_layout Itemize
-Requirement 15: Any user who reserved a car in the last hour must be able
+Requirement 16: Any user who reserved a car in the last hour must be able
  to tell the system to unlock the car he/she has reserved.
-\end_layout
-
-\begin_layout Enumerate
-\begin_inset Argument item:1
-status open
-
-\begin_layout Plain Layout
-R16.
-\end_layout
-
-\end_inset
-
-The system must inform an employee when a car is in low battery state.
 \end_layout
 
 \begin_layout Paragraph*
@@ -1683,7 +1709,7 @@ Goal 7: Users can pay for the car-sharing service.
 \end_layout
 
 \begin_layout Itemize
-Domain assumption 1: Users have access to the Internet.
+Domain assumption 1: Users and Employees have access to the Internet.
 \end_layout
 
 \begin_layout Itemize
@@ -1711,6 +1737,12 @@ R17.
 
 The system must keep track of the time spent from when the engine turns
  on until the engine turns off.
+ This is done by means of the Ride object: whenever a car engine is ignited,
+ a new ACTIVE Ride must be created, which is associated to the car and the
+ user who reserved it, and contains the time at which the engine has been
+ ignited; whenever a car engine is stopped, the ride for that car must be
+ set to COMPLETED and the time at which the engine has been stopped must
+ be recorded.
 \end_layout
 
 \begin_layout Enumerate
@@ -1723,9 +1755,11 @@ R18.
 
 \end_inset
 
-At the end of the ride the system waits for possible discounts to be applied
- to the final fare (see Goal 10), and then interacts with the third party
- payment service and notifies the user with the report of the payment operation.
+When a ride is COMPLETED, the system waits for possible discounts to be
+ applied to the final fare (see Goal 10), then updates the state of the
+ car to either AVAILABLE or INTERVENTION_REQUIRED and interacts with the
+ third party payment service, notifying the user with the outcome of the
+ payment operation.
 \end_layout
 
 \begin_layout Paragraph*
@@ -1738,8 +1772,8 @@ Domain assumption 4: Every PowerEnJoy car is equipped with an information
 \end_layout
 
 \begin_layout Itemize
-Requirement 17: The system keeps track of the time spent from when the engine
- turns on until the engine turns off.
+Requirement 17: The system must keep track of the time spent from when the
+ engine turns on until the engine turns off.
 \end_layout
 
 \begin_layout Paragraph*
@@ -1764,7 +1798,7 @@ Domain assumption 9: PowerEnJoy car doors can always be opened from the
 \end_layout
 
 \begin_layout Itemize
-Domain assumption 15: Cars are equipped with sensors to check whether doors
+Domain assumption 13: Cars are equipped with sensors to check whether doors
  are open or closed.
 \end_layout
 
@@ -1838,11 +1872,6 @@ Domain assumption 8: PowerEnJoy cars' engine status can be monitored remotely.
 \begin_layout Itemize
 Domain assumption 9: The number of people inside a PowerEnJoy car can always
  be monitored remotely.
-\end_layout
-
-\begin_layout Itemize
-Domain assumption 13: The system interacts with a geographical database
- of areas where cars can be legally parked.
 \end_layout
 
 \begin_layout Enumerate
@@ -1962,12 +1991,7 @@ Domain assumption 4: Every PowerEnJoy car is equipped with an information
 \end_layout
 
 \begin_layout Itemize
-Domain assumption 13: The system interacts with a geographical database
- of areas where cars can be legally parked.
-\end_layout
-
-\begin_layout Itemize
-Requirement 25: If the position of the car at the end of the ride is a charging
+Requirement 26: If the position of the car at the end of the ride is a charging
  area, and the car is plugged in within a 2 minutes time frame, the system
  must apply a 30% discount on the final fare.
 \end_layout
@@ -2051,7 +2075,7 @@ Goal 13: Users can manage their profile.
 \end_layout
 
 \begin_layout Itemize
-Domain assumption 1: Users have access to the Internet.
+Domain assumption 1: Users and Employees have access to the Internet.
 \end_layout
 
 \begin_layout Enumerate
@@ -2094,11 +2118,46 @@ R36.
 The user must be able to delete his/her profile.
 \end_layout
 
-\begin_layout Subsubsection
-Other requirements
+\begin_layout Standard
+
+\series bold
+Goal 14: Employees can take care of cars needing an intervention, so that
+ they can be reserved again.
 \end_layout
 
 \begin_layout Itemize
+Domain assumption 1: Users and Employees have access to the Internet.
+\end_layout
+
+\begin_layout Itemize
+Domain assumption 2: Every PowerEnJoy car is equipped with a GPS, which
+ always provides an accurate location.
+\end_layout
+
+\begin_layout Itemize
+Domain assumption 3: Every PowerEnJoy car is connected to the Internet.
+\end_layout
+
+\begin_layout Itemize
+Domain assumption 5: PowerEnJoy cars' battery level and charge status can
+ be monitored remotely.
+\end_layout
+
+\begin_layout Itemize
+Domain assumption 6: PowerEnJoy cars' engine status can be monitored remotely.
+\end_layout
+
+\begin_layout Itemize
+Domain assumption 8: PowerEnJoy cars can be locked and unlocked remotely.
+\end_layout
+
+\begin_layout Itemize
+Domain assumption 10: When a PowerEnJoy employee receives a notification
+ about a car which needs an intervention, he/she will always take care of
+ the issue.
+\end_layout
+
+\begin_layout Enumerate
 \begin_inset Argument item:1
 status open
 
@@ -2109,10 +2168,9 @@ R37.
 \end_inset
 
 The system must generate special credential for employees.
- Employees' account can lock and unlock every car.
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Enumerate
 \begin_inset Argument item:1
 status open
 
@@ -2122,11 +2180,10 @@ R38.
 
 \end_inset
 
-Employees must be able to access an area where cars can be inserted to/deleted
- from the database.
+Employees can lock and unlock every car.
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Enumerate
 \begin_inset Argument item:1
 status open
 
@@ -2136,7 +2193,27 @@ R39.
 
 \end_inset
 
-The system must store users' information into a database.
+Whenever a car's state is INTERVENTION_REQUIRED, an employee which is not
+ fixing any car at the moment receives a notification containing information
+ about the issue.
+\end_layout
+
+\begin_layout Subsubsection
+Other requirements
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+R40.
+\end_layout
+
+\end_inset
+
+The system must store information about users, employees, safe/charging
+ areas, and cars into a database.
 \end_layout
 
 \begin_layout Subsection
@@ -2782,7 +2859,7 @@ Output condition
 \begin_inset Text
 
 \begin_layout Plain Layout
-User is shown a page with the location of all the available cars nearby
+User is shown a page with the location of all the AVAILABLE cars nearby
  the selected position.
 \end_layout
 
@@ -3512,33 +3589,32 @@ Event Flow
 
 \begin_layout Enumerate
 The system checks if the position of the car in at least 3 km far from that
- of the nearest charging station: if this is the case the sysyem increases
- the fare for the ride by 30% and skips the other controls.
+ of the nearest charging station: if this is the case the system increases
+ the fare for the ride by 30%.
 \end_layout
 
 \begin_layout Enumerate
-The system checks if the battery level of the car is 20% of the total: if
- this is the case the sysyem increases the fare for the ride and skips the
- other controls.
+The system checks if the battery level of the car is lower than 20% of the
+ total: if this is the case the system increases the fare for the ride.
 \end_layout
 
 \begin_layout Enumerate
 The system checks if the position of the car coincides with that of a charging
  station and if the sensor signals the car is plugged within 2 minutes:
- if this is the case the sysyem decreases the fare for the ride by 30% and
- skips other controls.
+ if this is the case the system decreases the fare for the ride by 30% and
+ skips controls relative to lower discounts.
 \end_layout
 
 \begin_layout Enumerate
 The system checks if the sensor signals that the battery level of the car
- is at least 50% of the total: if this is the case the sysyem decreases
- the fare for the ride by 20% and skips other controls.
+ is at least 50% of the total: if this is the case the system decreases
+ the fare for the ride by 20% and skips controls relative to lower discounts.
 \end_layout
 
 \begin_layout Enumerate
 The system checks if the number of the people that were inside the car is
- at least equal to 3: if this is the case the sysyem decreases the fare
- for the ride by 10%.
+ at least equal to 3: if this is the case the system decreases the fare
+ for the ride by 10% and skips controls relative to lower discounts.
 \end_layout
 
 \end_inset
@@ -3708,8 +3784,8 @@ Output condition
 \begin_inset Text
 
 \begin_layout Plain Layout
-Money saving option is enabled and the user's car GPS destination is automatical
-ly set to the estimated charging station by the system.
+Money saving option is enabled and the user's car destination is automatically
+ set to the charging station estimated by the system.
 \end_layout
 
 \end_inset
@@ -3878,10 +3954,6 @@ The system sends the payment data to the third party digital payment system
 The system receives the succesful outcome of the payment operation.
 \end_layout
 
-\begin_layout Enumerate
-The system makes the recepit available on the user's account.
-\end_layout
-
 \end_inset
 </cell>
 </row>
@@ -4025,6 +4097,11 @@ Goals
 Goal 6: Users can use the reserved car.
 \end_layout
 
+\begin_layout Plain Layout
+Goal 14: Employees can take care of cars needing an intervention, so that
+ they can be reserved again.
+\end_layout
+
 \end_inset
 </cell>
 </row>
@@ -4042,8 +4119,8 @@ Input condition
 \begin_inset Text
 
 \begin_layout Plain Layout
-Employee logged in and there is a parked car not in charge at a power grid
- station with low battery level.
+A car is parked outside of a safe area and/or with a low battery level,
+ not plugged in.
 \end_layout
 
 \end_inset
@@ -4064,20 +4141,17 @@ Event Flow
 
 \begin_layout Enumerate
 The system sends a push notification to the employee that is nearest to
- the car.
+ the car and available (i.e.
+ he/she is not fixing any other car).
 \end_layout
 
 \begin_layout Enumerate
-The employee confirms the request within 5 minutes.
-\end_layout
-
-\begin_layout Enumerate
-The employee unlocks the car through the app.
+The employee gets there and unlocks the car through the app.
 \end_layout
 
 \begin_layout Enumerate
 The system estimates the nearest power grid station and automatically sets
- it as the destination of the car's GPS.
+ it as the destination of the car.
 \end_layout
 
 \begin_layout Enumerate
@@ -4125,11 +4199,9 @@ Exception
 <cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
-\begin_layout Itemize
-If the employee does not confirm the request within 5 minutes, it is signaled
- that he did not perform the task and the event flow is repeated with the
- following nearest employee.
- 
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+/
 \end_layout
 
 \end_inset
@@ -4966,6 +5038,19 @@ Michele Ferri: 35 hours
 
 \begin_layout Itemize
 Mattia Maffioli: 30 hours
+\end_layout
+
+\begin_layout Subsection
+Version history
+\end_layout
+
+\begin_layout Itemize
+06/02/2017: RASD v.
+ 1.1: General coherence update.
+ Some things were incorrectly stated by the RASD document due to different
+ choices made later on during the project (in particular during the Design
+ phase).
+ This update should fix the inconsistencies.
 \end_layout
 
 \end_body
