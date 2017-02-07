@@ -761,6 +761,7 @@ textwidth][c]{
 	filename img/BCE_DD.png
 	width 80page%
 	height 80page%
+	keepAspectRatio
 
 \end_inset
 
@@ -2021,7 +2022,7 @@ completed
 .
  It calls for the digital payment service to perform the payment transaction.
  If the operation is successful, then a confirmation message is returnes.
- Otherwise, it calls for the account manager to ban the user and an error
+ Otherwise, it calls for the account manager to ban the user and aopn error
  message is returned.
 \end_layout
 
@@ -2057,7 +2058,7 @@ Maintenance Manager
 findAvailableEmployees: 
 \series default
 this function takes as input a car and queries the database in order to
- returns a collection of employees whose attribute 
+ return a collection of employees whose attribute 
 \begin_inset Quotes eld
 \end_inset
 
