@@ -2021,8 +2021,8 @@ completed
 
 .
  It calls for the digital payment service to perform the payment transaction.
- If the operation is successful, then a confirmation message is returnes.
- Otherwise, it calls for the account manager to ban the user and aopn error
+ If the operation is successful, then a confirmation message is returned.
+ Otherwise, it calls for the account manager to ban the user and an error
  message is returned.
 \end_layout
 
