@@ -4441,5 +4441,14 @@ Michele Ferri: 35 hours
 Mattia Maffioli: 35 hours
 \end_layout
 
+\begin_layout Subsection
+Version history
+\end_layout
+
+\begin_layout Itemize
+07/02/2017: DD v.
+ 1.1: General coherence update and fixes compliant with RASD 1.1.
+\end_layout
+
 \end_body
 \end_document
