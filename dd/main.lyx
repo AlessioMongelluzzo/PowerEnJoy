@@ -761,7 +761,6 @@ textwidth][c]{
 	filename img/BCE_DD.png
 	width 80page%
 	height 80page%
-	keepAspectRatio
 
 \end_inset
 
